@@ -170,7 +170,7 @@
       "title": "JE total vs level-range mismatch / inversion",
       "status": "OPEN — needs HR",
       "detail": "Actual JE totals do not always sit in the level band, partly due to D6 and inconsistent use of item 30's stepped scale. Pilot examples: HCDM-L3 = 121 (above L3 band 88-102) while Head of HC L4 = 112 (below L4 band 118-128) — an L3 outscoring an L4. The cause is item 30 scored as '25' (stepped) for the L3 but '4' (flat) for the L4.",
-      "action": "Standardise item-30 application by level, then recompute; confirm the official JE band per level."
+      "action": "A proposed item-30-by-level mapping + per-level baselines are in data/je_level_baseline.json (used to regenerate contaminated JE). HR to confirm the mapping (esp. L4) so totals respect bands without inversion."
     },
     {
       "id": "D3",

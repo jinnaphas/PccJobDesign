@@ -2,16 +2,16 @@
   "_meta": {
     "title": "Job Roles — PILOT (Phase 1)",
     "schema": "schema/job_role.schema.json",
-    "version": "0.1.0-pilot",
-    "status": "PILOT — 7 of 196 roles, for structure review before full extraction.",
+    "version": "0.1.0-extracting",
+    "status": "IN PROGRESS — 13 of 196 roles extracted (pilot 7 + batch 2: GRP Common L1). Full extraction continues in batches, committed incrementally.",
     "generated": "2026-06-15",
-    "pilot_set": "Full level coverage F1->L5 + an HR ladder (HRO-L1 -> HRS-L2 -> HCDM-L3 -> HCD-L4) + Agentic-AI L1 + Finance L5. Chosen to also exercise Career Path later.",
+    "pilot_set": "Pilot: full level coverage F1->L5 + HR ladder + Agentic-AI L1 + Finance L5. Batch 2: GRP Common L1 across families (FIN/SCM/PMO/QA/ESG/CX).",
     "validation_summary": {
-      "extracted": 7,
-      "clean": 2,
-      "with_warnings": 1,
+      "extracted": 13,
+      "clean": 1,
+      "with_warnings": 8,
       "with_critical_flags": 4,
-      "note": "See docs/PHASE1_PILOT_VALIDATION.md. ~57% of the pilot has a contaminated JE table (copy-paste from another role). KRs/specs are generally role-correct; JE scores are NOT yet trustworthy for pay grading."
+      "note": "See docs/PHASE1_PILOT_VALIDATION.md. KEY FINDING: the JE-table RATIONALE column is the 'Facility Officer' template across essentially all GRP L1 JDs (numbers vary slightly, in-band; narrative wrong). Senior roles (L3-L5) additionally have borrowed JE numbers (critical). KRs/specs are role-correct and usable. JE not trustworthy for pay grading until re-scored."
     }
   },
 
@@ -273,6 +273,224 @@
       },
       "data_quality": [
         { "code": "je_table_contaminated", "severity": "critical", "message": "File opens with 'JD Code: GRP-OPS-COO-L5 | Chief Operating Officer (COO)'; JE header reads 'Chief Operating Officer L5' and all rationales describe COO/Operations, not Finance. je_score (184; benchmark note says 185) is the COO's." }
+      ],
+      "updated": "2026-05-19"
+    },
+
+    {
+      "code": "GRP-FIN-ACO-L1",
+      "title_en": "Accounting Officer",
+      "title_th": "เจ้าหน้าที่บัญชี",
+      "company": "GRP",
+      "family_code": "FIN",
+      "level": "L1",
+      "je_score": 44,
+      "purpose_th": "ดำเนินงานบัญชีให้ถูกต้อง ครบถ้วน ตรงเวลา ครอบคลุมการบันทึกบัญชี AP/AR/GL ปิดบัญชีประจำเดือน ภาษีพื้นฐาน และสินทรัพย์ถาวร เพื่อสนับสนุนงบการเงินตาม TFRS",
+      "krs": [
+        { "seq": 1, "name_th": "บันทึกบัญชีและบริหาร AP/AR/GL", "kpis": ["Journal Entry Accuracy >= 99%", "Sub-ledger Reconciliation 100%", "AP Processing <= 2 วัน"], "weight_pct": 30 },
+        { "seq": 2, "name_th": "ปิดบัญชีประจำเดือนและรายงานบัญชี", "kpis": ["Monthly Close On-Time 100%", "Trial Balance Error 0"], "weight_pct": 25 },
+        { "seq": 3, "name_th": "ภาษีและการปฏิบัติตามกฎหมาย (VAT/WHT)", "kpis": ["Tax Filing On-Time 100%", "Tax Penalty 0"], "weight_pct": 20 },
+        { "seq": 4, "name_th": "บัญชีสินทรัพย์ถาวรและค่าเสื่อมราคา", "kpis": ["FA Register Accuracy >= 98%", "Depreciation Variance 0"], "weight_pct": 15 },
+        { "seq": 5, "name_th": "สนับสนุน Audit และปรับปรุงกระบวนการ", "kpis": ["Internal Audit Finding 0 Major", "Process Improvement >= 1/ปี"], "weight_pct": 10 }
+      ],
+      "specs": {
+        "education": { "level": "Bachelor", "field": "บัญชี / การเงิน / บริหารธุรกิจ" },
+        "experience": { "min_years": 1, "note": "1-2 ปีงานบัญชี (AP/AR/GL/Closing) หรือผู้จบใหม่ที่มีทักษะ ERP/Excel" },
+        "skills": ["TFRS/GAAP", "ภาษี VAT/WHT", "Excel ขั้นสูง (VLOOKUP, Pivot)"],
+        "languages": { "english": "Low" },
+        "digital": ["ERP (SAP/Oracle/Sage)", "MS Excel (Intermediate-Advanced)"],
+        "certs": ["CPA — ไม่บังคับ แต่เป็นประโยชน์"]
+      },
+      "report_to": "GRP-FIN-ACS-L2",
+      "unit_type": "Support",
+      "status": "active",
+      "version": "1.0",
+      "source_docx": "GRP-FIN-ACO-L1_Accounting Officer_GRP_v1.0.docx",
+      "market_benchmark": { "comparable_titles": "Accounting Officer / Junior Accountant / Staff Accountant", "salary_range_thb": "18,000 - 35,000 / เดือน" },
+      "data_quality": [
+        { "code": "je_table_contaminated", "severity": "warning", "message": "JE rationale column = Facility Officer template ('บริหารระบบอาคาร/ผู้รับเหมา'); KR/specs are correct Accounting. je_score 44 is in-band for L1 so kept, but per-item rationale + breakdown unreliable (omitted)." },
+        { "code": "internal_total_mismatch", "severity": "warning", "message": "Displayed per-item scores sum to ~48 but stated total = 44. Using stated total 44; needs re-evaluation." }
+      ],
+      "updated": "2026-05-19"
+    },
+
+    {
+      "code": "GRP-SCM-SCO-L1",
+      "title_en": "Supply Chain Officer",
+      "title_th": "เจ้าหน้าที่ Supply Chain",
+      "company": "GRP",
+      "family_code": "SCM",
+      "level": "L1",
+      "je_score": 45,
+      "purpose_th": "ดำเนินงาน SCM ประจำวัน ครอบคลุมการออก PO ประสานงานผู้ขาย บริหารสินค้าคงคลังเบื้องต้น และประสานงาน Logistics ให้ห่วงโซ่อุปทานราบรื่นและตรงเวลา",
+      "krs": [
+        { "seq": 1, "name_th": "Purchase Order Processing", "kpis": ["PO Lead Time <= 1 วัน", "PO Accuracy >= 99%", "PO Fulfillment >= 95%"], "weight_pct": 30 },
+        { "seq": 2, "name_th": "Inventory Management Support", "kpis": ["Inventory Accuracy >= 99.5%", "Receiving Accuracy >= 99%"], "weight_pct": 25 },
+        { "seq": 3, "name_th": "Vendor Coordination", "kpis": ["Vendor OTD >= 95%", "GRN Timeliness <= 1 วัน"], "weight_pct": 25 },
+        { "seq": 4, "name_th": "Logistics Coordination", "kpis": ["Doc Accuracy 100%", "Weekly Report On-time"], "weight_pct": 10 },
+        { "seq": 5, "name_th": "SCM Reporting & Compliance", "kpis": ["Report On-time 100%", "Audit Finding 0"], "weight_pct": 10 }
+      ],
+      "specs": {
+        "education": { "level": "Bachelor", "field": "Supply Chain / Logistics / บริหารธุรกิจ / วิศวกรรมอุตสาหการ" },
+        "experience": { "min_years": 0, "note": "0-2 ปี ยินดีรับผู้จบใหม่" },
+        "skills": ["การจัดซื้อ/Logistics/Inventory เบื้องต้น", "การประสานงาน ความละเอียดรอบคอบ"],
+        "languages": { "english": "Low" },
+        "digital": ["ERP/Procurement System", "MS Excel (Intermediate)", "WMS เบื้องต้น"],
+        "certs": ["CPIM / Logistics Certificate — preferred"]
+      },
+      "report_to": "Supply Chain Supervisor (L2)",
+      "unit_type": "Support",
+      "status": "active",
+      "version": "1.0",
+      "source_docx": "GRP-SCM-SCO-L1_Supply Chain Officer_GRP_v1.0.docx",
+      "market_benchmark": { "comparable_titles": "Supply Chain / Procurement / Logistics Officer", "salary_range_thb": "17,000 - 35,000 / เดือน", "note": "Benchmark block ยังเป็น label 'Facility & Admin' (leftover) — comparable_titles ถูกต้อง" },
+      "data_quality": [
+        { "code": "je_table_contaminated", "severity": "warning", "message": "JE rationale column = Facility Officer template; KR/specs correct SCM. je_score 45 in-band for L1, kept; per-item breakdown unreliable (omitted)." }
+      ],
+      "updated": "2026-05-19"
+    },
+
+    {
+      "code": "GRP-PMO-PMOO-L1",
+      "title_en": "PMO Officer",
+      "title_th": "เจ้าหน้าที่บริหารโครงการ",
+      "company": "GRP",
+      "family_code": "PMO",
+      "level": "L1",
+      "je_score": 48,
+      "purpose_th": "สนับสนุนงาน PMO ครอบคลุมติดตามความก้าวหน้าโครงการ จัดการเอกสาร/ฐานข้อมูลโครงการ ประสานงานผู้มีส่วนได้ส่วนเสีย และสนับสนุนการวางแผนกลยุทธ์/ติดตาม OKR",
+      "krs": [
+        { "seq": 1, "name_th": "ติดตามและรายงานความก้าวหน้าโครงการ", "kpis": ["Project Report On-Time 100%", "Action Item Completion >= 90%", "Dashboard Accuracy >= 95%"], "weight_pct": 30 },
+        { "seq": 2, "name_th": "บริหารเอกสารและฐานข้อมูลโครงการ", "kpis": ["Document Completeness >= 95%", "Minutes <= 24 ชม. 100%"], "weight_pct": 25 },
+        { "seq": 3, "name_th": "ประสานงานผู้มีส่วนได้ส่วนเสียและการประชุม", "kpis": ["Meeting Effectiveness >= 80", "Stakeholder Satisfaction >= 80%"], "weight_pct": 20 },
+        { "seq": 4, "name_th": "สนับสนุนการวางแผนโครงการและ OKR", "kpis": ["OKR Report On-Time 100%", "Portfolio Accuracy >= 95%"], "weight_pct": 15 },
+        { "seq": 5, "name_th": "พัฒนาและปรับปรุงกระบวนการ PMO", "kpis": ["PMO Tool Adoption >= 80%", "Process Improvement >= 1/ปี"], "weight_pct": 10 }
+      ],
+      "specs": {
+        "education": { "level": "Bachelor", "field": "บริหารธุรกิจ / วิศวกรรม / IT / สาขาที่เกี่ยวข้องกับการบริหารโครงการ" },
+        "experience": { "min_years": 1, "note": "1-3 ปีงาน PMO Support / Project Coordinator" },
+        "skills": ["PM Framework (PMBOK/Agile/Prince2)", "Dashboard สำหรับผู้บริหาร", "OKR/BSC", "Multi-project coordination"],
+        "languages": { "english": "Medium" },
+        "digital": ["MS Project / Asana / Jira / Monday", "MS Office", "Power BI/Tableau — plus"],
+        "certs": ["PMP / CAPM — plus", "Agile/Scrum — plus"]
+      },
+      "report_to": "GRP-PMO-PMOS-L2",
+      "unit_type": "Support",
+      "status": "active",
+      "version": "1.0",
+      "source_docx": "GRP-PMO-PMOO-L1_PMO Officer_GRP_v1.0.docx",
+      "market_benchmark": { "comparable_titles": "PMO Officer / Project Coordinator / Project Administrator", "salary_range_thb": "22,000 - 42,000 / เดือน" },
+      "data_quality": [
+        { "code": "je_table_contaminated", "severity": "warning", "message": "JE rationale column = Facility Officer template; KR/specs correct PMO. je_score 48 in-band for L1, kept; per-item breakdown unreliable (omitted)." }
+      ],
+      "updated": "2026-05-19"
+    },
+
+    {
+      "code": "GRP-QA-QAO-L1",
+      "title_en": "QA Officer",
+      "title_th": "เจ้าหน้าที่ประกันคุณภาพ",
+      "company": "GRP",
+      "family_code": "QA",
+      "level": "L1",
+      "je_score": 46,
+      "purpose_th": "ตรวจสอบคุณภาพประจำวัน (IQC/IPQC/OQC) จัดทำเอกสาร QMS และสนับสนุน Audit ให้ผลิตภัณฑ์และกระบวนการเป็นไปตามมาตรฐาน",
+      "krs": [
+        { "seq": 1, "name_th": "Quality Inspection (IQC/IPQC/OQC)", "kpis": ["Inspection Completion >= 98%", "Record Accuracy 100%"], "weight_pct": 35 },
+        { "seq": 2, "name_th": "QMS Documentation & Control", "kpis": ["Document Currency 100%", "Distribution Accuracy 100%"], "weight_pct": 25 },
+        { "seq": 3, "name_th": "Non-Conformance & CAPA Support", "kpis": ["NCR Timeliness <= 1 วัน", "Monthly NC Report On-time"], "weight_pct": 20 },
+        { "seq": 4, "name_th": "Audit Support & Calibration", "kpis": ["Audit Readiness 100%", "Calibration On-time >= 95%"], "weight_pct": 10 },
+        { "seq": 5, "name_th": "Quality Data & Reporting", "kpis": ["Data Accuracy 100%", "SPC Chart Compliance"], "weight_pct": 10 }
+      ],
+      "specs": {
+        "education": { "level": "Bachelor", "field": "วิศวกรรม / วิทยาศาสตร์ / เทคโนโลยีการผลิต / Quality Management" },
+        "experience": { "min_years": 0, "note": "0-2 ปี ยินดีรับผู้จบใหม่ด้าน QA/QC" },
+        "skills": ["ISO 9001, AQL", "Quality Tools (Pareto, Fishbone)", "การสังเกต/บันทึกแม่นยำ"],
+        "languages": { "english": "Low" },
+        "digital": ["MS Excel (Basic-Intermediate)", "QMS/ERP", "Statistical Tools เบื้องต้น"],
+        "certs": ["ISO 9001 Internal Auditor — preferred"]
+      },
+      "report_to": "GRP-QA-QAS-L2",
+      "unit_type": "Support",
+      "status": "active",
+      "version": "1.0",
+      "source_docx": "GRP-QA-QAO-L1_QA Officer_GRP_v1.0.docx",
+      "market_benchmark": { "comparable_titles": "QA Officer / QC Officer / Quality Control Officer", "salary_range_thb": "17,000 - 35,000 / เดือน", "note": "Benchmark block label 'Facility & Admin' (leftover)" },
+      "data_quality": [
+        { "code": "je_table_contaminated", "severity": "warning", "message": "JE rationale column = Facility Officer template; KR/specs correct QA. je_score 46 in-band for L1, kept; per-item breakdown unreliable (omitted)." }
+      ],
+      "updated": "2026-05-19"
+    },
+
+    {
+      "code": "GRP-ESG-ESCO-L1",
+      "title_en": "ESG & Safety Officer",
+      "title_th": "เจ้าหน้าที่ ESG และความปลอดภัย",
+      "company": "GRP",
+      "family_code": "ESG",
+      "level": "L1",
+      "je_score": 47,
+      "purpose_th": "สนับสนุนงานความปลอดภัย อาชีวอนามัย สิ่งแวดล้อม และ ESG ประจำวัน ครอบคลุมการตรวจสอบ รายงาน และโครงการ ESG ให้ปฏิบัติตามกฎหมายและลดความเสี่ยง",
+      "krs": [
+        { "seq": 1, "name_th": "Safety Inspection & Hazard Identification", "kpis": ["Safety Walk Completion 100%", "Equipment Readiness 100%"], "weight_pct": 30 },
+        { "seq": 2, "name_th": "Incident & Accident Management", "kpis": ["Incident Report <= 24 ชม.", "Corrective Action Closure >= 90%"], "weight_pct": 25 },
+        { "seq": 3, "name_th": "Environmental Compliance & Waste Management", "kpis": ["Waste Compliance 100%", "Environmental Penalty 0"], "weight_pct": 20 },
+        { "seq": 4, "name_th": "ESG Data Collection & Reporting", "kpis": ["ESG Data Accuracy >= 98%", "Report On-time 100%"], "weight_pct": 15 },
+        { "seq": 5, "name_th": "Safety Training & Awareness", "kpis": ["Induction Completion 100%", "Toolbox Talk >= 90%"], "weight_pct": 10 }
+      ],
+      "specs": {
+        "education": { "level": "Bachelor", "field": "วิศวกรรมสิ่งแวดล้อม / อาชีวอนามัยและความปลอดภัย / วิทยาศาสตร์" },
+        "experience": { "min_years": 0, "note": "0-3 ปี มีประสบการณ์ EHS/ESG พิจารณาพิเศษ" },
+        "skills": ["กฎหมายความปลอดภัย/อาชีวอนามัย/สิ่งแวดล้อม", "ESG Framework (GRI/SASB)", "การรายงาน/สื่อสารความปลอดภัย"],
+        "languages": { "english": "Low" },
+        "digital": ["MS Excel (Intermediate)", "EHS Management System", "ESG Reporting Tool"],
+        "certs": ["จป.วิชาชีพ — Required ตาม พ.ร.บ.ความปลอดภัย"]
+      },
+      "report_to": "GRP-ESG-ESCM-L3",
+      "unit_type": "Support",
+      "status": "active",
+      "version": "1.0",
+      "source_docx": "GRP-ESG-ESCO-L1_ESG Safety Officer_GRP_v1.0.docx",
+      "market_benchmark": { "comparable_titles": "ESG Officer / Safety Officer / EHS Officer", "salary_range_thb": "17,000 - 35,000 / เดือน", "note": "Benchmark block label 'Facility & Admin' (leftover)" },
+      "data_quality": [
+        { "code": "je_table_contaminated", "severity": "warning", "message": "JE rationale column = Facility Officer template; KR/specs correct ESG/Safety. je_score 47 in-band for L1, kept; per-item breakdown unreliable (omitted)." }
+      ],
+      "updated": "2026-05-19"
+    },
+
+    {
+      "code": "GRP-CX-CXO-L1",
+      "title_en": "Customer Experience Officer",
+      "title_th": "เจ้าหน้าที่ประสบการณ์ลูกค้า",
+      "company": "GRP",
+      "family_code": "CX",
+      "level": "L1",
+      "je_score": 47,
+      "purpose_th": "ดำเนินงาน Customer Experience ระดับปฏิบัติการ รวบรวม/วิเคราะห์ Customer Feedback สนับสนุน CRM และปรับปรุง Customer Journey เพื่อเพิ่มความพึงพอใจและ Loyalty",
+      "krs": [
+        { "seq": 1, "name_th": "Customer Feedback Collection & Analysis", "kpis": ["Survey Completion >= 80%", "CX Report On-time 100%"], "weight_pct": 30 },
+        { "seq": 2, "name_th": "CRM Data Management & Journey Mapping", "kpis": ["CRM Accuracy >= 95%", "Journey Task On-time"], "weight_pct": 25 },
+        { "seq": 3, "name_th": "Service Quality Monitoring & Complaint Handling", "kpis": ["Complaint Accuracy 100%", "Escalation On-time"], "weight_pct": 25 },
+        { "seq": 4, "name_th": "CX Initiatives Support & Reporting", "kpis": ["Task On-time >= 90%", "Report Accuracy >= 98%"], "weight_pct": 15 },
+        { "seq": 5, "name_th": "Self Development & CX Knowledge", "kpis": ["Training >= 90%", "CX Certification 1+/ปี"], "weight_pct": 5 }
+      ],
+      "specs": {
+        "education": { "level": "Bachelor", "field": "บริหารธุรกิจ / การตลาด / จิตวิทยา / สังคมศาสตร์ / นิเทศศาสตร์" },
+        "experience": { "min_years": 0, "note": "0-3 ปีงาน Customer Service / CRM / งานที่เกี่ยวกับลูกค้า" },
+        "skills": ["CX Basics, Customer Journey Mapping", "NPS/CSAT", "การฟัง/สื่อสาร, Empathy"],
+        "languages": { "english": "Medium" },
+        "digital": ["CRM (Salesforce/HubSpot)", "MS Excel", "Power BI (Basic)", "Survey Tools"],
+        "certs": ["CX Fundamentals / Customer Service Excellence — preferred"]
+      },
+      "report_to": "GRP-CX-CXM-L3",
+      "unit_type": "Support",
+      "status": "active",
+      "version": "1.0",
+      "source_docx": "GRP-CX-CXO-L1_Customer Experience Officer_GRP_v1.0.docx",
+      "market_benchmark": { "comparable_titles": "CX Officer / Customer Experience Staff / CRM Officer", "salary_range_thb": "18,000 - 35,000 / เดือน", "note": "Benchmark block = Accounting Officer leftover" },
+      "data_quality": [
+        { "code": "je_table_contaminated", "severity": "warning", "message": "JE rationale column = Facility/Accounting template; KR/specs correct CX. je_score 47 in-band for L1, kept; per-item breakdown unreliable (omitted)." },
+        { "code": "internal_total_mismatch", "severity": "warning", "message": "JE section sub-header says 'คะแนนรวม: 44' but table total = 47. Using table total 47." }
       ],
       "updated": "2026-05-19"
     }
