@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pccjobdesign/schema/job_role.schema.json",
+  "title": "Job Role",
+  "description": "One canonical Job Description record. The array of these (data/job_roles.json) is the SINGLE SOURCE OF TRUTH. The .docx in jds/ is generated output, not master.",
+  "type": "object",
+  "required": ["code", "title_en", "company", "family_code", "level", "je_score", "status"],
+  "additionalProperties": false,
+  "properties": {
+    "code": { "type": "string", "pattern": "^[A-Z]{3}-[A-Z0-9]+-[A-Z0-9-]+-(F1|L[1-6])$", "description": "[Company]-[FamilyCode]-[RoleCode]-[Level]" },
+    "title_en": { "type": "string" },
+    "title_th": { "type": "string" },
+    "company": { "type": "string", "description": "Company code from reference.json#/companies" },
+    "family_code": { "type": "string", "description": "Family code from reference.json#/job_family_codes" },
+    "level": { "type": "string", "enum": ["F1", "L1", "L2", "L3", "L4", "L5", "L6"] },
+    "je_score": { "type": "integer", "minimum": 25, "maximum": 200 },
+    "je_breakdown": {
+      "type": "array",
+      "description": "Per-item JE scores, index 0 = item 1 .. index 29 = item 30. Item ranges per reference.json#/je_framework/scoring (item 2 can be 0; item 26 max 6; item 27 max 7; item 30 stepped up to 150). Omit when the JE table is contaminated (flag in data_quality).",
+      "items": { "type": "integer", "minimum": 0, "maximum": 150 },
+      "minItems": 30,
+      "maxItems": 30
+    },
+    "purpose_th": { "type": "string", "description": "Job Purpose — why the org needs this role." },
+    "krs": {
+      "type": "array",
+      "description": "Key Responsibilities. weight_pct should sum to 100.",
+      "items": {
+        "type": "object",
+        "required": ["name_th"],
+        "additionalProperties": false,
+        "properties": {
+          "seq": { "type": "integer" },
+          "name_th": { "type": "string" },
+          "name_en": { "type": "string" },
+          "expected_th": { "type": "string", "description": "ผลที่คาดหวัง" },
+          "kpis": { "type": "array", "items": { "type": "string" } },
+          "weight_pct": { "type": "number", "minimum": 0, "maximum": 100 }
+        }
+      }
+    },
+    "specs": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "education": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "level": { "type": "string", "enum": ["Vocational", "Bachelor", "Master", "PhD"] },
+            "field": { "type": "string" }
+          }
+        },
+        "experience": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "min_years": { "type": "number" },
+            "note": { "type": "string" }
+          }
+        },
+        "skills": { "type": "array", "items": { "type": "string" } },
+        "competency_targets": {
+          "type": "object",
+          "description": "Optional: required level per competency id (competency_dict.json). Enables person<->JD matching for hiring/gap/promotion.",
+          "additionalProperties": { "type": "integer", "minimum": 1, "maximum": 5 }
+        },
+        "languages": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "english": { "type": "string", "enum": ["Low", "Medium", "High"] },
+            "note": { "type": "string" }
+          }
+        },
+        "digital": { "type": "array", "items": { "type": "string" } },
+        "certs": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "report_to": { "type": "string", "description": "Job code of the reporting line, if known." },
+    "unit_type": { "type": "string", "enum": ["Operation", "Support"] },
+    "status": { "type": "string", "enum": ["active", "inactive", "draft"] },
+    "version": { "type": "string" },
+    "source_docx": { "type": "string", "description": "Filename of the generated .docx artifact." },
+    "market_benchmark": {
+      "type": "object",
+      "description": "Optional external salary reference captured from the JD (newer JDs only).",
+      "additionalProperties": false,
+      "properties": {
+        "comparable_titles": { "type": "string" },
+        "salary_range_thb": { "type": "string", "description": "Monthly THB range as stated." },
+        "sources": { "type": "array", "items": { "type": "string" } },
+        "note": { "type": "string" }
+      }
+    },
+    "data_quality": {
+      "type": "array",
+      "description": "Validation flags raised during extraction. Empty = clean.",
+      "items": {
+        "type": "object",
+        "required": ["code", "severity", "message"],
+        "additionalProperties": false,
+        "properties": {
+          "code": { "type": "string", "enum": ["je_table_contaminated", "header_mismatch", "kr_contaminated", "je_total_out_of_band", "internal_total_mismatch", "missing_field", "other"] },
+          "severity": { "type": "string", "enum": ["info", "warning", "critical"] },
+          "message": { "type": "string" }
+        }
+      }
+    },
+    "updated": { "type": "string", "format": "date" }
+  }
+}

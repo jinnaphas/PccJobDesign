@@ -1,0 +1,1 @@
+# Disable Jekyll on GitHub Pages so /data/*.json and all files are served as-is.

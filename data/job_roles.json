@@ -1,0 +1,4890 @@
+{
+  "_meta": {
+    "title": "Job Roles — PILOT (Phase 1)",
+    "schema": "schema/job_role.schema.json",
+    "version": "0.2.0-skeleton",
+    "status": "BREADTH-FIRST — all 196 roles present (13 detailed + skeletons). Skeleton JE = placeholder band-midpoint; deep KR/spec/JE extraction + regeneration to follow per role.",
+    "generated": "2026-06-15",
+    "pilot_set": "Pilot: full level coverage F1->L5 + HR ladder + Agentic-AI L1 + Finance L5. Batch 2: GRP Common L1 across families (FIN/SCM/PMO/QA/ESG/CX).",
+    "validation_summary": {
+      "total_records": 196,
+      "detailed": 13,
+      "skeleton": 183,
+      "active": 195,
+      "inactive": 1,
+      "by_level": {
+        "F1": 7,
+        "L1": 75,
+        "L2": 28,
+        "L3": 57,
+        "L4": 12,
+        "L5": 16,
+        "L6": 1
+      },
+      "note": "196 active job codes (195 unique + 1 duplicate VPDT-L5 inactive). JE for skeletons is a placeholder midpoint pending regeneration; detailed records carry extracted data + data_quality flags."
+    }
+  },
+  "roles": [
+    {
+      "code": "GRP-ENG-ELT-F1",
+      "title_en": "Electrical Technician",
+      "company": "GRP",
+      "family_code": "ENG",
+      "level": "F1",
+      "je_score": 34,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-ENG-PNT-F1",
+      "title_en": "Painting Technician",
+      "company": "GRP",
+      "family_code": "ENG",
+      "level": "F1",
+      "je_score": 34,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-ENG-WLD-F1",
+      "title_en": "Welding Technician",
+      "company": "GRP",
+      "family_code": "ENG",
+      "level": "F1",
+      "je_score": 34,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-OPM-OPR-F1",
+      "title_en": "Production Operator",
+      "title_th": "พนักงานปฏิบัติการผลิต",
+      "company": "GRP",
+      "family_code": "OPM",
+      "level": "F1",
+      "je_score": 35,
+      "je_breakdown": [
+        2,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "purpose_th": "ปฏิบัติงานผลิตในสายการผลิตตาม SOP ดูแลคุณภาพผลผลิต ปฏิบัติตามกฎความปลอดภัยและ 5ส เพื่อให้กระบวนการผลิตต่อเนื่อง มีประสิทธิภาพ และปลอดภัย",
+      "krs": [
+        {
+          "seq": 1,
+          "name_th": "การปฏิบัติงานสายการผลิต (Production Operations)",
+          "kpis": [
+            "Production Output >= 95% of target",
+            "Downtime Reporting <= 15 นาที",
+            "SOP Compliance 100%"
+          ],
+          "weight_pct": 40
+        },
+        {
+          "seq": 2,
+          "name_th": "การควบคุมคุณภาพ (Quality Control)",
+          "kpis": [
+            "Defect Detection Rate",
+            "QC Record Accuracy 100%",
+            "First Pass Yield"
+          ],
+          "weight_pct": 30
+        },
+        {
+          "seq": 3,
+          "name_th": "ความปลอดภัยและ 5ส (Safety & 5S)",
+          "kpis": [
+            "Zero Accident in area",
+            "PPE Compliance 100%",
+            "5S Audit Score >= 80%"
+          ],
+          "weight_pct": 20
+        },
+        {
+          "seq": 4,
+          "name_th": "การบำรุงรักษาเบื้องต้น (Basic Maintenance)",
+          "kpis": [
+            "Pre-shift Check Completion 100%",
+            "AM Activity Compliance"
+          ],
+          "weight_pct": 10
+        }
+      ],
+      "specs": {
+        "education": {
+          "level": "Vocational",
+          "field": "ไม่จำกัดสาขา (ช่างอุตสาหกรรมพิจารณาพิเศษ)"
+        },
+        "experience": {
+          "min_years": 0,
+          "note": "0-2 ปี ยินดีรับผู้จบใหม่ ฝึก On-the-Job"
+        },
+        "skills": [
+          "สมรรถภาพร่างกายแข็งแรง",
+          "ระเบียบวินัย ตรงต่อเวลา",
+          "ทำงานเป็นทีม"
+        ],
+        "languages": {
+          "english": "Low"
+        },
+        "digital": [
+          "ใช้แท็บเล็ต/อุปกรณ์บันทึกข้อมูลเบื้องต้น"
+        ],
+        "certs": []
+      },
+      "report_to": "Production Supervisor (L2) / Foreman",
+      "unit_type": "Operation",
+      "status": "active",
+      "version": "1.0",
+      "source_docx": "GRP-OPM-OPR-F1_Production_Operator_GRP_v1.0.docx",
+      "data_quality": [],
+      "updated": "2026-05-20"
+    },
+    {
+      "code": "GRP-SVS-DVR-F1",
+      "title_en": "Driver",
+      "company": "GRP",
+      "family_code": "SVS",
+      "level": "F1",
+      "je_score": 34,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-SVS-HKP-F1",
+      "title_en": "Housekeeping Staff",
+      "company": "GRP",
+      "family_code": "SVS",
+      "level": "F1",
+      "je_score": 34,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-SVS-MSG-F1",
+      "title_en": "Messenger",
+      "company": "GRP",
+      "family_code": "SVS",
+      "level": "F1",
+      "je_score": 34,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-CX-CXO-L1",
+      "title_en": "Customer Experience Officer",
+      "title_th": "เจ้าหน้าที่ประสบการณ์ลูกค้า",
+      "company": "GRP",
+      "family_code": "CX",
+      "level": "L1",
+      "je_score": 47,
+      "purpose_th": "ดำเนินงาน Customer Experience ระดับปฏิบัติการ รวบรวม/วิเคราะห์ Customer Feedback สนับสนุน CRM และปรับปรุง Customer Journey เพื่อเพิ่มความพึงพอใจและ Loyalty",
+      "krs": [
+        {
+          "seq": 1,
+          "name_th": "Customer Feedback Collection & Analysis",
+          "kpis": [
+            "Survey Completion >= 80%",
+            "CX Report On-time 100%"
+          ],
+          "weight_pct": 30
+        },
+        {
+          "seq": 2,
+          "name_th": "CRM Data Management & Journey Mapping",
+          "kpis": [
+            "CRM Accuracy >= 95%",
+            "Journey Task On-time"
+          ],
+          "weight_pct": 25
+        },
+        {
+          "seq": 3,
+          "name_th": "Service Quality Monitoring & Complaint Handling",
+          "kpis": [
+            "Complaint Accuracy 100%",
+            "Escalation On-time"
+          ],
+          "weight_pct": 25
+        },
+        {
+          "seq": 4,
+          "name_th": "CX Initiatives Support & Reporting",
+          "kpis": [
+            "Task On-time >= 90%",
+            "Report Accuracy >= 98%"
+          ],
+          "weight_pct": 15
+        },
+        {
+          "seq": 5,
+          "name_th": "Self Development & CX Knowledge",
+          "kpis": [
+            "Training >= 90%",
+            "CX Certification 1+/ปี"
+          ],
+          "weight_pct": 5
+        }
+      ],
+      "specs": {
+        "education": {
+          "level": "Bachelor",
+          "field": "บริหารธุรกิจ / การตลาด / จิตวิทยา / สังคมศาสตร์ / นิเทศศาสตร์"
+        },
+        "experience": {
+          "min_years": 0,
+          "note": "0-3 ปีงาน Customer Service / CRM / งานที่เกี่ยวกับลูกค้า"
+        },
+        "skills": [
+          "CX Basics, Customer Journey Mapping",
+          "NPS/CSAT",
+          "การฟัง/สื่อสาร, Empathy"
+        ],
+        "languages": {
+          "english": "Medium"
+        },
+        "digital": [
+          "CRM (Salesforce/HubSpot)",
+          "MS Excel",
+          "Power BI (Basic)",
+          "Survey Tools"
+        ],
+        "certs": [
+          "CX Fundamentals / Customer Service Excellence — preferred"
+        ]
+      },
+      "report_to": "GRP-CX-CXM-L3",
+      "unit_type": "Support",
+      "status": "active",
+      "version": "1.0",
+      "source_docx": "GRP-CX-CXO-L1_Customer Experience Officer_GRP_v1.0.docx",
+      "market_benchmark": {
+        "comparable_titles": "CX Officer / Customer Experience Staff / CRM Officer",
+        "salary_range_thb": "18,000 - 35,000 / เดือน",
+        "note": "Benchmark block = Accounting Officer leftover"
+      },
+      "data_quality": [
+        {
+          "code": "je_table_contaminated",
+          "severity": "warning",
+          "message": "JE rationale column = Facility/Accounting template; KR/specs correct CX. je_score 47 in-band for L1, kept; per-item breakdown unreliable (omitted)."
+        },
+        {
+          "code": "internal_total_mismatch",
+          "severity": "warning",
+          "message": "JE section sub-header says 'คะแนนรวม: 44' but table total = 47. Using table total 47."
+        }
+      ],
+      "updated": "2026-05-19"
+    },
+    {
+      "code": "GRP-ESG-ESCO-L1",
+      "title_en": "ESG & Safety Officer",
+      "title_th": "เจ้าหน้าที่ ESG และความปลอดภัย",
+      "company": "GRP",
+      "family_code": "ESG",
+      "level": "L1",
+      "je_score": 47,
+      "purpose_th": "สนับสนุนงานความปลอดภัย อาชีวอนามัย สิ่งแวดล้อม และ ESG ประจำวัน ครอบคลุมการตรวจสอบ รายงาน และโครงการ ESG ให้ปฏิบัติตามกฎหมายและลดความเสี่ยง",
+      "krs": [
+        {
+          "seq": 1,
+          "name_th": "Safety Inspection & Hazard Identification",
+          "kpis": [
+            "Safety Walk Completion 100%",
+            "Equipment Readiness 100%"
+          ],
+          "weight_pct": 30
+        },
+        {
+          "seq": 2,
+          "name_th": "Incident & Accident Management",
+          "kpis": [
+            "Incident Report <= 24 ชม.",
+            "Corrective Action Closure >= 90%"
+          ],
+          "weight_pct": 25
+        },
+        {
+          "seq": 3,
+          "name_th": "Environmental Compliance & Waste Management",
+          "kpis": [
+            "Waste Compliance 100%",
+            "Environmental Penalty 0"
+          ],
+          "weight_pct": 20
+        },
+        {
+          "seq": 4,
+          "name_th": "ESG Data Collection & Reporting",
+          "kpis": [
+            "ESG Data Accuracy >= 98%",
+            "Report On-time 100%"
+          ],
+          "weight_pct": 15
+        },
+        {
+          "seq": 5,
+          "name_th": "Safety Training & Awareness",
+          "kpis": [
+            "Induction Completion 100%",
+            "Toolbox Talk >= 90%"
+          ],
+          "weight_pct": 10
+        }
+      ],
+      "specs": {
+        "education": {
+          "level": "Bachelor",
+          "field": "วิศวกรรมสิ่งแวดล้อม / อาชีวอนามัยและความปลอดภัย / วิทยาศาสตร์"
+        },
+        "experience": {
+          "min_years": 0,
+          "note": "0-3 ปี มีประสบการณ์ EHS/ESG พิจารณาพิเศษ"
+        },
+        "skills": [
+          "กฎหมายความปลอดภัย/อาชีวอนามัย/สิ่งแวดล้อม",
+          "ESG Framework (GRI/SASB)",
+          "การรายงาน/สื่อสารความปลอดภัย"
+        ],
+        "languages": {
+          "english": "Low"
+        },
+        "digital": [
+          "MS Excel (Intermediate)",
+          "EHS Management System",
+          "ESG Reporting Tool"
+        ],
+        "certs": [
+          "จป.วิชาชีพ — Required ตาม พ.ร.บ.ความปลอดภัย"
+        ]
+      },
+      "report_to": "GRP-ESG-ESCM-L3",
+      "unit_type": "Support",
+      "status": "active",
+      "version": "1.0",
+      "source_docx": "GRP-ESG-ESCO-L1_ESG Safety Officer_GRP_v1.0.docx",
+      "market_benchmark": {
+        "comparable_titles": "ESG Officer / Safety Officer / EHS Officer",
+        "salary_range_thb": "17,000 - 35,000 / เดือน",
+        "note": "Benchmark block label 'Facility & Admin' (leftover)"
+      },
+      "data_quality": [
+        {
+          "code": "je_table_contaminated",
+          "severity": "warning",
+          "message": "JE rationale column = Facility Officer template; KR/specs correct ESG/Safety. je_score 47 in-band for L1, kept; per-item breakdown unreliable (omitted)."
+        }
+      ],
+      "updated": "2026-05-19"
+    },
+    {
+      "code": "GRP-FAC-FMO-L1",
+      "title_en": "Facility Management Officer",
+      "company": "GRP",
+      "family_code": "FAC",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-FAC-PFMO-L1",
+      "title_en": "Plant Facility Management Officer",
+      "company": "GRP",
+      "family_code": "FAC",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-FIN-ACO-L1",
+      "title_en": "Accounting Officer",
+      "title_th": "เจ้าหน้าที่บัญชี",
+      "company": "GRP",
+      "family_code": "FIN",
+      "level": "L1",
+      "je_score": 44,
+      "purpose_th": "ดำเนินงานบัญชีให้ถูกต้อง ครบถ้วน ตรงเวลา ครอบคลุมการบันทึกบัญชี AP/AR/GL ปิดบัญชีประจำเดือน ภาษีพื้นฐาน และสินทรัพย์ถาวร เพื่อสนับสนุนงบการเงินตาม TFRS",
+      "krs": [
+        {
+          "seq": 1,
+          "name_th": "บันทึกบัญชีและบริหาร AP/AR/GL",
+          "kpis": [
+            "Journal Entry Accuracy >= 99%",
+            "Sub-ledger Reconciliation 100%",
+            "AP Processing <= 2 วัน"
+          ],
+          "weight_pct": 30
+        },
+        {
+          "seq": 2,
+          "name_th": "ปิดบัญชีประจำเดือนและรายงานบัญชี",
+          "kpis": [
+            "Monthly Close On-Time 100%",
+            "Trial Balance Error 0"
+          ],
+          "weight_pct": 25
+        },
+        {
+          "seq": 3,
+          "name_th": "ภาษีและการปฏิบัติตามกฎหมาย (VAT/WHT)",
+          "kpis": [
+            "Tax Filing On-Time 100%",
+            "Tax Penalty 0"
+          ],
+          "weight_pct": 20
+        },
+        {
+          "seq": 4,
+          "name_th": "บัญชีสินทรัพย์ถาวรและค่าเสื่อมราคา",
+          "kpis": [
+            "FA Register Accuracy >= 98%",
+            "Depreciation Variance 0"
+          ],
+          "weight_pct": 15
+        },
+        {
+          "seq": 5,
+          "name_th": "สนับสนุน Audit และปรับปรุงกระบวนการ",
+          "kpis": [
+            "Internal Audit Finding 0 Major",
+            "Process Improvement >= 1/ปี"
+          ],
+          "weight_pct": 10
+        }
+      ],
+      "specs": {
+        "education": {
+          "level": "Bachelor",
+          "field": "บัญชี / การเงิน / บริหารธุรกิจ"
+        },
+        "experience": {
+          "min_years": 1,
+          "note": "1-2 ปีงานบัญชี (AP/AR/GL/Closing) หรือผู้จบใหม่ที่มีทักษะ ERP/Excel"
+        },
+        "skills": [
+          "TFRS/GAAP",
+          "ภาษี VAT/WHT",
+          "Excel ขั้นสูง (VLOOKUP, Pivot)"
+        ],
+        "languages": {
+          "english": "Low"
+        },
+        "digital": [
+          "ERP (SAP/Oracle/Sage)",
+          "MS Excel (Intermediate-Advanced)"
+        ],
+        "certs": [
+          "CPA — ไม่บังคับ แต่เป็นประโยชน์"
+        ]
+      },
+      "report_to": "GRP-FIN-ACS-L2",
+      "unit_type": "Support",
+      "status": "active",
+      "version": "1.0",
+      "source_docx": "GRP-FIN-ACO-L1_Accounting Officer_GRP_v1.0.docx",
+      "market_benchmark": {
+        "comparable_titles": "Accounting Officer / Junior Accountant / Staff Accountant",
+        "salary_range_thb": "18,000 - 35,000 / เดือน"
+      },
+      "data_quality": [
+        {
+          "code": "je_table_contaminated",
+          "severity": "warning",
+          "message": "JE rationale column = Facility Officer template ('บริหารระบบอาคาร/ผู้รับเหมา'); KR/specs are correct Accounting. je_score 44 is in-band for L1 so kept, but per-item rationale + breakdown unreliable (omitted)."
+        },
+        {
+          "code": "internal_total_mismatch",
+          "severity": "warning",
+          "message": "Displayed per-item scores sum to ~48 but stated total = 44. Using stated total 44; needs re-evaluation."
+        }
+      ],
+      "updated": "2026-05-19"
+    },
+    {
+      "code": "GRP-FIN-FNO-L1",
+      "title_en": "Financial Officer",
+      "company": "GRP",
+      "family_code": "FIN",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-HR-HRBPOHD-L1",
+      "title_en": "HRBP Officer (HRD)",
+      "company": "GRP",
+      "family_code": "HR",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-HR-HRBPOHM-L1",
+      "title_en": "HRBP Officer (HRM)",
+      "company": "GRP",
+      "family_code": "HR",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-HR-HRO-L1",
+      "title_en": "HR Officer",
+      "title_th": "เจ้าหน้าที่ทรัพยากรบุคคล",
+      "company": "GRP",
+      "family_code": "HR",
+      "level": "L1",
+      "je_score": 44,
+      "purpose_th": "สนับสนุนงาน HR ประจำวัน ครอบคลุมสรรหา เอกสาร HR ระบบ HRIS สวัสดิการ และแรงงานสัมพันธ์เบื้องต้น เพื่อให้กระบวนการ HR ถูกต้อง ครบถ้วน ตรงเวลา",
+      "krs": [
+        {
+          "seq": 1,
+          "name_th": "Recruitment & Onboarding Support",
+          "kpis": [
+            "Job Post Timeliness <= 1 วัน",
+            "Onboarding Completion 100%"
+          ],
+          "weight_pct": 25
+        },
+        {
+          "seq": 2,
+          "name_th": "HR Administration & HRIS",
+          "kpis": [
+            "HRIS Accuracy >= 99%",
+            "Document SLA Compliance"
+          ],
+          "weight_pct": 25
+        },
+        {
+          "seq": 3,
+          "name_th": "Payroll & Benefits Administration",
+          "kpis": [
+            "Payroll Accuracy >= 99.5%",
+            "On-time Payment 100%"
+          ],
+          "weight_pct": 25
+        },
+        {
+          "seq": 4,
+          "name_th": "Employee Relations & Welfare",
+          "kpis": [
+            "Query Response <= 1 วัน",
+            "Satisfaction >= 3.5"
+          ],
+          "weight_pct": 15
+        },
+        {
+          "seq": 5,
+          "name_th": "Training Coordination & Compliance",
+          "kpis": [
+            "Training Record Accuracy 100%",
+            "Compliance On-time"
+          ],
+          "weight_pct": 10
+        }
+      ],
+      "specs": {
+        "education": {
+          "level": "Bachelor",
+          "field": "HRM / รัฐศาสตร์ / จิตวิทยา / บริหารธุรกิจ"
+        },
+        "experience": {
+          "min_years": 0,
+          "note": "0-2 ปี ยินดีรับผู้จบใหม่"
+        },
+        "skills": [
+          "กฎหมายแรงงาน ประกันสังคม กองทุนสำรองฯ",
+          "การจัดการข้อมูล รักษาความลับ"
+        ],
+        "languages": {
+          "english": "Low"
+        },
+        "digital": [
+          "MS Excel (Intermediate)",
+          "HRIS System"
+        ],
+        "certs": [
+          "HR Certificate (PMAT/SHRM) — preferred"
+        ]
+      },
+      "report_to": "GRP-HR-HRS-L2",
+      "unit_type": "Support",
+      "status": "active",
+      "version": "1.0",
+      "source_docx": "GRP-HR-HRO-L1_HR Officer_GRP_v1.0.docx",
+      "data_quality": [
+        {
+          "code": "je_table_contaminated",
+          "severity": "critical",
+          "message": "JE section header reads 'Facility Management Officer L1' and all 30 rationales describe Facility/building work. The je_score (44) is the Facility Officer's, not HR Officer's — breakdown omitted pending re-evaluation."
+        }
+      ],
+      "updated": "2026-05-19"
+    },
+    {
+      "code": "GRP-OD-EASI-L1",
+      "title_en": "Enterprise Architecture & Systems Integration Officer",
+      "company": "GRP",
+      "family_code": "OD",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-OD-ITSO-L1",
+      "title_en": "IT Support Officer",
+      "company": "GRP",
+      "family_code": "OD",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-PMO-PMOO-L1",
+      "title_en": "PMO Officer",
+      "title_th": "เจ้าหน้าที่บริหารโครงการ",
+      "company": "GRP",
+      "family_code": "PMO",
+      "level": "L1",
+      "je_score": 48,
+      "purpose_th": "สนับสนุนงาน PMO ครอบคลุมติดตามความก้าวหน้าโครงการ จัดการเอกสาร/ฐานข้อมูลโครงการ ประสานงานผู้มีส่วนได้ส่วนเสีย และสนับสนุนการวางแผนกลยุทธ์/ติดตาม OKR",
+      "krs": [
+        {
+          "seq": 1,
+          "name_th": "ติดตามและรายงานความก้าวหน้าโครงการ",
+          "kpis": [
+            "Project Report On-Time 100%",
+            "Action Item Completion >= 90%",
+            "Dashboard Accuracy >= 95%"
+          ],
+          "weight_pct": 30
+        },
+        {
+          "seq": 2,
+          "name_th": "บริหารเอกสารและฐานข้อมูลโครงการ",
+          "kpis": [
+            "Document Completeness >= 95%",
+            "Minutes <= 24 ชม. 100%"
+          ],
+          "weight_pct": 25
+        },
+        {
+          "seq": 3,
+          "name_th": "ประสานงานผู้มีส่วนได้ส่วนเสียและการประชุม",
+          "kpis": [
+            "Meeting Effectiveness >= 80",
+            "Stakeholder Satisfaction >= 80%"
+          ],
+          "weight_pct": 20
+        },
+        {
+          "seq": 4,
+          "name_th": "สนับสนุนการวางแผนโครงการและ OKR",
+          "kpis": [
+            "OKR Report On-Time 100%",
+            "Portfolio Accuracy >= 95%"
+          ],
+          "weight_pct": 15
+        },
+        {
+          "seq": 5,
+          "name_th": "พัฒนาและปรับปรุงกระบวนการ PMO",
+          "kpis": [
+            "PMO Tool Adoption >= 80%",
+            "Process Improvement >= 1/ปี"
+          ],
+          "weight_pct": 10
+        }
+      ],
+      "specs": {
+        "education": {
+          "level": "Bachelor",
+          "field": "บริหารธุรกิจ / วิศวกรรม / IT / สาขาที่เกี่ยวข้องกับการบริหารโครงการ"
+        },
+        "experience": {
+          "min_years": 1,
+          "note": "1-3 ปีงาน PMO Support / Project Coordinator"
+        },
+        "skills": [
+          "PM Framework (PMBOK/Agile/Prince2)",
+          "Dashboard สำหรับผู้บริหาร",
+          "OKR/BSC",
+          "Multi-project coordination"
+        ],
+        "languages": {
+          "english": "Medium"
+        },
+        "digital": [
+          "MS Project / Asana / Jira / Monday",
+          "MS Office",
+          "Power BI/Tableau — plus"
+        ],
+        "certs": [
+          "PMP / CAPM — plus",
+          "Agile/Scrum — plus"
+        ]
+      },
+      "report_to": "GRP-PMO-PMOS-L2",
+      "unit_type": "Support",
+      "status": "active",
+      "version": "1.0",
+      "source_docx": "GRP-PMO-PMOO-L1_PMO Officer_GRP_v1.0.docx",
+      "market_benchmark": {
+        "comparable_titles": "PMO Officer / Project Coordinator / Project Administrator",
+        "salary_range_thb": "22,000 - 42,000 / เดือน"
+      },
+      "data_quality": [
+        {
+          "code": "je_table_contaminated",
+          "severity": "warning",
+          "message": "JE rationale column = Facility Officer template; KR/specs correct PMO. je_score 48 in-band for L1, kept; per-item breakdown unreliable (omitted)."
+        }
+      ],
+      "updated": "2026-05-19"
+    },
+    {
+      "code": "GRP-QA-QAO-L1",
+      "title_en": "QA Officer",
+      "title_th": "เจ้าหน้าที่ประกันคุณภาพ",
+      "company": "GRP",
+      "family_code": "QA",
+      "level": "L1",
+      "je_score": 46,
+      "purpose_th": "ตรวจสอบคุณภาพประจำวัน (IQC/IPQC/OQC) จัดทำเอกสาร QMS และสนับสนุน Audit ให้ผลิตภัณฑ์และกระบวนการเป็นไปตามมาตรฐาน",
+      "krs": [
+        {
+          "seq": 1,
+          "name_th": "Quality Inspection (IQC/IPQC/OQC)",
+          "kpis": [
+            "Inspection Completion >= 98%",
+            "Record Accuracy 100%"
+          ],
+          "weight_pct": 35
+        },
+        {
+          "seq": 2,
+          "name_th": "QMS Documentation & Control",
+          "kpis": [
+            "Document Currency 100%",
+            "Distribution Accuracy 100%"
+          ],
+          "weight_pct": 25
+        },
+        {
+          "seq": 3,
+          "name_th": "Non-Conformance & CAPA Support",
+          "kpis": [
+            "NCR Timeliness <= 1 วัน",
+            "Monthly NC Report On-time"
+          ],
+          "weight_pct": 20
+        },
+        {
+          "seq": 4,
+          "name_th": "Audit Support & Calibration",
+          "kpis": [
+            "Audit Readiness 100%",
+            "Calibration On-time >= 95%"
+          ],
+          "weight_pct": 10
+        },
+        {
+          "seq": 5,
+          "name_th": "Quality Data & Reporting",
+          "kpis": [
+            "Data Accuracy 100%",
+            "SPC Chart Compliance"
+          ],
+          "weight_pct": 10
+        }
+      ],
+      "specs": {
+        "education": {
+          "level": "Bachelor",
+          "field": "วิศวกรรม / วิทยาศาสตร์ / เทคโนโลยีการผลิต / Quality Management"
+        },
+        "experience": {
+          "min_years": 0,
+          "note": "0-2 ปี ยินดีรับผู้จบใหม่ด้าน QA/QC"
+        },
+        "skills": [
+          "ISO 9001, AQL",
+          "Quality Tools (Pareto, Fishbone)",
+          "การสังเกต/บันทึกแม่นยำ"
+        ],
+        "languages": {
+          "english": "Low"
+        },
+        "digital": [
+          "MS Excel (Basic-Intermediate)",
+          "QMS/ERP",
+          "Statistical Tools เบื้องต้น"
+        ],
+        "certs": [
+          "ISO 9001 Internal Auditor — preferred"
+        ]
+      },
+      "report_to": "GRP-QA-QAS-L2",
+      "unit_type": "Support",
+      "status": "active",
+      "version": "1.0",
+      "source_docx": "GRP-QA-QAO-L1_QA Officer_GRP_v1.0.docx",
+      "market_benchmark": {
+        "comparable_titles": "QA Officer / QC Officer / Quality Control Officer",
+        "salary_range_thb": "17,000 - 35,000 / เดือน",
+        "note": "Benchmark block label 'Facility & Admin' (leftover)"
+      },
+      "data_quality": [
+        {
+          "code": "je_table_contaminated",
+          "severity": "warning",
+          "message": "JE rationale column = Facility Officer template; KR/specs correct QA. je_score 46 in-band for L1, kept; per-item breakdown unreliable (omitted)."
+        }
+      ],
+      "updated": "2026-05-19"
+    },
+    {
+      "code": "GRP-SALES-CSO-L1",
+      "title_en": "Customer Service Officer",
+      "company": "GRP",
+      "family_code": "SALES",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-SCM-CRMO-TCS-L1",
+      "title_en": "CRM Officer - Total Customer Solution",
+      "company": "GRP",
+      "family_code": "SCM",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-SCM-SCO-L1",
+      "title_en": "Supply Chain Officer",
+      "title_th": "เจ้าหน้าที่ Supply Chain",
+      "company": "GRP",
+      "family_code": "SCM",
+      "level": "L1",
+      "je_score": 45,
+      "purpose_th": "ดำเนินงาน SCM ประจำวัน ครอบคลุมการออก PO ประสานงานผู้ขาย บริหารสินค้าคงคลังเบื้องต้น และประสานงาน Logistics ให้ห่วงโซ่อุปทานราบรื่นและตรงเวลา",
+      "krs": [
+        {
+          "seq": 1,
+          "name_th": "Purchase Order Processing",
+          "kpis": [
+            "PO Lead Time <= 1 วัน",
+            "PO Accuracy >= 99%",
+            "PO Fulfillment >= 95%"
+          ],
+          "weight_pct": 30
+        },
+        {
+          "seq": 2,
+          "name_th": "Inventory Management Support",
+          "kpis": [
+            "Inventory Accuracy >= 99.5%",
+            "Receiving Accuracy >= 99%"
+          ],
+          "weight_pct": 25
+        },
+        {
+          "seq": 3,
+          "name_th": "Vendor Coordination",
+          "kpis": [
+            "Vendor OTD >= 95%",
+            "GRN Timeliness <= 1 วัน"
+          ],
+          "weight_pct": 25
+        },
+        {
+          "seq": 4,
+          "name_th": "Logistics Coordination",
+          "kpis": [
+            "Doc Accuracy 100%",
+            "Weekly Report On-time"
+          ],
+          "weight_pct": 10
+        },
+        {
+          "seq": 5,
+          "name_th": "SCM Reporting & Compliance",
+          "kpis": [
+            "Report On-time 100%",
+            "Audit Finding 0"
+          ],
+          "weight_pct": 10
+        }
+      ],
+      "specs": {
+        "education": {
+          "level": "Bachelor",
+          "field": "Supply Chain / Logistics / บริหารธุรกิจ / วิศวกรรมอุตสาหการ"
+        },
+        "experience": {
+          "min_years": 0,
+          "note": "0-2 ปี ยินดีรับผู้จบใหม่"
+        },
+        "skills": [
+          "การจัดซื้อ/Logistics/Inventory เบื้องต้น",
+          "การประสานงาน ความละเอียดรอบคอบ"
+        ],
+        "languages": {
+          "english": "Low"
+        },
+        "digital": [
+          "ERP/Procurement System",
+          "MS Excel (Intermediate)",
+          "WMS เบื้องต้น"
+        ],
+        "certs": [
+          "CPIM / Logistics Certificate — preferred"
+        ]
+      },
+      "report_to": "Supply Chain Supervisor (L2)",
+      "unit_type": "Support",
+      "status": "active",
+      "version": "1.0",
+      "source_docx": "GRP-SCM-SCO-L1_Supply Chain Officer_GRP_v1.0.docx",
+      "market_benchmark": {
+        "comparable_titles": "Supply Chain / Procurement / Logistics Officer",
+        "salary_range_thb": "17,000 - 35,000 / เดือน",
+        "note": "Benchmark block ยังเป็น label 'Facility & Admin' (leftover) — comparable_titles ถูกต้อง"
+      },
+      "data_quality": [
+        {
+          "code": "je_table_contaminated",
+          "severity": "warning",
+          "message": "JE rationale column = Facility Officer template; KR/specs correct SCM. je_score 45 in-band for L1, kept; per-item breakdown unreliable (omitted)."
+        }
+      ],
+      "updated": "2026-05-19"
+    },
+    {
+      "code": "GRP-SCM-SOPP-L1",
+      "title_en": "S&OP Planner / Planning Officer",
+      "company": "GRP",
+      "family_code": "SCM",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-SCM-VMO-L1",
+      "title_en": "Vendor Management Officer",
+      "company": "GRP",
+      "family_code": "SCM",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-TECH-DBAO-L1",
+      "title_en": "Digital Business Analyst Officer",
+      "company": "GRP",
+      "family_code": "TECH",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PCC-AI-AAIO-L1",
+      "title_en": "Agentic AI Operations Officer",
+      "title_th": "เจ้าหน้าที่ปฏิบัติการ Agentic AI",
+      "company": "PCC",
+      "family_code": "AI",
+      "level": "L1",
+      "je_score": 57,
+      "purpose_th": "ดูแล ติดตาม และบำรุงรักษา AI Agents ที่ deploy ในกระบวนการ Routine ของ PCC Group ให้ทำงานถูกต้อง มีประสิทธิภาพ ปลอดภัย พร้อมรายงาน Anomaly และสนับสนุน Agentic Organization",
+      "krs": [
+        {
+          "seq": 1,
+          "name_th": "ติดตามและดูแลการทำงานของ AI Agents",
+          "kpis": [
+            "AI Agent Uptime >= 99%",
+            "Output Quality >= 90%",
+            "Incident Report On-Time 100%"
+          ],
+          "weight_pct": 35
+        },
+        {
+          "seq": 2,
+          "name_th": "บำรุงรักษาและอัปเดต AI Agent Knowledge Base",
+          "kpis": [
+            "Post-Update Test Pass 100%",
+            "Prompt Quality >= 85%"
+          ],
+          "weight_pct": 30
+        },
+        {
+          "seq": 3,
+          "name_th": "สนับสนุน Human-in-the-Loop และ Escalation",
+          "kpis": [
+            "Exception Resolution <= 4 ชม.",
+            "User Satisfaction >= 4/5"
+          ],
+          "weight_pct": 20
+        },
+        {
+          "seq": 4,
+          "name_th": "รายงานและพัฒนา AI Operations",
+          "kpis": [
+            "AI Ops Report On-Time 100%",
+            "Improvement Suggestions >= 2/เดือน"
+          ],
+          "weight_pct": 15
+        }
+      ],
+      "specs": {
+        "education": {
+          "level": "Bachelor",
+          "field": "IT / Computer Science / Software Engineering หรือเทียบเท่าทักษะ AI/Data"
+        },
+        "experience": {
+          "min_years": 0,
+          "note": "0-2 ปี IT Ops / AI-ML Support / RPA; ใช้ LLM/AI Tools จริง >= 6 เดือน"
+        },
+        "skills": [
+          "AI Agent Architecture & Prompt Engineering",
+          "Agentic Workflow & RAG",
+          "Troubleshooting / RCA"
+        ],
+        "languages": {
+          "english": "Medium"
+        },
+        "digital": [
+          "LLM Platforms (Claude, GPT-4, Gemini, Copilot)",
+          "Workflow Automation (Make/Zapier/n8n)",
+          "Basic Python / API"
+        ],
+        "certs": [
+          "AI/LLM Platform Cert (OpenAI/Google/Anthropic/Azure)",
+          "Prompt Engineering — plus"
+        ]
+      },
+      "report_to": "PCC-AI-AAIM-L3",
+      "unit_type": "Support",
+      "status": "active",
+      "version": "1.0",
+      "source_docx": "PCC-AI-AAIO-L1_Agentic AI Operations Officer_PCC_v1.0.docx",
+      "data_quality": [
+        {
+          "code": "je_table_contaminated",
+          "severity": "critical",
+          "message": "JE header mixes 'GRP-FIN-ACO-L1 Accounting Officer' and 'Facility Management Officer L1'; all 30 rationales describe Facility work. je_score (57) is not derived from the AI role."
+        },
+        {
+          "code": "kr_contaminated",
+          "severity": "critical",
+          "message": "KR #5 ('สนับสนุนการตรวจสอบและปรับปรุงระบบบัญชี / Audit Support') is an Accounting-role responsibility copy-pasted in; it does not belong to Agentic AI Operations. Note: KRs #1-4 already sum to 100%, so KR#5 is spurious."
+        }
+      ],
+      "updated": "2026-05-20"
+    },
+    {
+      "code": "PCC-FIN-FAO-L1",
+      "title_en": "Financial Analysis Officer",
+      "company": "PCC",
+      "family_code": "FIN",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PCC-GV-IRO-L1",
+      "title_en": "Investor Relations Officer",
+      "company": "PCC",
+      "family_code": "GV",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PCC-IAD-IAO-L1",
+      "title_en": "Internal Audit Officer",
+      "company": "PCC",
+      "family_code": "IAD",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PCC-LRC-LGO-L1",
+      "title_en": "Legal Officer",
+      "company": "PCC",
+      "family_code": "LRC",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PCC-RCM-RCMO-L1",
+      "title_en": "Risk & Compliance Management Officer",
+      "company": "PCC",
+      "family_code": "RCM",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PCE-ENG-CESO-L1",
+      "title_en": "Clean Energy System Engineering Officer",
+      "company": "PCE",
+      "family_code": "ENG",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PCE-ENG-DEEO-L1",
+      "title_en": "Digital Engineering and EPC Officer",
+      "company": "PCE",
+      "family_code": "ENG",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PCE-ENG-PEO-L1",
+      "title_en": "Project Engineering Officer",
+      "company": "PCE",
+      "family_code": "ENG",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PCE-OPS-SOPO-L1",
+      "title_en": "Sales and Operations Planning Officer",
+      "company": "PCE",
+      "family_code": "OPS",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PCE-SALES-TCSO-L1",
+      "title_en": "TCS Sales Officer",
+      "company": "PCE",
+      "family_code": "SALES",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PDE-AI-AIO-L1",
+      "title_en": "AI Engineer Officer",
+      "company": "PDE",
+      "family_code": "AI",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PDE-BIZ-SPTO-L1",
+      "title_en": "Sales and Technical Pre-sales Officer",
+      "company": "PDE",
+      "family_code": "BIZ",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PDE-DATA-DAO-L1",
+      "title_en": "Data Analyst Officer",
+      "company": "PDE",
+      "family_code": "DATA",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PDE-DATA-DGO-L1",
+      "title_en": "Data Governance Officer",
+      "company": "PDE",
+      "family_code": "DATA",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PDE-IT-APSO-L1",
+      "title_en": "Application Software Support Officer",
+      "company": "PDE",
+      "family_code": "IT",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PDE-IT-BSAO-L1",
+      "title_en": "Business and System Analyst Officer",
+      "company": "PDE",
+      "family_code": "IT",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PDE-IT-CYO-L1",
+      "title_en": "Cybersecurity Officer",
+      "company": "PDE",
+      "family_code": "IT",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PDE-IT-ICO-L1",
+      "title_en": "ICT Officer",
+      "company": "PDE",
+      "family_code": "IT",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PDE-IT-SDO-L1",
+      "title_en": "Software Developer Officer",
+      "company": "PDE",
+      "family_code": "IT",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PDE-OPS-DASO-L1",
+      "title_en": "Digital and Automation Solution Project Officer",
+      "company": "PDE",
+      "family_code": "OPS",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PDE-OPS-F40O-L1",
+      "title_en": "Factory 4.0 OT Automation Engineer Officer",
+      "company": "PDE",
+      "family_code": "OPS",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PEM-ENG-ETQAO-L1",
+      "title_en": "Electrical Testing and QA Officer",
+      "company": "PEM",
+      "family_code": "ENG",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PEM-OPS-PRO-L1",
+      "title_en": "Production Officer",
+      "company": "PEM",
+      "family_code": "OPS",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PEM-OPS-WHS-L1",
+      "title_en": "Warehouse Officer",
+      "company": "PEM",
+      "family_code": "OPS",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PEM-SALES-CVMO-L1",
+      "title_en": "Customer Value Management Officer",
+      "company": "PEM",
+      "family_code": "SALES",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PEM-SALES-OMNI-L1",
+      "title_en": "Omni-Channel Sales Officer",
+      "company": "PEM",
+      "family_code": "SALES",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PEM-SALES-SOPPO-L1",
+      "title_en": "Sale and Operation Plan and Proposal Officer",
+      "company": "PEM",
+      "family_code": "SALES",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PEM-SCM-FTRO-L1",
+      "title_en": "Foreign Trade Officer",
+      "company": "PEM",
+      "family_code": "SCM",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PPP-ENG-TDVO-L1",
+      "title_en": "Technology Development Officer Renewable Energy",
+      "company": "PPP",
+      "family_code": "ENG",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PPP-INV-BDBO-L1",
+      "title_en": "Business Development Officer",
+      "company": "PPP",
+      "family_code": "INV",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PPP-SCM-LVMO-L1",
+      "title_en": "Business Logistic and Vendor Management Officer",
+      "company": "PPP",
+      "family_code": "SCM",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PSL-OPS-FAMO-L1",
+      "title_en": "Farm Management Officer",
+      "company": "PSL",
+      "family_code": "OPS",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PSL-OPS-MICO-L1",
+      "title_en": "Micropropagation Officer",
+      "company": "PSL",
+      "family_code": "OPS",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PSL-QA-BQCO-L1",
+      "title_en": "Quality Assurance Officer Bio-products",
+      "company": "PSL",
+      "family_code": "QA",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PSL-RND-BIOO-L1",
+      "title_en": "Biochar and Biotech Officer",
+      "company": "PSL",
+      "family_code": "RND",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PSL-RND-RDAO-L1",
+      "title_en": "Agricultural R&D Officer",
+      "company": "PSL",
+      "family_code": "RND",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PSL-SALES-SPPO-L1",
+      "title_en": "Sale and Operation Plan Officer Pulp and Packaging",
+      "company": "PSL",
+      "family_code": "SALES",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PSL-SCM-BCMO-L1",
+      "title_en": "Business Logistic and Material Officer Bamboo",
+      "company": "PSL",
+      "family_code": "SCM",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PSP-COM-TCRO-L1",
+      "title_en": "Tender and Contract Commercial Review Officer",
+      "company": "PSP",
+      "family_code": "COM",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PSP-ENG-AMIO-L1",
+      "title_en": "AMI System Engineering Officer",
+      "company": "PSP",
+      "family_code": "ENG",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PSP-ENG-DEEO-L1",
+      "title_en": "Digital Engineering Officer",
+      "company": "PSP",
+      "family_code": "ENG",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PSP-ENG-EMSO-L1",
+      "title_en": "Energy Management System Officer",
+      "company": "PSP",
+      "family_code": "ENG",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PSP-ENG-EPCO-L1",
+      "title_en": "EPC Engineering Officer",
+      "company": "PSP",
+      "family_code": "ENG",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PSP-ENG-LABO-L1",
+      "title_en": "Testing Laboratory and Calibration Officer",
+      "company": "PSP",
+      "family_code": "ENG",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PSP-ENG-SCAO-L1",
+      "title_en": "SCADA Engineer Officer",
+      "company": "PSP",
+      "family_code": "ENG",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PSP-ENG-SUBO-L1",
+      "title_en": "Substation Engineering Officer",
+      "company": "PSP",
+      "family_code": "ENG",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PSP-ENG-TNDO-L1",
+      "title_en": "Transmission and Distribution Power Engineering Officer",
+      "company": "PSP",
+      "family_code": "ENG",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PSP-RND-PRDO-L1",
+      "title_en": "Product R&D Officer",
+      "company": "PSP",
+      "family_code": "RND",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PSP-SCM-GTSO-L1",
+      "title_en": "Global Sourcing and Trade Officer",
+      "company": "PSP",
+      "family_code": "SCM",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "SBP-HSE-SAFE-L1",
+      "title_en": "Safety and ESG Officer",
+      "company": "SBP",
+      "family_code": "HSE",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "SBP-PWR-EDMO-L1",
+      "title_en": "Efficiency Development and Maintenance Service Officer",
+      "company": "SBP",
+      "family_code": "PWR",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "SBP-PWR-EMTO-L1",
+      "title_en": "Electrical Maintenance Officer",
+      "company": "SBP",
+      "family_code": "PWR",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "SBP-PWR-MMTO-L1",
+      "title_en": "Mechanical Maintenance Officer",
+      "company": "SBP",
+      "family_code": "PWR",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "SBP-PWR-OPO-L1",
+      "title_en": "Power Plant Operations Officer",
+      "company": "SBP",
+      "family_code": "PWR",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "SBP-SCM-WCHO-L1",
+      "title_en": "Woodchip and Biomass Officer",
+      "company": "SBP",
+      "family_code": "SCM",
+      "level": "L1",
+      "je_score": 52,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-FAC-FMS-L2",
+      "title_en": "Facility Management Supervisor",
+      "company": "GRP",
+      "family_code": "FAC",
+      "level": "L2",
+      "je_score": 70,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-FIN-ACS-L2",
+      "title_en": "Accounting Supervisor",
+      "company": "GRP",
+      "family_code": "FIN",
+      "level": "L2",
+      "je_score": 70,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-HR-HRBPSM-L2",
+      "title_en": "HRBP Section Manager",
+      "company": "GRP",
+      "family_code": "HR",
+      "level": "L2",
+      "je_score": 70,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-HR-HRS-L2",
+      "title_en": "HR Supervisor",
+      "title_th": "หัวหน้าแผนก HR",
+      "company": "GRP",
+      "family_code": "HR",
+      "level": "L2",
+      "je_score": 69,
+      "purpose_th": "กำกับและบริหารงาน HR ประจำวันระดับแผนก ครอบคลุมสรรหา พัฒนา/ฝึกอบรม บริหารผลงาน และแรงงานสัมพันธ์ ให้เป็นไปตามมาตรฐานและนโยบายองค์กร",
+      "krs": [
+        {
+          "seq": 1,
+          "name_th": "Recruitment & Selection",
+          "kpis": [
+            "Recruitment Rate >= 90%",
+            "Time-to-Fill <= 45 วัน"
+          ],
+          "weight_pct": 25
+        },
+        {
+          "seq": 2,
+          "name_th": "Learning & Development",
+          "kpis": [
+            "Training Effectiveness >= 3.5",
+            "IDP Coverage >= 75%"
+          ],
+          "weight_pct": 20
+        },
+        {
+          "seq": 3,
+          "name_th": "Performance Management",
+          "kpis": [
+            "Review Completion >= 95%",
+            "PIP Success >= 60%"
+          ],
+          "weight_pct": 25
+        },
+        {
+          "seq": 4,
+          "name_th": "Employee Relations & Compliance",
+          "kpis": [
+            "Labor Law Compliance 100%",
+            "Grievance Resolution <= 5 วัน"
+          ],
+          "weight_pct": 20
+        },
+        {
+          "seq": 5,
+          "name_th": "HR Operations & Team Management",
+          "kpis": [
+            "HRIS Accuracy >= 99%",
+            "Payroll Accuracy >= 99.5%"
+          ],
+          "weight_pct": 10
+        }
+      ],
+      "specs": {
+        "education": {
+          "level": "Bachelor",
+          "field": "HRM / Industrial Psychology / รัฐศาสตร์ / บริหารธุรกิจ"
+        },
+        "experience": {
+          "min_years": 3,
+          "note": "3-5 ปีงาน HR ดูแลทีมอย่างน้อย 1 ปี"
+        },
+        "skills": [
+          "กฎหมายแรงงาน พ.ร.บ.คุ้มครองแรงงาน",
+          "ภาวะผู้นำ บริหารทีม",
+          "มนุษยสัมพันธ์ แก้ปัญหา"
+        ],
+        "languages": {
+          "english": "Medium"
+        },
+        "digital": [
+          "MS Excel (Intermediate)",
+          "HRIS System",
+          "HR Analytics Tools"
+        ],
+        "certs": [
+          "SHRM / HRCI / PMAT — preferred"
+        ]
+      },
+      "report_to": "GRP-HR-HCM-L3",
+      "unit_type": "Support",
+      "status": "active",
+      "version": "1.0",
+      "source_docx": "GRP-HR-HRS-L2_HR Supervisor_GRP_v1.0.docx",
+      "data_quality": [
+        {
+          "code": "header_mismatch",
+          "severity": "warning",
+          "message": "Top line reads 'JD Code: GRP-HR-HRBPSM-L2 | HRBP Section Manager' (the sibling role) though the body is correctly HR Supervisor / GRP-HR-HRS-L2. Likely created by copying HRBPSM-L2. JE content IS HR-appropriate."
+        },
+        {
+          "code": "internal_total_mismatch",
+          "severity": "warning",
+          "message": "JE table total = 69 but the Market Benchmark note cites 'JE Score (71 คะแนน)'. Reconcile to one figure."
+        }
+      ],
+      "updated": "2026-05-19"
+    },
+    {
+      "code": "GRP-PMO-PMOS-L2",
+      "title_en": "PMO Supervisor",
+      "company": "GRP",
+      "family_code": "PMO",
+      "level": "L2",
+      "je_score": 70,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-QA-QAS-L2",
+      "title_en": "QA Supervisor",
+      "company": "GRP",
+      "family_code": "QA",
+      "level": "L2",
+      "je_score": 70,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-SALES-CSS-L2",
+      "title_en": "Customer Solutions Supervisor",
+      "company": "GRP",
+      "family_code": "SALES",
+      "level": "L2",
+      "je_score": 70,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-SCM-SOPSS-L2",
+      "title_en": "S&OP Section Supervisor",
+      "company": "GRP",
+      "family_code": "SCM",
+      "level": "L2",
+      "je_score": 70,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-SCM-VMS-L2",
+      "title_en": "Vendor Management Supervisor",
+      "company": "GRP",
+      "family_code": "SCM",
+      "level": "L2",
+      "je_score": 70,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-TECH-DBAS-L2",
+      "title_en": "Senior Digital Business Analyst",
+      "company": "GRP",
+      "family_code": "TECH",
+      "level": "L2",
+      "je_score": 70,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PCC-AI-AAIE-L2",
+      "title_en": "Agentic AI Process Engineer",
+      "company": "PCC",
+      "family_code": "AI",
+      "level": "L2",
+      "je_score": 70,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PCC-FIN-FAS-L2",
+      "title_en": "Financial Analysis Supervisor",
+      "company": "PCC",
+      "family_code": "FIN",
+      "level": "L2",
+      "je_score": 70,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PCC-GV-IRS-L2",
+      "title_en": "Investor Relations Supervisor",
+      "company": "PCC",
+      "family_code": "GV",
+      "level": "L2",
+      "je_score": 70,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PCC-IAD-IAS-L2",
+      "title_en": "Internal Audit Supervisor",
+      "company": "PCC",
+      "family_code": "IAD",
+      "level": "L2",
+      "je_score": 70,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PCC-LRC-LGS-L2",
+      "title_en": "Legal Supervisor",
+      "company": "PCC",
+      "family_code": "LRC",
+      "level": "L2",
+      "je_score": 70,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PCC-RCM-RCS-L2",
+      "title_en": "Risk and Compliance Supervisor",
+      "company": "PCC",
+      "family_code": "RCM",
+      "level": "L2",
+      "je_score": 70,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PCE-ENG-PES-L2",
+      "title_en": "Project Engineering Supervisor Renewable Energy",
+      "company": "PCE",
+      "family_code": "ENG",
+      "level": "L2",
+      "je_score": 70,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PDE-IT-APSS-L2",
+      "title_en": "Application Software Support Supervisor",
+      "company": "PDE",
+      "family_code": "IT",
+      "level": "L2",
+      "je_score": 70,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PDE-OPS-DASS-L2",
+      "title_en": "Digital and Automation Solution Supervisor",
+      "company": "PDE",
+      "family_code": "OPS",
+      "level": "L2",
+      "je_score": 70,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PEM-ENG-ETQAS-L2",
+      "title_en": "Electrical Testing and QA Supervisor",
+      "company": "PEM",
+      "family_code": "ENG",
+      "level": "L2",
+      "je_score": 70,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PEM-OPS-PRS-L2",
+      "title_en": "Production Supervisor",
+      "company": "PEM",
+      "family_code": "OPS",
+      "level": "L2",
+      "je_score": 70,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PEM-SALES-SOPPS-L2",
+      "title_en": "Sale and Operation Plan and Proposal Supervisor",
+      "company": "PEM",
+      "family_code": "SALES",
+      "level": "L2",
+      "je_score": 70,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PSL-OPS-BAMS-L2",
+      "title_en": "Bamboo Farm Supervisor",
+      "company": "PSL",
+      "family_code": "OPS",
+      "level": "L2",
+      "je_score": 70,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PSL-OPS-PPRS-L2",
+      "title_en": "Pulp and Packaging Production Supervisor",
+      "company": "PSL",
+      "family_code": "OPS",
+      "level": "L2",
+      "je_score": 70,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PSP-ENG-SUBS-L2",
+      "title_en": "Substation Engineering Supervisor",
+      "company": "PSP",
+      "family_code": "ENG",
+      "level": "L2",
+      "je_score": 70,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PSP-ENG-TNDS-L2",
+      "title_en": "Transmission and Distribution Power Engineering Supervisor",
+      "company": "PSP",
+      "family_code": "ENG",
+      "level": "L2",
+      "je_score": 70,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "SBP-OPS-OPSS-L2",
+      "title_en": "Operations Supervisor",
+      "company": "SBP",
+      "family_code": "OPS",
+      "level": "L2",
+      "je_score": 70,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "SBP-PWR-EDMS-L2",
+      "title_en": "Efficiency Development and Maintenance Supervisor",
+      "company": "SBP",
+      "family_code": "PWR",
+      "level": "L2",
+      "je_score": 70,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-CX-CXM-L3",
+      "title_en": "Customer Experience Manager",
+      "company": "GRP",
+      "family_code": "CX",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-ESG-ESCM-L3",
+      "title_en": "ESG Risk Manager",
+      "company": "GRP",
+      "family_code": "ESG",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-FAC-FMM-L3",
+      "title_en": "Facility Asset Manager",
+      "company": "GRP",
+      "family_code": "FAC",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-FIN-ACM-L3",
+      "title_en": "Accounting Manager",
+      "company": "GRP",
+      "family_code": "FIN",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-FIN-FNM-L3",
+      "title_en": "Finance Manager",
+      "company": "GRP",
+      "family_code": "FIN",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-HR-HCM-L3",
+      "title_en": "Human Capital Manager",
+      "company": "GRP",
+      "family_code": "HR",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-LEGAL-CSC-L3",
+      "title_en": "Company Secretary",
+      "company": "GRP",
+      "family_code": "LEGAL",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-OD-DODM-L3",
+      "title_en": "Digital Organization Development Manager",
+      "company": "GRP",
+      "family_code": "OD",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-PMO-PMOM-L3",
+      "title_en": "PMO Manager",
+      "company": "GRP",
+      "family_code": "PMO",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-QA-QAM-L3",
+      "title_en": "QA Manager",
+      "company": "GRP",
+      "family_code": "QA",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-SALES-CSM-L3",
+      "title_en": "Customer Solutions Manager",
+      "company": "GRP",
+      "family_code": "SALES",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-SCM-SCMM-L3",
+      "title_en": "Supply Chain Manager",
+      "company": "GRP",
+      "family_code": "SCM",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-SCM-SOPM-L3",
+      "title_en": "S&OP Manager",
+      "company": "GRP",
+      "family_code": "SCM",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-SCM-SOPM-OMN-L3",
+      "title_en": "S&OP Manager - Omni Channel",
+      "company": "GRP",
+      "family_code": "SCM",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-SCM-SOPM-TCS-L3",
+      "title_en": "S&OP Manager - Total Customer Solution",
+      "company": "GRP",
+      "family_code": "SCM",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-SCM-SOPM-TND-L3",
+      "title_en": "S&OP Manager - Tendering",
+      "company": "GRP",
+      "family_code": "SCM",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-TECH-DBAM-L3",
+      "title_en": "Digital Business Architecture Manager",
+      "company": "GRP",
+      "family_code": "TECH",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PCC-AI-AAIM-L3",
+      "title_en": "Agentic AI Capital Manager",
+      "company": "PCC",
+      "family_code": "AI",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PCC-BD-ERCM-L3",
+      "title_en": "Ecosystem Relationship Capital Manager",
+      "company": "PCC",
+      "family_code": "BD",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PCC-DT-AISM-L3",
+      "title_en": "Agile Innovation Capital & STEM Development Manager",
+      "company": "PCC",
+      "family_code": "DT",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PCC-DT-CCPE-L3",
+      "title_en": "Customer Capital & Platform Ecosystem Manager",
+      "company": "PCC",
+      "family_code": "DT",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PCC-DT-DPCM-L3",
+      "title_en": "Digital Process Capital Manager",
+      "company": "PCC",
+      "family_code": "DT",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PCC-FIN-FARM-L3",
+      "title_en": "Financial Analysis and Reporting Manager",
+      "company": "PCC",
+      "family_code": "FIN",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PCC-GV-IRM-L3",
+      "title_en": "Investor Relations Manager",
+      "company": "PCC",
+      "family_code": "GV",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PCC-HR-HCDM-L3",
+      "title_en": "Human Capital Development Manager",
+      "title_th": "ผู้จัดการพัฒนาทุนมนุษย์",
+      "company": "PCC",
+      "family_code": "HR",
+      "level": "L3",
+      "je_score": 121,
+      "je_breakdown": [
+        3,
+        3,
+        4,
+        4,
+        3,
+        4,
+        4,
+        4,
+        4,
+        3,
+        4,
+        4,
+        3,
+        3,
+        3,
+        1,
+        2,
+        4,
+        3,
+        1,
+        4,
+        3,
+        3,
+        4,
+        4,
+        4,
+        3,
+        3,
+        4,
+        25
+      ],
+      "purpose_th": "วางแผน ออกแบบ และขับเคลื่อนกลยุทธ์การพัฒนาทุนมนุษย์ของกลุ่ม PCC ครบวงจร (Competency, Talent, Succession, Leadership Pipeline, L&D, OD) บูรณาการ Digital Learning และ AI Tools",
+      "krs": [
+        {
+          "seq": 1,
+          "name_th": "L&D Strategy & Learning Program Design",
+          "kpis": [
+            "Training Effectiveness (Kirkpatrick)",
+            "L&D ROI (%)",
+            "AI Personalized Learning Adoption"
+          ],
+          "weight_pct": 25
+        },
+        {
+          "seq": 2,
+          "name_th": "Talent Management & Succession Planning",
+          "kpis": [
+            "Succession Coverage (%)",
+            "IDP Completion (%)",
+            "Internal Promotion Rate"
+          ],
+          "weight_pct": 25
+        },
+        {
+          "seq": 3,
+          "name_th": "Competency Framework & Career Development",
+          "kpis": [
+            "Competency Framework Coverage",
+            "Avg. Competency Gap (ลดลง)"
+          ],
+          "weight_pct": 20
+        },
+        {
+          "seq": 4,
+          "name_th": "OD Strategy & Culture Development",
+          "kpis": [
+            "Employee Engagement (%)",
+            "Org. Health Index (OHI)"
+          ],
+          "weight_pct": 20
+        },
+        {
+          "seq": 5,
+          "name_th": "HCD Analytics, Digital Tools & Team Development",
+          "kpis": [
+            "AI Tool Adoption in HCD",
+            "L&D Budget Utilization"
+          ],
+          "weight_pct": 10
+        }
+      ],
+      "specs": {
+        "education": {
+          "level": "Master",
+          "field": "HRM / จิตวิทยาองค์การ / OD / MBA / ศึกษาศาสตร์ (ตรี ขั้นต่ำ, โท preferred)"
+        },
+        "experience": {
+          "min_years": 8,
+          "note": "รวม 8+ ปี, L&D/OD/HCD >= 5 ปี, ออกแบบ Talent/Competency องค์กรกลาง-ใหญ่ >= 3 ปี"
+        },
+        "skills": [
+          "Instructional Design (ADDIE/Agile)",
+          "Adult Learning (70-20-10)",
+          "Facilitation & Executive Coaching",
+          "Psychometric Assessment"
+        ],
+        "languages": {
+          "english": "High"
+        },
+        "digital": [
+          "LMS (SuccessFactors/Cornerstone/360Learning)",
+          "People Analytics (Power BI/Tableau/Visier)",
+          "AI Tools (Copilot/ChatGPT Enterprise)"
+        ],
+        "certs": [
+          "SHRM-CP/SCP — preferred",
+          "CIPD L5/L7",
+          "CPLP/CPTD (ATD)",
+          "ICF Coaching",
+          "Prosci"
+        ]
+      },
+      "report_to": "GRP-HR-HCD-L4",
+      "unit_type": "Support",
+      "status": "active",
+      "version": "1.0",
+      "source_docx": "PCC-HR-HCDM-L3_HCD Manager_PCC_v1.0.docx",
+      "market_benchmark": {
+        "comparable_titles": "HCD Manager / L&D Manager / Talent Development Manager / OD Manager (Corporate)",
+        "salary_range_thb": "65,000 - 130,000 / เดือน",
+        "sources": [
+          "Mercer Thailand 2024-2025",
+          "Korn Ferry",
+          "Deloitte",
+          "PMAT 2024",
+          "LinkedIn TH"
+        ]
+      },
+      "data_quality": [
+        {
+          "code": "je_total_out_of_band",
+          "severity": "warning",
+          "message": "JE total 121 exceeds the L3 band (88-102) in reference.json. Caused by item 30 scored on the stepped scale (25). See D7 — needs band/standardisation confirmation."
+        }
+      ],
+      "updated": "2026-03-28"
+    },
+    {
+      "code": "PCC-IAD-IAM-L3",
+      "title_en": "Internal Audit Manager",
+      "company": "PCC",
+      "family_code": "IAD",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PCC-INV-IBDM-L3",
+      "title_en": "Investment Business Development Manager",
+      "company": "PCC",
+      "family_code": "INV",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PCC-LRC-LGM-L3",
+      "title_en": "Legal Manager",
+      "company": "PCC",
+      "family_code": "LRC",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PCC-OD-DODIC-L3",
+      "title_en": "Digital OD Information Capital Manager",
+      "company": "PCC",
+      "family_code": "OD",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PCC-RCM-RCM-L3",
+      "title_en": "Risk and Compliance Manager",
+      "company": "PCC",
+      "family_code": "RCM",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PCC-STR-SBDM-L3",
+      "title_en": "Strategy Business Model Business Development Manager",
+      "company": "PCC",
+      "family_code": "STR",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PCE-BIZ-RESM-L3",
+      "title_en": "Renewable Energy Solutions Business Manager",
+      "company": "PCE",
+      "family_code": "BIZ",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PCE-ENG-PEM-L3",
+      "title_en": "Project Engineering Manager",
+      "company": "PCE",
+      "family_code": "ENG",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PDE-BIZ-BDTM-L3",
+      "title_en": "Digital Business Development Manager",
+      "company": "PDE",
+      "family_code": "BIZ",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PDE-DATA-DAM-L3",
+      "title_en": "Data and AI Analytics Manager",
+      "company": "PDE",
+      "family_code": "DATA",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PDE-DIG-DASIM-L3",
+      "title_en": "Digital Automation & Smart Industry Manager",
+      "company": "PDE",
+      "family_code": "DIG",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PDE-IT-ICM-L3",
+      "title_en": "ICT and Cybersecurity Manager",
+      "company": "PDE",
+      "family_code": "IT",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PDE-IT-SDM-L3",
+      "title_en": "Software Development Manager",
+      "company": "PDE",
+      "family_code": "IT",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PEM-MKT-CVCM-L3",
+      "title_en": "Customer Value & Omni Channel Manager",
+      "company": "PEM",
+      "family_code": "MKT",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PEM-OPS-MEEM-L3",
+      "title_en": "Manufacturing & Electrical Engineering Manager",
+      "company": "PEM",
+      "family_code": "OPS",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PEM-OPS-PRM-L3",
+      "title_en": "Production Manager",
+      "company": "PEM",
+      "family_code": "OPS",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PEM-SAL-BDSM-L3",
+      "title_en": "B2B Electrical Sales & BD Manager",
+      "company": "PEM",
+      "family_code": "SAL",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PPP-CX-KAKM-L3",
+      "title_en": "Key Account and Channel Manager",
+      "company": "PPP",
+      "family_code": "CX",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PPP-INV-BDBM-L3",
+      "title_en": "Business Development Manager",
+      "company": "PPP",
+      "family_code": "INV",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PPP-INV-REIM-L3",
+      "title_en": "RE Investment & Portfolio Analysis Manager",
+      "company": "PPP",
+      "family_code": "INV",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PPP-TEC-RETM-L3",
+      "title_en": "Renewable Energy Technology Manager",
+      "company": "PPP",
+      "family_code": "TEC",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PSL-OPS-BIOM-L3",
+      "title_en": "Bio-Industrial Production Operations Manager",
+      "company": "PSL",
+      "family_code": "OPS",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PSL-RND-AGBM-L3",
+      "title_en": "Agro-Bio Technology & R&D Manager",
+      "company": "PSL",
+      "family_code": "RND",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PSL-RND-RDM-L3",
+      "title_en": "R&D Manager Agricultural and Biotech",
+      "company": "PSL",
+      "family_code": "RND",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PSP-BIZ-AMIM-L3",
+      "title_en": "AMI & Smart Grid Business Manager",
+      "company": "PSP",
+      "family_code": "BIZ",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PSP-COM-CONM-L3",
+      "title_en": "Commercial & Contract Advisory Manager",
+      "company": "PSP",
+      "family_code": "COM",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PSP-ENG-DEPM-L3",
+      "title_en": "Digital Engineering Project Manager",
+      "company": "PSP",
+      "family_code": "ENG",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PSP-ENG-EPCPM-L3",
+      "title_en": "EPC Project Manager",
+      "company": "PSP",
+      "family_code": "ENG",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PSP-ENG-SUBM-L3",
+      "title_en": "Substation Engineering Manager",
+      "company": "PSP",
+      "family_code": "ENG",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PSP-ENG-TNDM-L3",
+      "title_en": "T&D Engineering Manager",
+      "company": "PSP",
+      "family_code": "ENG",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "SBP-OPS-MEMM-L3",
+      "title_en": "Maintenance & Engineering Manager",
+      "company": "SBP",
+      "family_code": "OPS",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "SBP-PWR-OPM-L3",
+      "title_en": "Power Plant Operations Manager",
+      "company": "SBP",
+      "family_code": "PWR",
+      "level": "L3",
+      "je_score": 95,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-HR-HCD-L4",
+      "title_en": "Head of Human Capital",
+      "title_th": "ผู้อำนวยการฝ่ายทุนมนุษย์",
+      "company": "GRP",
+      "family_code": "HR",
+      "level": "L4",
+      "je_score": 112,
+      "purpose_th": "บริหาร Human Capital Function ระดับ Business Unit ของบริษัทในเครือ PCC ครอบคลุม People Strategy, Talent, Succession, OD และ HR Technology เพื่อสร้าง High Performance Organization รองรับ Agentic AI Transformation",
+      "krs": [
+        {
+          "seq": 1,
+          "name_th": "People Strategy & HR Planning",
+          "kpis": [
+            "People Strategy On-time",
+            "HR Budget Variance <= 5%",
+            "HR Scorecard >= 90%"
+          ],
+          "weight_pct": 20
+        },
+        {
+          "seq": 2,
+          "name_th": "Talent Acquisition & Employer Branding",
+          "kpis": [
+            "Time-to-Fill <= SLA",
+            "Quality of Hire >= 85%",
+            "New Hire Retention >= 90%"
+          ],
+          "weight_pct": 20
+        },
+        {
+          "seq": 3,
+          "name_th": "Talent Development & Succession Planning",
+          "kpis": [
+            "Succession Coverage 100%",
+            "L&D Utilization >= 85%"
+          ],
+          "weight_pct": 25
+        },
+        {
+          "seq": 4,
+          "name_th": "Organization Development & Culture",
+          "kpis": [
+            "Engagement >= 75%",
+            "Performance Calibration 100%"
+          ],
+          "weight_pct": 20
+        },
+        {
+          "seq": 5,
+          "name_th": "HR Operations, Compliance & Technology",
+          "kpis": [
+            "Payroll Accuracy >= 99.9%",
+            "Zero Legal Violation",
+            "HR Tech Adoption >= 80%"
+          ],
+          "weight_pct": 15
+        }
+      ],
+      "specs": {
+        "education": {
+          "level": "Master",
+          "field": "Business Administration / HR / Organizational Psychology / OD"
+        },
+        "experience": {
+          "min_years": 12,
+          "note": "12-15 ปีงาน HR, HRBP/HRD/HROD ระดับ Manager+ และบริหาร HR Function"
+        },
+        "skills": [
+          "People Strategy / Talent / OD / C&B / Labor Law",
+          "Executive Presence",
+          "Change Management",
+          "HR Business Partnering"
+        ],
+        "languages": {
+          "english": "High"
+        },
+        "digital": [
+          "HRIS / Workday / SAP HCM",
+          "LMS",
+          "Power BI",
+          "HR Analytics"
+        ],
+        "certs": [
+          "SHRM-SCP/SPHR — preferred",
+          "OD Cert",
+          "Executive Coaching",
+          "DCP (IOD)"
+        ]
+      },
+      "report_to": "CEO/MD (subsidiary) + PCC Group CHRO",
+      "unit_type": "Support",
+      "status": "active",
+      "version": "1.0",
+      "source_docx": "GRP-HR-HCD-L4_Head of Human Capital_GRP_v1.0.docx",
+      "market_benchmark": {
+        "comparable_titles": "Head of HR / HR Director / VP HR",
+        "salary_range_thb": "(ระบุในเอกสารต้นทางเป็นของ Business Manager — ต้องแก้)",
+        "note": "Market Benchmark block is contaminated (Business Manager / HV Electrical). Needs HR-specific data."
+      },
+      "data_quality": [
+        {
+          "code": "je_table_contaminated",
+          "severity": "critical",
+          "message": "File opens with 'JD Code: PCC-OPS-BM-L4 | Business Manager (HV Electrical Equipment)'; the entire JE table + Market Benchmark are the Business Manager's (HV Electrical, IEC, manufacturing). je_score (112; header says 113) is NOT the Head of HC's."
+        },
+        {
+          "code": "je_total_out_of_band",
+          "severity": "warning",
+          "message": "JE total 112 is below the L4 band (118-128) AND lower than HCDM-L3 (121) — an L3>L4 inversion. Root cause: item 30 scored '4' (flat) here vs '25' (stepped) on the L3. See D7."
+        }
+      ],
+      "updated": "2026-05-19"
+    },
+    {
+      "code": "PCC-OPS-BM-L4",
+      "title_en": "Business Manager",
+      "company": "PCC",
+      "family_code": "OPS",
+      "level": "L4",
+      "je_score": 123,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PCE-BIZ-REPH-L4",
+      "title_en": "RE Project Development Head",
+      "company": "PCE",
+      "family_code": "BIZ",
+      "level": "L4",
+      "je_score": 123,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PDE-DIG-DEDH-L4",
+      "title_en": "Digital Engineering Division Head",
+      "company": "PDE",
+      "family_code": "DIG",
+      "level": "L4",
+      "je_score": 123,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PEM-OPS-BM-L4",
+      "title_en": "Business Manager",
+      "company": "PEM",
+      "family_code": "OPS",
+      "level": "L4",
+      "je_score": 123,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PEM-OPS-BUHD-L4",
+      "title_en": "Business Unit Head",
+      "company": "PEM",
+      "family_code": "OPS",
+      "level": "L4",
+      "je_score": 123,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PSL-OPS-BIOH-L4",
+      "title_en": "Bio-Industrial Business Division Head",
+      "company": "PSL",
+      "family_code": "OPS",
+      "level": "L4",
+      "je_score": 123,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PSL-OPS-BM-L4",
+      "title_en": "Business Manager Bamboo Supply Chain",
+      "company": "PSL",
+      "family_code": "OPS",
+      "level": "L4",
+      "je_score": 123,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PSP-BIZ-SGBH-L4",
+      "title_en": "Smart Grid Business Head",
+      "company": "PSP",
+      "family_code": "BIZ",
+      "level": "L4",
+      "je_score": 123,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PSP-ENG-TDDH-L4",
+      "title_en": "T&D System Division Head",
+      "company": "PSP",
+      "family_code": "ENG",
+      "level": "L4",
+      "je_score": 123,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PSP-OPS-BM-L4",
+      "title_en": "Business Manager Smart Grid",
+      "company": "PSP",
+      "family_code": "OPS",
+      "level": "L4",
+      "je_score": 123,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "SBP-OPS-SODH-L4",
+      "title_en": "Solar Operations Division Head",
+      "company": "SBP",
+      "family_code": "OPS",
+      "level": "L4",
+      "je_score": 123,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-FIN-CFO-L5",
+      "title_en": "Chief Financial Officer",
+      "title_th": "ประธานเจ้าหน้าที่ฝ่ายการเงิน",
+      "company": "GRP",
+      "family_code": "FIN",
+      "level": "L5",
+      "je_score": 184,
+      "purpose_th": "บริหารและกำกับการเงิน บัญชี ความเสี่ยงทางการเงิน และการปฏิบัติตามกฎหมายการเงินของบริษัทในเครือ PCC รับผิดชอบงบการเงิน Capital Structure การวิเคราะห์ Investment/M&A รายงานต่อ Board Audit Committee และ Group CFO",
+      "krs": [
+        {
+          "seq": 1,
+          "name_th": "Financial Strategy & Capital Management",
+          "kpis": [
+            "D/E Ratio vs Target",
+            "Investment ROI >= Hurdle"
+          ],
+          "weight_pct": 25
+        },
+        {
+          "seq": 2,
+          "name_th": "Financial Reporting & Accounting Governance",
+          "kpis": [
+            "FS Closing On-time",
+            "Clean Audit Opinion",
+            "Tax Compliance 100%"
+          ],
+          "weight_pct": 25
+        },
+        {
+          "seq": 3,
+          "name_th": "Business Performance & FP&A",
+          "kpis": [
+            "Forecast Accuracy >= 90%",
+            "Board Report On-time"
+          ],
+          "weight_pct": 20
+        },
+        {
+          "seq": 4,
+          "name_th": "Risk Management & Compliance",
+          "kpis": [
+            "Zero Control Weakness",
+            "Insurance Coverage"
+          ],
+          "weight_pct": 20
+        },
+        {
+          "seq": 5,
+          "name_th": "Finance Team Leadership & Digital Finance",
+          "kpis": [
+            "Competency >= 85%",
+            "Digital Finance Adoption >= 80%"
+          ],
+          "weight_pct": 10
+        }
+      ],
+      "specs": {
+        "education": {
+          "level": "Master",
+          "field": "Finance / Accounting / MBA / Economics"
+        },
+        "experience": {
+          "min_years": 15,
+          "note": "15+ ปีงานการเงิน/บัญชี, เคยเป็น CFO/VP Finance องค์กรกลาง-ใหญ่"
+        },
+        "skills": [
+          "TFRS/IFRS, Corporate Finance, Capital Markets, M&A DD",
+          "Board Communication",
+          "Risk & Tax Strategy"
+        ],
+        "languages": {
+          "english": "High"
+        },
+        "digital": [
+          "SAP FICO / Oracle Financials",
+          "Power BI",
+          "Financial Modeling (Advanced Excel)",
+          "RPA (Finance)"
+        ],
+        "certs": [
+          "CPA — Required",
+          "CFA/CFP — preferred",
+          "DCP (IOD)"
+        ]
+      },
+      "report_to": "CEO/MD (subsidiary) + Board Audit Committee + Group CFO",
+      "unit_type": "Support",
+      "status": "active",
+      "version": "1.0",
+      "source_docx": "GRP-FIN-CFO-L5_Chief Financial Officer_GRP_v1.0.docx",
+      "market_benchmark": {
+        "comparable_titles": "(เอกสารต้นทางอ้างถึง COO/GM/Deputy CEO — ต้องแก้ให้เป็น CFO)",
+        "salary_range_thb": "200,000 - 500,000+ / เดือน (ตัวเลข COO ในต้นฉบับ)",
+        "note": "Benchmark + JE copied from COO; needs CFO-specific data."
+      },
+      "data_quality": [
+        {
+          "code": "je_table_contaminated",
+          "severity": "critical",
+          "message": "File opens with 'JD Code: GRP-OPS-COO-L5 | Chief Operating Officer (COO)'; JE header reads 'Chief Operating Officer L5' and all rationales describe COO/Operations, not Finance. je_score (184; benchmark note says 185) is the COO's."
+        }
+      ],
+      "updated": "2026-05-19"
+    },
+    {
+      "code": "GRP-MGT-CEO-L5",
+      "title_en": "Chief Executive Officer",
+      "company": "GRP",
+      "family_code": "MGT",
+      "level": "L5",
+      "je_score": 173,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-MGT-MD-L5",
+      "title_en": "Managing Director",
+      "company": "GRP",
+      "family_code": "MGT",
+      "level": "L5",
+      "je_score": 173,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-OPS-COO-L5",
+      "title_en": "Chief Operating Officer",
+      "company": "GRP",
+      "family_code": "OPS",
+      "level": "L5",
+      "je_score": 173,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "GRP-TECH-CTO-L5",
+      "title_en": "Chief Technology Officer",
+      "company": "GRP",
+      "family_code": "TECH",
+      "level": "L5",
+      "je_score": 173,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PCC-DT-VPDT-L5",
+      "title_en": "VP Intellectual Capital Development (Digital & AI)",
+      "company": "PCC",
+      "family_code": "DT",
+      "level": "L5",
+      "je_score": 173,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PCC-FIN-VPFC-L5",
+      "title_en": "VP Financial Capital",
+      "company": "PCC",
+      "family_code": "FIN",
+      "level": "L5",
+      "je_score": 173,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PCC-GV-VPGSD-L5",
+      "title_en": "VP Governance & Sustainable Development",
+      "company": "PCC",
+      "family_code": "GV",
+      "level": "L5",
+      "je_score": 173,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PCC-INV-VPCI-L5",
+      "title_en": "VP Corporate Investment",
+      "company": "PCC",
+      "family_code": "INV",
+      "level": "L5",
+      "je_score": 173,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PCC-MGT-DCEO-L5",
+      "title_en": "Deputy Chief Executive Officer",
+      "company": "PCC",
+      "family_code": "MGT",
+      "level": "L5",
+      "je_score": 173,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PDE-TECH-CTO-L5",
+      "title_en": "Chief Technology Officer",
+      "company": "PDE",
+      "family_code": "TECH",
+      "level": "L5",
+      "je_score": 173,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PEM-TECH-CTO-L5",
+      "title_en": "Chief Technology Officer",
+      "company": "PEM",
+      "family_code": "TECH",
+      "level": "L5",
+      "je_score": 173,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PSP-BIZ-COOB-L5",
+      "title_en": "Chief Operating Officer (Business)",
+      "company": "PSP",
+      "family_code": "BIZ",
+      "level": "L5",
+      "je_score": 173,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PSP-OPS-COOO-L5",
+      "title_en": "Chief Operating Officer (Operations)",
+      "company": "PSP",
+      "family_code": "OPS",
+      "level": "L5",
+      "je_score": 173,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "SBP-OPS-MD-L5",
+      "title_en": "Managing Director",
+      "company": "SBP",
+      "family_code": "OPS",
+      "level": "L5",
+      "je_score": 173,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    },
+    {
+      "code": "PCC-DT-VPDT-L5",
+      "title_en": "VP Digital Transformation",
+      "company": "PCC",
+      "family_code": "DT",
+      "level": "L5",
+      "je_score": 173,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "inactive",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "other",
+          "severity": "warning",
+          "message": "Duplicate job code (D3): superseded by PCC-DT-VPDT-L5 v2.0 'VP Intellectual Capital Development'. Marked inactive; should move docx to Inactive/."
+        }
+      ]
+    },
+    {
+      "code": "GRP-MGT-GCEO-L6",
+      "title_en": "Group Chief Executive Officer",
+      "company": "GRP",
+      "family_code": "MGT",
+      "level": "L6",
+      "je_score": 195,
+      "je_source": "placeholder_midpoint",
+      "detail_level": "skeleton",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "missing_field",
+          "severity": "info",
+          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+        }
+      ]
+    }
+  ]
+}

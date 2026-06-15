@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pccjobdesign/schema/scoring_model.schema.json",
+  "title": "Scoring Model",
+  "description": "Explicit, versioned weights + thresholds for the evaluation engine. Replaces the implicit weights currently buried in analytics_dashboard.html.",
+  "type": "object",
+  "required": ["version", "modes"],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "type": "string" },
+    "dimensions": {
+      "type": "array",
+      "description": "Scoring dimensions used across modes.",
+      "items": { "type": "string" },
+      "default": ["education", "experience", "skills", "english", "digital", "certifications"]
+    },
+    "modes": {
+      "type": "object",
+      "description": "Per-mode configuration. Keys: hiring, gap_closing, promotion.",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["weights", "thresholds"],
+        "additionalProperties": false,
+        "properties": {
+          "weights": {
+            "type": "object",
+            "description": "Dimension -> weight. Should sum to 100.",
+            "additionalProperties": { "type": "number", "minimum": 0, "maximum": 100 }
+          },
+          "kr_weights": {
+            "type": "object",
+            "description": "Optional per-KR weighting for KR-alignment.",
+            "additionalProperties": { "type": "number" }
+          },
+          "thresholds": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "high": { "type": "number", "description": "Proceed / Ready cutoff (e.g. 75)." },
+              "mid": { "type": "number", "description": "Consider / Develop cutoff (e.g. 60)." }
+            }
+          },
+          "labels": {
+            "type": "object",
+            "description": "Recommendation labels for high / mid / low bands.",
+            "additionalProperties": false,
+            "properties": {
+              "high": { "type": "string" },
+              "mid": { "type": "string" },
+              "low": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

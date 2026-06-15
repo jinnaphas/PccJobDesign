@@ -1,0 +1,27 @@
+{
+  "_meta": {
+    "title": "Evaluation Scoring Model",
+    "schema": "schema/scoring_model.schema.json",
+    "version": "0.1.0-draft",
+    "status": "DRAFT — weights are provisional defaults derived from analytics_dashboard.html behaviour; HR to calibrate before Live."
+  },
+  "version": "0.1.0-draft",
+  "dimensions": ["education", "experience", "skills", "english", "digital", "certifications"],
+  "modes": {
+    "hiring": {
+      "weights": { "skills": 25, "experience": 25, "education": 15, "english": 10, "digital": 15, "certifications": 10 },
+      "thresholds": { "high": 75, "mid": 60 },
+      "labels": { "high": "Proceed", "mid": "Consider", "low": "Not Suitable" }
+    },
+    "gap_closing": {
+      "weights": { "skills": 40, "experience": 15, "education": 5, "english": 10, "digital": 20, "certifications": 10 },
+      "thresholds": { "high": 80, "mid": 60 },
+      "labels": { "high": "On Target", "mid": "Minor Gap", "low": "Major Gap" }
+    },
+    "promotion": {
+      "weights": { "skills": 30, "experience": 20, "education": 10, "english": 10, "digital": 15, "certifications": 15 },
+      "thresholds": { "high": 75, "mid": 60 },
+      "labels": { "high": "Ready", "mid": "Develop", "low": "Not Ready" }
+    }
+  }
+}

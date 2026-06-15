@@ -1,0 +1,50 @@
+{
+  "_meta": {
+    "title": "Career Overlay (seed)",
+    "schema": "schema/career_overlay.schema.json",
+    "version": "0.1.0-seed",
+    "status": "SEED — AI-risk + generic level transitions for Career Path. Family bridges and per-transition detail to be enriched with HR."
+  },
+  "version": "0.1.0-seed",
+  "ai_risk": {
+    "gss": {"score": 80, "label": "High", "reason": "Routine manual/support tasks highly automatable; reskilling toward supervised/technical roles."},
+    "ops": {"score": 60, "label": "Medium", "reason": "Sensing/automation reduces manual ops; shift to monitoring & exception handling."},
+    "fin": {"score": 60, "label": "Medium", "reason": "Bookkeeping/closing automatable; value shifts to analysis & control."},
+    "scm": {"score": 55, "label": "Medium", "reason": "Planning/PO automation; value in vendor strategy & resilience."},
+    "qse": {"score": 50, "label": "Medium", "reason": "Inspection/reporting assisted by AI; judgement & compliance remain human."},
+    "sal": {"score": 45, "label": "Medium", "reason": "AI assists CRM/insights; relationship & negotiation remain human."},
+    "pmo": {"score": 45, "label": "Medium", "reason": "Tracking/reporting automatable; stakeholder leadership remains."},
+    "hr": {"score": 45, "label": "Medium", "reason": "HR ops automatable; strategy, culture, coaching remain human."},
+    "it": {"score": 40, "label": "Medium", "reason": "Code/ops assisted by AI; architecture & security judgement remain."},
+    "eng": {"score": 35, "label": "Low", "reason": "Field/safety-critical engineering hard to automate; AI augments design."},
+    "grc": {"score": 35, "label": "Low", "reason": "Judgement, accountability & regulator relationships remain human."},
+    "rnd": {"score": 30, "label": "Low", "reason": "Discovery/innovation augmented, not replaced, by AI."},
+    "dig": {"score": 25, "label": "Low", "reason": "Builds & governs the AI — demand rising."},
+    "bds": {"score": 25, "label": "Low", "reason": "Strategy, deals & ambiguity-heavy work remain human."},
+    "exe": {"score": 20, "label": "Low", "reason": "Leadership, accountability & enterprise judgement remain human."}
+  },
+  "bridges": {
+    "fin": ["scm","bds","grc"],
+    "hr": ["grc","bds"],
+    "scm": ["fin","ops","bds"],
+    "ops": ["eng","scm","qse"],
+    "eng": ["ops","rnd","dig"],
+    "sal": ["bds","sal"],
+    "it": ["dig","eng"],
+    "dig": ["it","rnd","bds"],
+    "pmo": ["bds","ops"],
+    "qse": ["ops","grc"],
+    "rnd": ["eng","dig"],
+    "grc": ["fin","hr"],
+    "bds": ["fin","sal","dig"],
+    "gss": ["ops"]
+  },
+  "transitions": {
+    "F1_L1": {"readiness":{"timeline":"1-2 ปี","checklist":["ผ่านมาตรฐานงาน/ความปลอดภัยต่อเนื่อง","ได้วุฒิ/ใบรับรองที่จำเป็น (ปวส./certificate)","แสดงความริเริ่มและทักษะดิจิทัลเบื้องต้น"]},"learning_method":{"70":["ทำงานจริงภายใต้พี่เลี้ยง"],"20":["โค้ชจากหัวหน้างาน"],"10":["หลักสูตรพื้นฐาน/วุฒิวิชาชีพ"]}},
+    "L1_L2": {"readiness":{"timeline":"2-3 ปี","checklist":["ทำงานได้อิสระและสม่ำเสมอ","เริ่มสอนงาน/นำงานย่อย","เข้าใจกระบวนการข้ามหน่วยงาน"]},"learning_method":{"70":["รับผิดชอบงานที่ซับซ้อนขึ้น/นำทีมเล็ก"],"20":["mentoring จาก supervisor"],"10":["หลักสูตร Leadership พื้นฐาน"]}},
+    "L2_L3": {"readiness":{"timeline":"2-4 ปี","checklist":["บริหารทีมและผลงานได้","วางแผน/งบประมาณระดับ section","คิดเชิงกลยุทธ์ของ function"]},"learning_method":{"70":["เป็นหัวหน้าโครงการข้ามทีม"],"20":["coaching จากผู้จัดการ"],"10":["หลักสูตร Manage Function"]}},
+    "L3_L4": {"readiness":{"timeline":"3-5 ปี","checklist":["รับผิดชอบผล function เต็มตัว","เริ่มมุมมอง P&L/BU","พัฒนาผู้นำรุ่นถัดไป"]},"learning_method":{"70":["ดูแล BU/หน่วยธุรกิจย่อย"],"20":["mentoring จาก Director/VP"],"10":["Executive Program"]}},
+    "L4_L5": {"readiness":{"timeline":"3-6 ปี","checklist":["บริหาร P&L ของธุรกิจ","นำการเปลี่ยนแปลงระดับองค์กร","สร้าง talent pipeline"]},"learning_method":{"70":["นำธุรกิจ/บริษัทย่อย"],"20":["board exposure/coaching"],"10":["Senior Executive / Director (IOD)"]}},
+    "L5_L6": {"readiness":{"timeline":"5+ ปี","checklist":["วิสัยทัศน์ระดับ enterprise","ผลงานต่อเนื่องหลายธุรกิจ","วาง successor ได้"]},"learning_method":{"70":["นำกลุ่มธุรกิจ"],"20":["board & investor engagement"],"10":["Global leadership program"]}}
+  }
+}
