@@ -1,0 +1,175 @@
+{
+  "_meta": {
+    "title": "PCC Group Job Role Architecture — Master Reference",
+    "description": "Single source of truth for shared taxonomies (companies, leadership levels, job families, JE framework). Reconciled from Job_Role_Architecture_PreciseGroup.xlsx + 196 live JD .docx files. Supersedes the company/level/JE definitions previously held in CLAUDE.md, HANDOFF_TO_NEW_CLAUDE.md, memory/context/pcc-group.md and Knowledge/PCC_JD_System_Reference.md where they disagree.",
+    "version": "0.1.0-draft",
+    "phase": "Phase 0 — Foundation",
+    "generated": "2026-06-15",
+    "owner": "Earth (HR Strategy)",
+    "status": "DRAFT — pending HR confirmation of items in open_decisions[]"
+  },
+
+  "companies": [
+    { "code": "GRP", "name_en": "PCC Group Common", "name_th": "ใช้ร่วมทุกบริษัทในกลุ่ม", "type": "common", "business": "Common / shared JDs usable across the group", "color": "#1e40af" },
+    { "code": "PCC", "name_en": "Precise Corporation PCL", "name_th": "บริษัท พรีไซซ คอร์ปอเรชั่น จำกัด (มหาชน)", "type": "holding", "business": "Group Holding Company / Corporate functions (SET: PCC)", "color": "#b45309" },
+    { "code": "PEM", "name_en": "Precise Electric Manufacturing", "name_th": "ผลิตอุปกรณ์ไฟฟ้า", "type": "operating", "business": "Electrical Equipment Manufacturing — 7 Product BUs (Solar / Switchgear / Cable etc.)", "color": "#065f46" },
+    { "code": "PSP", "name_en": "Precise System & Project", "name_th": "ระบบและโครงการ", "type": "operating", "business": "Smart Grid / EPC / Digital Engineering (Power System, AMI, HQPMS, TCS)", "color": "#6d28d9" },
+    { "code": "PDE", "name_en": "Precise Digital Economy", "name_th": "ดิจิทัลอีโคโนมี", "type": "operating", "business": "IT / AI / Software / Digital Solutions (Software Dev, AI-LLM, Data Gov, ICT Cybersec)", "color": "#0369a1" },
+    { "code": "PSL", "name_en": "Precise Smart Life", "name_th": "สมาร์ทไลฟ์ (ไม้ไผ่/เกษตรชีวภาพ)", "type": "operating", "business": "Bamboo Supply Chain / Agri-Biotech (Pulp, Micropropagation, Farm, Biochar)", "color": "#9f1239" },
+    { "code": "PPP", "name_en": "Precise Power Producer", "name_th": "ผู้ผลิตไฟฟ้า (Holding)", "type": "holding", "business": "Renewable Energy Investment Holding", "owns": ["PCE", "PEP", "TSP1", "TSP2", "SBP", "SKB", "SBF", "NSPC"], "color": "#0f766e" },
+    { "code": "SBP", "name_en": "Songkhla Biopower", "name_th": "สงขลาไบโอเพาเวอร์", "type": "operating", "business": "Biomass Power Plant Operations (Power Plant Ops, Woodchip/Biomass fuel)", "color": "#7c2d12" },
+    { "code": "PCE", "name_en": "Precise Clean Energy", "name_th": "พลังงานสะอาด", "type": "operating", "business": "Total Customer Solution / Solar EPC (Sales & Ops, Engineering Solution, Project Mgmt)", "color": "#4d7c0f" }
+  ],
+
+  "leadership_levels": [
+    { "code": "F1", "label_en": "Non-Staff Track", "label_th": "สายปฏิบัติการ (Non-Staff)", "je_min": 25, "je_max": 42, "role": "Frontline / Vocational (ปวช./ปวส.)", "typical_titles": ["Operator", "Technician", "Driver", "Messenger"], "folder": "Non-Staff Track F1" },
+    { "code": "L1", "label_en": "Manage Self", "label_th": "ดูแลตนเอง", "je_min": 44, "je_max": 60, "role": "Officer ระดับปฏิบัติการ", "typical_titles": ["Officer", "Staff", "Specialist"], "folder": "Level 1 Manage Self" },
+    { "code": "L2", "label_en": "Manage Others", "label_th": "ดูแลผู้อื่น", "je_min": 65, "je_max": 75, "role": "Supervisor / Team Lead", "typical_titles": ["Senior", "Supervisor", "Section Manager"], "folder": "Level 2 Manage Other" },
+    { "code": "L3", "label_en": "Manage Function", "label_th": "ดูแล Function", "je_min": 88, "je_max": 102, "role": "Manager / ผู้จัดการ", "typical_titles": ["Manager", "Head of Section"], "folder": "Level 3 Manage Function" },
+    { "code": "L4", "label_en": "Manage Business", "label_th": "ดูแล Business Unit", "je_min": 118, "je_max": 128, "role": "Director / VP / BU Head", "typical_titles": ["Director", "Division Head", "Business Manager"], "folder": "Level 4 Manage Business" },
+    { "code": "L5", "label_en": "Manage Group of Business", "label_th": "ดูแลกลุ่มธุรกิจ", "je_min": 162, "je_max": 185, "role": "SVP / C-Suite Function Head / รองกรรมการผู้จัดการ", "typical_titles": ["CEO/CFO/CTO/COO (Subsidiary)", "VP", "Deputy CEO"], "folder": "Level 5 Manage Group of Business" },
+    { "code": "L6", "label_en": "Manage Enterprise", "label_th": "ดูแล Enterprise", "je_min": 190, "je_max": 200, "role": "Group CEO / President / กรรมการผู้จัดการ", "typical_titles": ["Group CEO", "President", "Chairman"], "folder": "Level 6 Manage Enterprise" }
+  ],
+
+  "job_code_format": {
+    "pattern": "[Company]-[FamilyCode]-[RoleCode]-[Level]",
+    "examples": ["PCC-IAD-IAM-L3", "GRP-SVS-DVR-F1", "GRP-HR-HRO-L1"],
+    "filename_pattern": "[JobCode]_[TitleEN]_[Company]_v[version].docx"
+  },
+
+  "consolidated_families": [
+    { "id": "fin", "name_en": "Finance & Accounting", "icon": "💰" },
+    { "id": "hr", "name_en": "Human Resources", "icon": "👥" },
+    { "id": "scm", "name_en": "Supply Chain & Procurement", "icon": "📦" },
+    { "id": "ops", "name_en": "Operations & Maintenance", "icon": "⚙️" },
+    { "id": "eng", "name_en": "Engineering & Technical", "icon": "🔧" },
+    { "id": "sal", "name_en": "Sales, Marketing & Customer", "icon": "📈" },
+    { "id": "it", "name_en": "IT & Technology", "icon": "💻" },
+    { "id": "dig", "name_en": "Digital & AI Transformation", "icon": "🤖" },
+    { "id": "pmo", "name_en": "Project Management", "icon": "📋" },
+    { "id": "qse", "name_en": "Quality, Safety & ESG", "icon": "✅" },
+    { "id": "rnd", "name_en": "R&D & Innovation", "icon": "🔬" },
+    { "id": "grc", "name_en": "Governance, Risk & Compliance", "icon": "🛡️" },
+    { "id": "bds", "name_en": "Business Development & Strategy", "icon": "🎯" },
+    { "id": "exe", "name_en": "Executive Management", "icon": "👔" },
+    { "id": "gss", "name_en": "General Support Services", "icon": "🧰" }
+  ],
+
+  "job_family_codes": {
+    "_note": "Every family code currently observed across the 196 live JDs, mapped to a consolidated family. Codes flagged with alias_of are synonyms recommended for normalization (see open_decisions D4) but NOT yet renamed — existing job codes are preserved.",
+    "FIN":   { "name_en": "Finance & Accounting", "consolidated": "fin" },
+    "HR":    { "name_en": "Human Resources", "consolidated": "hr" },
+    "SCM":   { "name_en": "Supply Chain & Procurement", "consolidated": "scm" },
+    "OPS":   { "name_en": "Operations", "consolidated": "ops" },
+    "OPM":   { "name_en": "Operations & Maintenance (Manufacturing)", "consolidated": "ops" },
+    "PWR":   { "name_en": "Power Plant Operations", "consolidated": "ops", "alias_of": "OPS" },
+    "FAC":   { "name_en": "Facility Management", "consolidated": "ops" },
+    "ENG":   { "name_en": "Engineering", "consolidated": "eng" },
+    "TEC":   { "name_en": "Technology / Engineering", "consolidated": "eng", "alias_of": "ENG" },
+    "TECH":  { "name_en": "Technology (Digital Business Analyst / CTO)", "consolidated": "eng", "note": "overloaded: used for DBA (digital) and CTO (executive)" },
+    "SALES": { "name_en": "Sales", "consolidated": "sal" },
+    "SAL":   { "name_en": "Sales", "consolidated": "sal", "alias_of": "SALES" },
+    "MKT":   { "name_en": "Marketing", "consolidated": "sal" },
+    "CX":    { "name_en": "Customer Experience", "consolidated": "sal" },
+    "COM":   { "name_en": "Commercial / Contract", "consolidated": "sal" },
+    "IT":    { "name_en": "Information Technology", "consolidated": "it" },
+    "OD":    { "name_en": "Organization Development (Digital)", "consolidated": "it", "note": "ambiguous: could map to dig" },
+    "AI":    { "name_en": "Agentic AI Capital", "consolidated": "dig" },
+    "DT":    { "name_en": "Digital Transformation", "consolidated": "dig" },
+    "DIG":   { "name_en": "Digital / Automation", "consolidated": "dig" },
+    "DATA":  { "name_en": "Data & Analytics", "consolidated": "dig" },
+    "PMO":   { "name_en": "Project Management Office", "consolidated": "pmo" },
+    "QA":    { "name_en": "Quality Assurance", "consolidated": "qse" },
+    "ESG":   { "name_en": "ESG & Sustainability", "consolidated": "qse" },
+    "HSE":   { "name_en": "Health, Safety & Environment", "consolidated": "qse" },
+    "RND":   { "name_en": "R&D & Innovation", "consolidated": "rnd" },
+    "IAD":   { "name_en": "Internal Audit Department", "consolidated": "grc" },
+    "LRC":   { "name_en": "Legal & Regulatory Compliance", "consolidated": "grc" },
+    "LEGAL": { "name_en": "Legal / Company Secretary", "consolidated": "grc", "alias_of": "LRC" },
+    "RCM":   { "name_en": "Risk & Compliance Management", "consolidated": "grc" },
+    "GV":    { "name_en": "Governance & Investor Relations", "consolidated": "grc" },
+    "BD":    { "name_en": "Business Development", "consolidated": "bds" },
+    "BIZ":   { "name_en": "Business / Solutions", "consolidated": "bds", "alias_of": "BD" },
+    "STR":   { "name_en": "Strategy", "consolidated": "bds" },
+    "INV":   { "name_en": "Investment", "consolidated": "bds" },
+    "MGT":   { "name_en": "Management / Executive", "consolidated": "exe" },
+    "SVS":   { "name_en": "General Support Services", "consolidated": "gss" }
+  },
+
+  "je_framework": {
+    "items": 30,
+    "per_item_scale": { "min": 1, "max": 5, "_flag": "Live L5/L6 JDs reach 162-200 which is impossible on 30 items x (1-5)=150. The per-item max and/or weighting was revised after the March-2026 criteria doc. CONFIRM actual scale — see open_decisions D2." },
+    "observed_total_range": { "min": 25, "max": 200 },
+    "criteria_doc": "Knowledge/2. คำบรรยายเกณฑ์การประเมินค่างาน Job Evaluation ทั้ง 30 ข้อ.r7.docx",
+    "dimensions": [
+      { "n": 1, "name_th": "ระดับความท้าทายของงาน ผลกระทบ และความซับซ้อน", "group": "งาน" },
+      { "n": 2, "name_th": "จำนวนผู้ใต้บังคับบัญชา", "group": "คน" },
+      { "n": 3, "name_th": "การทำงานร่วมกับผู้อื่น (Working Relationship)", "group": "คน" },
+      { "n": 4, "name_th": "วุฒิการศึกษา", "group": "คุณสมบัติ" },
+      { "n": 5, "name_th": "ประสบการณ์และคุณลักษณะเฉพาะ", "group": "คุณสมบัติ" },
+      { "n": 6, "name_th": "การสร้างสรรค์และนวัตกรรม", "group": "ทักษะ" },
+      { "n": 7, "name_th": "การประยุกต์ความรู้และจัดการปัญหา", "group": "ทักษะ" },
+      { "n": 8, "name_th": "ความรู้ความชำนาญเชิงเทคนิค", "group": "ทักษะ" },
+      { "n": 9, "name_th": "การทำงานเป็นทีมและประสานงาน", "group": "ทักษะ" },
+      { "n": 10, "name_th": "การให้ความสำคัญกับคุณภาพและความถูกต้อง", "group": "ทักษะ" },
+      { "n": 11, "name_th": "การสื่อสาร-การนำเสนอ", "group": "ทักษะ" },
+      { "n": 12, "name_th": "การวางแผนและการจัดการ", "group": "บริหาร" },
+      { "n": 13, "name_th": "การแก้ปัญหาและตัดสินใจ", "group": "บริหาร" },
+      { "n": 14, "name_th": "ภาวะผู้นำและการจูงใจ", "group": "บริหาร" },
+      { "n": 15, "name_th": "อิสระในการทำงาน การมอบหมาย การกำหนดทิศทาง", "group": "บริหาร" },
+      { "n": 16, "name_th": "ความสามารถทางกายและความเสี่ยงภัย", "group": "สภาพงาน" },
+      { "n": 17, "name_th": "มูลค่าทรัพย์สินในการดูแล", "group": "ความรับผิดชอบ" },
+      { "n": 18, "name_th": "การบันทึก สถิติ รายงานวิเคราะห์ และจัดการข้อมูล", "group": "ความรับผิดชอบ" },
+      { "n": 19, "name_th": "ความเครียดและสภาพแวดล้อม", "group": "สภาพงาน" },
+      { "n": 20, "name_th": "การใช้และบำรุงรักษาอุปกรณ์ เครื่องมือ", "group": "สภาพงาน" },
+      { "n": 21, "name_th": "รูปแบบรายงานและข้อมูลการบริหารในความรับผิดชอบ", "group": "ความรับผิดชอบ" },
+      { "n": 22, "name_th": "กรอบวงเงินในความรับผิดชอบ", "group": "ความรับผิดชอบ" },
+      { "n": 23, "name_th": "การตัดสินใจสำคัญทางการบริหารในกรณีพิเศษ/เร่งด่วน", "group": "บริหาร" },
+      { "n": 24, "name_th": "ลักษณะความชำนาญพิเศษ/ความสามารถเฉพาะตำแหน่ง", "group": "ทักษะ" },
+      { "n": 25, "name_th": "การวางแผนงาน อนาคต การเปลี่ยนแปลง และงบประมาณ", "group": "บริหาร" },
+      { "n": 26, "name_th": "การจัดองค์กร อัตรากำลัง และการบริหารทรัพยากรมนุษย์", "group": "บริหาร" },
+      { "n": 27, "name_th": "การควบคุมงาน การบริหารผลงาน และการให้แนวทางพัฒนา", "group": "บริหาร" },
+      { "n": 28, "name_th": "การเป็นตัวแทนบริษัทและการเจรจากับภายนอก", "group": "ความรับผิดชอบ" },
+      { "n": 29, "name_th": "การออกแบบงานใหม่ พัฒนาระบบ บริหารโครงการ", "group": "บริหาร" },
+      { "n": 30, "name_th": "ระดับความรับผิดชอบต่อผู้มีส่วนได้ส่วนเสีย (Stakeholders)", "group": "ความรับผิดชอบ" }
+    ]
+  },
+
+  "open_decisions": [
+    {
+      "id": "D1",
+      "title": "Company list confirmed at 9",
+      "status": "RESOLVED (pending final HR sign-off)",
+      "detail": "Adopted the 9-company list that matches the 196 live JDs + Excel registry. Retired PCT / PCR / PEP and the 'PEM = Energy & Mining' definition that were stale in HANDOFF/CLAUDE/memory.",
+      "action": "Update CLAUDE.md, HANDOFF_TO_NEW_CLAUDE.md, memory/context/pcc-group.md to match this file."
+    },
+    {
+      "id": "D2",
+      "title": "JE per-item scale / theoretical max needs confirmation",
+      "status": "OPEN — needs HR",
+      "detail": "Criteria doc (Mar 2026) states 30 items x (1-5) = max 150 across 5 levels. Live data uses 7 levels with totals up to ~200 (L5 162-185, L6 190+), which is impossible on a 1-5 scale. The scoring mechanism was revised but the criteria doc / Reference.md were not updated.",
+      "action": "Confirm the live per-item scale (e.g. 1-7, or weighting) and update the JE criteria doc + reference.json."
+    },
+    {
+      "id": "D3",
+      "title": "Duplicate L5 file — PCC-DT-VPDT-L5",
+      "status": "OPEN — recommend retire v1.0",
+      "detail": "Active/Level 5 contains both PCC-DT-VPDT-L5 v1.0 (VP Digital Transformation) and v2.0 (VP Intellectual Capital Development). Same job code, two files. Active folder has 196 files but ~195 unique job codes.",
+      "action": "Move v1.0 to Inactive/ ; keep v2.0 as the live record."
+    },
+    {
+      "id": "D4",
+      "title": "Family-code normalization",
+      "status": "OPEN — proposal only",
+      "detail": "Same function uses different codes across companies (SALES/SAL/MKT/CX/COM, ENG/TEC/TECH, LRC/LEGAL, BD/BIZ/STR/INV, OPS/PWR/OPM/FAC). job_family_codes maps all of them today; alias_of marks recommended merges. Renaming changes existing job codes/filenames, so defer to a Phase-1 migration decision.",
+      "action": "HR to approve a canonical family-code set before any rename."
+    },
+    {
+      "id": "D5",
+      "title": "Structural gaps",
+      "status": "INFO",
+      "detail": "PCC Corporate has no L4 (jumps L3 -> DCEO L5). Only 1 L6 role exists. No L4 in the Agentic-AI track (AI Capital Director).",
+      "action": "Backlog for architecture expansion (not blocking)."
+    }
+  ]
+}

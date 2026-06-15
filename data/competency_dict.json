@@ -1,0 +1,41 @@
+{
+  "_meta": {
+    "title": "Competency Dictionary",
+    "schema": "schema/competency_dict.schema.json",
+    "version": "0.1.0-draft",
+    "status": "DRAFT — seeded from JE 30-item framework (reference.json#/je_framework). Review category/labels with HR.",
+    "usage": "Set required levels per role in job_role.specs.competency_targets; rate people in person.competencies; the evaluation engine compares the two."
+  },
+  "version": "0.1.0-draft",
+  "scale": {
+    "min": 1,
+    "max": 5,
+    "anchors": {
+      "1": "Awareness / basic",
+      "2": "Working / applies with guidance",
+      "3": "Proficient / independent",
+      "4": "Advanced / coaches others",
+      "5": "Expert / sets direction"
+    }
+  },
+  "competencies": [
+    { "id": "challenge_complexity", "name_en": "Job Challenge & Complexity", "name_th": "ความท้าทายและความซับซ้อนของงาน", "category": "core", "je_items": [1] },
+    { "id": "team_leadership", "name_en": "Team Leadership & Motivation", "name_th": "ภาวะผู้นำและการจูงใจทีม", "category": "managerial", "je_items": [2, 14] },
+    { "id": "working_relationship", "name_en": "Collaboration & Relationships", "name_th": "การทำงานร่วมและสร้างความสัมพันธ์", "category": "core", "je_items": [3, 9] },
+    { "id": "education_qual", "name_en": "Education Qualification", "name_th": "วุฒิการศึกษา", "category": "qualification", "je_items": [4] },
+    { "id": "experience_qual", "name_en": "Experience & Specialisation", "name_th": "ประสบการณ์และคุณลักษณะเฉพาะ", "category": "qualification", "je_items": [5] },
+    { "id": "innovation", "name_en": "Creativity & Innovation", "name_th": "การสร้างสรรค์และนวัตกรรม", "category": "core", "je_items": [6] },
+    { "id": "problem_solving", "name_en": "Problem Solving & Decision Making", "name_th": "การแก้ปัญหาและตัดสินใจ", "category": "core", "je_items": [7, 13] },
+    { "id": "technical_expertise", "name_en": "Technical Expertise", "name_th": "ความชำนาญเชิงเทคนิคเฉพาะตำแหน่ง", "category": "technical", "je_items": [8, 24] },
+    { "id": "quality_focus", "name_en": "Quality & Accuracy", "name_th": "การให้ความสำคัญกับคุณภาพและความถูกต้อง", "category": "core", "je_items": [10] },
+    { "id": "communication", "name_en": "Communication & Presentation", "name_th": "การสื่อสารและการนำเสนอ", "category": "core", "je_items": [11] },
+    { "id": "planning_mgmt", "name_en": "Planning & Management", "name_th": "การวางแผนและการจัดการ", "category": "managerial", "je_items": [12, 25] },
+    { "id": "autonomy", "name_en": "Autonomy & Direction-setting", "name_th": "อิสระในการทำงานและการกำหนดทิศทาง", "category": "managerial", "je_items": [15] },
+    { "id": "data_analytics", "name_en": "Data, Reporting & Analytics", "name_th": "การจัดการข้อมูลและการวิเคราะห์รายงาน", "category": "technical", "je_items": [18, 21] },
+    { "id": "budget_responsibility", "name_en": "Budget & Financial Responsibility", "name_th": "ความรับผิดชอบด้านงบประมาณ", "category": "managerial", "je_items": [22] },
+    { "id": "people_org_mgmt", "name_en": "People & Organisation Management", "name_th": "การบริหารคนและองค์กร", "category": "managerial", "je_items": [26, 27] },
+    { "id": "external_representation", "name_en": "External Representation & Negotiation", "name_th": "การเป็นตัวแทนและเจรจากับภายนอก", "category": "managerial", "je_items": [28] },
+    { "id": "project_systems_design", "name_en": "Systems & Project Design", "name_th": "การออกแบบงาน/ระบบและบริหารโครงการ", "category": "technical", "je_items": [29] },
+    { "id": "stakeholder_responsibility", "name_en": "Stakeholder Responsibility", "name_th": "ความรับผิดชอบต่อผู้มีส่วนได้ส่วนเสีย", "category": "core", "je_items": [30] }
+  ]
+}

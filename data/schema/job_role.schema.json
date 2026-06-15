@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pccjobdesign/schema/job_role.schema.json",
+  "title": "Job Role",
+  "description": "One canonical Job Description record. The array of these (data/job_roles.json) is the SINGLE SOURCE OF TRUTH. The .docx in jds/ is generated output, not master.",
+  "type": "object",
+  "required": ["code", "title_en", "company", "family_code", "level", "je_score", "status"],
+  "additionalProperties": false,
+  "properties": {
+    "code": { "type": "string", "pattern": "^[A-Z]{3}-[A-Z0-9]+-[A-Z0-9-]+-(F1|L[1-6])$", "description": "[Company]-[FamilyCode]-[RoleCode]-[Level]" },
+    "title_en": { "type": "string" },
+    "title_th": { "type": "string" },
+    "company": { "type": "string", "description": "Company code from reference.json#/companies" },
+    "family_code": { "type": "string", "description": "Family code from reference.json#/job_family_codes" },
+    "level": { "type": "string", "enum": ["F1", "L1", "L2", "L3", "L4", "L5", "L6"] },
+    "je_score": { "type": "integer", "minimum": 25, "maximum": 200 },
+    "je_breakdown": {
+      "type": "array",
+      "description": "Per-item JE scores, index 0 = item 1 .. index 29 = item 30 (see reference.json#/je_framework).",
+      "items": { "type": "integer", "minimum": 1 },
+      "minItems": 30,
+      "maxItems": 30
+    },
+    "purpose_th": { "type": "string", "description": "Job Purpose — why the org needs this role." },
+    "krs": {
+      "type": "array",
+      "description": "Key Responsibilities. weight_pct should sum to 100.",
+      "items": {
+        "type": "object",
+        "required": ["name_th"],
+        "additionalProperties": false,
+        "properties": {
+          "seq": { "type": "integer" },
+          "name_th": { "type": "string" },
+          "name_en": { "type": "string" },
+          "expected_th": { "type": "string", "description": "ผลที่คาดหวัง" },
+          "kpis": { "type": "array", "items": { "type": "string" } },
+          "weight_pct": { "type": "number", "minimum": 0, "maximum": 100 }
+        }
+      }
+    },
+    "specs": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "education": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "level": { "type": "string", "enum": ["Vocational", "Bachelor", "Master", "PhD"] },
+            "field": { "type": "string" }
+          }
+        },
+        "experience": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "min_years": { "type": "number" },
+            "note": { "type": "string" }
+          }
+        },
+        "skills": { "type": "array", "items": { "type": "string" } },
+        "competency_targets": {
+          "type": "object",
+          "description": "Optional: required level per competency id (competency_dict.json). Enables person<->JD matching for hiring/gap/promotion.",
+          "additionalProperties": { "type": "integer", "minimum": 1, "maximum": 5 }
+        },
+        "languages": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "english": { "type": "string", "enum": ["Low", "Medium", "High"] },
+            "note": { "type": "string" }
+          }
+        },
+        "digital": { "type": "array", "items": { "type": "string" } },
+        "certs": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "report_to": { "type": "string", "description": "Job code of the reporting line, if known." },
+    "unit_type": { "type": "string", "enum": ["Operation", "Support"] },
+    "status": { "type": "string", "enum": ["active", "inactive", "draft"] },
+    "version": { "type": "string" },
+    "source_docx": { "type": "string", "description": "Filename of the generated .docx artifact." },
+    "updated": { "type": "string", "format": "date" }
+  }
+}

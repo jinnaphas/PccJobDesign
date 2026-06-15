@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pccjobdesign/schema/person.schema.json",
+  "title": "Person Profile",
+  "description": "Unified profile for an external candidate OR a current employee. Same schema powers all three evaluation modes (hiring / gap-closing / promotion). NOTE: employee data does not exist yet — this schema defines the collection format to build going forward.",
+  "type": "object",
+  "required": ["id", "name", "type"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "type": { "type": "string", "enum": ["candidate", "employee"] },
+    "source_file": { "type": "string", "description": "Resume PDF / HRIS export reference." },
+    "current_role_code": { "type": ["string", "null"], "description": "Employee: their current JD code (job_roles.json). Candidate: null." },
+    "target_role_codes": { "type": "array", "items": { "type": "string" }, "description": "JD code(s) being matched against (target / next-level role)." },
+    "demographics": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "age": { "type": ["integer", "null"] },
+        "current_salary": { "type": ["string", "number", "null"] },
+        "expected_salary": { "type": ["string", "number", "null"] }
+      }
+    },
+    "education": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "level": { "type": "string", "enum": ["Vocational", "Bachelor", "Master", "PhD"] },
+        "field": { "type": "string" }
+      }
+    },
+    "experience": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "total_years": { "type": "number" },
+        "relevant_years": { "type": "number" }
+      }
+    },
+    "certs": { "type": "array", "items": { "type": "string" } },
+    "languages": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": { "english": { "type": "string", "enum": ["Low", "Medium", "High"] } }
+    },
+    "digital_tools": { "type": "array", "items": { "type": "string" } },
+    "competencies": {
+      "type": "object",
+      "description": "Self/manager-rated level per competency id (competency_dict.json), scale 1-5. The common axis used to match against a JD's competency_targets.",
+      "additionalProperties": { "type": "integer", "minimum": 1, "maximum": 5 }
+    },
+    "performance": {
+      "type": "object",
+      "description": "Employees only — feeds promotion readiness.",
+      "additionalProperties": false,
+      "properties": {
+        "rating": { "type": "string" },
+        "year": { "type": "integer" }
+      }
+    },
+    "evaluation": {
+      "type": "object",
+      "description": "Computed by the evaluation engine against a target_role_code. Stored for display.",
+      "additionalProperties": false,
+      "properties": {
+        "target_role_code": { "type": "string" },
+        "mode": { "type": "string", "enum": ["hiring", "gap_closing", "promotion"] },
+        "scores": {
+          "type": "object",
+          "additionalProperties": { "type": "number", "minimum": 0, "maximum": 100 }
+        },
+        "kr_alignment": {
+          "type": "object",
+          "additionalProperties": { "type": "number", "minimum": 0, "maximum": 100 }
+        },
+        "overall_pct": { "type": "number", "minimum": 0, "maximum": 100 },
+        "recommendation": { "type": "string", "enum": ["Proceed", "Consider", "Not Suitable", "On Target", "Minor Gap", "Major Gap", "Ready", "Develop", "Not Ready"], "description": "Band label from scoring_model.json per mode: hiring=Proceed/Consider/Not Suitable, gap_closing=On Target/Minor Gap/Major Gap, promotion=Ready/Develop/Not Ready." },
+        "key_strengths": { "type": "array", "items": { "type": "string" } },
+        "key_gaps": { "type": "array", "items": { "type": "string" } },
+        "recommended_jds": { "type": "array", "items": { "type": "string" } },
+        "development_actions": { "type": "array", "items": { "type": "string" }, "description": "Gap-closing / promotion development plan." },
+        "interview_focus": { "type": "array", "items": { "type": "string" } },
+        "notes": { "type": "string" }
+      }
+    }
+  }
+}

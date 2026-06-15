@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pccjobdesign/schema/career_overlay.schema.json",
+  "title": "Career Overlay",
+  "description": "Career-Path-specific data layered ON TOP of job_roles.json (kept separate so the JD core stays clean). Consumed by career_path.html. Transition keys use the form 'F1_L1', 'L1_L2', ...",
+  "type": "object",
+  "required": ["version"],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "type": "string" },
+    "bridges": {
+      "type": "object",
+      "description": "family id -> adjacent family ids a person can realistically move into.",
+      "additionalProperties": { "type": "array", "items": { "type": "string" } }
+    },
+    "ai_risk": {
+      "type": "object",
+      "description": "family id -> automation risk.",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "score": { "type": "number" },
+          "label": { "type": "string", "enum": ["Low", "Medium", "High"] },
+          "reason": { "type": "string" }
+        }
+      }
+    },
+    "role_evolution": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "y3": { "type": "string" },
+          "y5": { "type": "string" },
+          "emerging": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "transitions": {
+      "type": "object",
+      "description": "Level-transition data keyed by 'FROM_TO' (e.g. 'L1_L2').",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "readiness": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "timeline": { "type": "string" },
+              "checklist": { "type": "array", "items": { "type": "string" } }
+            }
+          },
+          "hipo": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "standard": { "type": "string" },
+              "fast": { "type": "string" },
+              "criteria": { "type": "array", "items": { "type": "string" } }
+            }
+          },
+          "skills": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "have": { "type": "array", "items": { "type": "string" } },
+              "develop": { "type": "array", "items": { "type": "string" } }
+            }
+          },
+          "learning_method": {
+            "type": "object",
+            "description": "70-20-10 development mix.",
+            "additionalProperties": false,
+            "properties": {
+              "70": { "type": "array", "items": { "type": "string" } },
+              "20": { "type": "array", "items": { "type": "string" } },
+              "10": { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        }
+      }
+    },
+    "certs": {
+      "type": "object",
+      "description": "family id -> recommended certifications.",
+      "additionalProperties": { "type": "array", "items": { "type": "string" } }
+    },
+    "fam_knowledge": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "domain": { "type": "array", "items": { "type": "string" } },
+          "tools": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    }
+  }
+}
