@@ -1,160 +1,92 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PCC People Architecture Portal</title>
+<link rel="stylesheet" href="shared.css">
 <style>
-  :root{
-    --navy:#1F3864; --blue:#2E5F9E; --bg:#eef2f8; --card:#fff;
-    --text:#1a2230; --muted:#5b6677; --border:#d8e0ee; --ok:#1a7f5a; --warn:#b87c00; --crit:#c0392b;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:'Sarabun','Segoe UI',Tahoma,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
-  /* top nav */
-  .nav{position:sticky;top:0;z-index:10;background:var(--navy);color:#fff;display:flex;align-items:center;
-       gap:18px;padding:12px 22px;box-shadow:0 2px 10px rgba(0,0,0,.15)}
-  .brand{font-weight:800;font-size:15px;letter-spacing:.3px;display:flex;align-items:center;gap:8px}
-  .brand .dot{width:14px;height:14px;border-radius:4px;background:linear-gradient(135deg,#7eb3f5,#3b82f6)}
-  .nav .links{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
-  .nav .links a{color:#dce7f7;text-decoration:none;font-size:13px;padding:6px 12px;border-radius:7px}
-  .nav .links a:hover,.nav .links a.active{background:rgba(255,255,255,.14);color:#fff}
-  .nav .lang{margin-left:8px;font-size:12px;border:1px solid rgba(255,255,255,.35);border-radius:6px;padding:4px 9px;color:#fff;background:none;cursor:pointer}
-  /* hero */
-  .wrap{max-width:1100px;margin:0 auto;padding:26px 22px}
-  .hero{background:linear-gradient(120deg,var(--navy),var(--blue));color:#fff;border-radius:16px;padding:26px 28px;margin-bottom:22px}
-  .hero h1{font-size:24px;font-weight:800;margin-bottom:6px}
-  .hero p{opacity:.9;font-size:14px}
-  .chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
-  .chip{background:rgba(255,255,255,.16);border-radius:20px;padding:6px 14px;font-size:13px;font-weight:600}
-  /* module cards */
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:16px}
-  .card{background:var(--card);border:1.5px solid var(--border);border-radius:14px;padding:18px 18px 16px;
-        text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:8px;transition:.15s;position:relative;overflow:hidden}
-  .card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(31,56,100,.13);border-color:var(--blue)}
-  .card .ic{font-size:30px}
-  .card h3{font-size:16px;font-weight:800}
-  .card .d{font-size:12.5px;color:var(--muted);min-height:34px}
-  .card .meta{font-size:11.5px;color:var(--blue);font-weight:700;margin-top:2px}
-  .badge{position:absolute;top:12px;right:12px;font-size:10px;font-weight:700;padding:3px 8px;border-radius:20px}
-  .b-live{background:#e6f7f0;color:var(--ok)} .b-soon{background:#eef1f6;color:var(--muted)}
-  .bar{width:100%;height:5px;border-radius:3px;background:#eef1f6;margin-top:6px;overflow:hidden}
-  .bar i{display:block;height:100%;border-radius:3px}
-  /* data health */
-  .section-title{font-size:13px;font-weight:800;color:var(--navy);margin:26px 0 10px;text-transform:uppercase;letter-spacing:.6px}
+  .hero{background:linear-gradient(120deg,var(--navy),var(--blue));color:#fff;border-radius:16px;padding:24px 26px;margin-bottom:22px}
+  .hero h1{font-size:23px;font-weight:800;margin-bottom:6px}
+  .hero p{opacity:.92;font-size:13.5px}
+  .hchips{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}
+  .hchips span{background:rgba(255,255,255,.16);border-radius:20px;padding:6px 14px;font-size:12.5px;font-weight:600}
+  .mods{display:grid;grid-template-columns:repeat(auto-fit,minmax(225px,1fr));gap:15px}
+  .card{background:var(--card);border:1.5px solid var(--border);border-radius:14px;padding:17px;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:7px;transition:.15s;position:relative}
+  .card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--blue)}
+  .card .ic{font-size:28px}.card h3{font-size:15.5px;font-weight:800}
+  .card .d{font-size:12.5px;color:var(--muted);min-height:48px}
+  .card .meta{font-size:11.5px;color:var(--blue);font-weight:700}
+  .badge{position:absolute;top:12px;right:12px;font-size:10px;font-weight:700;padding:3px 8px;border-radius:20px;background:#e6f7f0;color:var(--ok)}
+  .bar2{width:100%;height:5px;border-radius:3px;background:#eef1f6;margin-top:6px;overflow:hidden}.bar2 i{display:block;height:100%}
+  .st{font-size:13px;font-weight:800;color:var(--navy);margin:24px 0 10px;text-transform:uppercase;letter-spacing:.6px}
   .health{display:flex;gap:12px;flex-wrap:wrap}
-  .h{background:var(--card);border:1.5px solid var(--border);border-radius:12px;padding:12px 16px;flex:1;min-width:150px}
-  .h .n{font-size:24px;font-weight:800}.h .l{font-size:11.5px;color:var(--muted)}
-  .h.ok .n{color:var(--ok)} .h.warn .n{color:var(--warn)} .h.crit .n{color:var(--crit)}
-  /* company legend */
+  .h{background:var(--card);border:1.5px solid var(--border);border-radius:12px;padding:12px 16px;flex:1;min-width:130px}
+  .h .n{font-size:23px;font-weight:800}.h .l{font-size:11.5px;color:var(--muted)}
+  .h.ok .n{color:var(--ok)}.h.warn .n{color:var(--warn)}.h.crit .n{color:var(--crit)}
   .legend{display:flex;gap:8px;flex-wrap:wrap}
-  .co{display:flex;align-items:center;gap:7px;background:var(--card);border:1.5px solid var(--border);
-      border-radius:9px;padding:6px 11px;font-size:12px}
+  .co{display:flex;align-items:center;gap:7px;background:var(--card);border:1.5px solid var(--border);border-radius:9px;padding:6px 11px;font-size:12px}
   .co .sw{width:13px;height:13px;border-radius:4px}
-  footer{max-width:1100px;margin:18px auto 30px;padding:0 22px;font-size:12px;color:var(--muted)}
   .note{font-size:11.5px;color:var(--muted);margin-top:8px}
 </style>
 </head>
 <body>
-  <div class="nav">
-    <div class="brand"><span class="dot"></span> PCC People Architecture</div>
-    <div class="links">
-      <a class="active" href="index.html">Hub</a>
-      <a href="library.html">Library</a>
-      <a href="career.html">Career</a>
-      <a href="evaluate.html">Evaluate</a>
-      <a href="admin.html">Admin</a>
-    </div>
-    <button class="lang" id="lang">EN</button>
+<div id="nav"></div>
+<div class="wrap">
+  <div class="hero">
+    <h1 id="h-title"></h1><p id="h-sub"></p>
+    <div class="hchips" id="hchips"></div>
   </div>
-
-  <div class="wrap">
-    <div class="hero">
-      <h1>PCC People Architecture Portal</h1>
-      <p>Job Role Library เป็นศูนย์กลางข้อมูล — ป้อนต่อให้ Career Path และการประเมินคน · single source of truth</p>
-      <div class="chips">
-        <span class="chip" id="c-roles">196 Job Roles</span>
-        <span class="chip">9 Companies</span>
-        <span class="chip">F1–L6 Pipeline</span>
-        <span class="chip">JE 30-item Framework</span>
-      </div>
-    </div>
-
-    <div class="grid">
-      <a class="card" href="library.html">
-        <span class="badge b-live">LIVE</span>
-        <div class="ic">📚</div>
-        <h3>Job Role Library</h3>
-        <div class="d">JD ทั้งหมด · filter บริษัท/ระดับ/สายงาน · drill-down JE + KR + KPI</div>
-        <div class="meta">ศูนย์กลางข้อมูล →</div>
-        <div class="bar"><i style="width:100%;background:#3b82f6"></i></div>
-      </a>
-      <a class="card" href="career.html">
-        <span class="badge b-live">LIVE</span>
-        <div class="ic">🪜</div>
-        <h3>Career Path Explorer</h3>
-        <div class="d">บันไดเติบโต F1→L6 ต่อสายงาน · level transitions · AI risk (ข้อมูลจริง 196 roles)</div>
-        <div class="meta">ต่อยอดจาก Library →</div>
-        <div class="bar"><i style="width:70%;background:#10b981"></i></div>
-      </a>
-      <a class="card" href="evaluate.html">
-        <span class="badge b-live">16 CAND.</span>
-        <div class="ic">🎯</div>
-        <h3>Evaluation</h3>
-        <div class="d">Hiring โหมดใช้งานได้ (16 ผู้สมัครจริง × HCDM-L3) · Gap/Promotion รอข้อมูลพนักงาน</div>
-        <div class="meta">engine เดียว ใช้ JD เป็นเกณฑ์ →</div>
-        <div class="bar"><i style="width:55%;background:#f59e0b"></i></div>
-      </a>
-      <a class="card" href="admin.html">
-        <span class="badge b-live">LIVE</span>
-        <div class="ic">⚙️</div>
-        <h3>Admin / Data Health</h3>
-        <div class="d">สถานะข้อมูล · worklist JE ที่ต้องแก้ · open decisions · แนวทาง authoring</div>
-        <div class="meta">data เป็น master →</div>
-        <div class="bar"><i style="width:100%;background:#8b5cf6"></i></div>
-      </a>
-    </div>
-
-    <div class="section-title">Data Health</div>
-    <div class="health">
-      <div class="h ok"><div class="n" id="h-active">196</div><div class="l">Active roles</div></div>
-      <div class="h warn"><div class="n" id="h-je">4+</div><div class="l">JE tables ต้องทบทวน (ปนเปื้อน)</div></div>
-      <div class="h crit"><div class="n">1</div><div class="l">ไฟล์ซ้ำ (VPDT-L5)</div></div>
-      <div class="h"><div class="n" id="h-pilot">7</div><div class="l">Pilot extracted</div></div>
-    </div>
-    <div class="note" id="hnote">* ตัวเลขจาก Phase 0/1 pilot — ระบบจริงจะอ่านสดจาก <code>data/job_roles.json</code> เมื่อขึ้น GitHub Pages</div>
-
-    <div class="section-title">Companies</div>
-    <div class="legend" id="legend"></div>
-  </div>
-
-  <footer>PCC Group · Job Role Architecture · data v0.1.0-draft · updated 2026-06-15 · <span id="src">static preview</span></footer>
-
+  <div class="mods" id="mods"></div>
+  <div class="st" id="st-health"></div>
+  <div class="health" id="health"></div>
+  <div class="note" id="hnote"></div>
+  <div class="st">Companies</div>
+  <div class="legend" id="legend"></div>
+</div>
+<footer>PCC Group · Job Role Architecture · data v0.1.0-draft · <span id="src">static preview</span></footer>
+<script src="shared.js"></script>
 <script>
-  // company palette (fallback = reference.json#/companies)
-  const COMPANIES=[
-    ["GRP","PCC Group Common","#1e40af"],["PCC","Precise Corporation","#b45309"],
-    ["PEM","Precise Electric Mfg.","#065f46"],["PSP","Precise System & Project","#6d28d9"],
-    ["PDE","Precise Digital Economy","#0369a1"],["PSL","Precise Smart Life","#9f1239"],
-    ["PPP","Precise Power Producer","#0f766e"],["SBP","Songkhla Biopower","#7c2d12"],
-    ["PCE","Precise Clean Energy","#4d7c0f"]
-  ];
-  const lg=document.getElementById('legend');
-  COMPANIES.forEach(([c,n,col])=>{
-    const el=document.createElement('div');el.className='co';
-    el.innerHTML=`<span class="sw" style="background:${col}"></span><b>${c}</b> · ${n}`;
-    lg.appendChild(el);
-  });
-  // language toggle (demo)
-  let en=false; document.getElementById('lang').onclick=e=>{en=!en;e.target.textContent=en?'TH':'EN';};
-  // progressive enhancement: pull live counts if data/ is reachable (on GitHub Pages)
+const th=PCC.lang()==='th';
+const TX={
+ title: th?'PCC People Architecture Portal':'PCC People Architecture Portal',
+ sub: th?'Job Role Library เป็นศูนย์กลางข้อมูล — ป้อนต่อให้ Career Path และการประเมินคน · single source of truth'
+        :'The Job Role Library is the data hub — feeding Career Paths and people evaluation · single source of truth',
+ chips: th?['196 ตำแหน่งงาน','9 บริษัท','สายอาชีพ F1–L6','JE 30 ข้อ']:['196 Job Roles','9 Companies','F1–L6 Pipeline','JE 30-item'],
+ health: th?'สถานะข้อมูล':'Data Health',
+ cards:[
+  ['library.html','📚','#3b82f6',100,'LIVE', th?'คลังตำแหน่งงาน':'Job Role Library', th?'JD ทั้งหมด · กรองบริษัท/ระดับ/สายงาน · เจาะ JE + KR + KPI · ป้าย JE ยืนยัน/รอทบทวน':'All JDs · filter by company/level/family · drill into JE + KR + KPI · verified/under-review badges', th?'ศูนย์กลางข้อมูล →':'data hub →'],
+  ['career.html','🪜','#10b981',75,'LIVE', th?'เส้นทางเติบโต':'Career Path Explorer', th?'บันได F1→L6 ต่อสายงาน · เลื่อนระดับ · AI risk (ข้อมูลจริง 196 ตำแหน่ง)':'F1→L6 ladder per family · transitions · AI risk (real 196 roles)', th?'ต่อยอดจาก Library →':'built on Library →'],
+  ['evaluate.html','🎯','#f59e0b',60,'16 CAND.', th?'ประเมินคน':'Evaluation', th?'โหมด Hiring ใช้ได้ (16 ผู้สมัคร × HCDM-L3) · radar + เทียบผู้สมัคร · Export CSV':'Hiring mode live (16 candidates × HCDM-L3) · radar + compare · CSV export', th?'engine เดียว ใช้ JD เป็นเกณฑ์ →':'one engine, JD as rubric →'],
+  ['admin.html','⚙️','#8b5cf6',100,'LIVE', th?'ข้อมูล / สุขภาพระบบ':'Admin / Data Health', th?'สถานะข้อมูล · worklist JE ที่ต้องแก้ · open decisions · แนวทาง authoring':'data status · JE worklist · open decisions · authoring guide', th?'data เป็น master →':'data is master →']
+ ]
+};
+function boot(){
+  PCC.nav('index');
+  document.getElementById('h-title').textContent=TX.title;
+  document.getElementById('h-sub').textContent=TX.sub;
+  document.getElementById('hchips').innerHTML=TX.chips.map(c=>`<span>${c}</span>`).join('');
+  document.getElementById('st-health').textContent=TX.health;
+  document.getElementById('mods').innerHTML=TX.cards.map(([href,ic,col,pct,badge,t,d,m])=>
+    `<a class="card" href="${href}"><span class="badge">${badge}</span><div class="ic">${ic}</div><h3>${t}</h3><div class="d">${d}</div><div class="meta">${m}</div><div class="bar2"><i style="width:${pct}%;background:${col}"></i></div></a>`).join('');
+  document.getElementById('health').innerHTML=
+    `<div class="h ok"><div class="n" id="h-active">—</div><div class="l">${th?'ตำแหน่ง active':'active roles'}</div></div>
+     <div class="h ok"><div class="n" id="h-ver">—</div><div class="l">JE verified</div></div>
+     <div class="h warn"><div class="n" id="h-rev">—</div><div class="l">JE under review</div></div>
+     <div class="h crit"><div class="n" id="h-crit">—</div><div class="l">${th?'flag วิกฤต':'critical flags'}</div></div>`;
+  document.getElementById('hnote').textContent=th?'* อ่านสดจาก data/job_roles.json เมื่อเปิดผ่าน GitHub Pages':'* live counts from data/job_roles.json when served via GitHub Pages';
+  PCC.ref().then(ref=>{
+    document.getElementById('legend').innerHTML=ref.companies.map(c=>`<div class="co"><span class="sw" style="background:${c.color}"></span><b>${c.code}</b> · ${th?(c.name_th||c.name_en):c.name_en}</div>`).join('');
+  }).catch(()=>{});
   fetch('../data/job_roles.json').then(r=>r.ok?r.json():null).then(d=>{
-    if(!d||!d.roles)return;
-    document.getElementById('h-pilot').textContent=d.roles.length;
-    const crit=d.roles.filter(r=>(r.data_quality||[]).some(f=>f.severity==='critical')).length;
-    document.getElementById('h-je').textContent=crit;
+    if(!d||!d.roles)return;const R=d.roles,act=R.filter(r=>r.status==='active');
+    document.getElementById('h-active').textContent=act.length;
+    document.getElementById('h-ver').textContent=R.filter(r=>r.je_breakdown).length;
+    document.getElementById('h-rev').textContent=R.filter(r=>!r.je_breakdown).length;
+    document.getElementById('h-crit').textContent=R.filter(r=>(r.data_quality||[]).some(f=>f.severity==='critical')).length;
     document.getElementById('src').textContent='live: data/job_roles.json';
   }).catch(()=>{});
+}
+boot();
 </script>
 </body>
 </html>
