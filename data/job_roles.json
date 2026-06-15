@@ -471,7 +471,9 @@
       "version": "1.0",
       "source_docx": "GRP-OPM-OPR-F1_Production_Operator_GRP_v1.0.docx",
       "data_quality": [],
-      "updated": "2026-05-20"
+      "updated": "2026-05-20",
+      "detail_level": "detailed",
+      "je_source": "extracted"
     },
     {
       "code": "GRP-SVS-DVR-F1",
@@ -890,7 +892,9 @@
           "message": "JE section sub-header says 'คะแนนรวม: 44' but table total = 47. Using table total 47."
         }
       ],
-      "updated": "2026-05-19"
+      "updated": "2026-05-19",
+      "detail_level": "detailed",
+      "je_source": "extracted"
     },
     {
       "code": "GRP-ESG-ESCO-L1",
@@ -991,7 +995,9 @@
           "message": "JE rationale column = Facility Officer template; KR/specs correct ESG/Safety. je_score 47 in-band for L1, kept; per-item breakdown unreliable (omitted)."
         }
       ],
-      "updated": "2026-05-19"
+      "updated": "2026-05-19",
+      "detail_level": "detailed",
+      "je_source": "extracted"
     },
     {
       "code": "GRP-FAC-FMO-L1",
@@ -1332,7 +1338,9 @@
           "message": "Displayed per-item scores sum to ~48 but stated total = 44. Using stated total 44; needs re-evaluation."
         }
       ],
-      "updated": "2026-05-19"
+      "updated": "2026-05-19",
+      "detail_level": "detailed",
+      "je_source": "extracted"
     },
     {
       "code": "GRP-FIN-FNO-L1",
@@ -1567,7 +1575,9 @@
           "message": "JE section header reads 'Facility Management Officer L1' and all 30 rationales describe Facility/building work. The je_score (44) is the Facility Officer's, not HR Officer's — breakdown omitted pending re-evaluation."
         }
       ],
-      "updated": "2026-05-19"
+      "updated": "2026-05-19",
+      "detail_level": "detailed",
+      "je_source": "extracted"
     },
     {
       "code": "GRP-OD-EASI-L1",
@@ -1708,7 +1718,9 @@
           "message": "JE rationale column = Facility Officer template; KR/specs correct PMO. je_score 48 in-band for L1, kept; per-item breakdown unreliable (omitted)."
         }
       ],
-      "updated": "2026-05-19"
+      "updated": "2026-05-19",
+      "detail_level": "detailed",
+      "je_source": "extracted"
     },
     {
       "code": "GRP-QA-QAO-L1",
@@ -1809,7 +1821,9 @@
           "message": "JE rationale column = Facility Officer template; KR/specs correct QA. je_score 46 in-band for L1, kept; per-item breakdown unreliable (omitted)."
         }
       ],
-      "updated": "2026-05-19"
+      "updated": "2026-05-19",
+      "detail_level": "detailed",
+      "je_source": "extracted"
     },
     {
       "code": "GRP-SALES-CSO-L1",
@@ -2034,7 +2048,9 @@
           "message": "JE rationale column = Facility Officer template; KR/specs correct SCM. je_score 45 in-band for L1, kept; per-item breakdown unreliable (omitted)."
         }
       ],
-      "updated": "2026-05-19"
+      "updated": "2026-05-19",
+      "detail_level": "detailed",
+      "je_source": "extracted"
     },
     {
       "code": "GRP-SCM-SOPP-L1",
@@ -2381,7 +2397,9 @@
           "message": "KR #5 ('สนับสนุนการตรวจสอบและปรับปรุงระบบบัญชี / Audit Support') is an Accounting-role responsibility copy-pasted in; it does not belong to Agentic AI Operations. Note: KRs #1-4 already sum to 100%, so KR#5 is spurious."
         }
       ],
-      "updated": "2026-05-20"
+      "updated": "2026-05-20",
+      "detail_level": "detailed",
+      "je_source": "extracted"
     },
     {
       "code": "PCC-FIN-FAO-L1",
@@ -5950,7 +5968,9 @@
           "message": "JE table total = 69 but the Market Benchmark note cites 'JE Score (71 คะแนน)'. Reconcile to one figure."
         }
       ],
-      "updated": "2026-05-19"
+      "updated": "2026-05-19",
+      "detail_level": "detailed",
+      "je_source": "extracted"
     },
     {
       "code": "GRP-PMO-PMOS-L2",
@@ -7701,7 +7721,9 @@
           "message": "JE total 121 exceeds the L3 band (88-102) in reference.json. Caused by item 30 scored on the stepped scale (25). See D7 — needs band/standardisation confirmation."
         }
       ],
-      "updated": "2026-03-28"
+      "updated": "2026-03-28",
+      "detail_level": "detailed",
+      "je_source": "extracted"
     },
     {
       "code": "PCC-IAD-IAM-L3",
@@ -9975,7 +9997,9 @@
           "message": "JE total 112 is below the L4 band (118-128) AND lower than HCDM-L3 (121) — an L3>L4 inversion. Root cause: item 30 scored '4' (flat) here vs '25' (stepped) on the L3. See D7."
         }
       ],
-      "updated": "2026-05-19"
+      "updated": "2026-05-19",
+      "detail_level": "detailed",
+      "je_source": "extracted"
     },
     {
       "code": "PCC-OPS-BM-L4",
@@ -10962,7 +10986,9 @@
           "message": "File opens with 'JD Code: GRP-OPS-COO-L5 | Chief Operating Officer (COO)'; JE header reads 'Chief Operating Officer L5' and all rationales describe COO/Operations, not Finance. je_score (184; benchmark note says 185) is the COO's."
         }
       ],
-      "updated": "2026-05-19"
+      "updated": "2026-05-19",
+      "detail_level": "detailed",
+      "je_source": "extracted"
     },
     {
       "code": "GRP-MGT-CEO-L5",
