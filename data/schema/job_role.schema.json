@@ -16,8 +16,8 @@
     "je_score": { "type": "integer", "minimum": 25, "maximum": 200 },
     "je_breakdown": {
       "type": "array",
-      "description": "Per-item JE scores, index 0 = item 1 .. index 29 = item 30 (see reference.json#/je_framework).",
-      "items": { "type": "integer", "minimum": 1 },
+      "description": "Per-item JE scores, index 0 = item 1 .. index 29 = item 30. Item ranges per reference.json#/je_framework/scoring (item 2 can be 0; item 26 max 6; item 27 max 7; item 30 stepped up to 150). Omit when the JE table is contaminated (flag in data_quality).",
+      "items": { "type": "integer", "minimum": 0, "maximum": 150 },
       "minItems": 30,
       "maxItems": 30
     },
@@ -82,6 +82,31 @@
     "status": { "type": "string", "enum": ["active", "inactive", "draft"] },
     "version": { "type": "string" },
     "source_docx": { "type": "string", "description": "Filename of the generated .docx artifact." },
+    "market_benchmark": {
+      "type": "object",
+      "description": "Optional external salary reference captured from the JD (newer JDs only).",
+      "additionalProperties": false,
+      "properties": {
+        "comparable_titles": { "type": "string" },
+        "salary_range_thb": { "type": "string", "description": "Monthly THB range as stated." },
+        "sources": { "type": "array", "items": { "type": "string" } },
+        "note": { "type": "string" }
+      }
+    },
+    "data_quality": {
+      "type": "array",
+      "description": "Validation flags raised during extraction. Empty = clean.",
+      "items": {
+        "type": "object",
+        "required": ["code", "severity", "message"],
+        "additionalProperties": false,
+        "properties": {
+          "code": { "type": "string", "enum": ["je_table_contaminated", "header_mismatch", "kr_contaminated", "je_total_out_of_band", "internal_total_mismatch", "missing_field", "other"] },
+          "severity": { "type": "string", "enum": ["info", "warning", "critical"] },
+          "message": { "type": "string" }
+        }
+      }
+    },
     "updated": { "type": "string", "format": "date" }
   }
 }

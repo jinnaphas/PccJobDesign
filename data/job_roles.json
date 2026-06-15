@@ -1,0 +1,280 @@
+{
+  "_meta": {
+    "title": "Job Roles — PILOT (Phase 1)",
+    "schema": "schema/job_role.schema.json",
+    "version": "0.1.0-pilot",
+    "status": "PILOT — 7 of 196 roles, for structure review before full extraction.",
+    "generated": "2026-06-15",
+    "pilot_set": "Full level coverage F1->L5 + an HR ladder (HRO-L1 -> HRS-L2 -> HCDM-L3 -> HCD-L4) + Agentic-AI L1 + Finance L5. Chosen to also exercise Career Path later.",
+    "validation_summary": {
+      "extracted": 7,
+      "clean": 2,
+      "with_warnings": 1,
+      "with_critical_flags": 4,
+      "note": "See docs/PHASE1_PILOT_VALIDATION.md. ~57% of the pilot has a contaminated JE table (copy-paste from another role). KRs/specs are generally role-correct; JE scores are NOT yet trustworthy for pay grading."
+    }
+  },
+
+  "roles": [
+    {
+      "code": "GRP-OPM-OPR-F1",
+      "title_en": "Production Operator",
+      "title_th": "พนักงานปฏิบัติการผลิต",
+      "company": "GRP",
+      "family_code": "OPM",
+      "level": "F1",
+      "je_score": 35,
+      "je_breakdown": [2,0,1,1,1,1,1,2,1,2,1,1,1,1,1,2,1,1,2,2,1,1,1,1,1,1,1,1,1,1],
+      "purpose_th": "ปฏิบัติงานผลิตในสายการผลิตตาม SOP ดูแลคุณภาพผลผลิต ปฏิบัติตามกฎความปลอดภัยและ 5ส เพื่อให้กระบวนการผลิตต่อเนื่อง มีประสิทธิภาพ และปลอดภัย",
+      "krs": [
+        { "seq": 1, "name_th": "การปฏิบัติงานสายการผลิต (Production Operations)", "kpis": ["Production Output >= 95% of target", "Downtime Reporting <= 15 นาที", "SOP Compliance 100%"], "weight_pct": 40 },
+        { "seq": 2, "name_th": "การควบคุมคุณภาพ (Quality Control)", "kpis": ["Defect Detection Rate", "QC Record Accuracy 100%", "First Pass Yield"], "weight_pct": 30 },
+        { "seq": 3, "name_th": "ความปลอดภัยและ 5ส (Safety & 5S)", "kpis": ["Zero Accident in area", "PPE Compliance 100%", "5S Audit Score >= 80%"], "weight_pct": 20 },
+        { "seq": 4, "name_th": "การบำรุงรักษาเบื้องต้น (Basic Maintenance)", "kpis": ["Pre-shift Check Completion 100%", "AM Activity Compliance"], "weight_pct": 10 }
+      ],
+      "specs": {
+        "education": { "level": "Vocational", "field": "ไม่จำกัดสาขา (ช่างอุตสาหกรรมพิจารณาพิเศษ)" },
+        "experience": { "min_years": 0, "note": "0-2 ปี ยินดีรับผู้จบใหม่ ฝึก On-the-Job" },
+        "skills": ["สมรรถภาพร่างกายแข็งแรง", "ระเบียบวินัย ตรงต่อเวลา", "ทำงานเป็นทีม"],
+        "languages": { "english": "Low" },
+        "digital": ["ใช้แท็บเล็ต/อุปกรณ์บันทึกข้อมูลเบื้องต้น"],
+        "certs": []
+      },
+      "report_to": "Production Supervisor (L2) / Foreman",
+      "unit_type": "Operation",
+      "status": "active",
+      "version": "1.0",
+      "source_docx": "GRP-OPM-OPR-F1_Production_Operator_GRP_v1.0.docx",
+      "data_quality": [],
+      "updated": "2026-05-20"
+    },
+
+    {
+      "code": "GRP-HR-HRO-L1",
+      "title_en": "HR Officer",
+      "title_th": "เจ้าหน้าที่ทรัพยากรบุคคล",
+      "company": "GRP",
+      "family_code": "HR",
+      "level": "L1",
+      "je_score": 44,
+      "purpose_th": "สนับสนุนงาน HR ประจำวัน ครอบคลุมสรรหา เอกสาร HR ระบบ HRIS สวัสดิการ และแรงงานสัมพันธ์เบื้องต้น เพื่อให้กระบวนการ HR ถูกต้อง ครบถ้วน ตรงเวลา",
+      "krs": [
+        { "seq": 1, "name_th": "Recruitment & Onboarding Support", "kpis": ["Job Post Timeliness <= 1 วัน", "Onboarding Completion 100%"], "weight_pct": 25 },
+        { "seq": 2, "name_th": "HR Administration & HRIS", "kpis": ["HRIS Accuracy >= 99%", "Document SLA Compliance"], "weight_pct": 25 },
+        { "seq": 3, "name_th": "Payroll & Benefits Administration", "kpis": ["Payroll Accuracy >= 99.5%", "On-time Payment 100%"], "weight_pct": 25 },
+        { "seq": 4, "name_th": "Employee Relations & Welfare", "kpis": ["Query Response <= 1 วัน", "Satisfaction >= 3.5"], "weight_pct": 15 },
+        { "seq": 5, "name_th": "Training Coordination & Compliance", "kpis": ["Training Record Accuracy 100%", "Compliance On-time"], "weight_pct": 10 }
+      ],
+      "specs": {
+        "education": { "level": "Bachelor", "field": "HRM / รัฐศาสตร์ / จิตวิทยา / บริหารธุรกิจ" },
+        "experience": { "min_years": 0, "note": "0-2 ปี ยินดีรับผู้จบใหม่" },
+        "skills": ["กฎหมายแรงงาน ประกันสังคม กองทุนสำรองฯ", "การจัดการข้อมูล รักษาความลับ"],
+        "languages": { "english": "Low" },
+        "digital": ["MS Excel (Intermediate)", "HRIS System"],
+        "certs": ["HR Certificate (PMAT/SHRM) — preferred"]
+      },
+      "report_to": "GRP-HR-HRS-L2",
+      "unit_type": "Support",
+      "status": "active",
+      "version": "1.0",
+      "source_docx": "GRP-HR-HRO-L1_HR Officer_GRP_v1.0.docx",
+      "data_quality": [
+        { "code": "je_table_contaminated", "severity": "critical", "message": "JE section header reads 'Facility Management Officer L1' and all 30 rationales describe Facility/building work. The je_score (44) is the Facility Officer's, not HR Officer's — breakdown omitted pending re-evaluation." }
+      ],
+      "updated": "2026-05-19"
+    },
+
+    {
+      "code": "PCC-AI-AAIO-L1",
+      "title_en": "Agentic AI Operations Officer",
+      "title_th": "เจ้าหน้าที่ปฏิบัติการ Agentic AI",
+      "company": "PCC",
+      "family_code": "AI",
+      "level": "L1",
+      "je_score": 57,
+      "purpose_th": "ดูแล ติดตาม และบำรุงรักษา AI Agents ที่ deploy ในกระบวนการ Routine ของ PCC Group ให้ทำงานถูกต้อง มีประสิทธิภาพ ปลอดภัย พร้อมรายงาน Anomaly และสนับสนุน Agentic Organization",
+      "krs": [
+        { "seq": 1, "name_th": "ติดตามและดูแลการทำงานของ AI Agents", "kpis": ["AI Agent Uptime >= 99%", "Output Quality >= 90%", "Incident Report On-Time 100%"], "weight_pct": 35 },
+        { "seq": 2, "name_th": "บำรุงรักษาและอัปเดต AI Agent Knowledge Base", "kpis": ["Post-Update Test Pass 100%", "Prompt Quality >= 85%"], "weight_pct": 30 },
+        { "seq": 3, "name_th": "สนับสนุน Human-in-the-Loop และ Escalation", "kpis": ["Exception Resolution <= 4 ชม.", "User Satisfaction >= 4/5"], "weight_pct": 20 },
+        { "seq": 4, "name_th": "รายงานและพัฒนา AI Operations", "kpis": ["AI Ops Report On-Time 100%", "Improvement Suggestions >= 2/เดือน"], "weight_pct": 15 }
+      ],
+      "specs": {
+        "education": { "level": "Bachelor", "field": "IT / Computer Science / Software Engineering หรือเทียบเท่าทักษะ AI/Data" },
+        "experience": { "min_years": 0, "note": "0-2 ปี IT Ops / AI-ML Support / RPA; ใช้ LLM/AI Tools จริง >= 6 เดือน" },
+        "skills": ["AI Agent Architecture & Prompt Engineering", "Agentic Workflow & RAG", "Troubleshooting / RCA"],
+        "languages": { "english": "Medium" },
+        "digital": ["LLM Platforms (Claude, GPT-4, Gemini, Copilot)", "Workflow Automation (Make/Zapier/n8n)", "Basic Python / API"],
+        "certs": ["AI/LLM Platform Cert (OpenAI/Google/Anthropic/Azure)", "Prompt Engineering — plus"]
+      },
+      "report_to": "PCC-AI-AAIM-L3",
+      "unit_type": "Support",
+      "status": "active",
+      "version": "1.0",
+      "source_docx": "PCC-AI-AAIO-L1_Agentic AI Operations Officer_PCC_v1.0.docx",
+      "data_quality": [
+        { "code": "je_table_contaminated", "severity": "critical", "message": "JE header mixes 'GRP-FIN-ACO-L1 Accounting Officer' and 'Facility Management Officer L1'; all 30 rationales describe Facility work. je_score (57) is not derived from the AI role." },
+        { "code": "kr_contaminated", "severity": "critical", "message": "KR #5 ('สนับสนุนการตรวจสอบและปรับปรุงระบบบัญชี / Audit Support') is an Accounting-role responsibility copy-pasted in; it does not belong to Agentic AI Operations. Note: KRs #1-4 already sum to 100%, so KR#5 is spurious." }
+      ],
+      "updated": "2026-05-20"
+    },
+
+    {
+      "code": "GRP-HR-HRS-L2",
+      "title_en": "HR Supervisor",
+      "title_th": "หัวหน้าแผนก HR",
+      "company": "GRP",
+      "family_code": "HR",
+      "level": "L2",
+      "je_score": 69,
+      "purpose_th": "กำกับและบริหารงาน HR ประจำวันระดับแผนก ครอบคลุมสรรหา พัฒนา/ฝึกอบรม บริหารผลงาน และแรงงานสัมพันธ์ ให้เป็นไปตามมาตรฐานและนโยบายองค์กร",
+      "krs": [
+        { "seq": 1, "name_th": "Recruitment & Selection", "kpis": ["Recruitment Rate >= 90%", "Time-to-Fill <= 45 วัน"], "weight_pct": 25 },
+        { "seq": 2, "name_th": "Learning & Development", "kpis": ["Training Effectiveness >= 3.5", "IDP Coverage >= 75%"], "weight_pct": 20 },
+        { "seq": 3, "name_th": "Performance Management", "kpis": ["Review Completion >= 95%", "PIP Success >= 60%"], "weight_pct": 25 },
+        { "seq": 4, "name_th": "Employee Relations & Compliance", "kpis": ["Labor Law Compliance 100%", "Grievance Resolution <= 5 วัน"], "weight_pct": 20 },
+        { "seq": 5, "name_th": "HR Operations & Team Management", "kpis": ["HRIS Accuracy >= 99%", "Payroll Accuracy >= 99.5%"], "weight_pct": 10 }
+      ],
+      "specs": {
+        "education": { "level": "Bachelor", "field": "HRM / Industrial Psychology / รัฐศาสตร์ / บริหารธุรกิจ" },
+        "experience": { "min_years": 3, "note": "3-5 ปีงาน HR ดูแลทีมอย่างน้อย 1 ปี" },
+        "skills": ["กฎหมายแรงงาน พ.ร.บ.คุ้มครองแรงงาน", "ภาวะผู้นำ บริหารทีม", "มนุษยสัมพันธ์ แก้ปัญหา"],
+        "languages": { "english": "Medium" },
+        "digital": ["MS Excel (Intermediate)", "HRIS System", "HR Analytics Tools"],
+        "certs": ["SHRM / HRCI / PMAT — preferred"]
+      },
+      "report_to": "GRP-HR-HCM-L3",
+      "unit_type": "Support",
+      "status": "active",
+      "version": "1.0",
+      "source_docx": "GRP-HR-HRS-L2_HR Supervisor_GRP_v1.0.docx",
+      "data_quality": [
+        { "code": "header_mismatch", "severity": "warning", "message": "Top line reads 'JD Code: GRP-HR-HRBPSM-L2 | HRBP Section Manager' (the sibling role) though the body is correctly HR Supervisor / GRP-HR-HRS-L2. Likely created by copying HRBPSM-L2. JE content IS HR-appropriate." },
+        { "code": "internal_total_mismatch", "severity": "warning", "message": "JE table total = 69 but the Market Benchmark note cites 'JE Score (71 คะแนน)'. Reconcile to one figure." }
+      ],
+      "updated": "2026-05-19"
+    },
+
+    {
+      "code": "PCC-HR-HCDM-L3",
+      "title_en": "Human Capital Development Manager",
+      "title_th": "ผู้จัดการพัฒนาทุนมนุษย์",
+      "company": "PCC",
+      "family_code": "HR",
+      "level": "L3",
+      "je_score": 121,
+      "je_breakdown": [3,3,4,4,3,4,4,4,4,3,4,4,3,3,3,1,2,4,3,1,4,3,3,4,4,4,3,3,4,25],
+      "purpose_th": "วางแผน ออกแบบ และขับเคลื่อนกลยุทธ์การพัฒนาทุนมนุษย์ของกลุ่ม PCC ครบวงจร (Competency, Talent, Succession, Leadership Pipeline, L&D, OD) บูรณาการ Digital Learning และ AI Tools",
+      "krs": [
+        { "seq": 1, "name_th": "L&D Strategy & Learning Program Design", "kpis": ["Training Effectiveness (Kirkpatrick)", "L&D ROI (%)", "AI Personalized Learning Adoption"], "weight_pct": 25 },
+        { "seq": 2, "name_th": "Talent Management & Succession Planning", "kpis": ["Succession Coverage (%)", "IDP Completion (%)", "Internal Promotion Rate"], "weight_pct": 25 },
+        { "seq": 3, "name_th": "Competency Framework & Career Development", "kpis": ["Competency Framework Coverage", "Avg. Competency Gap (ลดลง)"], "weight_pct": 20 },
+        { "seq": 4, "name_th": "OD Strategy & Culture Development", "kpis": ["Employee Engagement (%)", "Org. Health Index (OHI)"], "weight_pct": 20 },
+        { "seq": 5, "name_th": "HCD Analytics, Digital Tools & Team Development", "kpis": ["AI Tool Adoption in HCD", "L&D Budget Utilization"], "weight_pct": 10 }
+      ],
+      "specs": {
+        "education": { "level": "Master", "field": "HRM / จิตวิทยาองค์การ / OD / MBA / ศึกษาศาสตร์ (ตรี ขั้นต่ำ, โท preferred)" },
+        "experience": { "min_years": 8, "note": "รวม 8+ ปี, L&D/OD/HCD >= 5 ปี, ออกแบบ Talent/Competency องค์กรกลาง-ใหญ่ >= 3 ปี" },
+        "skills": ["Instructional Design (ADDIE/Agile)", "Adult Learning (70-20-10)", "Facilitation & Executive Coaching", "Psychometric Assessment"],
+        "languages": { "english": "High" },
+        "digital": ["LMS (SuccessFactors/Cornerstone/360Learning)", "People Analytics (Power BI/Tableau/Visier)", "AI Tools (Copilot/ChatGPT Enterprise)"],
+        "certs": ["SHRM-CP/SCP — preferred", "CIPD L5/L7", "CPLP/CPTD (ATD)", "ICF Coaching", "Prosci"]
+      },
+      "report_to": "GRP-HR-HCD-L4",
+      "unit_type": "Support",
+      "status": "active",
+      "version": "1.0",
+      "source_docx": "PCC-HR-HCDM-L3_HCD Manager_PCC_v1.0.docx",
+      "market_benchmark": {
+        "comparable_titles": "HCD Manager / L&D Manager / Talent Development Manager / OD Manager (Corporate)",
+        "salary_range_thb": "65,000 - 130,000 / เดือน",
+        "sources": ["Mercer Thailand 2024-2025", "Korn Ferry", "Deloitte", "PMAT 2024", "LinkedIn TH"]
+      },
+      "data_quality": [
+        { "code": "je_total_out_of_band", "severity": "warning", "message": "JE total 121 exceeds the L3 band (88-102) in reference.json. Caused by item 30 scored on the stepped scale (25). See D7 — needs band/standardisation confirmation." }
+      ],
+      "updated": "2026-03-28"
+    },
+
+    {
+      "code": "GRP-HR-HCD-L4",
+      "title_en": "Head of Human Capital",
+      "title_th": "ผู้อำนวยการฝ่ายทุนมนุษย์",
+      "company": "GRP",
+      "family_code": "HR",
+      "level": "L4",
+      "je_score": 112,
+      "purpose_th": "บริหาร Human Capital Function ระดับ Business Unit ของบริษัทในเครือ PCC ครอบคลุม People Strategy, Talent, Succession, OD และ HR Technology เพื่อสร้าง High Performance Organization รองรับ Agentic AI Transformation",
+      "krs": [
+        { "seq": 1, "name_th": "People Strategy & HR Planning", "kpis": ["People Strategy On-time", "HR Budget Variance <= 5%", "HR Scorecard >= 90%"], "weight_pct": 20 },
+        { "seq": 2, "name_th": "Talent Acquisition & Employer Branding", "kpis": ["Time-to-Fill <= SLA", "Quality of Hire >= 85%", "New Hire Retention >= 90%"], "weight_pct": 20 },
+        { "seq": 3, "name_th": "Talent Development & Succession Planning", "kpis": ["Succession Coverage 100%", "L&D Utilization >= 85%"], "weight_pct": 25 },
+        { "seq": 4, "name_th": "Organization Development & Culture", "kpis": ["Engagement >= 75%", "Performance Calibration 100%"], "weight_pct": 20 },
+        { "seq": 5, "name_th": "HR Operations, Compliance & Technology", "kpis": ["Payroll Accuracy >= 99.9%", "Zero Legal Violation", "HR Tech Adoption >= 80%"], "weight_pct": 15 }
+      ],
+      "specs": {
+        "education": { "level": "Master", "field": "Business Administration / HR / Organizational Psychology / OD" },
+        "experience": { "min_years": 12, "note": "12-15 ปีงาน HR, HRBP/HRD/HROD ระดับ Manager+ และบริหาร HR Function" },
+        "skills": ["People Strategy / Talent / OD / C&B / Labor Law", "Executive Presence", "Change Management", "HR Business Partnering"],
+        "languages": { "english": "High" },
+        "digital": ["HRIS / Workday / SAP HCM", "LMS", "Power BI", "HR Analytics"],
+        "certs": ["SHRM-SCP/SPHR — preferred", "OD Cert", "Executive Coaching", "DCP (IOD)"]
+      },
+      "report_to": "CEO/MD (subsidiary) + PCC Group CHRO",
+      "unit_type": "Support",
+      "status": "active",
+      "version": "1.0",
+      "source_docx": "GRP-HR-HCD-L4_Head of Human Capital_GRP_v1.0.docx",
+      "market_benchmark": {
+        "comparable_titles": "Head of HR / HR Director / VP HR",
+        "salary_range_thb": "(ระบุในเอกสารต้นทางเป็นของ Business Manager — ต้องแก้)",
+        "note": "Market Benchmark block is contaminated (Business Manager / HV Electrical). Needs HR-specific data."
+      },
+      "data_quality": [
+        { "code": "je_table_contaminated", "severity": "critical", "message": "File opens with 'JD Code: PCC-OPS-BM-L4 | Business Manager (HV Electrical Equipment)'; the entire JE table + Market Benchmark are the Business Manager's (HV Electrical, IEC, manufacturing). je_score (112; header says 113) is NOT the Head of HC's." },
+        { "code": "je_total_out_of_band", "severity": "warning", "message": "JE total 112 is below the L4 band (118-128) AND lower than HCDM-L3 (121) — an L3>L4 inversion. Root cause: item 30 scored '4' (flat) here vs '25' (stepped) on the L3. See D7." }
+      ],
+      "updated": "2026-05-19"
+    },
+
+    {
+      "code": "GRP-FIN-CFO-L5",
+      "title_en": "Chief Financial Officer",
+      "title_th": "ประธานเจ้าหน้าที่ฝ่ายการเงิน",
+      "company": "GRP",
+      "family_code": "FIN",
+      "level": "L5",
+      "je_score": 184,
+      "purpose_th": "บริหารและกำกับการเงิน บัญชี ความเสี่ยงทางการเงิน และการปฏิบัติตามกฎหมายการเงินของบริษัทในเครือ PCC รับผิดชอบงบการเงิน Capital Structure การวิเคราะห์ Investment/M&A รายงานต่อ Board Audit Committee และ Group CFO",
+      "krs": [
+        { "seq": 1, "name_th": "Financial Strategy & Capital Management", "kpis": ["D/E Ratio vs Target", "Investment ROI >= Hurdle"], "weight_pct": 25 },
+        { "seq": 2, "name_th": "Financial Reporting & Accounting Governance", "kpis": ["FS Closing On-time", "Clean Audit Opinion", "Tax Compliance 100%"], "weight_pct": 25 },
+        { "seq": 3, "name_th": "Business Performance & FP&A", "kpis": ["Forecast Accuracy >= 90%", "Board Report On-time"], "weight_pct": 20 },
+        { "seq": 4, "name_th": "Risk Management & Compliance", "kpis": ["Zero Control Weakness", "Insurance Coverage"], "weight_pct": 20 },
+        { "seq": 5, "name_th": "Finance Team Leadership & Digital Finance", "kpis": ["Competency >= 85%", "Digital Finance Adoption >= 80%"], "weight_pct": 10 }
+      ],
+      "specs": {
+        "education": { "level": "Master", "field": "Finance / Accounting / MBA / Economics" },
+        "experience": { "min_years": 15, "note": "15+ ปีงานการเงิน/บัญชี, เคยเป็น CFO/VP Finance องค์กรกลาง-ใหญ่" },
+        "skills": ["TFRS/IFRS, Corporate Finance, Capital Markets, M&A DD", "Board Communication", "Risk & Tax Strategy"],
+        "languages": { "english": "High" },
+        "digital": ["SAP FICO / Oracle Financials", "Power BI", "Financial Modeling (Advanced Excel)", "RPA (Finance)"],
+        "certs": ["CPA — Required", "CFA/CFP — preferred", "DCP (IOD)"]
+      },
+      "report_to": "CEO/MD (subsidiary) + Board Audit Committee + Group CFO",
+      "unit_type": "Support",
+      "status": "active",
+      "version": "1.0",
+      "source_docx": "GRP-FIN-CFO-L5_Chief Financial Officer_GRP_v1.0.docx",
+      "market_benchmark": {
+        "comparable_titles": "(เอกสารต้นทางอ้างถึง COO/GM/Deputy CEO — ต้องแก้ให้เป็น CFO)",
+        "salary_range_thb": "200,000 - 500,000+ / เดือน (ตัวเลข COO ในต้นฉบับ)",
+        "note": "Benchmark + JE copied from COO; needs CFO-specific data."
+      },
+      "data_quality": [
+        { "code": "je_table_contaminated", "severity": "critical", "message": "File opens with 'JD Code: GRP-OPS-COO-L5 | Chief Operating Officer (COO)'; JE header reads 'Chief Operating Officer L5' and all rationales describe COO/Operations, not Finance. je_score (184; benchmark note says 185) is the COO's." }
+      ],
+      "updated": "2026-05-19"
+    }
+  ]
+}

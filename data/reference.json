@@ -98,7 +98,15 @@
 
   "je_framework": {
     "items": 30,
-    "per_item_scale": { "min": 1, "max": 5, "_flag": "Live L5/L6 JDs reach 162-200 which is impossible on 30 items x (1-5)=150. The per-item max and/or weighting was revised after the March-2026 criteria doc. CONFIRM actual scale — see open_decisions D2." },
+    "scoring": {
+      "_confirmed": "Verified 2026-06-15 from live JD content (every JE table header states 'ข้อ 26 Max=6, ข้อ 27 Max=7, ข้อ 30 Max=150'). Resolves the 150-vs-200 puzzle in D2: the total exceeds 150 because item 30 alone uses a stepped scale up to 150.",
+      "default_item_range": { "min": 0, "max": 5 },
+      "special_items": {
+        "26": { "max": 6, "name_th": "การจัดองค์กร อัตรากำลัง และการบริหารทรัพยากรมนุษย์" },
+        "27": { "max": 7, "name_th": "การควบคุมงาน การบริหารผลงาน และการให้แนวทางพัฒนา" },
+        "30": { "name_th": "ความรับผิดชอบต่อผู้มีส่วนได้ส่วนเสีย (Stakeholders)", "stepped_scale": [1, 25, 35, 45, 55, 70, 80, 150], "note": "Drives senior-level totals. Observed: F1/L1=1, L3≈25, L5≈55, L6≈70-150." }
+      }
+    },
     "observed_total_range": { "min": 25, "max": 200 },
     "criteria_doc": "Knowledge/2. คำบรรยายเกณฑ์การประเมินค่างาน Job Evaluation ทั้ง 30 ข้อ.r7.docx",
     "dimensions": [
@@ -145,10 +153,24 @@
     },
     {
       "id": "D2",
-      "title": "JE per-item scale / theoretical max needs confirmation",
+      "title": "JE per-item scale — RESOLVED from JD content",
+      "status": "RESOLVED",
+      "detail": "The scale is items 1-25/28/29 = 0-5, item 26 max 6, item 27 max 7, and item 30 (Stakeholders) on a stepped scale up to 150. That is why totals reach ~200 even though most items are 0-5. Encoded in je_framework.scoring. The Mar-2026 criteria doc / Reference.md still describe the old flat 1-5 (max 150) and should be updated.",
+      "action": "Update the JE criteria doc + Knowledge/Reference.md to document item 30's stepped scale."
+    },
+    {
+      "id": "D6",
+      "title": "JE-table contamination across JDs (CRITICAL — affects pay grading)",
+      "status": "OPEN — needs cleanup before Live",
+      "detail": "Pilot (7 JDs) found ~4 with JE sections copy-pasted from a different role and not updated: HR Officer L1 carries the Facility Officer JE table; Agentic AI Ops L1 carries Facility/Accounting JE + an Accounting KR#5; Head of Human Capital L4 carries the Business Manager (HV Electrical) JE table; CFO L5 carries the COO JE table. KRs/specs are usually role-correct, but the 30-item JE breakdown (and sometimes the title/code header line) is wrong, so the JE score cannot be trusted for pay grading.",
+      "action": "During Phase 1 full extraction, validate every JE table against its role; flag/regenerate contaminated ones. Track per-record in job_roles.json#/[].data_quality."
+    },
+    {
+      "id": "D7",
+      "title": "JE total vs level-range mismatch / inversion",
       "status": "OPEN — needs HR",
-      "detail": "Criteria doc (Mar 2026) states 30 items x (1-5) = max 150 across 5 levels. Live data uses 7 levels with totals up to ~200 (L5 162-185, L6 190+), which is impossible on a 1-5 scale. The scoring mechanism was revised but the criteria doc / Reference.md were not updated.",
-      "action": "Confirm the live per-item scale (e.g. 1-7, or weighting) and update the JE criteria doc + reference.json."
+      "detail": "Actual JE totals do not always sit in the level band, partly due to D6 and inconsistent use of item 30's stepped scale. Pilot examples: HCDM-L3 = 121 (above L3 band 88-102) while Head of HC L4 = 112 (below L4 band 118-128) — an L3 outscoring an L4. The cause is item 30 scored as '25' (stepped) for the L3 but '4' (flat) for the L4.",
+      "action": "Standardise item-30 application by level, then recompute; confirm the official JE band per level."
     },
     {
       "id": "D3",
