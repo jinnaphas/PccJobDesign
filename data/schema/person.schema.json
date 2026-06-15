@@ -11,6 +11,8 @@
     "name": { "type": "string" },
     "type": { "type": "string", "enum": ["candidate", "employee"] },
     "source_file": { "type": "string", "description": "Resume PDF / HRIS export reference." },
+    "current_title": { "type": "string" },
+    "current_company": { "type": "string" },
     "current_role_code": { "type": ["string", "null"], "description": "Employee: their current JD code (job_roles.json). Candidate: null." },
     "target_role_codes": { "type": "array", "items": { "type": "string" }, "description": "JD code(s) being matched against (target / next-level role)." },
     "demographics": {

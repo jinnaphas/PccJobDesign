@@ -1,0 +1,849 @@
+{
+  "_meta": {
+    "title": "Candidates — Human Capital Development Manager (PCC-HR-HCDM-L3)",
+    "schema": "../schema/person.schema.json",
+    "source": "analysis_log.json (Candidate Evaluation, 2026-05-19), 16 resumes",
+    "target_role_code": "PCC-HR-HCDM-L3",
+    "kr_keys": {
+      "l_and_d": "Learning & Development",
+      "talent_mgmt": "Talent Management",
+      "competency": "Competency Development",
+      "od_culture": "OD & Culture",
+      "analytics": "HR Analytics"
+    }
+  },
+  "people": [
+    {
+      "id": "cand-hcdm-02",
+      "name": "Kasem Patarakitnirun",
+      "type": "candidate",
+      "current_title": "OD Senior Professional",
+      "current_company": "Card X Company Limited",
+      "target_role_codes": [
+        "PCC-HR-HCDM-L3"
+      ],
+      "education": {
+        "level": "Master",
+        "field": ""
+      },
+      "experience": {
+        "total_years": 18,
+        "relevant_years": 16
+      },
+      "languages": {
+        "english": "High"
+      },
+      "evaluation": {
+        "target_role_code": "PCC-HR-HCDM-L3",
+        "mode": "hiring",
+        "scores": {
+          "education": 85,
+          "experience": 92,
+          "skills": 85,
+          "english": 85,
+          "digital": 72,
+          "certifications": 15
+        },
+        "kr_alignment": {
+          "l_and_d": 75,
+          "talent_mgmt": 88,
+          "competency": 92,
+          "od_culture": 82,
+          "analytics": 78
+        },
+        "overall_pct": 81,
+        "recommendation": "Proceed",
+        "key_strengths": [
+          "Deep PMS & Competency Framework design across 8+ orgs",
+          "SuccessFactors Super Admin & Power BI",
+          "Talent identification & succession pipeline"
+        ],
+        "key_gaps": [
+          "Limited formal L&D instructional design",
+          "No professional HR certifications",
+          "L&D/facilitation less prominent vs OD/PMS"
+        ]
+      }
+    },
+    {
+      "id": "cand-hcdm-08",
+      "name": "Woraporn Sonserm Sngangam",
+      "type": "candidate",
+      "current_title": "Senior VP of HR",
+      "current_company": "Muang Thai Insurance PCL",
+      "target_role_codes": [
+        "PCC-HR-HCDM-L3"
+      ],
+      "education": {
+        "level": "Master",
+        "field": ""
+      },
+      "experience": {
+        "total_years": 21,
+        "relevant_years": 14
+      },
+      "languages": {
+        "english": "High"
+      },
+      "evaluation": {
+        "target_role_code": "PCC-HR-HCDM-L3",
+        "mode": "hiring",
+        "scores": {
+          "education": 80,
+          "experience": 85,
+          "skills": 78,
+          "english": 78,
+          "digital": 78,
+          "certifications": 35
+        },
+        "kr_alignment": {
+          "l_and_d": 80,
+          "talent_mgmt": 85,
+          "competency": 82,
+          "od_culture": 78,
+          "analytics": 70
+        },
+        "overall_pct": 79,
+        "recommendation": "Proceed",
+        "key_strengths": [
+          "21 yrs HRD/OD/career/succession",
+          "Hands-on SuccessFactors & Workday",
+          "Industrial Psychology master aligned"
+        ],
+        "key_gaps": [
+          "No formal HCD certs (SHRM/CIPD/CPTD/ICF)",
+          "Instructional design not evidenced",
+          "SVP seniority above L3 (alignment risk)"
+        ]
+      }
+    },
+    {
+      "id": "cand-hcdm-01",
+      "name": "Chalongchai Boonroj",
+      "type": "candidate",
+      "current_title": "Director – Organization Effectiveness",
+      "current_company": "PTG Energy PCL",
+      "target_role_codes": [
+        "PCC-HR-HCDM-L3"
+      ],
+      "education": {
+        "level": "Master",
+        "field": ""
+      },
+      "experience": {
+        "total_years": 16,
+        "relevant_years": 12
+      },
+      "languages": {
+        "english": "High"
+      },
+      "evaluation": {
+        "target_role_code": "PCC-HR-HCDM-L3",
+        "mode": "hiring",
+        "scores": {
+          "education": 70,
+          "experience": 90,
+          "skills": 82,
+          "english": 80,
+          "digital": 45,
+          "certifications": 35
+        },
+        "kr_alignment": {
+          "l_and_d": 80,
+          "talent_mgmt": 85,
+          "competency": 75,
+          "od_culture": 92,
+          "analytics": 55
+        },
+        "overall_pct": 77,
+        "recommendation": "Proceed",
+        "key_strengths": [
+          "OD Strategy & Culture Transformation at Director level",
+          "Executive Coaching & Leadership Development",
+          "Succession Planning & Talent Pipeline Design"
+        ],
+        "key_gaps": [
+          "No LMS/HRIS platform tools cited",
+          "Education field not directly HRM/OD/MBA",
+          "No formal HR certifications (SHRM/CIPD/CPTD)"
+        ]
+      }
+    },
+    {
+      "id": "cand-hcdm-14",
+      "name": "Manit Chunkasamesuk",
+      "type": "candidate",
+      "current_title": "Senior OD Manager",
+      "current_company": "Zen Corporation Group PCL",
+      "target_role_codes": [
+        "PCC-HR-HCDM-L3"
+      ],
+      "education": {
+        "level": "Master",
+        "field": ""
+      },
+      "experience": {
+        "total_years": 21,
+        "relevant_years": 16
+      },
+      "languages": {
+        "english": "Medium"
+      },
+      "evaluation": {
+        "target_role_code": "PCC-HR-HCDM-L3",
+        "mode": "hiring",
+        "scores": {
+          "education": 85,
+          "experience": 85,
+          "skills": 75,
+          "english": 58,
+          "digital": 50,
+          "certifications": 22
+        },
+        "kr_alignment": {
+          "l_and_d": 78,
+          "talent_mgmt": 78,
+          "competency": 80,
+          "od_culture": 80,
+          "analytics": 52
+        },
+        "overall_pct": 75,
+        "recommendation": "Proceed",
+        "key_strengths": [
+          "NIDA Master in HROD (top field alignment)",
+          "21 yrs OD/HRD/HRBP/learning design",
+          "Competency/career path/PMS/L&D across orgs"
+        ],
+        "key_gaps": [
+          "English likely medium (C-suite limitation)",
+          "No formal HCD certs",
+          "Limited people-analytics (no Power BI/Tableau)"
+        ]
+      }
+    },
+    {
+      "id": "cand-hcdm-11",
+      "name": "Nutthawut Srisung",
+      "type": "candidate",
+      "current_title": "HR Manager",
+      "current_company": "T.K.S. Technologies PCL",
+      "target_role_codes": [
+        "PCC-HR-HCDM-L3"
+      ],
+      "education": {
+        "level": "Master",
+        "field": ""
+      },
+      "experience": {
+        "total_years": 10,
+        "relevant_years": 8
+      },
+      "languages": {
+        "english": "High"
+      },
+      "evaluation": {
+        "target_role_code": "PCC-HR-HCDM-L3",
+        "mode": "hiring",
+        "scores": {
+          "education": 80,
+          "experience": 70,
+          "skills": 72,
+          "english": 88,
+          "digital": 60,
+          "certifications": 28
+        },
+        "kr_alignment": {
+          "l_and_d": 72,
+          "talent_mgmt": 75,
+          "competency": 74,
+          "od_culture": 72,
+          "analytics": 68
+        },
+        "overall_pct": 71,
+        "recommendation": "Consider",
+        "key_strengths": [
+          "Excellent English (IELTS 6.5/C2)",
+          "Broad OD (SCG/GPSC-PTT/ETDA/NTB) C-suite partnering",
+          "Competency/succession/analytics track record"
+        ],
+        "key_gaps": [
+          "Only 10 yrs (below 8-yr HCD min, borderline)",
+          "No formal HCD certs; LMS not cited",
+          "Breadth over deep sustained HCD"
+        ]
+      }
+    },
+    {
+      "id": "cand-hcdm-05",
+      "name": "Poodit Mitrabhakdi",
+      "type": "candidate",
+      "current_title": "Senior Manager – HR & GA",
+      "current_company": "Summit Auto Seats (Summit Group)",
+      "target_role_codes": [
+        "PCC-HR-HCDM-L3"
+      ],
+      "education": {
+        "level": "PhD",
+        "field": ""
+      },
+      "experience": {
+        "total_years": 21,
+        "relevant_years": 15
+      },
+      "languages": {
+        "english": "High"
+      },
+      "evaluation": {
+        "target_role_code": "PCC-HR-HCDM-L3",
+        "mode": "hiring",
+        "scores": {
+          "education": 55,
+          "experience": 78,
+          "skills": 68,
+          "english": 80,
+          "digital": 30,
+          "certifications": 10
+        },
+        "kr_alignment": {
+          "l_and_d": 75,
+          "talent_mgmt": 72,
+          "competency": 68,
+          "od_culture": 70,
+          "analytics": 40
+        },
+        "overall_pct": 65,
+        "recommendation": "Consider",
+        "key_strengths": [
+          "21 yrs HRD/HRM/OD incl. VP-HRD L&D strategy",
+          "Talent succession management",
+          "PhD + lecturing adds adult-learning credibility"
+        ],
+        "key_gaps": [
+          "PhD in Politics not HRM/OD",
+          "No LMS/HRIS/analytics tools",
+          "No HCD certs; recency gap"
+        ]
+      }
+    },
+    {
+      "id": "cand-hcdm-09",
+      "name": "Kunthamanee Udsakit",
+      "type": "candidate",
+      "current_title": "Freelance BD Consultant",
+      "current_company": "DOD Biotech PCL",
+      "target_role_codes": [
+        "PCC-HR-HCDM-L3"
+      ],
+      "education": {
+        "level": "Master",
+        "field": ""
+      },
+      "experience": {
+        "total_years": 18,
+        "relevant_years": 8
+      },
+      "languages": {
+        "english": "Medium"
+      },
+      "evaluation": {
+        "target_role_code": "PCC-HR-HCDM-L3",
+        "mode": "hiring",
+        "scores": {
+          "education": 62,
+          "experience": 68,
+          "skills": 65,
+          "english": 60,
+          "digital": 72,
+          "certifications": 35
+        },
+        "kr_alignment": {
+          "l_and_d": 60,
+          "talent_mgmt": 70,
+          "competency": 68,
+          "od_culture": 72,
+          "analytics": 72
+        },
+        "overall_pct": 65,
+        "recommendation": "Consider",
+        "key_strengths": [
+          "Power BI & digital HR transformation",
+          "ICF-framework coaching (75 hrs) & OD",
+          "Diverse industry exposure"
+        ],
+        "key_gaps": [
+          "Pivoted to BD; HCD recency weaker",
+          "Conversational English only",
+          "No SHRM/CIPD/CPTD; ICF not full credential"
+        ]
+      }
+    },
+    {
+      "id": "cand-hcdm-15",
+      "name": "Waraporn Tongngao",
+      "type": "candidate",
+      "current_title": "Learning Design Manager (Senior)",
+      "current_company": "Dohome Academy",
+      "target_role_codes": [
+        "PCC-HR-HCDM-L3"
+      ],
+      "education": {
+        "level": "Master",
+        "field": ""
+      },
+      "experience": {
+        "total_years": 18,
+        "relevant_years": 16
+      },
+      "languages": {
+        "english": "Medium"
+      },
+      "evaluation": {
+        "target_role_code": "PCC-HR-HCDM-L3",
+        "mode": "hiring",
+        "scores": {
+          "education": 58,
+          "experience": 72,
+          "skills": 70,
+          "english": 58,
+          "digital": 48,
+          "certifications": 25
+        },
+        "kr_alignment": {
+          "l_and_d": 82,
+          "talent_mgmt": 68,
+          "competency": 68,
+          "od_culture": 72,
+          "analytics": 45
+        },
+        "overall_pct": 65,
+        "recommendation": "Consider",
+        "key_strengths": [
+          "18 yrs L&D/OD w/ strong learning design",
+          "GenAI content dev & IBM AI cert",
+          "Dohome L&D roadmap aligned to KPIs"
+        ],
+        "key_gaps": [
+          "Master's still in progress (not completed)",
+          "Succession/talent depth lighter than L&D",
+          "No formal HCD certs; English not C-suite"
+        ]
+      }
+    },
+    {
+      "id": "cand-hcdm-16",
+      "name": "Orathai Thaweekeaw",
+      "type": "candidate",
+      "current_title": "HROD Manager",
+      "current_company": "Gunkul Engineering PCL",
+      "target_role_codes": [
+        "PCC-HR-HCDM-L3"
+      ],
+      "education": {
+        "level": "Bachelor",
+        "field": ""
+      },
+      "experience": {
+        "total_years": 20,
+        "relevant_years": 15
+      },
+      "languages": {
+        "english": "Medium"
+      },
+      "evaluation": {
+        "target_role_code": "PCC-HR-HCDM-L3",
+        "mode": "hiring",
+        "scores": {
+          "education": 50,
+          "experience": 75,
+          "skills": 68,
+          "english": 55,
+          "digital": 45,
+          "certifications": 22
+        },
+        "kr_alignment": {
+          "l_and_d": 72,
+          "talent_mgmt": 65,
+          "competency": 65,
+          "od_culture": 75,
+          "analytics": 45
+        },
+        "overall_pct": 64,
+        "recommendation": "Consider",
+        "key_strengths": [
+          "20 yrs I&O-Psychology HRD/HRBP/HROD",
+          "Agile coaching, 70-20-10, LMS admin",
+          "Culture transformation & change mgmt"
+        ],
+        "key_gaps": [
+          "Bachelor only (I&O Psychology)",
+          "English uncertain for C-suite",
+          "No formal HCD certs; analytics light"
+        ]
+      }
+    },
+    {
+      "id": "cand-hcdm-03",
+      "name": "Paiporn Posuwan",
+      "type": "candidate",
+      "current_title": "HR & General Admin Manager",
+      "current_company": "GRANDLINE INNOVATION",
+      "target_role_codes": [
+        "PCC-HR-HCDM-L3"
+      ],
+      "education": {
+        "level": "Master",
+        "field": ""
+      },
+      "experience": {
+        "total_years": 23,
+        "relevant_years": 10
+      },
+      "languages": {
+        "english": "Medium"
+      },
+      "evaluation": {
+        "target_role_code": "PCC-HR-HCDM-L3",
+        "mode": "hiring",
+        "scores": {
+          "education": 68,
+          "experience": 65,
+          "skills": 58,
+          "english": 60,
+          "digital": 35,
+          "certifications": 10
+        },
+        "kr_alignment": {
+          "l_and_d": 60,
+          "talent_mgmt": 50,
+          "competency": 55,
+          "od_culture": 50,
+          "analytics": 25
+        },
+        "overall_pct": 59,
+        "recommendation": "Not Suitable",
+        "key_strengths": [
+          "20+ yrs generalist HRM/HRD breadth",
+          "Training plan & competency/KPI exposure",
+          "Team leadership & budget management"
+        ],
+        "key_gaps": [
+          "HCD/OD depth limited (generalist/admin)",
+          "No modern analytics/LMS/HRIS",
+          "No HCD certs; field not aligned"
+        ]
+      }
+    },
+    {
+      "id": "cand-hcdm-07",
+      "name": "Teerawoot Khunna",
+      "type": "candidate",
+      "current_title": "Learning & Development Manager",
+      "current_company": "CP Axtra PCL",
+      "target_role_codes": [
+        "PCC-HR-HCDM-L3"
+      ],
+      "education": {
+        "level": "Bachelor",
+        "field": ""
+      },
+      "experience": {
+        "total_years": 10,
+        "relevant_years": 9
+      },
+      "languages": {
+        "english": "High"
+      },
+      "evaluation": {
+        "target_role_code": "PCC-HR-HCDM-L3",
+        "mode": "hiring",
+        "scores": {
+          "education": 42,
+          "experience": 60,
+          "skills": 65,
+          "english": 75,
+          "digital": 50,
+          "certifications": 25
+        },
+        "kr_alignment": {
+          "l_and_d": 72,
+          "talent_mgmt": 55,
+          "competency": 50,
+          "od_culture": 45,
+          "analytics": 60
+        },
+        "overall_pct": 57,
+        "recommendation": "Not Suitable",
+        "key_strengths": [
+          "Strong L&D design (Toyota/BAY/CP Axtra)",
+          "Impressive data-science self-development",
+          "Psychology base for adult learning"
+        ],
+        "key_gaps": [
+          "Bachelor only; seniority below 8-yr req",
+          "No succession/competency/OD at org level",
+          "No HCD/coaching certs; no HRIS/LMS"
+        ]
+      }
+    },
+    {
+      "id": "cand-hcdm-10",
+      "name": "Chonjaroen Wanwanich",
+      "type": "candidate",
+      "current_title": "HR Manager",
+      "current_company": "Guardian Property Management",
+      "target_role_codes": [
+        "PCC-HR-HCDM-L3"
+      ],
+      "education": {
+        "level": "Master",
+        "field": ""
+      },
+      "experience": {
+        "total_years": 13,
+        "relevant_years": 6
+      },
+      "languages": {
+        "english": "High"
+      },
+      "evaluation": {
+        "target_role_code": "PCC-HR-HCDM-L3",
+        "mode": "hiring",
+        "scores": {
+          "education": 72,
+          "experience": 58,
+          "skills": 55,
+          "english": 75,
+          "digital": 22,
+          "certifications": 10
+        },
+        "kr_alignment": {
+          "l_and_d": 55,
+          "talent_mgmt": 60,
+          "competency": 58,
+          "od_culture": 52,
+          "analytics": 25
+        },
+        "overall_pct": 56,
+        "recommendation": "Not Suitable",
+        "key_strengths": [
+          "Mahidol CMMU Master in HC & Org Mgmt",
+          "Career path/succession/workforce cost in SME",
+          "ISO auditing & governance"
+        ],
+        "key_gaps": [
+          "HCD depth limited (SME generalist/HRBP)",
+          "No tools beyond MS Office",
+          "No HCD/L&D certs"
+        ]
+      }
+    },
+    {
+      "id": "cand-hcdm-12",
+      "name": "Thaninnath Pholapihirote",
+      "type": "candidate",
+      "current_title": "HR & OD Section Manager",
+      "current_company": "F-Plus (FaThai Brand)",
+      "target_role_codes": [
+        "PCC-HR-HCDM-L3"
+      ],
+      "education": {
+        "level": "Bachelor",
+        "field": ""
+      },
+      "experience": {
+        "total_years": 12,
+        "relevant_years": 10
+      },
+      "languages": {
+        "english": "Medium"
+      },
+      "evaluation": {
+        "target_role_code": "PCC-HR-HCDM-L3",
+        "mode": "hiring",
+        "scores": {
+          "education": 35,
+          "experience": 62,
+          "skills": 65,
+          "english": 55,
+          "digital": 28,
+          "certifications": 20
+        },
+        "kr_alignment": {
+          "l_and_d": 70,
+          "talent_mgmt": 65,
+          "competency": 55,
+          "od_culture": 65,
+          "analytics": 30
+        },
+        "overall_pct": 53,
+        "recommendation": "Not Suitable",
+        "key_strengths": [
+          "10 yrs L&D/talent at KBank & SCG",
+          "Employer branding & culture transformation",
+          "Predictive Index & SCG credentials"
+        ],
+        "key_gaps": [
+          "Bachelor only (Political Sciences)",
+          "Limited tools beyond Office/Canva",
+          "English not C-suite; no psychometric/coaching certs"
+        ]
+      }
+    },
+    {
+      "id": "cand-hcdm-06",
+      "name": "Sakulsak Sanseemon",
+      "type": "candidate",
+      "current_title": "Manager, Learning & Development",
+      "current_company": "Bangkok Commercial Asset Mgmt",
+      "target_role_codes": [
+        "PCC-HR-HCDM-L3"
+      ],
+      "education": {
+        "level": "Bachelor",
+        "field": ""
+      },
+      "experience": {
+        "total_years": 16,
+        "relevant_years": 10
+      },
+      "languages": {
+        "english": "Medium"
+      },
+      "evaluation": {
+        "target_role_code": "PCC-HR-HCDM-L3",
+        "mode": "hiring",
+        "scores": {
+          "education": 35,
+          "experience": 62,
+          "skills": 60,
+          "english": 55,
+          "digital": 25,
+          "certifications": 10
+        },
+        "kr_alignment": {
+          "l_and_d": 65,
+          "talent_mgmt": 58,
+          "competency": 60,
+          "od_culture": 55,
+          "analytics": 30
+        },
+        "overall_pct": 51,
+        "recommendation": "Not Suitable",
+        "key_strengths": [
+          "Current L&D Manager w/ annual plan",
+          "OD & PMS across public & financial sector",
+          "KM & engagement delivery"
+        ],
+        "key_gaps": [
+          "Bachelor only (Liberal Arts), no Master's",
+          "No tools beyond MS Office",
+          "Intermediate English"
+        ]
+      }
+    },
+    {
+      "id": "cand-hcdm-13",
+      "name": "Pawanya Seechumpon",
+      "type": "candidate",
+      "current_title": "HROD Supervisor",
+      "current_company": "Thai Petroleum & Trading",
+      "target_role_codes": [
+        "PCC-HR-HCDM-L3"
+      ],
+      "education": {
+        "level": "Master",
+        "field": ""
+      },
+      "experience": {
+        "total_years": 9,
+        "relevant_years": 9
+      },
+      "languages": {
+        "english": "Medium"
+      },
+      "evaluation": {
+        "target_role_code": "PCC-HR-HCDM-L3",
+        "mode": "hiring",
+        "scores": {
+          "education": 55,
+          "experience": 52,
+          "skills": 55,
+          "english": 58,
+          "digital": 20,
+          "certifications": 10
+        },
+        "kr_alignment": {
+          "l_and_d": 60,
+          "talent_mgmt": 50,
+          "competency": 55,
+          "od_culture": 52,
+          "analytics": 30
+        },
+        "overall_pct": 50,
+        "recommendation": "Not Suitable",
+        "key_strengths": [
+          "9 yrs focused training/HROD",
+          "Diverse course design (ERM/BCP/KM)",
+          "Succession & talent assessment exposure"
+        ],
+        "key_gaps": [
+          "Only 9 yrs; currently Supervisor not Manager",
+          "MBA in Digital Marketing (recent, not aligned)",
+          "No tools/LMS/HRIS; incomplete resume"
+        ]
+      }
+    },
+    {
+      "id": "cand-hcdm-04",
+      "name": "Piyawat Chooncharearn",
+      "type": "candidate",
+      "current_title": "Regional HRBP Manager – SEA",
+      "current_company": "Loscam (Thailand)",
+      "target_role_codes": [
+        "PCC-HR-HCDM-L3"
+      ],
+      "education": {
+        "level": "Bachelor",
+        "field": ""
+      },
+      "experience": {
+        "total_years": 17,
+        "relevant_years": 4
+      },
+      "languages": {
+        "english": "High"
+      },
+      "evaluation": {
+        "target_role_code": "PCC-HR-HCDM-L3",
+        "mode": "hiring",
+        "scores": {
+          "education": 40,
+          "experience": 55,
+          "skills": 48,
+          "english": 85,
+          "digital": 30,
+          "certifications": 10
+        },
+        "kr_alignment": {
+          "l_and_d": 40,
+          "talent_mgmt": 60,
+          "competency": 50,
+          "od_culture": 55,
+          "analytics": 40
+        },
+        "overall_pct": 48,
+        "recommendation": "Not Suitable",
+        "key_strengths": [
+          "Strong English (TOEIC 835)",
+          "Regional HRBP & talent exposure",
+          "HR transformation awareness"
+        ],
+        "key_gaps": [
+          "Bachelor only, Political Science",
+          "No L&D/instructional design",
+          "Career is HR generalist/HRBP not HCD"
+        ]
+      }
+    }
+  ]
+}
