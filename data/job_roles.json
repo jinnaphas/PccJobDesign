@@ -2,14 +2,14 @@
   "_meta": {
     "title": "Job Roles — PILOT (Phase 1)",
     "schema": "schema/job_role.schema.json",
-    "version": "0.2.0-skeleton",
-    "status": "BREADTH-FIRST — all 196 roles present (13 detailed + skeletons). Skeleton JE = placeholder band-midpoint; deep KR/spec/JE extraction + regeneration to follow per role.",
+    "version": "0.3.0-extracting",
+    "status": "EXTRACTING — 25/196 roles detailed, rest skeleton. Committed per batch.",
     "generated": "2026-06-15",
     "pilot_set": "Pilot: full level coverage F1->L5 + HR ladder + Agentic-AI L1 + Finance L5. Batch 2: GRP Common L1 across families (FIN/SCM/PMO/QA/ESG/CX).",
     "validation_summary": {
       "total_records": 196,
-      "detailed": 13,
-      "skeleton": 183,
+      "detailed": 25,
+      "skeleton": 171,
       "active": 195,
       "inactive": 1,
       "by_level": {
@@ -28,59 +28,338 @@
     {
       "code": "GRP-ENG-ELT-F1",
       "title_en": "Electrical Technician",
+      "title_th": "ช่างไฟฟ้า",
       "company": "GRP",
       "family_code": "ENG",
       "level": "F1",
-      "je_score": 34,
-      "je_source": "placeholder_midpoint",
-      "detail_level": "skeleton",
+      "je_score": 42,
+      "je_breakdown": [
+        3,
+        0,
+        1,
+        1,
+        2,
+        2,
+        1,
+        2,
+        3,
+        2,
+        1,
+        1,
+        2,
+        1,
+        1,
+        3,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "je_source": "extracted",
+      "detail_level": "detailed",
+      "purpose_th": "ติดตั้ง บำรุงรักษา และซ่อมแซมระบบไฟฟ้าโรงงาน/อาคารตามมาตรฐานความปลอดภัย แก้ไขข้อขัดข้อง และบันทึกประวัติการบำรุงรักษา",
+      "krs": [
+        {
+          "seq": 1,
+          "name_th": "ติดตั้งและบำรุงรักษาระบบไฟฟ้า (PM)",
+          "kpis": [
+            "PM Completion >= 95%",
+            "Uptime >= 98%",
+            "PM Record 100%"
+          ],
+          "weight_pct": 40
+        },
+        {
+          "seq": 2,
+          "name_th": "แก้ไขข้อขัดข้องระบบไฟฟ้า (Troubleshooting)",
+          "kpis": [
+            "MTTR <= target",
+            "Repeat Breakdown <= 5%"
+          ],
+          "weight_pct": 30
+        },
+        {
+          "seq": 3,
+          "name_th": "ความปลอดภัยทางไฟฟ้า (LOTO)",
+          "kpis": [
+            "Zero Electrical Accident",
+            "LOTO 100%",
+            "PPE 100%"
+          ],
+          "weight_pct": 20
+        },
+        {
+          "seq": 4,
+          "name_th": "การบันทึกและรายงาน",
+          "kpis": [
+            "Documentation 100%",
+            "Report Timeliness"
+          ],
+          "weight_pct": 10
+        }
+      ],
+      "specs": {
+        "education": {
+          "level": "Vocational",
+          "field": "ไฟฟ้ากำลัง / อิเล็กทรอนิกส์"
+        },
+        "experience": {
+          "min_years": 1,
+          "note": "1-3 ปีงานไฟฟ้าโรงงาน/อาคาร"
+        },
+        "skills": [
+          "ไฟฟ้า 3 เฟส มอเตอร์ Control Panel",
+          "อ่าน One-Line Diagram",
+          "LOTO & ความปลอดภัยไฟฟ้า"
+        ],
+        "languages": {
+          "english": "Low"
+        },
+        "certs": [
+          "ใบอนุญาตช่างไฟฟ้าภายในอาคาร (กว.) ประเภท 1+ — ต้องมี"
+        ]
+      },
+      "report_to": "Engineering Supervisor (L2) / Maintenance Foreman",
+      "unit_type": "Operation",
       "status": "active",
       "version": "1.0",
-      "data_quality": [
-        {
-          "code": "missing_field",
-          "severity": "info",
-          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
-        }
-      ]
+      "source_docx": "GRP-ENG-ELT-F1_Electrical_Technician_GRP_v1.0.docx",
+      "data_quality": [],
+      "updated": "2026-05-20"
     },
     {
       "code": "GRP-ENG-PNT-F1",
       "title_en": "Painting Technician",
+      "title_th": "ช่างสี",
       "company": "GRP",
       "family_code": "ENG",
       "level": "F1",
-      "je_score": 34,
-      "je_source": "placeholder_midpoint",
-      "detail_level": "skeleton",
+      "je_score": 37,
+      "je_breakdown": [
+        2,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        3,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "je_source": "extracted",
+      "detail_level": "detailed",
+      "purpose_th": "เตรียมพื้นผิวและพ่น/ทาสีชิ้นงานหรืออาคารตามข้อกำหนด ตรวจสอบคุณภาพฟิล์มสี บำรุงรักษาอุปกรณ์ และปฏิบัติตามมาตรฐานความปลอดภัย",
+      "krs": [
+        {
+          "seq": 1,
+          "name_th": "เตรียมพื้นผิวและพ่น/ทาสี",
+          "kpis": [
+            "Painting Pass Rate >= 95%",
+            "DFT ตามสเปค",
+            "Rework <= 5%"
+          ],
+          "weight_pct": 50
+        },
+        {
+          "seq": 2,
+          "name_th": "ตรวจสอบคุณภาพงานสี (DFT)",
+          "kpis": [
+            "Visual QC Pass",
+            "QC Record 100%"
+          ],
+          "weight_pct": 20
+        },
+        {
+          "seq": 3,
+          "name_th": "ความปลอดภัยและสิ่งแวดล้อม",
+          "kpis": [
+            "Zero Chemical Incident",
+            "PPE 100%",
+            "Hazardous Waste Compliance"
+          ],
+          "weight_pct": 20
+        },
+        {
+          "seq": 4,
+          "name_th": "การดูแลรักษาอุปกรณ์",
+          "kpis": [
+            "Equipment Cleanliness",
+            "Availability"
+          ],
+          "weight_pct": 10
+        }
+      ],
+      "specs": {
+        "education": {
+          "level": "Vocational",
+          "field": "ช่างก่อสร้าง / ช่างกลโรงงาน"
+        },
+        "experience": {
+          "min_years": 0,
+          "note": "0-3 ปี"
+        },
+        "skills": [
+          "ประเภทสีและระบบพ่นสี",
+          "วัดความหนาฟิล์มสี (DFT)",
+          "ทนงานพื้นที่สารเคมี"
+        ],
+        "languages": {
+          "english": "Low"
+        },
+        "certs": [
+          "ความปลอดภัยงานสารเคมี (ถ้ามี)"
+        ]
+      },
+      "report_to": "Engineering Supervisor (L2) / Foreman",
+      "unit_type": "Operation",
       "status": "active",
       "version": "1.0",
-      "data_quality": [
-        {
-          "code": "missing_field",
-          "severity": "info",
-          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
-        }
-      ]
+      "source_docx": "GRP-ENG-PNT-F1_Painting_Technician_GRP_v1.0.docx",
+      "data_quality": [],
+      "updated": "2026-05-20"
     },
     {
       "code": "GRP-ENG-WLD-F1",
       "title_en": "Welding Technician",
+      "title_th": "ช่างเชื่อม",
       "company": "GRP",
       "family_code": "ENG",
       "level": "F1",
-      "je_score": 34,
-      "je_source": "placeholder_midpoint",
-      "detail_level": "skeleton",
+      "je_score": 37,
+      "je_breakdown": [
+        2,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        3,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "je_source": "extracted",
+      "detail_level": "detailed",
+      "purpose_th": "ปฏิบัติงานเชื่อมโลหะตามแบบ/ข้อกำหนดวิศวกรรม ตรวจสอบคุณภาพแนวเชื่อม บำรุงรักษาอุปกรณ์ และปฏิบัติตามมาตรฐานความปลอดภัย",
+      "krs": [
+        {
+          "seq": 1,
+          "name_th": "การเชื่อมโลหะและประกอบชิ้นงาน",
+          "kpis": [
+            "Weld Quality Pass Rate >= 95%",
+            "Rework <= 5%",
+            "On-time Delivery"
+          ],
+          "weight_pct": 50
+        },
+        {
+          "seq": 2,
+          "name_th": "การตรวจสอบคุณภาพแนวเชื่อม",
+          "kpis": [
+            "Defect Detection Rate",
+            "QC Record 100%"
+          ],
+          "weight_pct": 20
+        },
+        {
+          "seq": 3,
+          "name_th": "ความปลอดภัยในการเชื่อม",
+          "kpis": [
+            "Zero Welding Accident",
+            "PPE 100%",
+            "Hot Work Permit Compliance"
+          ],
+          "weight_pct": 20
+        },
+        {
+          "seq": 4,
+          "name_th": "การบำรุงรักษาอุปกรณ์เชื่อม",
+          "kpis": [
+            "Equipment Availability",
+            "Maintenance Checklist 100%"
+          ],
+          "weight_pct": 10
+        }
+      ],
+      "specs": {
+        "education": {
+          "level": "Vocational",
+          "field": "ช่างเชื่อมโลหะ / ช่างกลโรงงาน"
+        },
+        "experience": {
+          "min_years": 0,
+          "note": "0-3 ปี"
+        },
+        "skills": [
+          "เชื่อม MIG/MMA/TIG",
+          "อ่านแบบวิศวกรรมเบื้องต้น",
+          "ทนงานสภาพร้อน"
+        ],
+        "languages": {
+          "english": "Low"
+        },
+        "certs": [
+          "AWS/ASME Welding Cert (ถ้ามี)"
+        ]
+      },
+      "report_to": "Engineering Supervisor (L2) / Foreman",
+      "unit_type": "Operation",
       "status": "active",
       "version": "1.0",
-      "data_quality": [
-        {
-          "code": "missing_field",
-          "severity": "info",
-          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
-        }
-      ]
+      "source_docx": "GRP-ENG-WLD-F1_Welding_Technician_GRP_v1.0.docx",
+      "data_quality": [],
+      "updated": "2026-05-20"
     },
     {
       "code": "GRP-OPM-OPR-F1",
@@ -197,59 +476,314 @@
     {
       "code": "GRP-SVS-DVR-F1",
       "title_en": "Driver",
+      "title_th": "พนักงานขับรถ",
       "company": "GRP",
       "family_code": "SVS",
       "level": "F1",
       "je_score": 34,
-      "je_source": "placeholder_midpoint",
-      "detail_level": "skeleton",
+      "je_breakdown": [
+        1,
+        0,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        1,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "je_source": "extracted",
+      "detail_level": "detailed",
+      "purpose_th": "ขับรถยนต์/รถตู้บริษัทรับส่งผู้บริหาร พนักงาน เอกสาร หรือสิ่งของ ดูแลยานพาหนะให้พร้อมใช้ และปฏิบัติตามกฎจราจร/ความปลอดภัยอย่างเคร่งครัด",
+      "krs": [
+        {
+          "seq": 1,
+          "name_th": "การขับรถและรับ-ส่งงาน",
+          "kpis": [
+            "On-time Delivery >= 95%",
+            "Zero Traffic Accident",
+            "Passenger Satisfaction"
+          ],
+          "weight_pct": 50
+        },
+        {
+          "seq": 2,
+          "name_th": "การดูแลรักษารถยนต์",
+          "kpis": [
+            "Pre-trip Check 100%",
+            "Logbook Accuracy 100%"
+          ],
+          "weight_pct": 30
+        },
+        {
+          "seq": 3,
+          "name_th": "ความปลอดภัยและการประพฤติตน",
+          "kpis": [
+            "Driving Policy Compliance 100%",
+            "Conduct Standard"
+          ],
+          "weight_pct": 15
+        },
+        {
+          "seq": 4,
+          "name_th": "งานอื่นตามที่ได้รับมอบหมาย",
+          "kpis": [
+            "Task Completion 100%"
+          ],
+          "weight_pct": 5
+        }
+      ],
+      "specs": {
+        "education": {
+          "level": "Vocational",
+          "field": "ไม่จำกัดสาขา (ม.6 ขึ้นไป)"
+        },
+        "experience": {
+          "min_years": 1,
+          "note": "1-5 ปีขับรถบริษัท/สาธารณะ"
+        },
+        "skills": [
+          "ประวัติขับขี่ดี",
+          "รู้เส้นทาง",
+          "บุคลิกดี รักษาความลับ"
+        ],
+        "languages": {
+          "english": "Low"
+        },
+        "certs": [
+          "ใบอนุญาตขับรถยนต์ส่วนบุคคล/สาธารณะ — ต้องมี"
+        ]
+      },
+      "report_to": "Administration / HR Supervisor (L2)",
+      "unit_type": "Support",
       "status": "active",
       "version": "1.0",
-      "data_quality": [
-        {
-          "code": "missing_field",
-          "severity": "info",
-          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
-        }
-      ]
+      "source_docx": "GRP-SVS-DVR-F1_Driver_GRP_v1.0.docx",
+      "data_quality": [],
+      "updated": "2026-05-20"
     },
     {
       "code": "GRP-SVS-HKP-F1",
       "title_en": "Housekeeping Staff",
+      "title_th": "พนักงานทำความสะอาด",
       "company": "GRP",
       "family_code": "SVS",
       "level": "F1",
-      "je_score": 34,
-      "je_source": "placeholder_midpoint",
-      "detail_level": "skeleton",
+      "je_score": 30,
+      "je_breakdown": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "je_source": "extracted",
+      "detail_level": "detailed",
+      "purpose_th": "ดูแลความสะอาดและความเป็นระเบียบของสำนักงาน พื้นที่ส่วนกลาง ห้องน้ำ ตามมาตรฐานการทำความสะอาดและสุขอนามัย เพื่อสภาพแวดล้อมการทำงานที่สะอาดและปลอดภัย",
+      "krs": [
+        {
+          "seq": 1,
+          "name_th": "การทำความสะอาดพื้นที่",
+          "kpis": [
+            "Cleaning Standard >= 80%",
+            "Area Coverage 100%",
+            "Inspection Pass"
+          ],
+          "weight_pct": 60
+        },
+        {
+          "seq": 2,
+          "name_th": "การดูแลวัสดุและอุปกรณ์ทำความสะอาด",
+          "kpis": [
+            "Supplies Availability",
+            "Chemical Usage Compliance"
+          ],
+          "weight_pct": 25
+        },
+        {
+          "seq": 3,
+          "name_th": "ความปลอดภัยและสุขอนามัย",
+          "kpis": [
+            "Zero Slip/Fall",
+            "PPE 100%",
+            "Hazard Reporting"
+          ],
+          "weight_pct": 15
+        }
+      ],
+      "specs": {
+        "education": {
+          "level": "Vocational",
+          "field": "ไม่จำกัดสาขา (ม.3 ขึ้นไป)"
+        },
+        "experience": {
+          "min_years": 0,
+          "note": "ยินดีรับผู้ไม่มีประสบการณ์ พร้อมฝึก"
+        },
+        "skills": [
+          "ใส่ใจรายละเอียด/ความสะอาด",
+          "ร่างกายแข็งแรง",
+          "ซื่อสัตย์ ไว้วางใจได้"
+        ],
+        "languages": {
+          "english": "Low"
+        },
+        "certs": []
+      },
+      "report_to": "Administration Officer / Facility Supervisor (L1/L2)",
+      "unit_type": "Support",
       "status": "active",
       "version": "1.0",
-      "data_quality": [
-        {
-          "code": "missing_field",
-          "severity": "info",
-          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
-        }
-      ]
+      "source_docx": "GRP-SVS-HKP-F1_Housekeeping_Staff_GRP_v1.0.docx",
+      "data_quality": [],
+      "updated": "2026-05-20"
     },
     {
       "code": "GRP-SVS-MSG-F1",
       "title_en": "Messenger",
+      "title_th": "พนักงานส่งเอกสาร",
       "company": "GRP",
       "family_code": "SVS",
       "level": "F1",
-      "je_score": 34,
-      "je_source": "placeholder_midpoint",
-      "detail_level": "skeleton",
+      "je_score": 32,
+      "je_breakdown": [
+        1,
+        0,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "je_source": "extracted",
+      "detail_level": "detailed",
+      "purpose_th": "รับ-ส่งเอกสารสำคัญและพัสดุของบริษัททั้งในและนอกองค์กรอย่างถูกต้อง ครบถ้วน ตรงเวลา บันทึกทะเบียนรับ-ส่ง และประสานงานหน่วยงานที่เกี่ยวข้อง",
+      "krs": [
+        {
+          "seq": 1,
+          "name_th": "การรับและส่งเอกสาร/พัสดุ",
+          "kpis": [
+            "On-time Delivery >= 95%",
+            "Delivery Accuracy 100%",
+            "Record 100%"
+          ],
+          "weight_pct": 60
+        },
+        {
+          "seq": 2,
+          "name_th": "การบันทึกและดูแลทะเบียนเอกสาร",
+          "kpis": [
+            "Registry Accuracy 100%",
+            "Zero Document Loss"
+          ],
+          "weight_pct": 25
+        },
+        {
+          "seq": 3,
+          "name_th": "งานสนับสนุนธุรการ",
+          "kpis": [
+            "Task Completion 100%"
+          ],
+          "weight_pct": 15
+        }
+      ],
+      "specs": {
+        "education": {
+          "level": "Vocational",
+          "field": "ไม่จำกัดสาขา (ม.6 ขึ้นไป)"
+        },
+        "experience": {
+          "min_years": 0,
+          "note": "0-2 ปี"
+        },
+        "skills": [
+          "ซื่อสัตย์ รับผิดชอบเอกสารสำคัญ",
+          "รู้เส้นทาง",
+          "บุคลิกดี สุภาพ"
+        ],
+        "languages": {
+          "english": "Low"
+        },
+        "certs": [
+          "ใบอนุญาตขับขี่ (ถ้าส่งนอกสถานที่)"
+        ]
+      },
+      "report_to": "Administration Supervisor / HR Officer (L1/L2)",
+      "unit_type": "Support",
       "status": "active",
       "version": "1.0",
-      "data_quality": [
-        {
-          "code": "missing_field",
-          "severity": "info",
-          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
-        }
-      ]
+      "source_docx": "GRP-SVS-MSG-F1_Messenger_GRP_v1.0.docx",
+      "data_quality": [],
+      "updated": "2026-05-20"
     },
     {
       "code": "GRP-CX-CXO-L1",
@@ -462,40 +996,238 @@
     {
       "code": "GRP-FAC-FMO-L1",
       "title_en": "Facility Management Officer",
+      "title_th": "เจ้าหน้าที่บริหารจัดการสถานที่",
       "company": "GRP",
       "family_code": "FAC",
       "level": "L1",
-      "je_score": 52,
-      "je_source": "placeholder_midpoint",
-      "detail_level": "skeleton",
+      "je_score": 44,
+      "je_breakdown": [
+        2,
+        0,
+        2,
+        2,
+        2,
+        1,
+        2,
+        2,
+        2,
+        3,
+        2,
+        2,
+        2,
+        0,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        2,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "je_source": "extracted",
+      "detail_level": "detailed",
+      "purpose_th": "บริหารจัดการสำนักงาน/สถานที่ทำงานให้พร้อมใช้ ปลอดภัย สะอาด ครอบคลุมงานซ่อมบำรุงเชิงป้องกัน/แก้ไขเหตุฉุกเฉิน การบริหารพื้นที่/ทรัพย์สิน และการกำกับผู้รับเหมาบริการ",
+      "krs": [
+        {
+          "seq": 1,
+          "name_th": "Building & Utilities Maintenance",
+          "kpis": [
+            "PM Completion >= 95%",
+            "MTTR <= 24 ชม. (Critical)",
+            "Utility Uptime >= 98%"
+          ],
+          "weight_pct": 30
+        },
+        {
+          "seq": 2,
+          "name_th": "Space & Asset Management",
+          "kpis": [
+            "Asset Register Accuracy >= 98%",
+            "New Hire Workspace 100%"
+          ],
+          "weight_pct": 25
+        },
+        {
+          "seq": 3,
+          "name_th": "Contractor & Service Provider Management",
+          "kpis": [
+            "Contractor SLA >= 90%",
+            "Complaint Resolution <= 2 วัน"
+          ],
+          "weight_pct": 20
+        },
+        {
+          "seq": 4,
+          "name_th": "Safety & Regulatory Compliance",
+          "kpis": [
+            "Safety Inspection 100%",
+            "Safety Incident 0",
+            "Fire Drill 100%"
+          ],
+          "weight_pct": 15
+        },
+        {
+          "seq": 5,
+          "name_th": "Cost Management & Reporting",
+          "kpis": [
+            "Facility Report On-time 100%",
+            "Cost Variance <= 5%"
+          ],
+          "weight_pct": 10
+        }
+      ],
+      "specs": {
+        "education": {
+          "level": "Bachelor",
+          "field": "วิศวกรรม (ไฟฟ้า/โยธา/เครื่องกล) / บริหารธุรกิจ / Facility Management"
+        },
+        "experience": {
+          "min_years": 1,
+          "note": "1-3 ปีงาน Facility/Building Services/General Affairs"
+        },
+        "skills": [
+          "ประสานงานผู้รับเหมา",
+          "ระบบไฟฟ้า/ประปา/ปรับอากาศเบื้องต้น",
+          "OHS เบื้องต้น"
+        ],
+        "languages": {
+          "english": "Low"
+        },
+        "digital": [
+          "MS Office",
+          "CMMS/CAFM",
+          "AutoCAD (Basic)",
+          "BMS/BAS (Basic)"
+        ],
+        "certs": [
+          "CFM — preferred"
+        ]
+      },
+      "report_to": "GRP-FAC-FMS-L2",
+      "unit_type": "Support",
       "status": "active",
       "version": "1.0",
-      "data_quality": [
-        {
-          "code": "missing_field",
-          "severity": "info",
-          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
-        }
-      ]
+      "source_docx": "GRP-FAC-FMO-L1_Facility Management Officer_GRP_v1.0.docx",
+      "market_benchmark": {
+        "comparable_titles": "Facility / Building Management / Office Services Officer",
+        "salary_range_thb": "17,000 - 35,000 / เดือน"
+      },
+      "data_quality": [],
+      "updated": "2026-05-18"
     },
     {
       "code": "GRP-FAC-PFMO-L1",
       "title_en": "Plant Facility Management Officer",
+      "title_th": "เจ้าหน้าที่บริหารงาน Facility โรงงาน",
       "company": "GRP",
       "family_code": "FAC",
       "level": "L1",
-      "je_score": 52,
-      "je_source": "placeholder_midpoint",
-      "detail_level": "skeleton",
+      "je_score": 50,
+      "je_source": "extracted",
+      "detail_level": "detailed",
+      "purpose_th": "บริหารและดูแลระบบ Facility ของโรงงาน/โรงผลิต/โรงไฟฟ้าให้พร้อมใช้ ครอบคลุม Utilities (ไฟฟ้า/น้ำ/ลมอัด/บำบัด) อาคาร โครงสร้างพื้นฐาน และการบริหารผู้รับเหมา ภายใต้มาตรฐาน ISO/ความปลอดภัย",
+      "krs": [
+        {
+          "seq": 1,
+          "name_th": "Plant Utilities & Infrastructure Management",
+          "kpis": [
+            "Utility Uptime >= 99%",
+            "PM Completion 100%",
+            "Emergency Response <= 2 ชม."
+          ],
+          "weight_pct": 30
+        },
+        {
+          "seq": 2,
+          "name_th": "Building & Plant Facility Maintenance",
+          "kpis": [
+            "Building Condition >= 85",
+            "Major Repair On-Time >= 90%"
+          ],
+          "weight_pct": 25
+        },
+        {
+          "seq": 3,
+          "name_th": "Facility Contractor & Vendor Management",
+          "kpis": [
+            "Contractor Score >= 80",
+            "AMC Renewal 100%"
+          ],
+          "weight_pct": 20
+        },
+        {
+          "seq": 4,
+          "name_th": "HSE Compliance & ISO Support",
+          "kpis": [
+            "LTIFR (Facility) 0",
+            "ISO Major NC 0",
+            "PTW Compliance 100%"
+          ],
+          "weight_pct": 15
+        },
+        {
+          "seq": 5,
+          "name_th": "Budget, Asset Management & Reporting",
+          "kpis": [
+            "Budget Variance <= 5%",
+            "Asset Register >= 98%",
+            "Monthly Report 100%"
+          ],
+          "weight_pct": 10
+        }
+      ],
+      "specs": {
+        "education": {
+          "level": "Bachelor",
+          "field": "วิศวกรรม (ไฟฟ้า/เครื่องกล/โยธา/อุตสาหการ) / เทคโนโลยีการผลิต"
+        },
+        "experience": {
+          "min_years": 1,
+          "note": "1-3 ปี Facility/Building Maintenance/Plant Engineering ในโรงงาน"
+        },
+        "skills": [
+          "ระบบไฟฟ้า/เครื่องกล/Utilities โรงงาน",
+          "ISO 9001/14001/45001",
+          "บริหารผู้รับเหมา & ตรวจรับงาน"
+        ],
+        "languages": {
+          "english": "Medium"
+        },
+        "digital": [
+          "MS Office",
+          "AutoCAD (Basic)",
+          "CMMS/ERP"
+        ],
+        "certs": [
+          "Safety Officer วิชาชีพ / ผู้ควบคุมงาน — เป็นประโยชน์"
+        ]
+      },
+      "report_to": "GRP-FAC-FMM-L3",
+      "unit_type": "Support",
       "status": "active",
       "version": "1.0",
+      "source_docx": "GRP-FAC-PFMO-L1_Plant Facility Management Officer_GRP_v1.0.docx",
+      "market_benchmark": {
+        "comparable_titles": "Facility Engineer / Plant Facility Officer",
+        "salary_range_thb": "18,000 - 38,000 / เดือน"
+      },
       "data_quality": [
         {
-          "code": "missing_field",
-          "severity": "info",
-          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+          "code": "internal_total_mismatch",
+          "severity": "warning",
+          "message": "Displayed per-item scores sum to ~52 but stated total = 50; using stated 50. JE rationale fits a plant-facility role (native)."
         }
-      ]
+      ],
+      "updated": "2026-05-19"
     },
     {
       "code": "GRP-FIN-ACO-L1",
@@ -605,21 +1337,105 @@
     {
       "code": "GRP-FIN-FNO-L1",
       "title_en": "Financial Officer",
+      "title_th": "เจ้าหน้าที่การเงิน",
       "company": "GRP",
       "family_code": "FIN",
       "level": "L1",
-      "je_score": 52,
-      "je_source": "placeholder_midpoint",
-      "detail_level": "skeleton",
+      "je_score": 46,
+      "je_source": "extracted",
+      "detail_level": "detailed",
+      "purpose_th": "บริหารกระแสเงินสดและการดำเนินงานการเงินให้มีสภาพคล่อง ครอบคลุมรับ-จ่ายเงิน รายงานกระแสเงินสด วิเคราะห์การเงินเบื้องต้น และ Treasury Operations",
+      "krs": [
+        {
+          "seq": 1,
+          "name_th": "บริหารกระแสเงินสดและสภาพคล่อง",
+          "kpis": [
+            "Daily Cash Report Accuracy >= 99%",
+            "Bank Reconciliation 100%",
+            "Cash Forecast Variance <= 10%"
+          ],
+          "weight_pct": 30
+        },
+        {
+          "seq": 2,
+          "name_th": "การรับ-จ่ายเงินและการโอนเงิน",
+          "kpis": [
+            "Payment On-Time >= 98%",
+            "Payment Error <= 0.1%"
+          ],
+          "weight_pct": 25
+        },
+        {
+          "seq": 3,
+          "name_th": "วิเคราะห์การเงินและรายงานผู้บริหาร",
+          "kpis": [
+            "Management Report On-Time 100%",
+            "Budget vs Actual 100%"
+          ],
+          "weight_pct": 20
+        },
+        {
+          "seq": 4,
+          "name_th": "Treasury & Banking Relations",
+          "kpis": [
+            "Banking Doc Completeness 100%",
+            "Treasury Policy Compliance 100%"
+          ],
+          "weight_pct": 15
+        },
+        {
+          "seq": 5,
+          "name_th": "Policy Compliance & Process Improvement",
+          "kpis": [
+            "Policy Compliance 100%",
+            "Process Improvement >= 1/ปี"
+          ],
+          "weight_pct": 10
+        }
+      ],
+      "specs": {
+        "education": {
+          "level": "Bachelor",
+          "field": "การเงิน / บัญชี / เศรษฐศาสตร์ / บริหารธุรกิจ"
+        },
+        "experience": {
+          "min_years": 1,
+          "note": "1-3 ปีงานการเงิน/Treasury/AP-AR-Cash"
+        },
+        "skills": [
+          "Cash Flow & Treasury Operations",
+          "วิเคราะห์การเงิน/รายงาน",
+          "Excel ขั้นสูง (Financial Modeling)"
+        ],
+        "languages": {
+          "english": "Medium"
+        },
+        "digital": [
+          "ERP (SAP/Oracle/NetSuite)",
+          "Internet Banking",
+          "MS Excel (Advanced)"
+        ],
+        "certs": [
+          "CFA Level I / CISA — เป็นประโยชน์"
+        ]
+      },
+      "report_to": "GRP-FIN-ACS-L2",
+      "unit_type": "Support",
       "status": "active",
       "version": "1.0",
+      "source_docx": "GRP-FIN-FNO-L1_Financial Officer_GRP_v1.0.docx",
+      "market_benchmark": {
+        "comparable_titles": "Financial / Treasury Officer",
+        "salary_range_thb": "20,000 - 38,000 / เดือน"
+      },
       "data_quality": [
         {
-          "code": "missing_field",
-          "severity": "info",
-          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+          "code": "je_table_contaminated",
+          "severity": "warning",
+          "message": "JE rationale column = Facility Officer template; KR/specs correct Finance. je_score 46 in-band; per-item breakdown omitted."
         }
-      ]
+      ],
+      "updated": "2026-05-19"
     },
     {
       "code": "GRP-HR-HRBPOHD-L1",
@@ -998,21 +1814,107 @@
     {
       "code": "GRP-SALES-CSO-L1",
       "title_en": "Customer Service Officer",
+      "title_th": "เจ้าหน้าที่ลูกค้าสัมพันธ์",
       "company": "GRP",
       "family_code": "SALES",
       "level": "L1",
-      "je_score": 52,
-      "je_source": "placeholder_midpoint",
-      "detail_level": "skeleton",
+      "je_score": 42,
+      "je_source": "extracted",
+      "detail_level": "detailed",
+      "purpose_th": "ดูแลลูกค้าและสนับสนุนงานขาย ครอบคลุมรับ-จัดการ Order ตอบข้อซักถาม ประสานการส่งมอบ และ After-Sales เพื่อสร้างความพึงพอใจและความไว้วางใจของลูกค้า",
+      "krs": [
+        {
+          "seq": 1,
+          "name_th": "Order Management",
+          "kpis": [
+            "Order Accuracy >= 99.5%",
+            "Confirmation SLA <= 4 ชม.",
+            "Order Fulfillment >= 98%"
+          ],
+          "weight_pct": 30
+        },
+        {
+          "seq": 2,
+          "name_th": "Customer Support & Inquiry Handling",
+          "kpis": [
+            "Response <= 24 ชม.",
+            "Complaint Resolution <= 3 วัน",
+            "CSAT >= 3.8/5"
+          ],
+          "weight_pct": 30
+        },
+        {
+          "seq": 3,
+          "name_th": "Delivery Coordination & After-Sales",
+          "kpis": [
+            "Proactive Update >= 95%",
+            "After-Sales Resolution >= 90%"
+          ],
+          "weight_pct": 20
+        },
+        {
+          "seq": 4,
+          "name_th": "Sales Support & Documentation",
+          "kpis": [
+            "Document Accuracy 100%",
+            "CRM Currency >= 98%"
+          ],
+          "weight_pct": 10
+        },
+        {
+          "seq": 5,
+          "name_th": "Customer Relationship & Retention",
+          "kpis": [
+            "Retention >= 85%",
+            "Survey Completion >= 60%"
+          ],
+          "weight_pct": 10
+        }
+      ],
+      "specs": {
+        "education": {
+          "level": "Bachelor",
+          "field": "บริหารธุรกิจ / การตลาด / การจัดการ / นิเทศศาสตร์"
+        },
+        "experience": {
+          "min_years": 0,
+          "note": "0-2 ปีงานบริการลูกค้า"
+        },
+        "skills": [
+          "สื่อสาร/เจรจา/แก้ปัญหาเฉพาะหน้า",
+          "ความรู้สินค้า/บริการ",
+          "Service Excellence"
+        ],
+        "languages": {
+          "english": "Medium"
+        },
+        "digital": [
+          "CRM System",
+          "Order Management System",
+          "MS Office"
+        ],
+        "certs": [
+          "Customer Service / CRM Training — preferred"
+        ]
+      },
+      "report_to": "GRP-SALES-CSS-L2",
+      "unit_type": "Support",
       "status": "active",
       "version": "1.0",
+      "source_docx": "GRP-SALES-CSO-L1_Customer Service Officer_GRP_v1.0.docx",
+      "market_benchmark": {
+        "comparable_titles": "Customer Service / Sales Support Officer",
+        "salary_range_thb": "17,000 - 35,000 / เดือน",
+        "note": "Benchmark block = Facility leftover"
+      },
       "data_quality": [
         {
-          "code": "missing_field",
-          "severity": "info",
-          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+          "code": "je_table_contaminated",
+          "severity": "warning",
+          "message": "JE rationale column = Facility Officer template; KR/specs correct CS. je_score 42 in-band; breakdown omitted."
         }
-      ]
+      ],
+      "updated": "2026-05-19"
     },
     {
       "code": "GRP-SCM-CRMO-TCS-L1",
@@ -1156,40 +2058,236 @@
     {
       "code": "GRP-SCM-VMO-L1",
       "title_en": "Vendor Management Officer",
+      "title_th": "เจ้าหน้าที่บริหารจัดการผู้ขายและจัดซื้อ",
       "company": "GRP",
       "family_code": "SCM",
       "level": "L1",
-      "je_score": 52,
-      "je_source": "placeholder_midpoint",
-      "detail_level": "skeleton",
+      "je_score": 42,
+      "je_breakdown": [
+        2,
+        0,
+        2,
+        2,
+        2,
+        1,
+        2,
+        2,
+        2,
+        3,
+        2,
+        2,
+        2,
+        0,
+        1,
+        1,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "je_source": "extracted",
+      "detail_level": "detailed",
+      "purpose_th": "ดำเนินการจัดซื้อและบริหารผู้ขายอย่างเป็นระบบ ครอบคลุมสืบหา/คัดเลือกผู้ขาย ออก PO ติดตามส่งมอบ และประเมินผลผู้ขายตามเกณฑ์ เพื่อให้ได้สินค้า/บริการมีคุณภาพ คุ้มค่า",
+      "krs": [
+        {
+          "seq": 1,
+          "name_th": "Vendor Sourcing & Qualification",
+          "kpis": [
+            "Vendor DB Accuracy >= 95%",
+            "Pre-qualification >= 90%",
+            "AVL Update ทุก 6 เดือน"
+          ],
+          "weight_pct": 25
+        },
+        {
+          "seq": 2,
+          "name_th": "Procurement & Purchase Order Processing",
+          "kpis": [
+            "PO Processing <= 3 วัน",
+            "PO Accuracy >= 98%",
+            "3-Way Match Error 0%"
+          ],
+          "weight_pct": 30
+        },
+        {
+          "seq": 3,
+          "name_th": "Vendor Performance Monitoring",
+          "kpis": [
+            "Vendor Evaluation 100%",
+            "Issue Resolution <= 5 วัน"
+          ],
+          "weight_pct": 20
+        },
+        {
+          "seq": 4,
+          "name_th": "Contract & Procurement Documentation",
+          "kpis": [
+            "Document Completeness >= 98%",
+            "Contract Expiry Alert >= 60 วัน"
+          ],
+          "weight_pct": 15
+        },
+        {
+          "seq": 5,
+          "name_th": "Compliance & Process Improvement",
+          "kpis": [
+            "Procurement Compliance 100%",
+            "Cost Saving >= 1/ปี"
+          ],
+          "weight_pct": 10
+        }
+      ],
+      "specs": {
+        "education": {
+          "level": "Bachelor",
+          "field": "บริหารธุรกิจ / Supply Chain / Logistics / การตลาด"
+        },
+        "experience": {
+          "min_years": 1,
+          "note": "1-3 ปีงานจัดซื้อ/Procurement/Supply Chain"
+        },
+        "skills": [
+          "เจรจาต่อรอง/สื่อสารกับผู้ขาย",
+          "วิเคราะห์ข้อมูลเบื้องต้น",
+          "กฎหมายสัญญาซื้อขายเบื้องต้น"
+        ],
+        "languages": {
+          "english": "Medium"
+        },
+        "digital": [
+          "SAP/ERP (MM)",
+          "MS Excel (VLOOKUP/Pivot)",
+          "e-Procurement/Vendor Portal"
+        ],
+        "certs": [
+          "CPSM / CPPM — preferred"
+        ]
+      },
+      "report_to": "Supply Chain / Procurement Supervisor (L2)",
+      "unit_type": "Support",
       "status": "active",
       "version": "1.0",
-      "data_quality": [
-        {
-          "code": "missing_field",
-          "severity": "info",
-          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
-        }
-      ]
+      "source_docx": "GRP-SCM-VMO-L1_Vendor Management Officer_GRP_v1.0.docx",
+      "market_benchmark": {
+        "comparable_titles": "Procurement / Purchasing / Vendor Management Officer / Buyer",
+        "salary_range_thb": "18,000 - 38,000 / เดือน"
+      },
+      "data_quality": [],
+      "updated": "2026-05-18"
     },
     {
       "code": "GRP-TECH-DBAO-L1",
       "title_en": "Digital Business Analyst Officer",
+      "title_th": "นักวิเคราะห์ธุรกิจดิจิทัล",
       "company": "GRP",
       "family_code": "TECH",
       "level": "L1",
-      "je_score": 52,
-      "je_source": "placeholder_midpoint",
-      "detail_level": "skeleton",
+      "je_score": 49,
+      "je_source": "extracted",
+      "detail_level": "detailed",
+      "purpose_th": "วิเคราะห์กระบวนการทางธุรกิจ รวบรวม Business Requirements จัดทำ Process Map และ User Stories เพื่อสนับสนุนการพัฒนาและการนำ Digital Solution ไปใช้",
+      "krs": [
+        {
+          "seq": 1,
+          "name_th": "Business Requirements Gathering",
+          "kpis": [
+            "BRD Completeness >= 90%",
+            "Sign-off On-time >= 85%"
+          ],
+          "weight_pct": 30
+        },
+        {
+          "seq": 2,
+          "name_th": "Process Mapping & Analysis",
+          "kpis": [
+            "Process Map Coverage 100%",
+            "Pain Point Report On-time"
+          ],
+          "weight_pct": 25
+        },
+        {
+          "seq": 3,
+          "name_th": "UAT Support & System Testing",
+          "kpis": [
+            "Test Coverage >= 95%",
+            "Defect Log Accuracy 100%"
+          ],
+          "weight_pct": 25
+        },
+        {
+          "seq": 4,
+          "name_th": "Data Analysis & Reporting Support",
+          "kpis": [
+            "Report On-time 100%",
+            "Data Accuracy >= 98%"
+          ],
+          "weight_pct": 15
+        },
+        {
+          "seq": 5,
+          "name_th": "Knowledge Management & Self Development",
+          "kpis": [
+            "Doc Timeliness 100%",
+            "Training >= 90%"
+          ],
+          "weight_pct": 5
+        }
+      ],
+      "specs": {
+        "education": {
+          "level": "Bachelor",
+          "field": "Computer Science / IT / Software Eng / Business Admin / Data Science"
+        },
+        "experience": {
+          "min_years": 0,
+          "note": "0-3 ปี Business Analysis / IT Support / Process Improvement"
+        },
+        "skills": [
+          "Business Analysis, Process Mapping, SDLC",
+          "สื่อสาร/จดบันทึก Requirements"
+        ],
+        "languages": {
+          "english": "Medium"
+        },
+        "digital": [
+          "MS Visio/Lucidchart",
+          "Power BI (Basic)",
+          "JIRA/Confluence",
+          "SQL (Basic)"
+        ],
+        "certs": [
+          "IIBA ECBA — preferred",
+          "Agile/Scrum Fundamentals"
+        ]
+      },
+      "report_to": "GRP-TECH-DBAS-L2",
+      "unit_type": "Support",
       "status": "active",
       "version": "1.0",
+      "source_docx": "GRP-TECH-DBAO-L1_Digital Business Analyst Officer_GRP_v1.0.docx",
+      "market_benchmark": {
+        "comparable_titles": "Business / Process Analyst",
+        "salary_range_thb": "18,000 - 35,000 / เดือน",
+        "note": "Benchmark block = Accounting/Facility leftover"
+      },
       "data_quality": [
         {
-          "code": "missing_field",
-          "severity": "info",
-          "message": "Skeleton from filename. KR/KPI/specs + real JE pending deep extraction. je_score is the level band midpoint (placeholder, NOT a real evaluation)."
+          "code": "je_table_contaminated",
+          "severity": "warning",
+          "message": "JE rationale column = Facility/Accounting template; KR/specs correct BA. je_score 49 in-band; breakdown omitted."
         }
-      ]
+      ],
+      "updated": "2026-05-19"
     },
     {
       "code": "PCC-AI-AAIO-L1",
