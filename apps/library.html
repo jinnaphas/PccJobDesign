@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Job Role Library — PCC People Architecture</title>
+<style>
+  :root{--navy:#1F3864;--blue:#2E5F9E;--bg:#eef2f8;--card:#fff;--text:#1a2230;--muted:#5b6677;--border:#d8e0ee}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Sarabun','Segoe UI',Tahoma,sans-serif;background:var(--bg);color:var(--text)}
+  .nav{position:sticky;top:0;z-index:10;background:var(--navy);color:#fff;display:flex;align-items:center;gap:16px;padding:11px 20px}
+  .brand{font-weight:800;font-size:14px;display:flex;align-items:center;gap:8px}
+  .brand .dot{width:13px;height:13px;border-radius:4px;background:linear-gradient(135deg,#7eb3f5,#3b82f6)}
+  .nav .links{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap}
+  .nav .links a{color:#dce7f7;text-decoration:none;font-size:13px;padding:6px 11px;border-radius:7px}
+  .nav .links a:hover,.nav .links a.active{background:rgba(255,255,255,.14);color:#fff}
+  .layout{display:flex;gap:0;height:calc(100vh - 44px)}
+  .side{width:230px;background:#fff;border-right:1.5px solid var(--border);padding:14px;overflow-y:auto;flex-shrink:0}
+  .side h4{font-size:11px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);margin:14px 0 6px}
+  .side h4:first-child{margin-top:0}
+  .chip{display:inline-block;font-size:11.5px;padding:4px 9px;margin:2px 3px 2px 0;border:1.3px solid var(--border);border-radius:14px;cursor:pointer;background:#fff;color:var(--text)}
+  .chip.on{background:var(--blue);color:#fff;border-color:var(--blue)}
+  .main{flex:1;display:flex;flex-direction:column;overflow:hidden}
+  .top{padding:12px 18px;background:#fff;border-bottom:1.5px solid var(--border);display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  .search{flex:1;min-width:180px;padding:8px 12px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;font-family:inherit}
+  .stat{font-size:12px;color:var(--muted)} .stat b{color:var(--navy);font-size:15px}
+  .grid{flex:1;overflow-y:auto;padding:16px 18px;display:grid;grid-template-columns:repeat(auto-fill,minmax(225px,1fr));gap:12px;align-content:start}
+  .rc{background:var(--card);border:1.5px solid var(--border);border-left-width:5px;border-radius:10px;padding:11px 12px;cursor:pointer;transition:.13s}
+  .rc:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(31,56,100,.12)}
+  .rc .t{font-weight:700;font-size:13.5px;line-height:1.25}
+  .rc .c{font-size:11px;color:var(--muted);margin-top:3px;font-family:monospace}
+  .rc .m{display:flex;gap:6px;align-items:center;margin-top:8px;flex-wrap:wrap}
+  .lvl{font-size:10px;font-weight:800;color:#fff;padding:2px 7px;border-radius:10px}
+  .je{font-size:11px;color:var(--muted)} .je b{color:var(--text)}
+  .flag{font-size:10px;color:#b87c00} .flag.crit{color:#c0392b}
+  .skel{font-size:9.5px;color:#94a3b8;border:1px dashed #cbd5e1;border-radius:8px;padding:1px 5px}
+  /* modal */
+  .ov{position:fixed;inset:0;background:rgba(15,23,42,.55);display:none;align-items:center;justify-content:center;padding:20px;z-index:50}
+  .ov.show{display:flex}
+  .mod{background:#fff;border-radius:14px;max-width:720px;width:100%;max-height:86vh;overflow-y:auto}
+  .mh{padding:16px 20px;color:#fff;border-radius:14px 14px 0 0}
+  .mh .code{font-family:monospace;opacity:.85;font-size:12px}
+  .mh h2{font-size:19px;margin-top:2px}
+  .mb{padding:18px 20px}
+  .mb h3{font-size:13px;color:var(--navy);text-transform:uppercase;letter-spacing:.5px;margin:16px 0 7px}
+  .mb h3:first-child{margin-top:0}
+  .kr{border:1.3px solid var(--border);border-radius:9px;padding:9px 11px;margin-bottom:7px}
+  .kr .kt{font-weight:700;font-size:13px} .kr .kw{float:right;font-size:12px;color:var(--blue);font-weight:700}
+  .kr .kp{font-size:11.5px;color:var(--muted);margin-top:4px}
+  .tag{display:inline-block;font-size:11px;background:#eef2f8;border-radius:6px;padding:3px 8px;margin:2px}
+  .warn{background:#fff8e6;border:1px solid #f0d98c;border-radius:8px;padding:9px 11px;font-size:12px;margin-bottom:10px}
+  .warn.crit{background:#fdecea;border-color:#f1b0a8}
+  .close{float:right;cursor:pointer;font-size:22px;line-height:1;opacity:.8}
+  .msg{padding:30px;text-align:center;color:var(--muted);font-size:13px}
+  table.je{width:100%;border-collapse:collapse;margin-top:4px}
+  .donut{display:flex;align-items:center;gap:14px}
+</style>
+</head>
+<body>
+  <div class="nav">
+    <div class="brand"><span class="dot"></span> PCC People Architecture</div>
+    <div class="links">
+      <a href="index.html">Hub</a><a class="active" href="library.html">Library</a>
+      <a href="career.html">Career</a><a href="evaluate.html">Evaluate</a><a href="admin.html">Admin</a>
+    </div>
+  </div>
+
+  <div class="layout">
+    <div class="side">
+      <h4>Company</h4><div id="f-co"></div>
+      <h4>Level</h4><div id="f-lv"></div>
+      <h4>Job Family</h4><div id="f-fam"></div>
+      <div style="margin-top:14px"><span class="chip" onclick="resetF()">↺ Reset</span></div>
+    </div>
+    <div class="main">
+      <div class="top">
+        <input class="search" id="q" placeholder="🔎 ค้นหา code / ชื่อตำแหน่ง..." oninput="render()">
+        <span class="stat"><b id="shown">0</b> / <span id="total">0</span> roles</span>
+      </div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </div>
+
+  <div class="ov" id="ov" onclick="if(event.target===this)this.classList.remove('show')">
+    <div class="mod" id="mod"></div>
+  </div>
+
+<script>
+const LC={F1:'#d97706',L1:'#3b82f6',L2:'#10b981',L3:'#f59e0b',L4:'#ef4444',L5:'#8b5cf6',L6:'#ec4899'};
+let REF=null, ROLES=[], CO={}, FAM={}, sel={co:new Set(),lv:new Set(),fam:new Set()};
+
+function famOf(r){ const fc=REF.job_family_codes[r.family_code]; return fc?fc.consolidated:null; }
+function famName(id){ const f=(REF.consolidated_families||[]).find(x=>x.id===id); return f?f.icon+' '+f.name_en:id; }
+
+async function boot(){
+  try{
+    REF = await (await fetch('../data/reference.json')).json();
+    const jr = await (await fetch('../data/job_roles.json')).json();
+    ROLES = jr.roles;
+  }catch(e){
+    document.getElementById('grid').innerHTML='<div class="msg">⚠️ เปิดผ่าน GitHub Pages / web server เพื่อโหลดข้อมูล (file:// โหลด JSON ไม่ได้)<br><br>'+e+'</div>';
+    return;
+  }
+  REF.companies.forEach(c=>CO[c.code]=c);
+  // build filters
+  const coBox=document.getElementById('f-co');
+  REF.companies.forEach(c=>coBox.appendChild(chip(c.code,()=>tog('co',c.code))));
+  const lvBox=document.getElementById('f-lv');
+  ['F1','L1','L2','L3','L4','L5','L6'].forEach(l=>lvBox.appendChild(chip(l,()=>tog('lv',l))));
+  const famBox=document.getElementById('f-fam');
+  (REF.consolidated_families||[]).forEach(f=>famBox.appendChild(chip(f.icon+' '+f.name_en,()=>tog('fam',f.id),'fam-'+f.id)));
+  document.getElementById('total').textContent=ROLES.filter(r=>r.status==='active').length;
+  render();
+}
+function chip(label,fn,id){const s=document.createElement('span');s.className='chip';if(id)s.id=id;s.textContent=label;s.onclick=fn;return s;}
+function tog(k,v){ sel[k].has(v)?sel[k].delete(v):sel[k].add(v); syncChips(); render(); }
+function syncChips(){
+  document.querySelectorAll('#f-co .chip').forEach(c=>c.classList.toggle('on',sel.co.has(c.textContent)));
+  document.querySelectorAll('#f-lv .chip').forEach(c=>c.classList.toggle('on',sel.lv.has(c.textContent)));
+  (REF.consolidated_families||[]).forEach(f=>{const el=document.getElementById('fam-'+f.id);if(el)el.classList.toggle('on',sel.fam.has(f.id));});
+}
+function resetF(){sel={co:new Set(),lv:new Set(),fam:new Set()};syncChips();document.getElementById('q').value='';render();}
+
+function render(){
+  const q=document.getElementById('q').value.toLowerCase();
+  const grid=document.getElementById('grid'); grid.innerHTML='';
+  let n=0;
+  ROLES.filter(r=>r.status==='active').forEach((r,i)=>{
+    if(sel.co.size&&!sel.co.has(r.company))return;
+    if(sel.lv.size&&!sel.lv.has(r.level))return;
+    if(sel.fam.size&&!sel.fam.has(famOf(r)))return;
+    if(q&&!(r.code.toLowerCase().includes(q)||(r.title_en||'').toLowerCase().includes(q)||(r.title_th||'').includes(q)))return;
+    n++;
+    const co=CO[r.company]||{color:'#888'};
+    const crit=(r.data_quality||[]).some(f=>f.severity==='critical');
+    const card=document.createElement('div');
+    card.className='rc'; card.style.borderLeftColor=co.color;
+    card.innerHTML=`<div class="t">${r.title_en||r.code}</div>
+      <div class="c">${r.code}</div>
+      <div class="m">
+        <span class="lvl" style="background:${LC[r.level]}">${r.level}</span>
+        <span class="je">JE <b>${r.je_score??'—'}</b></span>
+        ${r.detail_level==='skeleton'?'<span class="skel">skeleton</span>':''}
+        ${crit?'<span class="flag crit">⚑ JE</span>':((r.data_quality||[]).length?'<span class="flag">⚑</span>':'')}
+      </div>`;
+    card.onclick=()=>openMod(r);
+    grid.appendChild(card);
+  });
+  document.getElementById('shown').textContent=n;
+}
+
+function openMod(r){
+  const co=CO[r.company]||{color:'#888',name_en:r.company};
+  let h=`<div class="mh" style="background:${co.color}"><span class="close" onclick="document.getElementById('ov').classList.remove('show')">×</span>
+    <div class="code">${r.code} · ${co.name_en}</div><h2>${r.title_en||''}</h2>
+    <div style="opacity:.9;font-size:13px">${r.title_th||''}</div></div><div class="mb">`;
+  // flags
+  (r.data_quality||[]).forEach(f=>{ h+=`<div class="warn ${f.severity==='critical'?'crit':''}">${f.severity==='critical'?'🔴':'⚠️'} ${f.message}</div>`; });
+  // meta
+  h+=`<div class="donut"><div><div style="font-size:30px;font-weight:800;color:${LC[r.level]}">${r.je_score??'—'}</div>
+    <div style="font-size:11px;color:#5b6677">JE Score ${r.je_source?'('+r.je_source+')':''}</div></div>
+    <div><span class="tag">Level ${r.level}</span><span class="tag">${famName(famOf(r))}</span>
+    <span class="tag">${r.unit_type||'—'}</span><span class="tag">status: ${r.status}</span></div></div>`;
+  if(r.purpose_th){h+=`<h3>วัตถุประสงค์</h3><div style="font-size:13px">${r.purpose_th}</div>`;}
+  if(r.krs&&r.krs.length){
+    h+='<h3>Key Responsibilities</h3>';
+    r.krs.forEach(k=>{h+=`<div class="kr"><span class="kw">${k.weight_pct??''}%</span><div class="kt">${k.name_th||k.name_en}</div>
+      ${(k.kpis||[]).length?'<div class="kp">KPI: '+k.kpis.join(' · ')+'</div>':''}</div>`;});
+  }
+  if(r.specs){const s=r.specs;h+='<h3>คุณสมบัติ</h3>';
+    if(s.education)h+=`<div class="tag">🎓 ${s.education.level||''} ${s.education.field||''}</div>`;
+    if(s.experience)h+=`<div class="tag">💼 ${s.experience.min_years??''}+ ปี</div>`;
+    if(s.languages&&s.languages.english)h+=`<div class="tag">🌐 EN: ${s.languages.english}</div>`;
+    (s.certs||[]).forEach(c=>h+=`<span class="tag">📜 ${c}</span>`);
+    (s.digital||[]).forEach(c=>h+=`<span class="tag">💻 ${c}</span>`);
+  }
+  if(r.detail_level==='skeleton'){h+=`<div class="warn" style="margin-top:12px">ℹ️ ตำแหน่งนี้ยังเป็น <b>skeleton</b> — KR/KPI/คุณสมบัติ และ JE จริงกำลังรอ deep extraction จากไฟล์ JD</div>`;}
+  if(r.source_docx){h+=`<div style="font-size:11px;color:#94a3b8;margin-top:12px;font-family:monospace">${r.source_docx}</div>`;}
+  h+='</div>';
+  document.getElementById('mod').innerHTML=h;
+  document.getElementById('ov').classList.add('show');
+}
+boot();
+</script>
+</body>
+</html>
