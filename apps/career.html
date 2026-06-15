@@ -1,109 +1,86 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Career Path Explorer — PCC People Architecture</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Career Path — PCC People</title>
+<link rel="stylesheet" href="shared.css">
 <style>
-  :root{--navy:#1F3864;--blue:#2E5F9E;--bg:#eef2f8;--card:#fff;--text:#1a2230;--muted:#5b6677;--border:#d8e0ee}
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:'Sarabun','Segoe UI',Tahoma,sans-serif;background:var(--bg);color:var(--text)}
-  .nav{position:sticky;top:0;z-index:10;background:var(--navy);color:#fff;display:flex;align-items:center;gap:16px;padding:11px 20px}
-  .brand{font-weight:800;font-size:14px;display:flex;align-items:center;gap:8px}
-  .brand .dot{width:13px;height:13px;border-radius:4px;background:linear-gradient(135deg,#7eb3f5,#3b82f6)}
-  .nav .links{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap}
-  .nav .links a{color:#dce7f7;text-decoration:none;font-size:13px;padding:6px 11px;border-radius:7px}
-  .nav .links a:hover,.nav .links a.active{background:rgba(255,255,255,.14);color:#fff}
-  .wrap{max-width:1150px;margin:0 auto;padding:20px}
-  .ctrl{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:16px}
-  select{padding:8px 12px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit;background:#fff}
+  .ctrl{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
   .risk{font-size:12px;font-weight:700;padding:5px 12px;border-radius:16px;color:#fff}
-  .ladder{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-bottom:18px}
-  .col{background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:8px;min-height:80px}
+  .ladder{display:grid;grid-template-columns:repeat(7,minmax(120px,1fr));gap:8px;margin-bottom:18px;overflow-x:auto}
+  .col{background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:8px;min-height:70px}
   .col h4{font-size:11px;text-align:center;color:#fff;border-radius:6px;padding:3px;margin-bottom:6px}
-  .role{font-size:11px;border:1.2px solid var(--border);border-left-width:4px;border-radius:6px;padding:5px 6px;margin-bottom:5px;background:#fafcff}
-  .role b{display:block;font-size:11.5px} .role span{color:var(--muted);font-family:monospace;font-size:9.5px}
-  h2{font-size:18px;color:var(--navy);margin:8px 0 12px}
-  .trans{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+  .role{font-size:11px;border:1.2px solid var(--border);border-left-width:4px;border-radius:6px;padding:5px 6px;margin-bottom:5px;background:#fafcff;cursor:pointer}
+  .role:hover{background:#eef5ff;border-color:var(--blue)}
+  .role b{display:block;font-size:11.5px}.role span{color:var(--muted);font-size:9.5px}
+  h2{font-size:17px;color:var(--navy);margin:8px 0 12px}
+  .bridge{font-size:12px;color:var(--muted);margin:6px 0 14px}.bridge b{color:var(--text)}
+  .trans{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
   .tc{background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:13px}
-  .tc h3{font-size:13px;color:var(--blue)} .tc .tl{font-size:11px;color:var(--muted);margin:3px 0 7px}
-  .tc li{font-size:12px;margin-left:16px;margin-bottom:3px}
-  .tc .mix{font-size:11px;color:var(--muted);margin-top:7px;border-top:1px dashed var(--border);padding-top:6px}
-  .msg{padding:30px;text-align:center;color:var(--muted)}
-  .bridge{font-size:12px;color:var(--muted);margin:6px 0 16px}
-  .bridge b{color:var(--text)}
+  .tc h3{font-size:13px;color:var(--blue)}.tc .tl{font-size:11px;color:var(--muted);margin:3px 0 7px}
+  .tc li{font-size:12px;margin-left:16px;margin-bottom:3px}.tc .mix{font-size:11px;color:var(--muted);margin-top:7px;border-top:1px dashed var(--border);padding-top:6px}
 </style>
 </head>
 <body>
-  <div class="nav">
-    <div class="brand"><span class="dot"></span> PCC People Architecture</div>
-    <div class="links"><a href="index.html">Hub</a><a href="library.html">Library</a>
-      <a class="active" href="career.html">Career</a><a href="evaluate.html">Evaluate</a><a href="admin.html">Admin</a></div>
+<div id="nav"></div>
+<div class="wrap">
+  <div class="ctrl">
+    <label id="l-fam"> <select id="fam"></select></label>
+    <label id="l-co"> <select id="co"></select></label>
+    <span class="risk" id="risk"></span>
   </div>
-  <div class="wrap">
-    <div class="ctrl">
-      <label>สายงาน (Family): <select id="fam"></select></label>
-      <label>บริษัท: <select id="co"><option value="">ทุกบริษัท</option></select></label>
-      <span class="risk" id="risk"></span>
-    </div>
-    <div id="bridge" class="bridge"></div>
-    <div class="ladder" id="ladder"></div>
-    <h2>เส้นทางเลื่อนระดับ (Level Transitions)</h2>
-    <div class="trans" id="trans"></div>
-  </div>
+  <div id="bridge" class="bridge"></div>
+  <div class="ladder" id="ladder"></div>
+  <h2 id="t-trans"></h2>
+  <div class="trans" id="trans"></div>
+</div>
+<footer>PCC Group · Career Path Explorer</footer>
+<script src="shared.js"></script>
 <script>
-const LC={F1:'#d97706',L1:'#3b82f6',L2:'#10b981',L3:'#f59e0b',L4:'#ef4444',L5:'#8b5cf6',L6:'#ec4899'};
 const RC={Low:'#1a7f5a',Medium:'#b87c00',High:'#c0392b'};
-const LV=['F1','L1','L2','L3','L4','L5','L6'];
-let REF,ROLES,OV;
-function famOf(r){const fc=REF.job_family_codes[r.family_code];return fc?fc.consolidated:null;}
+let REF,ROLES,OV;const $=id=>document.getElementById(id);
 async function boot(){
+  PCC.nav('career');
+  $('l-fam').firstChild.textContent=PCC.t('family')+': ';$('l-co').firstChild.textContent=PCC.t('company')+': ';
+  $('t-trans').textContent=(PCC.lang()==='th'?'เส้นทางเลื่อนระดับ (Level Transitions)':'Level Transitions');
   try{
-    REF=await (await fetch('../data/reference.json')).json();
+    REF=await PCC.ref();
     ROLES=(await (await fetch('../data/job_roles.json')).json()).roles.filter(r=>r.status==='active');
     OV=await (await fetch('../data/career_overlay.json')).json();
-  }catch(e){document.getElementById('ladder').innerHTML='<div class="msg">⚠️ เปิดผ่าน GitHub Pages เพื่อโหลดข้อมูล ('+e+')</div>';return;}
-  const famSel=document.getElementById('fam');
-  REF.consolidated_families.forEach(f=>{const o=document.createElement('option');o.value=f.id;o.textContent=f.icon+' '+f.name_en;famSel.appendChild(o);});
-  const coSel=document.getElementById('co');
-  REF.companies.forEach(c=>{const o=document.createElement('option');o.value=c.code;o.textContent=c.code;coSel.appendChild(o);});
-  famSel.value='hr'; famSel.onchange=render; coSel.onchange=render; render();
+  }catch(e){$('ladder').innerHTML=PCC.needLiveMsg();return;}
+  REF.consolidated_families.forEach(f=>{const o=document.createElement('option');o.value=f.id;o.textContent=f.icon+' '+f.name_en;$('fam').appendChild(o);});
+  const oc=document.createElement('option');oc.value='';oc.textContent=PCC.t('allco');$('co').appendChild(oc);
+  REF.companies.forEach(c=>{const o=document.createElement('option');o.value=c.code;o.textContent=c.code;$('co').appendChild(o);});
+  $('fam').value=PCC.qs('family')||'hr'; if(PCC.qs('company'))$('co').value=PCC.qs('company');
+  $('fam').onchange=render;$('co').onchange=render;render();
 }
 function render(){
-  const fam=document.getElementById('fam').value, co=document.getElementById('co').value;
-  const rs=ROLES.filter(r=>famOf(r)===fam && (!co||r.company===co));
-  // ai risk
-  const ar=(OV.ai_risk||{})[fam];
-  const rk=document.getElementById('risk');
+  const fam=$('fam').value,co=$('co').value;
+  const rs=ROLES.filter(r=>PCC.famId(r)===fam&&(!co||r.company===co));
+  const ar=(OV.ai_risk||{})[fam];const rk=$('risk');
   if(ar){rk.style.background=RC[ar.label]||'#888';rk.textContent='AI Risk: '+ar.label+' — '+ar.reason;}else rk.textContent='';
-  // bridges
-  const br=(OV.bridges||{})[fam]||[];
-  const fname=id=>{const f=REF.consolidated_families.find(x=>x.id===id);return f?f.name_en:id;};
-  document.getElementById('bridge').innerHTML = br.length?('🔀 สายงานที่ข้ามไปได้: <b>'+br.filter(b=>b!==fam).map(fname).join(' · ')+'</b>'):'';
-  // ladder
-  const lad=document.getElementById('ladder'); lad.innerHTML='';
-  LV.forEach(l=>{
-    const col=document.createElement('div'); col.className='col';
-    col.innerHTML=`<h4 style="background:${LC[l]}">${l}</h4>`;
+  const br=((OV.bridges||{})[fam]||[]).filter(b=>b!==fam);
+  $('bridge').innerHTML=br.length?'🔀 '+(PCC.lang()==='th'?'สายงานที่ข้ามไปได้: ':'Bridges to: ')+'<b>'+br.map(PCC.famName).join(' · ')+'</b>':'';
+  const lad=$('ladder');lad.innerHTML='';
+  PCC.LEVELS.forEach(l=>{
+    const col=document.createElement('div');col.className='col';col.innerHTML=`<h4 style="background:${PCC.LC[l]}">${l}</h4>`;
     rs.filter(r=>r.level===l).forEach(r=>{
-      const co=REF.companies.find(c=>c.code===r.company)||{color:'#888'};
-      col.innerHTML+=`<div class="role" style="border-left-color:${co.color}" title="${r.code}"><b>${r.title_en||r.code}</b><span>${r.code} · JE ${r.je_score??'—'}</span></div>`;
+      const d=document.createElement('div');d.className='role';d.style.borderLeftColor=PCC.coColor(r.company);
+      d.innerHTML=`<b>${PCC.title(r)}</b><span class="mono">${r.code} · JE ${r.je_score??'—'}</span>`;
+      d.onclick=()=>location.href='library.html?role='+encodeURIComponent(r.code);
+      col.appendChild(d);
     });
     lad.appendChild(col);
   });
-  // transitions (generic, only show pairs where both levels have roles here OR always show standard ladder)
-  const present=LV.filter(l=>rs.some(r=>r.level===l));
-  const tr=document.getElementById('trans'); tr.innerHTML='';
-  const pairs=[['F1','L1'],['L1','L2'],['L2','L3'],['L3','L4'],['L4','L5'],['L5','L6']];
-  pairs.forEach(([a,b])=>{
-    const t=(OV.transitions||{})[a+'_'+b]; if(!t)return;
-    const has = present.includes(a)||present.includes(b);
-    const card=document.createElement('div'); card.className='tc'; if(!has)card.style.opacity=.55;
+  const present=PCC.LEVELS.filter(l=>rs.some(r=>r.level===l));
+  const tr=$('trans');tr.innerHTML='';
+  [['F1','L1'],['L1','L2'],['L2','L3'],['L3','L4'],['L4','L5'],['L5','L6']].forEach(([a,b])=>{
+    const t=(OV.transitions||{})[a+'_'+b];if(!t)return;
+    const card=document.createElement('div');card.className='tc';if(!(present.includes(a)||present.includes(b)))card.style.opacity=.5;
     let h=`<h3>${a} → ${b}</h3><div class="tl">⏱ ${t.readiness?.timeline||''}</div><ul>`;
-    (t.readiness?.checklist||[]).forEach(c=>h+=`<li>${c}</li>`); h+='</ul>';
-    if(t.learning_method){h+='<div class="mix">70-20-10: '+
-      ['70','20','10'].map(k=>(t.learning_method[k]||[]).join(', ')).filter(Boolean).join(' | ')+'</div>';}
-    card.innerHTML=h; tr.appendChild(card);
+    (t.readiness?.checklist||[]).forEach(c=>h+=`<li>${PCC.esc(c)}</li>`);h+='</ul>';
+    if(t.learning_method)h+='<div class="mix">70-20-10: '+['70','20','10'].map(k=>(t.learning_method[k]||[]).join(', ')).filter(Boolean).join(' | ')+'</div>';
+    card.innerHTML=h;tr.appendChild(card);
   });
 }
 boot();

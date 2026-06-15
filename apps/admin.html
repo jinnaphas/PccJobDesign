@@ -1,79 +1,69 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin / Data Health — PCC People Architecture</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin / Data Health — PCC People</title>
+<link rel="stylesheet" href="shared.css">
 <style>
-  :root{--navy:#1F3864;--blue:#2E5F9E;--bg:#eef2f8;--card:#fff;--text:#1a2230;--muted:#5b6677;--border:#d8e0ee;--ok:#1a7f5a;--warn:#b87c00;--crit:#c0392b}
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:'Sarabun','Segoe UI',Tahoma,sans-serif;background:var(--bg);color:var(--text)}
-  .nav{position:sticky;top:0;z-index:10;background:var(--navy);color:#fff;display:flex;align-items:center;gap:16px;padding:11px 20px}
-  .brand{font-weight:800;font-size:14px;display:flex;align-items:center;gap:8px}
-  .brand .dot{width:13px;height:13px;border-radius:4px;background:linear-gradient(135deg,#7eb3f5,#3b82f6)}
-  .nav .links{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap}
-  .nav .links a{color:#dce7f7;text-decoration:none;font-size:13px;padding:6px 11px;border-radius:7px}
-  .nav .links a:hover,.nav .links a.active{background:rgba(255,255,255,.14);color:#fff}
-  .wrap{max-width:1050px;margin:0 auto;padding:20px}
   h2{font-size:14px;color:var(--navy);text-transform:uppercase;letter-spacing:.5px;margin:22px 0 10px}
   .kpis{display:flex;gap:10px;flex-wrap:wrap}
-  .k{background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:10px 16px;flex:1;min-width:110px}
+  .k{background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:10px 16px;flex:1;min-width:96px}
   .k .n{font-size:22px;font-weight:800;color:var(--navy)}.k .l{font-size:11px;color:var(--muted)}
   .k.warn .n{color:var(--warn)}.k.crit .n{color:var(--crit)}.k.ok .n{color:var(--ok)}
-  table{width:100%;border-collapse:collapse;background:#fff;border:1.5px solid var(--border);border-radius:10px;overflow:hidden}
-  th{background:#eef3fb;color:var(--navy);font-size:11.5px;text-align:left;padding:8px 10px}
-  td{padding:7px 10px;font-size:12px;border-top:1px solid #eef2f8;vertical-align:top}
+  .tscroll{overflow-x:auto}
   .sev{font-size:10px;font-weight:700;padding:2px 7px;border-radius:10px}
   .sev.critical{background:#fdecea;color:var(--crit)}.sev.warning{background:#fff8e0;color:var(--warn)}.sev.info{background:#eef2f8;color:var(--muted)}
   .card{background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:13px 15px;margin-bottom:10px}
-  .card h3{font-size:13px;color:var(--navy)} .card .st{font-size:11px;font-weight:700} .card p{font-size:12px;color:var(--muted);margin-top:5px}
+  .card h3{font-size:13px;color:var(--navy)}.card .st{font-size:11px;font-weight:700}.card p{font-size:12px;color:var(--muted);margin-top:5px}
   code{background:#eef2f8;padding:1px 5px;border-radius:4px;font-size:11.5px}
-  .msg{padding:30px;text-align:center;color:var(--muted)}
 </style>
 </head>
 <body>
-  <div class="nav">
-    <div class="brand"><span class="dot"></span> PCC People Architecture</div>
-    <div class="links"><a href="index.html">Hub</a><a href="library.html">Library</a>
-      <a href="career.html">Career</a><a href="evaluate.html">Evaluate</a><a class="active" href="admin.html">Admin</a></div>
-  </div>
-  <div class="wrap" id="wrap"><div class="msg">กำลังโหลด…</div></div>
+<div id="nav"></div>
+<div class="wrap" id="wrap"><div class="msg">…</div></div>
+<footer>PCC Group · Admin / Data Health</footer>
+<script src="shared.js"></script>
 <script>
 async function boot(){
+  PCC.nav('admin');
   let REF,JR;
-  try{REF=await (await fetch('../data/reference.json')).json();JR=await (await fetch('../data/job_roles.json')).json();}
-  catch(e){document.getElementById('wrap').innerHTML='<div class="msg">⚠️ เปิดผ่าน GitHub Pages เพื่อโหลดข้อมูล ('+e+')</div>';return;}
+  try{REF=await PCC.ref();JR=await (await fetch('../data/job_roles.json')).json();}
+  catch(e){document.getElementById('wrap').innerHTML=PCC.needLiveMsg();return;}
   const R=JR.roles, act=R.filter(r=>r.status==='active');
   const det=R.filter(r=>r.detail_level!=='skeleton').length;
   const crit=R.filter(r=>(r.data_quality||[]).some(f=>f.severity==='critical'));
   const warn=R.filter(r=>(r.data_quality||[]).some(f=>f.severity==='warning')&&!(r.data_quality||[]).some(f=>f.severity==='critical'));
-  let h=`<h2>Data Health — job_roles.json (${JR._meta.version||''})</h2>
-  <div class="kpis">
+  const verified=R.filter(r=>r.je_breakdown).length;
+  let h=`<div class="row"><h2 style="margin:0">Data Health — job_roles.json (${JR._meta.version||''})</h2><span class="spacer"></span><button class="btn sm" onclick="exp()">⬇️ ${PCC.t('exportcsv')}</button></div>
+  <div class="kpis" style="margin-top:10px">
    <div class="k"><div class="n">${R.length}</div><div class="l">records</div></div>
    <div class="k ok"><div class="n">${act.length}</div><div class="l">active</div></div>
+   <div class="k ok"><div class="n">${verified}</div><div class="l">JE verified</div></div>
+   <div class="k warn"><div class="n">${R.length-verified}</div><div class="l">JE under review</div></div>
    <div class="k"><div class="n">${det}</div><div class="l">detailed</div></div>
-   <div class="k"><div class="n">${R.length-det}</div><div class="l">skeleton</div></div>
    <div class="k crit"><div class="n">${crit.length}</div><div class="l">critical flags</div></div>
    <div class="k warn"><div class="n">${warn.length}</div><div class="l">warnings</div></div>
   </div>`;
-  // by level
   const lv={};act.forEach(r=>lv[r.level]=(lv[r.level]||0)+1);
-  h+='<h2>By Level</h2><div class="kpis">'+['F1','L1','L2','L3','L4','L5','L6'].map(l=>`<div class="k"><div class="n">${lv[l]||0}</div><div class="l">${l}</div></div>`).join('')+'</div>';
-  // critical worklist
+  h+='<h2>By Level</h2><div class="kpis">'+PCC.LEVELS.map(l=>`<div class="k"><div class="n" style="color:${PCC.LC[l]}">${lv[l]||0}</div><div class="l">${l}</div></div>`).join('')+'</div>';
   h+='<h2>JE / Data worklist (critical) — '+crit.length+'</h2>';
-  if(crit.length){h+='<table><tr><th>Code</th><th>Title</th><th>Flag</th></tr>';
+  if(crit.length){h+='<div class="tscroll"><table><thead><tr><th>Code</th><th>Title</th><th>Flag</th></tr></thead><tbody>';
     crit.forEach(r=>{(r.data_quality||[]).filter(f=>f.severity==='critical').forEach(f=>{
-      h+=`<tr><td><code>${r.code}</code></td><td>${r.title_en||''}</td><td><span class="sev critical">${f.code}</span> ${f.message}</td></tr>`;});});
-    h+='</table>';}else h+='<p style="font-size:12px;color:#5b6677">— ยังไม่พบ (เพิ่มขึ้นเมื่อ deep-extract ครบ)</p>';
-  // open decisions
+      h+=`<tr><td><a class="mono" href="library.html?role=${encodeURIComponent(r.code)}">${r.code}</a></td><td>${PCC.esc(r.title_en||'')}</td><td><span class="sev critical">${f.code}</span> ${PCC.esc(f.message)}</td></tr>`;});});
+    h+='</tbody></table></div>';}else h+='<p class="muted" style="font-size:12px">— ยังไม่พบ (เพิ่มขึ้นเมื่อ deep-extract ครบ)</p>';
   h+='<h2>Open Decisions (reference.json)</h2>';
   (REF.open_decisions||[]).forEach(d=>{
     const c=d.status.startsWith('RESOLVED')?'var(--ok)':d.status.startsWith('OPEN')?'var(--crit)':'var(--warn)';
-    h+=`<div class="card"><h3>${d.id} — ${d.title} <span class="st" style="color:${c}">[${d.status}]</span></h3><p>${d.detail}</p><p>👉 ${d.action||''}</p></div>`;
+    h+=`<div class="card"><h3>${d.id} — ${PCC.esc(d.title)} <span class="st" style="color:${c}">[${d.status}]</span></h3><p>${PCC.esc(d.detail)}</p><p>👉 ${PCC.esc(d.action||'')}</p></div>`;
   });
-  // authoring
   h+=`<h2>Authoring (Phase 1 workflow)</h2><div class="card"><p>ข้อมูลเป็น master: แก้ <code>data/job_roles.json</code> → build จะ generate <code>.docx</code> + refresh ทุกแอปอัตโนมัติ. ขณะนี้ ${R.length-det} ตำแหน่งเป็น skeleton (รอ deep-extract KR/spec + regenerate JE). JE ของ skeleton เป็น placeholder band-midpoint — <b>ยังไม่ใช้เป็น Pay Grade</b> จนกว่าจะ regenerate และ HR ยืนยัน item-30-by-level ใน <code>data/je_level_baseline.json</code>.</p></div>`;
   document.getElementById('wrap').innerHTML=h;
+  window._crit=crit;
+}
+function exp(){
+  const rows=[['code','title','severity','flag_code','message']];
+  (window._crit||[]).forEach(r=>(r.data_quality||[]).forEach(f=>rows.push([r.code,r.title_en,f.severity,f.code,f.message])));
+  PCC.exportCSV('data_worklist.csv',rows);
 }
 boot();
 </script>

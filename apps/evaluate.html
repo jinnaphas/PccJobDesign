@@ -1,126 +1,121 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Evaluation — PCC People Architecture</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evaluation — PCC People</title>
+<link rel="stylesheet" href="shared.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
-  :root{--navy:#1F3864;--blue:#2E5F9E;--bg:#eef2f8;--card:#fff;--text:#1a2230;--muted:#5b6677;--border:#d8e0ee;--ok:#1a7f5a;--warn:#b87c00;--crit:#c0392b}
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:'Sarabun','Segoe UI',Tahoma,sans-serif;background:var(--bg);color:var(--text)}
-  .nav{position:sticky;top:0;z-index:10;background:var(--navy);color:#fff;display:flex;align-items:center;gap:16px;padding:11px 20px}
-  .brand{font-weight:800;font-size:14px;display:flex;align-items:center;gap:8px}
-  .brand .dot{width:13px;height:13px;border-radius:4px;background:linear-gradient(135deg,#7eb3f5,#3b82f6)}
-  .nav .links{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap}
-  .nav .links a{color:#dce7f7;text-decoration:none;font-size:13px;padding:6px 11px;border-radius:7px}
-  .nav .links a:hover,.nav .links a.active{background:rgba(255,255,255,.14);color:#fff}
-  .wrap{max-width:1080px;margin:0 auto;padding:20px}
-  .ctrl{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
-  .seg{display:flex;border:1.5px solid var(--border);border-radius:8px;overflow:hidden}
-  .seg button{border:0;background:#fff;padding:7px 13px;font-size:12.5px;cursor:pointer;font-family:inherit}
-  .seg button.on{background:var(--blue);color:#fff}
-  select{padding:8px 12px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit;background:#fff}
-  .jd{background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:12px 15px;margin-bottom:14px;font-size:13px}
-  .jd b{color:var(--navy)}
-  .kpis{display:flex;gap:12px;margin-bottom:14px;flex-wrap:wrap}
-  .k{background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:10px 16px;flex:1;min-width:120px}
-  .k .n{font-size:24px;font-weight:800}.k .l{font-size:11px;color:var(--muted)}
-  .k.ok .n{color:var(--ok)}.k.warn .n{color:var(--warn)}.k.crit .n{color:var(--crit)}
-  table{width:100%;border-collapse:collapse;background:#fff;border:1.5px solid var(--border);border-radius:10px;overflow:hidden}
-  th{background:#eef3fb;color:var(--navy);font-size:11.5px;text-align:left;padding:8px 10px}
-  td{padding:8px 10px;font-size:12.5px;border-top:1px solid #eef2f8;cursor:pointer}
-  tr:hover td{background:#f7fbff}
-  .pill{font-size:11px;font-weight:700;padding:2px 9px;border-radius:12px}
-  .pill.Proceed{background:#e6f7f0;color:var(--ok)}.pill.Consider{background:#fff8e0;color:var(--warn)}
-  .pill[class*="Not"]{background:#fdecea;color:var(--crit)}
-  .bar{height:7px;background:#eef2f8;border-radius:4px;overflow:hidden;min-width:90px}
-  .bar i{display:block;height:100%}
-  .ov{position:fixed;inset:0;background:rgba(15,23,42,.55);display:none;align-items:center;justify-content:center;padding:20px;z-index:50}
-  .ov.show{display:flex}.mod{background:#fff;border-radius:14px;max-width:680px;width:100%;max-height:86vh;overflow-y:auto}
-  .mh{padding:16px 20px;background:var(--navy);color:#fff;border-radius:14px 14px 0 0}
-  .mh h2{font-size:18px}.mh .s{opacity:.85;font-size:12.5px}
-  .close{float:right;cursor:pointer;font-size:22px;opacity:.85}
-  .mb{padding:16px 20px}.mb h3{font-size:12px;color:var(--navy);text-transform:uppercase;letter-spacing:.5px;margin:14px 0 7px}
-  .row{display:flex;align-items:center;gap:10px;margin-bottom:5px;font-size:12px}.row .lab{width:130px;color:var(--muted)}.row .v{width:34px;text-align:right;font-weight:700}
-  .row .bar{flex:1}
+  .seg{display:inline-flex;border:1.5px solid var(--border);border-radius:8px;overflow:hidden}
+  .seg button{border:0;background:#fff;padding:7px 13px;font-size:12.5px}.seg button.on{background:var(--blue);color:#fff}.seg button:disabled{color:#aab;cursor:not-allowed}
+  .jd{background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:12px 15px;margin:12px 0;font-size:13px}.jd b{color:var(--navy)}
+  .kpis{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+  .k{background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:10px 16px;flex:1;min-width:110px}
+  .k .n{font-size:22px;font-weight:800}.k .l{font-size:11px;color:var(--muted)}
+  .k.good .n{color:var(--ok)}.k.mid .n{color:var(--warn)}.k.bad .n{color:var(--crit)}
+  td .sel{margin-right:6px}
+  .wbox{font-size:12px;color:var(--muted);background:#fff;border:1.5px solid var(--border);border-radius:9px;padding:9px 12px;margin-bottom:12px}
+  .wbox b{color:var(--text)}
   .li{font-size:12px;margin-left:16px;margin-bottom:3px}
-  .msg{padding:30px;text-align:center;color:var(--muted)}
 </style>
 </head>
 <body>
-  <div class="nav">
-    <div class="brand"><span class="dot"></span> PCC People Architecture</div>
-    <div class="links"><a href="index.html">Hub</a><a href="library.html">Library</a>
-      <a href="career.html">Career</a><a class="active" href="evaluate.html">Evaluate</a><a href="admin.html">Admin</a></div>
+<div id="nav"></div>
+<div class="wrap">
+  <div class="row no-print">
+    <div class="seg"><button class="on">Hiring</button><button disabled title="Phase 3 — needs employee data">Gap Closing</button><button disabled title="Phase 3 — needs employee data">Promotion</button></div>
+    <label>🎯 <select id="role"></select></label>
+    <span class="spacer"></span>
+    <button class="btn sm" id="cmpbtn" onclick="compare()">⚖️ <span id="t-cmp"></span></button>
+    <button class="btn sm" onclick="exportCSV()">⬇️ <span id="t-exp"></span></button>
   </div>
-  <div class="wrap">
-    <div class="ctrl">
-      <div class="seg"><button class="on">Hiring</button><button title="ต้องมีข้อมูลพนักงาน (Phase 3)" disabled>Gap Closing</button><button title="ต้องมีข้อมูลพนักงาน (Phase 3)" disabled>Promotion</button></div>
-      <label>ตำแหน่งเป้าหมาย: <select id="role"></select></label>
-    </div>
-    <div class="jd" id="jd"></div>
-    <div class="kpis" id="kpis"></div>
-    <div id="tablewrap"></div>
-  </div>
-  <div class="ov" id="ov" onclick="if(event.target===this)this.classList.remove('show')"><div class="mod" id="mod"></div></div>
+  <div class="jd" id="jd"></div>
+  <div class="wbox" id="wbox"></div>
+  <div class="row no-print" id="recfilter" style="margin-bottom:10px"></div>
+  <div class="kpis" id="kpis"></div>
+  <div id="tablewrap"></div>
+</div>
+<div class="ov" id="ov" onclick="if(event.target===this)this.classList.remove('show')"><div class="mod" id="mod"></div></div>
+<footer>PCC Group · Evaluation (Hiring)</footer>
+<script src="shared.js"></script>
 <script>
-let REF,ROLES,MODEL,PEOPLE=[],KRKEYS={},TARGET='PCC-HR-HCDM-L3';
+let REF,ROLES,MODEL,PEOPLE=[],KR={},TARGET='PCC-HR-HCDM-L3',recF=new Set(),chart;
 const DIMS=['education','experience','skills','english','digital','certifications'];
-function band(p){const m=MODEL.modes.hiring;if(p>=m.thresholds.high)return['Proceed',m.thresholds.high];if(p>=m.thresholds.mid)return['Consider'];return['Not Suitable'];}
-function col(p){return p>=75?'#1a7f5a':p>=60?'#b87c00':'#c0392b';}
+const $=id=>document.getElementById(id);
+const col=p=>p>=75?'#1a7f5a':p>=60?'#b87c00':'#c0392b';
 async function boot(){
-  try{
-    REF=await (await fetch('../data/reference.json')).json();
-    ROLES=(await (await fetch('../data/job_roles.json')).json()).roles;
-    MODEL=await (await fetch('../data/scoring_model.json')).json();
-  }catch(e){document.getElementById('tablewrap').innerHTML='<div class="msg">⚠️ เปิดผ่าน GitHub Pages เพื่อโหลดข้อมูล ('+e+')</div>';return;}
-  // roles with candidate data (currently HCDM-L3)
-  const sel=document.getElementById('role');
-  const o=document.createElement('option');o.value=TARGET;
-  const tr=ROLES.find(r=>r.code===TARGET);o.textContent=(tr?tr.title_en:TARGET)+' ('+TARGET+')';sel.appendChild(o);
-  sel.onchange=()=>{TARGET=sel.value;load();};
+  PCC.nav('evaluate');
+  $('t-cmp').textContent=PCC.lang()==='th'?'เทียบที่เลือก':'Compare';$('t-exp').textContent=PCC.t('exportcsv');
+  try{REF=await PCC.ref();ROLES=(await (await fetch('../data/job_roles.json')).json()).roles;MODEL=await (await fetch('../data/scoring_model.json')).json();}
+  catch(e){$('tablewrap').innerHTML=PCC.needLiveMsg();return;}
+  const want=PCC.qs('target'); if(want)TARGET=want;
+  const o=document.createElement('option');o.value='PCC-HR-HCDM-L3';o.textContent='HCD Manager (PCC-HR-HCDM-L3)';$('role').appendChild(o);
+  if(TARGET!=='PCC-HR-HCDM-L3'){const r=ROLES.find(x=>x.code===TARGET);const o2=document.createElement('option');o2.value=TARGET;o2.textContent=(r?PCC.title(r):TARGET)+' ('+TARGET+')';$('role').appendChild(o2);}
+  $('role').value=TARGET;$('role').onchange=()=>{TARGET=$('role').value;load();};
+  // weights
+  const w=MODEL.modes.hiring.weights;
+  $('wbox').innerHTML=(PCC.lang()==='th'?'น้ำหนักเกณฑ์ (Hiring): ':'Scoring weights (Hiring): ')+DIMS.map(d=>`${d} <b>${w[d]||0}%</b>`).join(' · ')+` &nbsp; | เกณฑ์: Proceed ≥${MODEL.modes.hiring.thresholds.high} · Consider ≥${MODEL.modes.hiring.thresholds.mid}`;
+  // rec filter chips
+  ['Proceed','Consider','Not Suitable'].forEach(rc=>{const c=document.createElement('span');c.className='chip';c.textContent=rc;c.onclick=()=>{recF.has(rc)?recF.delete(rc):recF.add(rc);c.classList.toggle('on');render();};$('recfilter').appendChild(c);});
   load();
 }
 async function load(){
-  try{
-    const pf=await (await fetch('../data/people/candidates_'+TARGET+'.json')).json();
-    PEOPLE=pf.people; KRKEYS=pf._meta.kr_keys||{};
-  }catch(e){PEOPLE=[];KRKEYS={};}
+  try{const pf=await (await fetch('../data/people/candidates_'+TARGET+'.json')).json();PEOPLE=pf.people;KR=pf._meta.kr_keys||{};}
+  catch(e){PEOPLE=[];KR={};}
   render();
 }
 function render(){
   const r=ROLES.find(x=>x.code===TARGET)||{};
-  document.getElementById('jd').innerHTML=`🎯 <b>${r.title_en||TARGET}</b> · ${TARGET} · Level ${r.level||''} · JE ${r.je_score??'—'}`
-    +(r.purpose_th?`<br><span style="color:#5b6677">${r.purpose_th}</span>`:'');
-  if(!PEOPLE.length){document.getElementById('kpis').innerHTML='';document.getElementById('tablewrap').innerHTML='<div class="msg">ยังไม่มีข้อมูลผู้สมัครสำหรับตำแหน่งนี้ (Phase 3 จะรองรับการประเมินพนักงานปัจจุบันด้วย)</div>';return;}
-  const cnt={Proceed:0,Consider:0,'Not Suitable':0};PEOPLE.forEach(p=>cnt[p.evaluation.recommendation]++);
-  document.getElementById('kpis').innerHTML=
-    `<div class="k"><div class="n">${PEOPLE.length}</div><div class="l">ผู้สมัคร</div></div>
-     <div class="k ok"><div class="n">${cnt.Proceed}</div><div class="l">Proceed (≥75%)</div></div>
-     <div class="k warn"><div class="n">${cnt.Consider}</div><div class="l">Consider (60-74%)</div></div>
-     <div class="k crit"><div class="n">${cnt['Not Suitable']}</div><div class="l">Not Suitable (&lt;60%)</div></div>`;
-  let h='<table><tr><th>#</th><th>ชื่อ</th><th>ตำแหน่งปัจจุบัน</th><th>Exp</th><th>Overall</th><th>ผลประเมิน</th></tr>';
-  PEOPLE.forEach((p,i)=>{const e=p.evaluation;
-    h+=`<tr onclick='openP(${i})'><td>${i+1}</td><td><b>${p.name}</b></td><td>${p.current_title||''}<br><span style="color:#5b6677;font-size:11px">${p.current_company||''}</span></td>
-    <td>${p.experience?.total_years||''} ปี</td>
-    <td><div style="display:flex;align-items:center;gap:7px"><div class="bar" style="width:70px"><i style="width:${e.overall_pct}%;background:${col(e.overall_pct)}"></i></div><b>${e.overall_pct}%</b></div></td>
-    <td><span class="pill ${e.recommendation.replace(' ','')} ${e.recommendation.includes('Not')?'Not':''}">${e.recommendation}</span></td></tr>`;});
-  h+='</table>';
-  document.getElementById('tablewrap').innerHTML=h;
+  $('jd').innerHTML=`🎯 <b>${PCC.title(r)||TARGET}</b> · <span class="mono">${TARGET}</span> · ${r.level||''} · JE ${r.je_score??'—'}`+(r.purpose_th?`<br><span class="muted">${PCC.esc(r.purpose_th)}</span>`:'');
+  if(!PEOPLE.length){$('kpis').innerHTML='';$('wbox').classList.add('hide');$('recfilter').classList.add('hide');
+    $('tablewrap').innerHTML=`<div class="msg">${PCC.lang()==='th'?'ยังไม่มีข้อมูลผู้สมัครสำหรับตำแหน่งนี้':'No candidate data for this role yet'} · <a href="evaluate.html?target=PCC-HR-HCDM-L3">ดูตัวอย่าง HCDM-L3</a></div>`;return;}
+  $('wbox').classList.remove('hide');$('recfilter').classList.remove('hide');
+  const cnt={Proceed:0,Consider:0,'Not Suitable':0};PEOPLE.forEach(p=>cnt[p.evaluation.recommendation]=(cnt[p.evaluation.recommendation]||0)+1);
+  $('kpis').innerHTML=`<div class="k"><div class="n">${PEOPLE.length}</div><div class="l">${PCC.lang()==='th'?'ผู้สมัคร':'candidates'}</div></div>
+    <div class="k good"><div class="n">${cnt.Proceed}</div><div class="l">Proceed</div></div>
+    <div class="k mid"><div class="n">${cnt.Consider}</div><div class="l">Consider</div></div>
+    <div class="k bad"><div class="n">${cnt['Not Suitable']}</div><div class="l">Not Suitable</div></div>`;
+  let list=PEOPLE.filter(p=>!recF.size||recF.has(p.evaluation.recommendation));
+  let h=`<table><thead><tr><th></th><th>#</th><th>${PCC.lang()==='th'?'ชื่อ':'Name'}</th><th>${PCC.lang()==='th'?'ตำแหน่งปัจจุบัน':'Current'}</th><th>Exp</th><th>Overall</th><th>${PCC.lang()==='th'?'ผล':'Result'}</th></tr></thead><tbody>`;
+  list.forEach((p,i)=>{const e=p.evaluation;
+    h+=`<tr><td><input type="checkbox" class="sel" data-id="${p.id}"></td><td>${i+1}</td><td><b style="cursor:pointer" onclick="openP('${p.id}')">${PCC.esc(p.name)}</b></td>
+    <td>${PCC.esc(p.current_title||'')}<br><span class="muted" style="font-size:11px">${PCC.esc(p.current_company||'')}</span></td>
+    <td>${p.experience?.total_years||''}</td>
+    <td><div class="row" style="gap:6px"><div class="bar" style="width:64px"><i style="width:${e.overall_pct}%;background:${col(e.overall_pct)}"></i></div><b>${e.overall_pct}%</b></div></td>
+    <td><span class="pill ${PCC.recClass(e.recommendation)}">${e.recommendation}</span></td></tr>`;});
+  h+='</tbody></table>';$('tablewrap').innerHTML=h;
 }
-function openP(i){
-  const p=PEOPLE[i],e=p.evaluation;
-  let h=`<div class="mh"><span class="close" onclick="document.getElementById('ov').classList.remove('show')">×</span>
-    <h2>${p.name}</h2><div class="s">${p.current_title||''} @ ${p.current_company||''} · ${p.education?.level||''} · ${p.experience?.total_years||''} ปี · EN ${p.languages?.english||''}</div>
-    <div style="margin-top:8px"><span class="pill ${e.recommendation.replace(' ','')} ${e.recommendation.includes('Not')?'Not':''}">${e.recommendation} · ${e.overall_pct}%</span></div></div><div class="mb">`;
-  h+='<h3>คะแนน 6 มิติ</h3>';
-  DIMS.forEach(d=>{const v=e.scores[d]??0;h+=`<div class="row"><div class="lab">${d}</div><div class="bar"><i style="width:${v}%;background:${col(v)}"></i></div><div class="v">${v}</div></div>`;});
-  h+='<h3>KR Alignment</h3>';
-  Object.keys(e.kr_alignment||{}).forEach(k=>{const v=e.kr_alignment[k];h+=`<div class="row"><div class="lab">${KRKEYS[k]||k}</div><div class="bar"><i style="width:${v}%;background:${col(v)}"></i></div><div class="v">${v}</div></div>`;});
-  if(e.key_strengths?.length){h+='<h3>จุดแข็ง</h3>';e.key_strengths.forEach(s=>h+=`<div class="li">✅ ${s}</div>`);}
-  if(e.key_gaps?.length){h+='<h3>ช่องว่าง</h3>';e.key_gaps.forEach(s=>h+=`<div class="li">⚠️ ${s}</div>`);}
-  h+='</div>';
-  document.getElementById('mod').innerHTML=h;document.getElementById('ov').classList.add('show');
+function radarCfg(datasets,labels){return{type:'radar',data:{labels,datasets},options:{scales:{r:{min:0,max:100,ticks:{stepSize:25,font:{size:9}},pointLabels:{font:{size:10}}}},plugins:{legend:{labels:{boxWidth:10,font:{size:11}}}}}};}
+function openP(id){
+  const p=PEOPLE.find(x=>x.id===id),e=p.evaluation;
+  let h=`<div class="mh" style="background:var(--navy)"><button class="close" onclick="$('ov').classList.remove('show')">×</button>
+    <h2>${PCC.esc(p.name)}</h2><div style="opacity:.9;font-size:12.5px">${PCC.esc(p.current_title||'')} @ ${PCC.esc(p.current_company||'')} · ${p.education?.level||''} · ${p.experience?.total_years||''} ปี · EN ${p.languages?.english||''}</div>
+    <div style="margin-top:8px"><span class="pill ${PCC.recClass(e.recommendation)}">${e.recommendation} · ${e.overall_pct}%</span></div></div><div class="mb">
+    <div class="row" style="gap:14px;align-items:flex-start"><div style="flex:1;min-width:220px"><canvas id="rad1" height="220"></canvas></div><div style="flex:1;min-width:220px"><canvas id="rad2" height="220"></canvas></div></div>`;
+  if(e.key_strengths?.length){h+=`<h3>${PCC.lang()==='th'?'จุดแข็ง':'Strengths'}</h3>`;e.key_strengths.forEach(s=>h+=`<div class="li">✅ ${PCC.esc(s)}</div>`);}
+  if(e.key_gaps?.length){h+=`<h3>${PCC.lang()==='th'?'ช่องว่าง':'Gaps'}</h3>`;e.key_gaps.forEach(s=>h+=`<div class="li">⚠️ ${PCC.esc(s)}</div>`);}
+  h+='</div>';$('mod').innerHTML=h;$('ov').classList.add('show');
+  if(typeof Chart==='undefined')return;
+  new Chart($('rad1'),radarCfg([{label:PCC.lang()==='th'?'คะแนน 6 มิติ':'6 dimensions',data:DIMS.map(d=>e.scores[d]||0),fill:true,backgroundColor:'rgba(46,95,158,.2)',borderColor:'#2E5F9E'}],DIMS));
+  const kk=Object.keys(e.kr_alignment||{});
+  new Chart($('rad2'),radarCfg([{label:'KR Alignment',data:kk.map(k=>e.kr_alignment[k]),fill:true,backgroundColor:'rgba(16,127,90,.2)',borderColor:'#1a7f5a'}],kk.map(k=>KR[k]||k)));
+}
+function compare(){
+  const ids=[...document.querySelectorAll('.sel:checked')].map(c=>c.dataset.id).slice(0,3);
+  if(ids.length<2){alert(PCC.lang()==='th'?'เลือกผู้สมัคร 2-3 คนเพื่อเทียบ':'Select 2-3 candidates to compare');return;}
+  const cols=['#2E5F9E','#c0392b','#1a7f5a'];
+  const ds=ids.map((id,i)=>{const e=PEOPLE.find(x=>x.id===id).evaluation;return{label:PEOPLE.find(x=>x.id===id).name,data:DIMS.map(d=>e.scores[d]||0),fill:true,backgroundColor:cols[i]+'22',borderColor:cols[i]};});
+  $('mod').innerHTML=`<div class="mh" style="background:var(--navy)"><button class="close" onclick="$('ov').classList.remove('show')">×</button><h2>${PCC.lang()==='th'?'เทียบผู้สมัคร':'Compare candidates'}</h2></div><div class="mb"><canvas id="radc" height="260"></canvas><div id="ctab" style="margin-top:12px"></div></div>`;
+  $('ov').classList.add('show');
+  if(typeof Chart!=='undefined')new Chart($('radc'),radarCfg(ds,DIMS));
+  let t='<table><thead><tr><th>'+(PCC.lang()==='th'?'ชื่อ':'Name')+'</th><th>Overall</th>'+DIMS.map(d=>`<th>${d}</th>`).join('')+'</tr></thead><tbody>';
+  ids.forEach(id=>{const p=PEOPLE.find(x=>x.id===id),e=p.evaluation;t+=`<tr><td><b>${PCC.esc(p.name)}</b></td><td>${e.overall_pct}%</td>`+DIMS.map(d=>`<td>${e.scores[d]||0}</td>`).join('')+'</tr>';});
+  $('ctab').innerHTML=t+'</tbody></table>';
+}
+function exportCSV(){
+  const rows=[['Name','Current Title','Company','Total Exp','Overall %','Recommendation',...DIMS,...Object.keys(PEOPLE[0]?.evaluation.kr_alignment||{})]];
+  PEOPLE.forEach(p=>{const e=p.evaluation;rows.push([p.name,p.current_title,p.current_company,p.experience?.total_years,e.overall_pct,e.recommendation,...DIMS.map(d=>e.scores[d]),...Object.values(e.kr_alignment||{})]);});
+  PCC.exportCSV('candidates_'+TARGET+'.csv',rows);
 }
 boot();
 </script>
