@@ -7,15 +7,15 @@
     "generated": "2026-06-15",
     "pilot_set": "Pilot: full level coverage F1->L5 + HR ladder + Agentic-AI L1 + Finance L5. Batch 2: GRP Common L1 across families (FIN/SCM/PMO/QA/ESG/CX).",
     "validation_summary": {
-      "total_records": 196,
-      "active": 195,
-      "detailed": 195,
-      "with_je_breakdown_clean": 71,
-      "with_dataquality_flags": 131,
+      "total_records": 198,
+      "active": 197,
+      "detailed": 197,
+      "with_je_breakdown_clean": 73,
+      "with_dataquality_flags": 134,
       "by_level": {
         "F1": 7,
-        "L1": 75,
-        "L2": 28,
+        "L1": 76,
+        "L2": 29,
         "L3": 57,
         "L4": 12,
         "L5": 15,
@@ -14471,6 +14471,277 @@
         "salary_range_thb": "70,000 – 140,000 บาท/เดือน"
       },
       "data_quality": []
+    },
+    {
+      "code": "PCC-DT-DPCO-L1",
+      "title_en": "Digital Process Capital Officer",
+      "title_th": "เจ้าหน้าที่พัฒนากระบวนการดิจิทัลและทุนดิจิทัล",
+      "company": "PCC",
+      "family_code": "DT",
+      "level": "L1",
+      "purpose_th": "เป็นกำลังปฏิบัติการหลักในการแปลงกระบวนการทางธุรกิจสู่ดิจิทัลของกลุ่มบริษัท PCC โดยสนับสนุนการวิเคราะห์และจัดทำเอกสารกระบวนการ (Process Mapping), พัฒนาและดูแล Workflow / Automation (RPA & Low-Code) ตามที่ได้รับมอบหมาย, เก็บและวิเคราะห์ข้อมูลประสิทธิภาพกระบวนการ และช่วยผลักดันการใช้งานเครื่องมือดิจิทัลให้เกิดผลจริง (ระดับดูแลตนเอง / Manage Self)",
+      "krs": [
+        {
+          "seq": 1,
+          "name_th": "สนับสนุนการวิเคราะห์และจัดทำเอกสารกระบวนการ (Process Analysis & Documentation)",
+          "kpis": [
+            "No. of Processes Mapped/ปี",
+            "Process Documentation Accuracy >= 95%",
+            "BPMN/SOP Completeness (%)"
+          ],
+          "weight_pct": 35
+        },
+        {
+          "seq": 2,
+          "name_th": "พัฒนาและดูแล Workflow / Automation & RPA ตามที่ได้รับมอบหมาย",
+          "kpis": [
+            "No. of Workflows/Bots Delivered/ปี",
+            "Automation Uptime >= 98%",
+            "Post-Deployment Defect Rate <= 5%"
+          ],
+          "weight_pct": 30
+        },
+        {
+          "seq": 3,
+          "name_th": "เก็บ วิเคราะห์ข้อมูลประสิทธิภาพกระบวนการ และจัดทำ Dashboard/รายงาน",
+          "kpis": [
+            "Report/Dashboard On-Time 100%",
+            "Data Accuracy >= 98%",
+            "Process Insight Suggestions >= 2/เดือน"
+          ],
+          "weight_pct": 20
+        },
+        {
+          "seq": 4,
+          "name_th": "สนับสนุน Digital Adoption และจัดเก็บองค์ความรู้ดิจิทัล (Knowledge Base/SOP)",
+          "kpis": [
+            "User Support Satisfaction >= 4/5",
+            "Knowledge Base Update On-Time 100%"
+          ],
+          "weight_pct": 15
+        }
+      ],
+      "specs": {
+        "education": {
+          "level": "Bachelor",
+          "field": "วิศวกรรมคอมพิวเตอร์ / เทคโนโลยีสารสนเทศ (MIS) / วิศวกรรมอุตสาหการ / บริหารธุรกิจ หรือเทียบเท่าทักษะด้าน Process/Automation"
+        },
+        "experience": {
+          "min_years": 0,
+          "note": "0-2 ปี ด้าน Process Improvement / Business Analyst / RPA / IT Support; ประสบการณ์ทำ Automation หรือ Low-Code จริงเป็นข้อได้เปรียบ"
+        },
+        "skills": [
+          "Process Mapping (BPMN) และ Requirement Gathering",
+          "การจัดทำเอกสารกระบวนการและ SOP",
+          "การวิเคราะห์ข้อมูลเบื้องต้น (Data Analysis)",
+          "Digital Mindset และการเรียนรู้เครื่องมือใหม่"
+        ],
+        "languages": {
+          "english": "Medium"
+        },
+        "digital": [
+          "Low-Code/No-Code (Microsoft Power Automate, Power Apps)",
+          "RPA เบื้องต้น (UiPath / Power Automate)",
+          "Power BI / Excel ขั้นสูง",
+          "SQL / API เบื้องต้น"
+        ],
+        "certs": [
+          "RPA / Power Platform Fundamentals (UiPath / Microsoft) — plus",
+          "Lean Six Sigma Yellow Belt — plus"
+        ]
+      },
+      "je_score": 51,
+      "je_breakdown": [
+        2,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        3,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        2,
+        1,
+        2,
+        3,
+        1,
+        2,
+        1,
+        1,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1
+      ],
+      "je_source": "regenerated_proposed",
+      "detail_level": "detailed",
+      "report_to": "Digital Process Capital Supervisor (PCC-DT-DPCS-L2)",
+      "status": "active",
+      "version": "1.0",
+      "source_docx": "PCC-DT-DPCO-L1_Digital Process Capital Officer_PCC_v1.0.docx",
+      "market_benchmark": {
+        "comparable_titles": "Process Analyst / RPA Developer (Junior) / Business Analyst (Junior) / Digital Officer — Corporate Level",
+        "salary_range_thb": "25,000 – 45,000 บาท/เดือน"
+      },
+      "data_quality": [
+        {
+          "code": "other",
+          "severity": "info",
+          "message": "JD authored 2026-07-02 to complete the Digital Process Capital ladder (L1–L3). JE breakdown derived from the confirmed L1 baseline (je_level_baseline.json) + this role's KRs; je_source=regenerated_proposed — pending HR confirmation before use as a pay grade."
+        }
+      ],
+      "updated": "2026-07-02"
+    },
+    {
+      "code": "PCC-DT-DPCS-L2",
+      "title_en": "Digital Process Capital Supervisor",
+      "title_th": "หัวหน้างานพัฒนากระบวนการดิจิทัลและทุนดิจิทัล",
+      "company": "PCC",
+      "family_code": "DT",
+      "level": "L2",
+      "purpose_th": "นำและส่งมอบโครงการยกระดับกระบวนการดิจิทัลและระบบอัตโนมัติ (Workflow Automation & RPA) ให้กับหน่วยธุรกิจของกลุ่มบริษัท PCC ตั้งแต่การวิเคราะห์กระบวนการ ออกแบบโซลูชัน ควบคุมการส่งมอบ ขับเคลื่อน Process Excellence ไปจนถึงการควบคุมงานและพัฒนาทีมเจ้าหน้าที่ในความดูแล เพื่อสร้างทุนดิจิทัล (Digital Capital) ที่นำกลับมาใช้ซ้ำได้ (ระดับดูแลผู้อื่น / Manage Others)",
+      "krs": [
+        {
+          "seq": 1,
+          "name_th": "วิเคราะห์กระบวนการธุรกิจและระบุโอกาส Digitalization/Automation (Use Case & Feasibility)",
+          "kpis": [
+            "No. of Qualified Use Cases/ปี",
+            "Feasibility/ROI Assessment Accuracy (%)",
+            "Automation Pipeline Coverage (%)"
+          ],
+          "weight_pct": 25
+        },
+        {
+          "seq": 2,
+          "name_th": "ออกแบบและส่งมอบโครงการ Workflow Automation & RPA (Solution Delivery)",
+          "kpis": [
+            "Project On-Time Delivery >= 90%",
+            "Process Cycle Time Reduction (%)",
+            "Solution Adoption Rate (%)"
+          ],
+          "weight_pct": 30
+        },
+        {
+          "seq": 3,
+          "name_th": "ขับเคลื่อน Process Excellence & Continuous Improvement (Lean/Six Sigma)",
+          "kpis": [
+            "Cost Savings from Process Improvement (THB/ปี)",
+            "Process Efficiency Index",
+            "No. of Improvement Initiatives/ปี"
+          ],
+          "weight_pct": 20
+        },
+        {
+          "seq": 4,
+          "name_th": "สร้างและดูแล Digital Capital & Knowledge (Reusable Components/SOP)",
+          "kpis": [
+            "Digital Asset Reuse Rate (%)",
+            "Knowledge Base Completeness (%)"
+          ],
+          "weight_pct": 10
+        },
+        {
+          "seq": 5,
+          "name_th": "ควบคุมงาน พัฒนาทีม และบริหาร Digital Adoption/Change ในกลุ่มงาน",
+          "kpis": [
+            "Team Performance Achievement (%)",
+            "Digital Adoption Rate (%)",
+            "No. of Digital Champions Coached"
+          ],
+          "weight_pct": 15
+        }
+      ],
+      "specs": {
+        "education": {
+          "level": "Bachelor",
+          "field": "วิศวกรรมคอมพิวเตอร์ / เทคโนโลยีสารสนเทศ / วิศวกรรมอุตสาหการ / บริหารธุรกิจ (MIS/MBA) — ปริญญาโทเป็นข้อได้เปรียบ"
+        },
+        "experience": {
+          "min_years": 4,
+          "note": "4-7 ปี ด้าน Digital Transformation / Process Improvement / Automation; เคยนำทีมหรือเป็นหัวหน้าโครงการ Automation อย่างน้อย 1-2 ปี"
+        },
+        "skills": [
+          "Business Process Re-engineering (BPR) และ Process Mapping (BPMN 2.0)",
+          "การออกแบบโซลูชันและวิเคราะห์ความต้องการ (Solution & Requirement Analysis)",
+          "การประสานงานและควบคุมทีม/โครงการ (Squad & Project Coordination)",
+          "Change และ Stakeholder Management"
+        ],
+        "languages": {
+          "english": "High"
+        },
+        "digital": [
+          "RPA Tools (UiPath, Automation Anywhere, Power Automate)",
+          "Low-Code/No-Code (Power Apps, OutSystems)",
+          "Process Mining (Celonis, UiPath Process Mining)",
+          "Power BI / Tableau และ SQL/API Integration"
+        ],
+        "certs": [
+          "RPA Certification (UiPath / Power Automate) — Strongly Preferred",
+          "Lean Six Sigma Green Belt — Preferred",
+          "PMP / Agile (Scrum) — plus"
+        ]
+      },
+      "je_score": 73,
+      "je_breakdown": [
+        3,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        1,
+        3,
+        3,
+        1,
+        1,
+        3,
+        3,
+        2,
+        3,
+        2,
+        2,
+        3,
+        1,
+        3,
+        2
+      ],
+      "je_source": "regenerated_proposed",
+      "detail_level": "detailed",
+      "report_to": "Digital Process Capital Manager (PCC-DT-DPCM-L3)",
+      "status": "active",
+      "version": "1.0",
+      "source_docx": "PCC-DT-DPCS-L2_Digital Process Capital Supervisor_PCC_v1.0.docx",
+      "market_benchmark": {
+        "comparable_titles": "Automation Engineer / Process Improvement Supervisor / RPA Lead / Digital Solutions Supervisor — Corporate Level",
+        "salary_range_thb": "45,000 – 75,000 บาท/เดือน"
+      },
+      "data_quality": [
+        {
+          "code": "other",
+          "severity": "info",
+          "message": "JD authored 2026-07-02 to complete the Digital Process Capital ladder (L1–L3). JE breakdown derived from the confirmed L2 baseline (je_level_baseline.json) + this role's KRs; je_source=regenerated_proposed — pending HR confirmation before use as a pay grade."
+        }
+      ],
+      "updated": "2026-07-02"
     },
     {
       "code": "PCC-FIN-FARM-L3",
