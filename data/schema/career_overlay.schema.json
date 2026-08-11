@@ -7,11 +7,20 @@
   "required": ["version"],
   "additionalProperties": false,
   "properties": {
+    "_meta": { "type": "object" },
     "version": { "type": "string" },
     "bridges": {
       "type": "object",
       "description": "family id -> adjacent family ids a person can realistically move into.",
       "additionalProperties": { "type": "array", "items": { "type": "string" } }
+    },
+    "bridge_rationale": {
+      "type": "object",
+      "description": "family id -> { target family id -> short rationale (why the cross-family move is realistic / what transfers).}",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": { "type": "string" }
+      }
     },
     "ai_risk": {
       "type": "object",

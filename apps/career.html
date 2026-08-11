@@ -14,7 +14,14 @@
   .role:hover{background:#eef5ff;border-color:var(--blue)}
   .role b{display:block;font-size:11.5px}.role span{color:var(--muted);font-size:9.5px}
   h2{font-size:17px;color:var(--navy);margin:8px 0 12px}
-  .bridge{font-size:12px;color:var(--muted);margin:6px 0 14px}.bridge b{color:var(--text)}
+  .btitle{font-size:12.5px;font-weight:800;color:var(--navy);margin:2px 0 6px}
+  .bwrap{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:8px;margin:0 0 16px}
+  .bcard{background:#fff;border:1.5px solid var(--border);border-left:4px solid #8b5cf6;border-radius:9px;padding:8px 10px}
+  .bcard .bh{font-size:12px;font-weight:700}
+  .bcard .brz{font-size:10.5px;color:var(--muted);margin:3px 0 6px;line-height:1.4}
+  .bcard .bex{font-size:10.5px;color:var(--blue);text-decoration:none;font-weight:600;display:block}
+  .bcard .bex:hover{text-decoration:underline}
+  .bcard .bex .mono{color:var(--muted);font-weight:400}
   .trans{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
   .tc{background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:13px}
   .tc h3{font-size:13px;color:var(--blue)}.tc .tl{font-size:11px;color:var(--muted);margin:3px 0 7px}
@@ -39,6 +46,13 @@
 <script>
 const RC={Low:'#1a7f5a',Medium:'#b87c00',High:'#c0392b'};
 let REF,ROLES,OV;const $=id=>document.getElementById(id);
+function exampleRole(tf,co){
+  const cand=ROLES.filter(r=>PCC.famId(r)===tf);
+  if(!cand.length)return null;
+  const coRank=r=>(co&&r.company===co)?0:(r.company==='GRP'?1:(r.company==='PCC'?2:3));
+  const li=l=>PCC.LEVELS.indexOf(l), tgt=li('L2');
+  return cand.slice().sort((a,b)=>coRank(a)-coRank(b)||Math.abs(li(a.level)-tgt)-Math.abs(li(b.level)-tgt)||((a.je_score||0)-(b.je_score||0)))[0];
+}
 async function boot(){
   PCC.nav('career');
   $('l-fam').firstChild.textContent=PCC.t('family')+': ';$('l-co').firstChild.textContent=PCC.t('company')+': ';
@@ -59,8 +73,18 @@ function render(){
   const rs=ROLES.filter(r=>PCC.famId(r)===fam&&(!co||r.company===co));
   const ar=(OV.ai_risk||{})[fam];const rk=$('risk');
   if(ar){rk.style.background=RC[ar.label]||'#888';rk.textContent='AI Risk: '+ar.label+' — '+ar.reason;}else rk.textContent='';
+  const th=PCC.lang()==='th';
   const br=((OV.bridges||{})[fam]||[]).filter(b=>b!==fam);
-  $('bridge').innerHTML=br.length?'🔀 '+(PCC.lang()==='th'?'สายงานที่ข้ามไปได้: ':'Bridges to: ')+'<b>'+br.map(PCC.famName).join(' · ')+'</b>':'';
+  const rat=(OV.bridge_rationale||{})[fam]||{};
+  let bh=br.length?`<div class="btitle">🔀 ${th?'เส้นทางข้ามสาย (Optional Career Paths) — ก้าวไปยังสายงานอื่น':'Optional Cross-Family Career Paths'}</div><div class="bwrap">`:'';
+  br.forEach(tf=>{
+    const ex=exampleRole(tf,co);
+    bh+=`<div class="bcard"><div class="bh">${PCC.famName(tf)}</div>`+
+        (rat[tf]?`<div class="brz">${PCC.esc(rat[tf])}</div>`:'')+
+        (ex?`<a class="bex" href="library.html?role=${encodeURIComponent(ex.code)}">→ ${th?'ตัวอย่างตำแหน่ง':'e.g. role'}: ${PCC.esc(PCC.title(ex))} <span class="mono">(${ex.code} · ${ex.level})</span></a>`:'')+
+        `</div>`;
+  });
+  $('bridge').innerHTML=bh+(br.length?'</div>':'');
   const lad=$('ladder');lad.innerHTML='';
   PCC.LEVELS.forEach(l=>{
     const col=document.createElement('div');col.className='col';col.innerHTML=`<h4 style="background:${PCC.LC[l]}">${l}</h4>`;
