@@ -3,48 +3,777 @@
     "title": "Career Overlay (seed)",
     "schema": "schema/career_overlay.schema.json",
     "version": "0.1.0-seed",
-    "status": "SEED — AI-risk + generic level transitions for Career Path. Family bridges and per-transition detail to be enriched with HR."
+    "status": "SEED — AI-risk + generic level transitions for Career Path. Family bridges and per-transition detail to be enriched with HR.",
+    "bridges_note": "Cross-family optional career paths (15 families, 50 links). Each bridge_rationale entry has {why, land (recommended landing level), gap (skills to build before crossing)}. Updated 2026-08-11."
   },
   "version": "0.1.0-seed",
   "ai_risk": {
-    "gss": {"score": 80, "label": "High", "reason": "Routine manual/support tasks highly automatable; reskilling toward supervised/technical roles."},
-    "ops": {"score": 60, "label": "Medium", "reason": "Sensing/automation reduces manual ops; shift to monitoring & exception handling."},
-    "fin": {"score": 60, "label": "Medium", "reason": "Bookkeeping/closing automatable; value shifts to analysis & control."},
-    "scm": {"score": 55, "label": "Medium", "reason": "Planning/PO automation; value in vendor strategy & resilience."},
-    "qse": {"score": 50, "label": "Medium", "reason": "Inspection/reporting assisted by AI; judgement & compliance remain human."},
-    "sal": {"score": 45, "label": "Medium", "reason": "AI assists CRM/insights; relationship & negotiation remain human."},
-    "pmo": {"score": 45, "label": "Medium", "reason": "Tracking/reporting automatable; stakeholder leadership remains."},
-    "hr": {"score": 45, "label": "Medium", "reason": "HR ops automatable; strategy, culture, coaching remain human."},
-    "it": {"score": 40, "label": "Medium", "reason": "Code/ops assisted by AI; architecture & security judgement remain."},
-    "eng": {"score": 35, "label": "Low", "reason": "Field/safety-critical engineering hard to automate; AI augments design."},
-    "grc": {"score": 35, "label": "Low", "reason": "Judgement, accountability & regulator relationships remain human."},
-    "rnd": {"score": 30, "label": "Low", "reason": "Discovery/innovation augmented, not replaced, by AI."},
-    "dig": {"score": 25, "label": "Low", "reason": "Builds & governs the AI — demand rising."},
-    "bds": {"score": 25, "label": "Low", "reason": "Strategy, deals & ambiguity-heavy work remain human."},
-    "exe": {"score": 20, "label": "Low", "reason": "Leadership, accountability & enterprise judgement remain human."}
+    "gss": {
+      "score": 80,
+      "label": "High",
+      "reason": "Routine manual/support tasks highly automatable; reskilling toward supervised/technical roles."
+    },
+    "ops": {
+      "score": 60,
+      "label": "Medium",
+      "reason": "Sensing/automation reduces manual ops; shift to monitoring & exception handling."
+    },
+    "fin": {
+      "score": 60,
+      "label": "Medium",
+      "reason": "Bookkeeping/closing automatable; value shifts to analysis & control."
+    },
+    "scm": {
+      "score": 55,
+      "label": "Medium",
+      "reason": "Planning/PO automation; value in vendor strategy & resilience."
+    },
+    "qse": {
+      "score": 50,
+      "label": "Medium",
+      "reason": "Inspection/reporting assisted by AI; judgement & compliance remain human."
+    },
+    "sal": {
+      "score": 45,
+      "label": "Medium",
+      "reason": "AI assists CRM/insights; relationship & negotiation remain human."
+    },
+    "pmo": {
+      "score": 45,
+      "label": "Medium",
+      "reason": "Tracking/reporting automatable; stakeholder leadership remains."
+    },
+    "hr": {
+      "score": 45,
+      "label": "Medium",
+      "reason": "HR ops automatable; strategy, culture, coaching remain human."
+    },
+    "it": {
+      "score": 40,
+      "label": "Medium",
+      "reason": "Code/ops assisted by AI; architecture & security judgement remain."
+    },
+    "eng": {
+      "score": 35,
+      "label": "Low",
+      "reason": "Field/safety-critical engineering hard to automate; AI augments design."
+    },
+    "grc": {
+      "score": 35,
+      "label": "Low",
+      "reason": "Judgement, accountability & regulator relationships remain human."
+    },
+    "rnd": {
+      "score": 30,
+      "label": "Low",
+      "reason": "Discovery/innovation augmented, not replaced, by AI."
+    },
+    "dig": {
+      "score": 25,
+      "label": "Low",
+      "reason": "Builds & governs the AI — demand rising."
+    },
+    "bds": {
+      "score": 25,
+      "label": "Low",
+      "reason": "Strategy, deals & ambiguity-heavy work remain human."
+    },
+    "exe": {
+      "score": 20,
+      "label": "Low",
+      "reason": "Leadership, accountability & enterprise judgement remain human."
+    }
   },
   "bridges": {
-    "fin": ["scm","bds","grc"],
-    "hr": ["grc","bds"],
-    "scm": ["fin","ops","bds"],
-    "ops": ["eng","scm","qse"],
-    "eng": ["ops","rnd","dig"],
-    "sal": ["bds","sal"],
-    "it": ["dig","eng"],
-    "dig": ["it","rnd","bds"],
-    "pmo": ["bds","ops"],
-    "qse": ["ops","grc"],
-    "rnd": ["eng","dig"],
-    "grc": ["fin","hr"],
-    "bds": ["fin","sal","dig"],
-    "gss": ["ops"]
+    "fin": [
+      "scm",
+      "grc",
+      "bds",
+      "pmo"
+    ],
+    "hr": [
+      "grc",
+      "bds",
+      "gss"
+    ],
+    "scm": [
+      "fin",
+      "ops",
+      "bds"
+    ],
+    "ops": [
+      "eng",
+      "scm",
+      "qse",
+      "pmo"
+    ],
+    "eng": [
+      "ops",
+      "rnd",
+      "dig",
+      "pmo"
+    ],
+    "sal": [
+      "bds",
+      "dig",
+      "scm"
+    ],
+    "it": [
+      "dig",
+      "eng",
+      "pmo"
+    ],
+    "dig": [
+      "it",
+      "rnd",
+      "bds",
+      "eng"
+    ],
+    "pmo": [
+      "bds",
+      "ops",
+      "eng"
+    ],
+    "qse": [
+      "ops",
+      "grc",
+      "eng"
+    ],
+    "rnd": [
+      "eng",
+      "dig",
+      "bds"
+    ],
+    "grc": [
+      "fin",
+      "hr",
+      "qse"
+    ],
+    "bds": [
+      "fin",
+      "sal",
+      "dig",
+      "pmo"
+    ],
+    "exe": [
+      "bds",
+      "fin",
+      "ops"
+    ],
+    "gss": [
+      "ops",
+      "hr",
+      "scm"
+    ]
   },
   "transitions": {
-    "F1_L1": {"readiness":{"timeline":"1-2 ปี","checklist":["ผ่านมาตรฐานงาน/ความปลอดภัยต่อเนื่อง","ได้วุฒิ/ใบรับรองที่จำเป็น (ปวส./certificate)","แสดงความริเริ่มและทักษะดิจิทัลเบื้องต้น"]},"learning_method":{"70":["ทำงานจริงภายใต้พี่เลี้ยง"],"20":["โค้ชจากหัวหน้างาน"],"10":["หลักสูตรพื้นฐาน/วุฒิวิชาชีพ"]}},
-    "L1_L2": {"readiness":{"timeline":"2-3 ปี","checklist":["ทำงานได้อิสระและสม่ำเสมอ","เริ่มสอนงาน/นำงานย่อย","เข้าใจกระบวนการข้ามหน่วยงาน"]},"learning_method":{"70":["รับผิดชอบงานที่ซับซ้อนขึ้น/นำทีมเล็ก"],"20":["mentoring จาก supervisor"],"10":["หลักสูตร Leadership พื้นฐาน"]}},
-    "L2_L3": {"readiness":{"timeline":"2-4 ปี","checklist":["บริหารทีมและผลงานได้","วางแผน/งบประมาณระดับ section","คิดเชิงกลยุทธ์ของ function"]},"learning_method":{"70":["เป็นหัวหน้าโครงการข้ามทีม"],"20":["coaching จากผู้จัดการ"],"10":["หลักสูตร Manage Function"]}},
-    "L3_L4": {"readiness":{"timeline":"3-5 ปี","checklist":["รับผิดชอบผล function เต็มตัว","เริ่มมุมมอง P&L/BU","พัฒนาผู้นำรุ่นถัดไป"]},"learning_method":{"70":["ดูแล BU/หน่วยธุรกิจย่อย"],"20":["mentoring จาก Director/VP"],"10":["Executive Program"]}},
-    "L4_L5": {"readiness":{"timeline":"3-6 ปี","checklist":["บริหาร P&L ของธุรกิจ","นำการเปลี่ยนแปลงระดับองค์กร","สร้าง talent pipeline"]},"learning_method":{"70":["นำธุรกิจ/บริษัทย่อย"],"20":["board exposure/coaching"],"10":["Senior Executive / Director (IOD)"]}},
-    "L5_L6": {"readiness":{"timeline":"5+ ปี","checklist":["วิสัยทัศน์ระดับ enterprise","ผลงานต่อเนื่องหลายธุรกิจ","วาง successor ได้"]},"learning_method":{"70":["นำกลุ่มธุรกิจ"],"20":["board & investor engagement"],"10":["Global leadership program"]}}
+    "F1_L1": {
+      "readiness": {
+        "timeline": "1-2 ปี",
+        "checklist": [
+          "ผ่านมาตรฐานงาน/ความปลอดภัยต่อเนื่อง",
+          "ได้วุฒิ/ใบรับรองที่จำเป็น (ปวส./certificate)",
+          "แสดงความริเริ่มและทักษะดิจิทัลเบื้องต้น"
+        ]
+      },
+      "learning_method": {
+        "10": [
+          "หลักสูตรพื้นฐาน/วุฒิวิชาชีพ"
+        ],
+        "20": [
+          "โค้ชจากหัวหน้างาน"
+        ],
+        "70": [
+          "ทำงานจริงภายใต้พี่เลี้ยง"
+        ]
+      }
+    },
+    "L1_L2": {
+      "readiness": {
+        "timeline": "2-3 ปี",
+        "checklist": [
+          "ทำงานได้อิสระและสม่ำเสมอ",
+          "เริ่มสอนงาน/นำงานย่อย",
+          "เข้าใจกระบวนการข้ามหน่วยงาน"
+        ]
+      },
+      "learning_method": {
+        "10": [
+          "หลักสูตร Leadership พื้นฐาน"
+        ],
+        "20": [
+          "mentoring จาก supervisor"
+        ],
+        "70": [
+          "รับผิดชอบงานที่ซับซ้อนขึ้น/นำทีมเล็ก"
+        ]
+      }
+    },
+    "L2_L3": {
+      "readiness": {
+        "timeline": "2-4 ปี",
+        "checklist": [
+          "บริหารทีมและผลงานได้",
+          "วางแผน/งบประมาณระดับ section",
+          "คิดเชิงกลยุทธ์ของ function"
+        ]
+      },
+      "learning_method": {
+        "10": [
+          "หลักสูตร Manage Function"
+        ],
+        "20": [
+          "coaching จากผู้จัดการ"
+        ],
+        "70": [
+          "เป็นหัวหน้าโครงการข้ามทีม"
+        ]
+      }
+    },
+    "L3_L4": {
+      "readiness": {
+        "timeline": "3-5 ปี",
+        "checklist": [
+          "รับผิดชอบผล function เต็มตัว",
+          "เริ่มมุมมอง P&L/BU",
+          "พัฒนาผู้นำรุ่นถัดไป"
+        ]
+      },
+      "learning_method": {
+        "10": [
+          "Executive Program"
+        ],
+        "20": [
+          "mentoring จาก Director/VP"
+        ],
+        "70": [
+          "ดูแล BU/หน่วยธุรกิจย่อย"
+        ]
+      }
+    },
+    "L4_L5": {
+      "readiness": {
+        "timeline": "3-6 ปี",
+        "checklist": [
+          "บริหาร P&L ของธุรกิจ",
+          "นำการเปลี่ยนแปลงระดับองค์กร",
+          "สร้าง talent pipeline"
+        ]
+      },
+      "learning_method": {
+        "10": [
+          "Senior Executive / Director (IOD)"
+        ],
+        "20": [
+          "board exposure/coaching"
+        ],
+        "70": [
+          "นำธุรกิจ/บริษัทย่อย"
+        ]
+      }
+    },
+    "L5_L6": {
+      "readiness": {
+        "timeline": "5+ ปี",
+        "checklist": [
+          "วิสัยทัศน์ระดับ enterprise",
+          "ผลงานต่อเนื่องหลายธุรกิจ",
+          "วาง successor ได้"
+        ]
+      },
+      "learning_method": {
+        "10": [
+          "Global leadership program"
+        ],
+        "20": [
+          "board & investor engagement"
+        ],
+        "70": [
+          "นำกลุ่มธุรกิจ"
+        ]
+      }
+    }
+  },
+  "bridge_rationale": {
+    "fin": {
+      "scm": {
+        "why": "ทักษะต้นทุน/งบประมาณและการวิเคราะห์การเงิน ต่อยอดสู่การจัดซื้อและบริหารต้นทุนซัพพลายเชน",
+        "land": "L2",
+        "gap": [
+          "จัดซื้อ/สัญญา (Procurement & Contract)",
+          "Supplier/Vendor Management",
+          "Logistics & Inventory พื้นฐาน"
+        ]
+      },
+      "grc": {
+        "why": "พื้นฐานบัญชี/การควบคุมภายใน ต่อยอดสู่ตรวจสอบภายใน ความเสี่ยงและ Compliance",
+        "land": "L2",
+        "gap": [
+          "Internal Audit / COSO",
+          "Risk Management Framework",
+          "กฎระเบียบ/Compliance ที่เกี่ยวข้อง"
+        ]
+      },
+      "bds": {
+        "why": "การวิเคราะห์การเงิน/การลงทุน ต่อยอดสู่การพัฒนาธุรกิจและกลยุทธ์การลงทุน",
+        "land": "L2",
+        "gap": [
+          "Market/Industry Analysis",
+          "Business Modeling & Valuation",
+          "Deal/Partnership Structuring"
+        ]
+      },
+      "pmo": {
+        "why": "การบริหารงบประมาณและการวิเคราะห์ ต่อยอดสู่การบริหารพอร์ตโครงการ",
+        "land": "L2",
+        "gap": [
+          "Project Management (PMBOK/Agile)",
+          "Portfolio Prioritization",
+          "Stakeholder Management"
+        ]
+      }
+    },
+    "hr": {
+      "grc": {
+        "why": "งานนโยบาย/ระเบียบและธรรมาภิบาลด้านคน ต่อยอดสู่ Compliance และ Governance",
+        "land": "L2",
+        "gap": [
+          "Compliance & Regulatory Framework",
+          "Governance/Policy Drafting",
+          "Risk & Control พื้นฐาน"
+        ]
+      },
+      "bds": {
+        "why": "การออกแบบองค์กรและกลยุทธ์คน ต่อยอดสู่การพัฒนาธุรกิจ/กลยุทธ์องค์กร",
+        "land": "L2",
+        "gap": [
+          "Business/Commercial Acumen",
+          "Strategy & Market Analysis",
+          "Financial Literacy"
+        ]
+      },
+      "gss": {
+        "why": "งานบริหารบุคคล/ธุรการต่อเนื่องกับงานสนับสนุนทั่วไป",
+        "land": "L2",
+        "gap": [
+          "Facilities/Admin Operations",
+          "Vendor & Service Management",
+          "Cost Control"
+        ]
+      }
+    },
+    "scm": {
+      "fin": {
+        "why": "การบริหารต้นทุน/สัญญาจัดซื้อ เชื่อมกับการเงินและการควบคุมต้นทุน",
+        "land": "L2",
+        "gap": [
+          "บัญชีต้นทุน/การเงิน",
+          "Financial Analysis",
+          "Budgeting & Controls"
+        ]
+      },
+      "ops": {
+        "why": "การวางแผนอุปทาน/โลจิสติกส์ ต่อยอดสู่ปฏิบัติการและการส่งมอบ",
+        "land": "L2",
+        "gap": [
+          "Production/Operations Management",
+          "Maintenance/EHS พื้นฐาน",
+          "Lean/Kaizen"
+        ]
+      },
+      "bds": {
+        "why": "Sourcing Strategy และการเจรจา ต่อยอดสู่การพัฒนาธุรกิจ",
+        "land": "L2",
+        "gap": [
+          "Sourcing → Business Strategy",
+          "Deal-level Negotiation",
+          "Market Analysis"
+        ]
+      }
+    },
+    "ops": {
+      "eng": {
+        "why": "ปฏิบัติการเชิงเทคนิค/บำรุงรักษา เชื่อมกับงานวิศวกรรม",
+        "land": "L2",
+        "gap": [
+          "ความรู้วิศวกรรมเฉพาะทาง",
+          "Technical Design/Standards",
+          "ใบ กว. ตามสาขา (ถ้าจำเป็น)"
+        ]
+      },
+      "scm": {
+        "why": "การส่งมอบและโลจิสติกส์ เชื่อมกับซัพพลายเชน",
+        "land": "L2",
+        "gap": [
+          "Demand/Supply Planning",
+          "Procurement & Inventory",
+          "S&OP"
+        ]
+      },
+      "qse": {
+        "why": "มาตรฐานงาน ความปลอดภัยและคุณภาพในสายปฏิบัติการ",
+        "land": "L2",
+        "gap": [
+          "ISO/มาตรฐานคุณภาพ",
+          "Safety (จป.)/EHS",
+          "Audit & Root Cause"
+        ]
+      },
+      "pmo": {
+        "why": "การบริหารงานประจำ ต่อยอดสู่การบริหารโครงการ",
+        "land": "L2",
+        "gap": [
+          "Project Management methodology",
+          "Planning & Scheduling",
+          "Stakeholder/Reporting"
+        ]
+      }
+    },
+    "eng": {
+      "ops": {
+        "why": "งานวิศวกรรม สู่การบริหารปฏิบัติการ/บำรุงรักษา",
+        "land": "L3",
+        "gap": [
+          "Operations & Maintenance Management",
+          "People/Shift Management",
+          "Cost & Productivity"
+        ]
+      },
+      "rnd": {
+        "why": "ความรู้เชิงเทคนิค ต่อยอดสู่การวิจัยและพัฒนาผลิตภัณฑ์",
+        "land": "L2",
+        "gap": [
+          "Research Methodology/Experiment Design",
+          "Prototyping & Testing",
+          "IP/Patent พื้นฐาน"
+        ]
+      },
+      "dig": {
+        "why": "วิศวกรรม สู่ Digital Engineering / Automation",
+        "land": "L2",
+        "gap": [
+          "Automation/RPA & Low-Code",
+          "Data/Programming พื้นฐาน",
+          "Digital Process Design"
+        ]
+      },
+      "pmo": {
+        "why": "การนำโครงการวิศวกรรม สู่การบริหารโครงการ",
+        "land": "L2",
+        "gap": [
+          "PM methodology (PMP/Agile)",
+          "Budget & Resource Planning",
+          "Stakeholder Management"
+        ]
+      }
+    },
+    "sal": {
+      "bds": {
+        "why": "ความเข้าใจตลาด/ลูกค้า ต่อยอดสู่การพัฒนาธุรกิจและกลยุทธ์",
+        "land": "L2",
+        "gap": [
+          "Strategy & Business Modeling",
+          "Financial/Deal Analysis",
+          "Partnership Development"
+        ]
+      },
+      "dig": {
+        "why": "การตลาด/ลูกค้า เชื่อมกับ Digital Marketing และ Customer Platform",
+        "land": "L2",
+        "gap": [
+          "Digital Marketing/MarTech",
+          "CRM/Customer Data Platform",
+          "Analytics"
+        ]
+      },
+      "scm": {
+        "why": "ความต้องการตลาด (Demand) เชื่อมกับการวางแผนอุปทาน",
+        "land": "L2",
+        "gap": [
+          "Demand Planning/Forecasting",
+          "S&OP",
+          "Inventory พื้นฐาน"
+        ]
+      }
+    },
+    "it": {
+      "dig": {
+        "why": "โครงสร้างพื้นฐาน IT ต่อยอดสู่ Digital & AI Transformation",
+        "land": "L2",
+        "gap": [
+          "Automation/RPA & Low-Code",
+          "AI/Data Analytics",
+          "Process/Change Management"
+        ]
+      },
+      "eng": {
+        "why": "ระบบ/เทคโนโลยี เชื่อมกับงานวิศวกรรมเทคนิค",
+        "land": "L2",
+        "gap": [
+          "ความรู้วิศวกรรมเฉพาะทาง",
+          "Systems/OT Integration",
+          "มาตรฐานเทคนิค"
+        ]
+      },
+      "pmo": {
+        "why": "การนำระบบ IT สู่การบริหารโครงการ",
+        "land": "L2",
+        "gap": [
+          "PM methodology",
+          "Portfolio/Vendor Management",
+          "Business Analysis"
+        ]
+      }
+    },
+    "dig": {
+      "it": {
+        "why": "Digital/AI เชื่อมกลับสู่รากฐาน IT/ระบบ",
+        "land": "L2",
+        "gap": [
+          "Infrastructure/Network/Security",
+          "IT Service Management (ITIL)",
+          "Systems Admin"
+        ]
+      },
+      "rnd": {
+        "why": "นวัตกรรมดิจิทัล ต่อยอดสู่การวิจัยและพัฒนา",
+        "land": "L2",
+        "gap": [
+          "Research Methodology",
+          "Experiment/Prototyping",
+          "Domain Science ที่เกี่ยวข้อง"
+        ]
+      },
+      "bds": {
+        "why": "Digital Business Model ต่อยอดสู่การพัฒนาธุรกิจ",
+        "land": "L2",
+        "gap": [
+          "Business Strategy & Modeling",
+          "Commercial/Financial Analysis",
+          "Go-to-Market"
+        ]
+      },
+      "eng": {
+        "why": "Automation/Digital Engineering เชื่อมกับวิศวกรรม",
+        "land": "L2",
+        "gap": [
+          "Engineering Fundamentals ของสาขา",
+          "OT/Hardware Integration",
+          "Standards/Safety"
+        ]
+      }
+    },
+    "pmo": {
+      "bds": {
+        "why": "การบริหารพอร์ตโครงการ ต่อยอดสู่กลยุทธ์/พัฒนาธุรกิจ",
+        "land": "L2",
+        "gap": [
+          "Strategy Formulation",
+          "Business/Financial Modeling",
+          "Market Analysis"
+        ]
+      },
+      "ops": {
+        "why": "การบริหารโครงการ สู่การบริหารปฏิบัติการ",
+        "land": "L2",
+        "gap": [
+          "Operations Management",
+          "Process/Lean",
+          "People/Shift Management"
+        ]
+      },
+      "eng": {
+        "why": "PMO เชิงเทคนิค เชื่อมกับงานวิศวกรรม",
+        "land": "L2",
+        "gap": [
+          "Engineering Domain Knowledge",
+          "Technical Standards",
+          "พื้นฐานวิศวกรรม (ถ้าจำเป็น)"
+        ]
+      }
+    },
+    "qse": {
+      "ops": {
+        "why": "คุณภาพ/ความปลอดภัยฝังในสายปฏิบัติการ",
+        "land": "L2",
+        "gap": [
+          "Operations/Production Management",
+          "Maintenance พื้นฐาน",
+          "Productivity/Cost"
+        ]
+      },
+      "grc": {
+        "why": "ESG/มาตรฐาน ต่อยอดสู่ธรรมาภิบาลและ Compliance",
+        "land": "L2",
+        "gap": [
+          "Governance/Compliance Framework",
+          "Enterprise Risk Management",
+          "Audit"
+        ]
+      },
+      "eng": {
+        "why": "งานคุณภาพเชิงเทคนิค เชื่อมกับวิศวกรรม",
+        "land": "L2",
+        "gap": [
+          "Engineering Design/Standards",
+          "Technical Domain",
+          "ใบ กว. (ถ้าจำเป็น)"
+        ]
+      }
+    },
+    "rnd": {
+      "eng": {
+        "why": "การวิจัยพัฒนา เชื่อมกับวิศวกรรมผลิตภัณฑ์",
+        "land": "L2",
+        "gap": [
+          "Engineering Design & Standards",
+          "Manufacturing/Scale-up",
+          "Product Engineering"
+        ]
+      },
+      "dig": {
+        "why": "R&D ต่อยอดสู่นวัตกรรมดิจิทัล/AI",
+        "land": "L2",
+        "gap": [
+          "Digital/Data & AI Tools",
+          "Software/Automation",
+          "Digital Product Development"
+        ]
+      },
+      "bds": {
+        "why": "การนำผลวิจัยสู่เชิงพาณิชย์ (Commercialization)",
+        "land": "L2",
+        "gap": [
+          "Commercialization & Go-to-Market",
+          "Business/Financial Modeling",
+          "Market Analysis"
+        ]
+      }
+    },
+    "grc": {
+      "fin": {
+        "why": "ตรวจสอบ/ความเสี่ยง เชื่อมกับการเงินและการควบคุมภายใน",
+        "land": "L2",
+        "gap": [
+          "บัญชี/การเงินเชิงลึก",
+          "Financial Analysis",
+          "Treasury/Reporting"
+        ]
+      },
+      "hr": {
+        "why": "ธรรมาภิบาล/ระเบียบ เชื่อมกับนโยบายด้านคน",
+        "land": "L2",
+        "gap": [
+          "HR Operations/HRIS",
+          "Talent/OD",
+          "กฎหมายแรงงานเชิงปฏิบัติ"
+        ]
+      },
+      "qse": {
+        "why": "Compliance เชื่อมกับ ESG และมาตรฐานความปลอดภัย",
+        "land": "L2",
+        "gap": [
+          "ISO/QSE Standards",
+          "EHS/Safety",
+          "Operational Quality"
+        ]
+      }
+    },
+    "bds": {
+      "fin": {
+        "why": "กลยุทธ์/การลงทุน เชื่อมกับการเงิน",
+        "land": "L2",
+        "gap": [
+          "Accounting/Corporate Finance",
+          "Financial Modeling & Valuation",
+          "Treasury/Reporting"
+        ]
+      },
+      "sal": {
+        "why": "การพัฒนาธุรกิจ เชื่อมกับการขาย/การตลาด",
+        "land": "L2",
+        "gap": [
+          "Sales Process/Pipeline",
+          "Account/Customer Management",
+          "Marketing"
+        ]
+      },
+      "dig": {
+        "why": "กลยุทธ์ธุรกิจ เชื่อมกับ Digital Business",
+        "land": "L2",
+        "gap": [
+          "Digital Business/Platform",
+          "Data & Analytics",
+          "Digital Product/GTM"
+        ]
+      },
+      "pmo": {
+        "why": "การพัฒนาธุรกิจ สู่การบริหารพอร์ตโครงการ",
+        "land": "L2",
+        "gap": [
+          "PM methodology",
+          "Portfolio Governance",
+          "Scheduling/Resource"
+        ]
+      }
+    },
+    "exe": {
+      "bds": {
+        "why": "เส้นทางกลยุทธ์/พัฒนาธุรกิจ สู่ผู้บริหารสูงสุด",
+        "land": "L4",
+        "gap": [
+          "Deep Corporate Strategy/Development",
+          "M&A/Investment",
+          "Board-level Communication"
+        ]
+      },
+      "fin": {
+        "why": "เส้นทาง CFO สู่ผู้บริหารสูงสุด",
+        "land": "L4",
+        "gap": [
+          "Corporate Finance/Treasury",
+          "Capital Markets/IR",
+          "Financial Governance"
+        ]
+      },
+      "ops": {
+        "why": "เส้นทาง COO/ปฏิบัติการ สู่ผู้บริหารสูงสุด",
+        "land": "L4",
+        "gap": [
+          "Operations/Supply Chain at scale",
+          "P&L Ownership",
+          "Operational Excellence"
+        ]
+      }
+    },
+    "gss": {
+      "ops": {
+        "why": "งานสนับสนุนทั่วไป เชื่อมกับปฏิบัติการ",
+        "land": "L1",
+        "gap": [
+          "Operations/Production พื้นฐาน",
+          "EHS/Safety",
+          "Process Discipline"
+        ]
+      },
+      "hr": {
+        "why": "งานธุรการ/สนับสนุน เชื่อมกับงานบุคคล",
+        "land": "L1",
+        "gap": [
+          "HR Operations/Payroll",
+          "Recruitment พื้นฐาน",
+          "กฎหมายแรงงานเบื้องต้น"
+        ]
+      },
+      "scm": {
+        "why": "งานสนับสนุน/พัสดุ เชื่อมกับซัพพลายเชน",
+        "land": "L1",
+        "gap": [
+          "Inventory/Warehouse",
+          "Procurement พื้นฐาน",
+          "Logistics"
+        ]
+      }
+    }
   }
 }

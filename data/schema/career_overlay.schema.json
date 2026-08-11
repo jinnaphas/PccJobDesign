@@ -7,11 +7,28 @@
   "required": ["version"],
   "additionalProperties": false,
   "properties": {
+    "_meta": { "type": "object" },
     "version": { "type": "string" },
     "bridges": {
       "type": "object",
       "description": "family id -> adjacent family ids a person can realistically move into.",
       "additionalProperties": { "type": "array", "items": { "type": "string" } }
+    },
+    "bridge_rationale": {
+      "type": "object",
+      "description": "family id -> { target family id -> { why, land, gap } } for cross-family optional career paths.",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "why": { "type": "string", "description": "Why the cross-family move is realistic / what transfers." },
+            "land": { "type": "string", "description": "Recommended landing level when crossing (F1|L1..L6)." },
+            "gap": { "type": "array", "items": { "type": "string" }, "description": "Skills to build before crossing." }
+          }
+        }
+      }
     },
     "ai_risk": {
       "type": "object",
