@@ -7,11 +7,11 @@
     "generated": "2026-06-15",
     "pilot_set": "Pilot: full level coverage F1->L5 + HR ladder + Agentic-AI L1 + Finance L5. Batch 2: GRP Common L1 across families (FIN/SCM/PMO/QA/ESG/CX).",
     "validation_summary": {
-      "total_records": 198,
+      "total_records": 199,
       "active": 197,
-      "detailed": 197,
-      "with_je_breakdown_clean": 73,
-      "with_dataquality_flags": 134,
+      "detailed": 198,
+      "with_je_breakdown_clean": 74,
+      "with_dataquality_flags": 135,
       "by_level": {
         "F1": 7,
         "L1": 76,
@@ -22686,7 +22686,7 @@
       "je_score": 207,
       "je_source": "extracted",
       "detail_level": "detailed",
-      "status": "active",
+      "status": "inactive",
       "version": "1.0",
       "source_docx": "GRP-MGT-GCEO-L6_Group Chief Executive Officer_GRP_v1.0.docx",
       "market_benchmark": {
@@ -22698,8 +22698,168 @@
           "code": "je_table_contaminated",
           "severity": "warning",
           "message": "JE rationale copied from Chief Operating Officer; je_score kept, breakdown omitted."
+        },
+        {
+          "code": "other",
+          "severity": "info",
+          "message": "Superseded 2026-08-11 by PCC-MGT-PGCO-L6 (President & Group Chief Operating Officer). CEO and President roles merged under the new PCC group operating structure."
         }
-      ]
+      ],
+      "updated": "2026-08-11"
+    },
+    {
+      "code": "PCC-MGT-PGCO-L6",
+      "title_en": "President & Group Chief Operating Officer (Group COO)",
+      "title_th": "ประธานและประธานเจ้าหน้าที่ฝ่ายปฏิบัติการกลุ่ม (Group COO)",
+      "company": "PCC",
+      "family_code": "MGT",
+      "level": "L6",
+      "report_to": "Board of Directors — PCC Group / Shareholders / Investment Committee",
+      "purpose_th": "เป็นตำแหน่งผู้นำสูงสุดของกลุ่มบริษัท PCC (Holding Company) ที่เกิดจากการยุบรวมบทบาท Chief Executive Officer และ President เข้าด้วยกัน — ทำหน้าที่ทั้งกำหนดทิศทางและเป็นตัวแทนสูงสุดขององค์กร (President) และขับเคลื่อนการปฏิบัติการทั้งกลุ่มในฐานะ Group Chief Operating Officer โดยมีภารกิจหลัก 3 ด้าน: (1) นำการพัฒนา R&D และนวัตกรรมของทั้งกลุ่ม (Group R&D & Innovation) เพื่อสร้างขีดความสามารถและผลิตภัณฑ์/บริการใหม่ที่แข่งขันได้; (2) สนับสนุนและเร่ง 'การสร้างธุรกิจ' (Business Generation) ของบริษัทในเครือ ผ่านการพัฒนาตลาด โอกาสธุรกิจใหม่ พันธมิตร และ Go-to-Market; (3) สนับสนุน 'การตอบสนองความต้องการลูกค้า' (Demand Satisfaction) ของบริษัทในเครือ ผ่านการยกระดับ Operations, Supply Chain, คุณภาพและการส่งมอบ ควบคู่กับการกำกับดูแล Group Governance, การบริหาร Portfolio/Synergy และการสร้าง Sustainable Enterprise Value ระยะยาว รายงานตรงต่อคณะกรรมการบริษัท (Board of Directors)",
+      "krs": [
+        {
+          "seq": 1,
+          "name_th": "Group Vision, Strategy & Enterprise Leadership (บทบาท President)",
+          "kpis": [
+            "Group Strategic Plan On-time",
+            "Group Value / Portfolio Growth ≥ Plan",
+            "Board & Investor Confidence ≥ High"
+          ],
+          "weight_pct": 20
+        },
+        {
+          "seq": 2,
+          "name_th": "Group R&D, Innovation & Capability Development (ขับเคลื่อน R&D ทั้งกลุ่ม)",
+          "kpis": [
+            "R&D / Innovation Pipeline Value ≥ Plan",
+            "New Product/Solution Revenue (%)",
+            "No. of Scaled Innovations/ปี",
+            "Innovation ROI ≥ Target"
+          ],
+          "weight_pct": 20
+        },
+        {
+          "seq": 3,
+          "name_th": "Business Generation Support — เร่งสร้างธุรกิจให้บริษัทในเครือ",
+          "kpis": [
+            "Group New-Business Revenue Growth ≥ Plan",
+            "Cross-company Synergy Value ≥ Plan",
+            "Sales Pipeline / Win Rate ≥ Target",
+            "New Market / Partnership Entries/ปี"
+          ],
+          "weight_pct": 20
+        },
+        {
+          "seq": 4,
+          "name_th": "Demand Satisfaction Support — ยกระดับการส่งมอบและตอบสนองลูกค้าของบริษัทในเครือ",
+          "kpis": [
+            "On-Time-In-Full (OTIF) / On-Time Delivery ≥ Target",
+            "Group Operational Efficiency & Cost-to-Serve",
+            "Customer Satisfaction / NPS ≥ Target",
+            "Quality Yield / Defect Rate ≤ Target"
+          ],
+          "weight_pct": 20
+        },
+        {
+          "seq": 5,
+          "name_th": "Group Operating Governance, Synergy, People & Sustainability",
+          "kpis": [
+            "Subsidiary P&L ≥ Plan",
+            "Leadership Succession Coverage 100% (C-Suite)",
+            "Group ESG Rating ≥ Target",
+            "Group Risk & Compliance ≥ Standard"
+          ],
+          "weight_pct": 20
+        }
+      ],
+      "specs": {
+        "education": {
+          "level": "Master",
+          "field": "MBA / Business Administration / Engineering / Economics / Operations / Technology (ปริญญาเอก Preferred)"
+        },
+        "experience": {
+          "min_years": 20,
+          "note": "อย่างน้อย 20 ปีระดับ C-Suite / Group Executive โดยมีประสบการณ์ครอบคลุมทั้งด้านกลยุทธ์ (Strategy) และด้านปฏิบัติการ (Operations / Supply Chain) หรือ R&D ในองค์กรขนาดใหญ่/กลุ่มบริษัท"
+        },
+        "skills": [
+          "Enterprise & Portfolio Strategy และ Group Operating Model",
+          "Operations & Supply Chain Excellence ระดับกลุ่ม (Demand Satisfaction)",
+          "R&D / Innovation Leadership และ Commercialization",
+          "Business Development & Go-to-Market (Business Generation)",
+          "Board Relations, Corporate Governance และ Stakeholder Management",
+          "Agentic AI & Digital Transformation ระดับ Enterprise"
+        ],
+        "languages": {
+          "english": "High"
+        },
+        "digital": [
+          "Enterprise / Group Performance & Operations Dashboard",
+          "Agentic AI และ Data-driven Decision Making",
+          "ERP / Supply Chain / PLM systems (กำกับระดับกลุ่ม)",
+          "Digital Transformation & Automation Platforms"
+        ],
+        "certs": [
+          "Director Certification Programme (DCP – IOD) — Required",
+          "Advanced Executive Program (AEP / TLCA)",
+          "Operational Excellence (Lean / Six Sigma) — Preferred",
+          "IOD Fellow Member — Preferred"
+        ]
+      },
+      "je_score": 208,
+      "je_breakdown": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        4,
+        5,
+        5,
+        5,
+        5,
+        5,
+        1,
+        5,
+        4,
+        5,
+        1,
+        5,
+        5,
+        5,
+        5,
+        5,
+        6,
+        7,
+        5,
+        5,
+        70
+      ],
+      "je_source": "regenerated_proposed",
+      "detail_level": "detailed",
+      "status": "active",
+      "version": "2.0",
+      "source_docx": "PCC-MGT-PGCO-L6_President & Group Chief Operating Officer_PCC_v2.0.docx",
+      "market_benchmark": {
+        "comparable_titles": "Group President / Group COO / Group CEO — Listed Holding Company (Thailand)",
+        "salary_range_thb": "400,000 – 900,000+ บาท/เดือน (รวม Variable/LTI ขึ้นกับขนาดกลุ่มและผลประกอบการ)"
+      },
+      "data_quality": [
+        {
+          "code": "je_total_out_of_band",
+          "severity": "warning",
+          "message": "JE รวม 208 สูงกว่ากรอบ L6 (190–200) — เป็นรูปแบบเดียวกับ Group CEO เดิม (207) เนื่องจาก item-30 (Stakeholders) ระดับ L6 ใช้สเกลขั้นบันไดที่ดันคะแนนรวมเกินกรอบ; je_source=regenerated_proposed รอ HR ปรับเทียบ (calibrate) ก่อนใช้เป็น Pay Grade"
+        },
+        {
+          "code": "other",
+          "severity": "info",
+          "message": "JD จัดทำ 2026-08-11 ตามการปรับโครงสร้างองค์กร ยุบรวม CEO + President เป็น President & Group COO — แทนที่ GRP-MGT-GCEO-L6 (ตั้งเป็น inactive)"
+        }
+      ],
+      "updated": "2026-08-11"
     }
   ]
 }
