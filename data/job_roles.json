@@ -22789,6 +22789,26 @@
           "Board Relations, Corporate Governance และ Stakeholder Management",
           "Agentic AI & Digital Transformation ระดับ Enterprise"
         ],
+        "competency_targets": {
+          "challenge_complexity": 5,
+          "team_leadership": 5,
+          "working_relationship": 5,
+          "education_qual": 5,
+          "experience_qual": 5,
+          "innovation": 5,
+          "problem_solving": 5,
+          "technical_expertise": 5,
+          "quality_focus": 4,
+          "communication": 5,
+          "planning_mgmt": 5,
+          "autonomy": 5,
+          "data_analytics": 4,
+          "budget_responsibility": 5,
+          "people_org_mgmt": 5,
+          "external_representation": 5,
+          "project_systems_design": 5,
+          "stakeholder_responsibility": 5
+        },
         "languages": {
           "english": "High"
         },
