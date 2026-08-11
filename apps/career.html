@@ -18,7 +18,10 @@
   .bwrap{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:8px;margin:0 0 16px}
   .bcard{background:#fff;border:1.5px solid var(--border);border-left:4px solid #8b5cf6;border-radius:9px;padding:8px 10px}
   .bcard .bh{font-size:12px;font-weight:700}
-  .bcard .brz{font-size:10.5px;color:var(--muted);margin:3px 0 6px;line-height:1.4}
+  .bcard .blvl{font-size:9px;font-weight:800;color:#fff;padding:1px 6px;border-radius:9px;white-space:nowrap}
+  .bcard .brz{font-size:10.5px;color:var(--muted);margin:3px 0 5px;line-height:1.4}
+  .bcard .bgap{font-size:10px;color:var(--text);margin:0 0 6px;line-height:1.4}
+  .bcard .bgap b{color:var(--warn)}
   .bcard .bex{font-size:10.5px;color:var(--blue);text-decoration:none;font-weight:600;display:block}
   .bcard .bex:hover{text-decoration:underline}
   .bcard .bex .mono{color:var(--muted);font-weight:400}
@@ -46,11 +49,11 @@
 <script>
 const RC={Low:'#1a7f5a',Medium:'#b87c00',High:'#c0392b'};
 let REF,ROLES,OV;const $=id=>document.getElementById(id);
-function exampleRole(tf,co){
+function exampleRole(tf,co,land){
   const cand=ROLES.filter(r=>PCC.famId(r)===tf);
   if(!cand.length)return null;
   const coRank=r=>(co&&r.company===co)?0:(r.company==='GRP'?1:(r.company==='PCC'?2:3));
-  const li=l=>PCC.LEVELS.indexOf(l), tgt=li('L2');
+  const li=l=>PCC.LEVELS.indexOf(l), tgt=li(land||'L2');
   return cand.slice().sort((a,b)=>coRank(a)-coRank(b)||Math.abs(li(a.level)-tgt)-Math.abs(li(b.level)-tgt)||((a.je_score||0)-(b.je_score||0)))[0];
 }
 async function boot(){
@@ -78,9 +81,12 @@ function render(){
   const rat=(OV.bridge_rationale||{})[fam]||{};
   let bh=br.length?`<div class="btitle">🔀 ${th?'เส้นทางข้ามสาย (Optional Career Paths) — ก้าวไปยังสายงานอื่น':'Optional Cross-Family Career Paths'}</div><div class="bwrap">`:'';
   br.forEach(tf=>{
-    const ex=exampleRole(tf,co);
-    bh+=`<div class="bcard"><div class="bh">${PCC.famName(tf)}</div>`+
-        (rat[tf]?`<div class="brz">${PCC.esc(rat[tf])}</div>`:'')+
+    let info=rat[tf]||{}; if(typeof info==='string')info={why:info};
+    const land=info.land||'L2';
+    const ex=exampleRole(tf,co,land);
+    bh+=`<div class="bcard"><div class="bh">${PCC.famName(tf)} <span class="blvl" style="background:${PCC.LC[land]||'#888'}">${th?'ลงที่ ':'land '}${land}</span></div>`+
+        (info.why?`<div class="brz">${PCC.esc(info.why)}</div>`:'')+
+        (info.gap&&info.gap.length?`<div class="bgap"><b>${th?'ต้องเสริมก่อนข้าม':'Build first'}:</b> ${info.gap.map(PCC.esc).join(' · ')}</div>`:'')+
         (ex?`<a class="bex" href="library.html?role=${encodeURIComponent(ex.code)}">→ ${th?'ตัวอย่างตำแหน่ง':'e.g. role'}: ${PCC.esc(PCC.title(ex))} <span class="mono">(${ex.code} · ${ex.level})</span></a>`:'')+
         `</div>`;
   });

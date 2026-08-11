@@ -4,7 +4,7 @@
     "schema": "schema/career_overlay.schema.json",
     "version": "0.1.0-seed",
     "status": "SEED — AI-risk + generic level transitions for Career Path. Family bridges and per-transition detail to be enriched with HR.",
-    "bridges_note": "Cross-family optional career paths — 15 families, bidirectional-informed, each target has a rationale in bridge_rationale. Updated 2026-08-11."
+    "bridges_note": "Cross-family optional career paths (15 families, 50 links). Each bridge_rationale entry has {why, land (recommended landing level), gap (skills to build before crossing)}. Updated 2026-08-11."
   },
   "version": "0.1.0-seed",
   "ai_risk": {
@@ -296,84 +296,484 @@
   },
   "bridge_rationale": {
     "fin": {
-      "scm": "ทักษะต้นทุน/งบประมาณและการวิเคราะห์การเงิน ต่อยอดสู่การจัดซื้อและบริหารต้นทุนซัพพลายเชน",
-      "grc": "พื้นฐานบัญชี/การควบคุมภายใน ต่อยอดสู่ตรวจสอบภายใน ความเสี่ยงและ Compliance",
-      "bds": "การวิเคราะห์การเงิน/การลงทุน ต่อยอดสู่การพัฒนาธุรกิจและกลยุทธ์การลงทุน",
-      "pmo": "การบริหารงบประมาณและการวิเคราะห์ ต่อยอดสู่การบริหารพอร์ตโครงการ"
+      "scm": {
+        "why": "ทักษะต้นทุน/งบประมาณและการวิเคราะห์การเงิน ต่อยอดสู่การจัดซื้อและบริหารต้นทุนซัพพลายเชน",
+        "land": "L2",
+        "gap": [
+          "จัดซื้อ/สัญญา (Procurement & Contract)",
+          "Supplier/Vendor Management",
+          "Logistics & Inventory พื้นฐาน"
+        ]
+      },
+      "grc": {
+        "why": "พื้นฐานบัญชี/การควบคุมภายใน ต่อยอดสู่ตรวจสอบภายใน ความเสี่ยงและ Compliance",
+        "land": "L2",
+        "gap": [
+          "Internal Audit / COSO",
+          "Risk Management Framework",
+          "กฎระเบียบ/Compliance ที่เกี่ยวข้อง"
+        ]
+      },
+      "bds": {
+        "why": "การวิเคราะห์การเงิน/การลงทุน ต่อยอดสู่การพัฒนาธุรกิจและกลยุทธ์การลงทุน",
+        "land": "L2",
+        "gap": [
+          "Market/Industry Analysis",
+          "Business Modeling & Valuation",
+          "Deal/Partnership Structuring"
+        ]
+      },
+      "pmo": {
+        "why": "การบริหารงบประมาณและการวิเคราะห์ ต่อยอดสู่การบริหารพอร์ตโครงการ",
+        "land": "L2",
+        "gap": [
+          "Project Management (PMBOK/Agile)",
+          "Portfolio Prioritization",
+          "Stakeholder Management"
+        ]
+      }
     },
     "hr": {
-      "grc": "งานนโยบาย/ระเบียบและธรรมาภิบาลด้านคน ต่อยอดสู่ Compliance และ Governance",
-      "bds": "การออกแบบองค์กรและกลยุทธ์คน ต่อยอดสู่การพัฒนาธุรกิจ/กลยุทธ์องค์กร",
-      "gss": "งานบริหารบุคคล/ธุรการต่อเนื่องกับงานสนับสนุนทั่วไป"
+      "grc": {
+        "why": "งานนโยบาย/ระเบียบและธรรมาภิบาลด้านคน ต่อยอดสู่ Compliance และ Governance",
+        "land": "L2",
+        "gap": [
+          "Compliance & Regulatory Framework",
+          "Governance/Policy Drafting",
+          "Risk & Control พื้นฐาน"
+        ]
+      },
+      "bds": {
+        "why": "การออกแบบองค์กรและกลยุทธ์คน ต่อยอดสู่การพัฒนาธุรกิจ/กลยุทธ์องค์กร",
+        "land": "L2",
+        "gap": [
+          "Business/Commercial Acumen",
+          "Strategy & Market Analysis",
+          "Financial Literacy"
+        ]
+      },
+      "gss": {
+        "why": "งานบริหารบุคคล/ธุรการต่อเนื่องกับงานสนับสนุนทั่วไป",
+        "land": "L2",
+        "gap": [
+          "Facilities/Admin Operations",
+          "Vendor & Service Management",
+          "Cost Control"
+        ]
+      }
     },
     "scm": {
-      "fin": "การบริหารต้นทุน/สัญญาจัดซื้อ เชื่อมกับการเงินและการควบคุมต้นทุน",
-      "ops": "การวางแผนอุปทาน/โลจิสติกส์ ต่อยอดสู่ปฏิบัติการและการส่งมอบ",
-      "bds": "Sourcing Strategy และการเจรจา ต่อยอดสู่การพัฒนาธุรกิจ"
+      "fin": {
+        "why": "การบริหารต้นทุน/สัญญาจัดซื้อ เชื่อมกับการเงินและการควบคุมต้นทุน",
+        "land": "L2",
+        "gap": [
+          "บัญชีต้นทุน/การเงิน",
+          "Financial Analysis",
+          "Budgeting & Controls"
+        ]
+      },
+      "ops": {
+        "why": "การวางแผนอุปทาน/โลจิสติกส์ ต่อยอดสู่ปฏิบัติการและการส่งมอบ",
+        "land": "L2",
+        "gap": [
+          "Production/Operations Management",
+          "Maintenance/EHS พื้นฐาน",
+          "Lean/Kaizen"
+        ]
+      },
+      "bds": {
+        "why": "Sourcing Strategy และการเจรจา ต่อยอดสู่การพัฒนาธุรกิจ",
+        "land": "L2",
+        "gap": [
+          "Sourcing → Business Strategy",
+          "Deal-level Negotiation",
+          "Market Analysis"
+        ]
+      }
     },
     "ops": {
-      "eng": "ปฏิบัติการเชิงเทคนิค/บำรุงรักษา เชื่อมกับงานวิศวกรรม",
-      "scm": "การส่งมอบและโลจิสติกส์ เชื่อมกับซัพพลายเชน",
-      "qse": "มาตรฐานงาน ความปลอดภัยและคุณภาพในสายปฏิบัติการ",
-      "pmo": "การบริหารงานประจำ ต่อยอดสู่การบริหารโครงการ"
+      "eng": {
+        "why": "ปฏิบัติการเชิงเทคนิค/บำรุงรักษา เชื่อมกับงานวิศวกรรม",
+        "land": "L2",
+        "gap": [
+          "ความรู้วิศวกรรมเฉพาะทาง",
+          "Technical Design/Standards",
+          "ใบ กว. ตามสาขา (ถ้าจำเป็น)"
+        ]
+      },
+      "scm": {
+        "why": "การส่งมอบและโลจิสติกส์ เชื่อมกับซัพพลายเชน",
+        "land": "L2",
+        "gap": [
+          "Demand/Supply Planning",
+          "Procurement & Inventory",
+          "S&OP"
+        ]
+      },
+      "qse": {
+        "why": "มาตรฐานงาน ความปลอดภัยและคุณภาพในสายปฏิบัติการ",
+        "land": "L2",
+        "gap": [
+          "ISO/มาตรฐานคุณภาพ",
+          "Safety (จป.)/EHS",
+          "Audit & Root Cause"
+        ]
+      },
+      "pmo": {
+        "why": "การบริหารงานประจำ ต่อยอดสู่การบริหารโครงการ",
+        "land": "L2",
+        "gap": [
+          "Project Management methodology",
+          "Planning & Scheduling",
+          "Stakeholder/Reporting"
+        ]
+      }
     },
     "eng": {
-      "ops": "งานวิศวกรรม สู่การบริหารปฏิบัติการ/บำรุงรักษา",
-      "rnd": "ความรู้เชิงเทคนิค ต่อยอดสู่การวิจัยและพัฒนาผลิตภัณฑ์",
-      "dig": "วิศวกรรม สู่ Digital Engineering / Automation",
-      "pmo": "การนำโครงการวิศวกรรม สู่การบริหารโครงการ"
+      "ops": {
+        "why": "งานวิศวกรรม สู่การบริหารปฏิบัติการ/บำรุงรักษา",
+        "land": "L3",
+        "gap": [
+          "Operations & Maintenance Management",
+          "People/Shift Management",
+          "Cost & Productivity"
+        ]
+      },
+      "rnd": {
+        "why": "ความรู้เชิงเทคนิค ต่อยอดสู่การวิจัยและพัฒนาผลิตภัณฑ์",
+        "land": "L2",
+        "gap": [
+          "Research Methodology/Experiment Design",
+          "Prototyping & Testing",
+          "IP/Patent พื้นฐาน"
+        ]
+      },
+      "dig": {
+        "why": "วิศวกรรม สู่ Digital Engineering / Automation",
+        "land": "L2",
+        "gap": [
+          "Automation/RPA & Low-Code",
+          "Data/Programming พื้นฐาน",
+          "Digital Process Design"
+        ]
+      },
+      "pmo": {
+        "why": "การนำโครงการวิศวกรรม สู่การบริหารโครงการ",
+        "land": "L2",
+        "gap": [
+          "PM methodology (PMP/Agile)",
+          "Budget & Resource Planning",
+          "Stakeholder Management"
+        ]
+      }
     },
     "sal": {
-      "bds": "ความเข้าใจตลาด/ลูกค้า ต่อยอดสู่การพัฒนาธุรกิจและกลยุทธ์",
-      "dig": "การตลาด/ลูกค้า เชื่อมกับ Digital Marketing และ Customer Platform",
-      "scm": "ความต้องการตลาด (Demand) เชื่อมกับการวางแผนอุปทาน"
+      "bds": {
+        "why": "ความเข้าใจตลาด/ลูกค้า ต่อยอดสู่การพัฒนาธุรกิจและกลยุทธ์",
+        "land": "L2",
+        "gap": [
+          "Strategy & Business Modeling",
+          "Financial/Deal Analysis",
+          "Partnership Development"
+        ]
+      },
+      "dig": {
+        "why": "การตลาด/ลูกค้า เชื่อมกับ Digital Marketing และ Customer Platform",
+        "land": "L2",
+        "gap": [
+          "Digital Marketing/MarTech",
+          "CRM/Customer Data Platform",
+          "Analytics"
+        ]
+      },
+      "scm": {
+        "why": "ความต้องการตลาด (Demand) เชื่อมกับการวางแผนอุปทาน",
+        "land": "L2",
+        "gap": [
+          "Demand Planning/Forecasting",
+          "S&OP",
+          "Inventory พื้นฐาน"
+        ]
+      }
     },
     "it": {
-      "dig": "โครงสร้างพื้นฐาน IT ต่อยอดสู่ Digital & AI Transformation",
-      "eng": "ระบบ/เทคโนโลยี เชื่อมกับงานวิศวกรรมเทคนิค",
-      "pmo": "การนำระบบ IT สู่การบริหารโครงการ"
+      "dig": {
+        "why": "โครงสร้างพื้นฐาน IT ต่อยอดสู่ Digital & AI Transformation",
+        "land": "L2",
+        "gap": [
+          "Automation/RPA & Low-Code",
+          "AI/Data Analytics",
+          "Process/Change Management"
+        ]
+      },
+      "eng": {
+        "why": "ระบบ/เทคโนโลยี เชื่อมกับงานวิศวกรรมเทคนิค",
+        "land": "L2",
+        "gap": [
+          "ความรู้วิศวกรรมเฉพาะทาง",
+          "Systems/OT Integration",
+          "มาตรฐานเทคนิค"
+        ]
+      },
+      "pmo": {
+        "why": "การนำระบบ IT สู่การบริหารโครงการ",
+        "land": "L2",
+        "gap": [
+          "PM methodology",
+          "Portfolio/Vendor Management",
+          "Business Analysis"
+        ]
+      }
     },
     "dig": {
-      "it": "Digital/AI เชื่อมกลับสู่รากฐาน IT/ระบบ",
-      "rnd": "นวัตกรรมดิจิทัล ต่อยอดสู่การวิจัยและพัฒนา",
-      "bds": "Digital Business Model ต่อยอดสู่การพัฒนาธุรกิจ",
-      "eng": "Automation/Digital Engineering เชื่อมกับวิศวกรรม"
+      "it": {
+        "why": "Digital/AI เชื่อมกลับสู่รากฐาน IT/ระบบ",
+        "land": "L2",
+        "gap": [
+          "Infrastructure/Network/Security",
+          "IT Service Management (ITIL)",
+          "Systems Admin"
+        ]
+      },
+      "rnd": {
+        "why": "นวัตกรรมดิจิทัล ต่อยอดสู่การวิจัยและพัฒนา",
+        "land": "L2",
+        "gap": [
+          "Research Methodology",
+          "Experiment/Prototyping",
+          "Domain Science ที่เกี่ยวข้อง"
+        ]
+      },
+      "bds": {
+        "why": "Digital Business Model ต่อยอดสู่การพัฒนาธุรกิจ",
+        "land": "L2",
+        "gap": [
+          "Business Strategy & Modeling",
+          "Commercial/Financial Analysis",
+          "Go-to-Market"
+        ]
+      },
+      "eng": {
+        "why": "Automation/Digital Engineering เชื่อมกับวิศวกรรม",
+        "land": "L2",
+        "gap": [
+          "Engineering Fundamentals ของสาขา",
+          "OT/Hardware Integration",
+          "Standards/Safety"
+        ]
+      }
     },
     "pmo": {
-      "bds": "การบริหารพอร์ตโครงการ ต่อยอดสู่กลยุทธ์/พัฒนาธุรกิจ",
-      "ops": "การบริหารโครงการ สู่การบริหารปฏิบัติการ",
-      "eng": "PMO เชิงเทคนิค เชื่อมกับงานวิศวกรรม"
+      "bds": {
+        "why": "การบริหารพอร์ตโครงการ ต่อยอดสู่กลยุทธ์/พัฒนาธุรกิจ",
+        "land": "L2",
+        "gap": [
+          "Strategy Formulation",
+          "Business/Financial Modeling",
+          "Market Analysis"
+        ]
+      },
+      "ops": {
+        "why": "การบริหารโครงการ สู่การบริหารปฏิบัติการ",
+        "land": "L2",
+        "gap": [
+          "Operations Management",
+          "Process/Lean",
+          "People/Shift Management"
+        ]
+      },
+      "eng": {
+        "why": "PMO เชิงเทคนิค เชื่อมกับงานวิศวกรรม",
+        "land": "L2",
+        "gap": [
+          "Engineering Domain Knowledge",
+          "Technical Standards",
+          "พื้นฐานวิศวกรรม (ถ้าจำเป็น)"
+        ]
+      }
     },
     "qse": {
-      "ops": "คุณภาพ/ความปลอดภัยฝังในสายปฏิบัติการ",
-      "grc": "ESG/มาตรฐาน ต่อยอดสู่ธรรมาภิบาลและ Compliance",
-      "eng": "งานคุณภาพเชิงเทคนิค เชื่อมกับวิศวกรรม"
+      "ops": {
+        "why": "คุณภาพ/ความปลอดภัยฝังในสายปฏิบัติการ",
+        "land": "L2",
+        "gap": [
+          "Operations/Production Management",
+          "Maintenance พื้นฐาน",
+          "Productivity/Cost"
+        ]
+      },
+      "grc": {
+        "why": "ESG/มาตรฐาน ต่อยอดสู่ธรรมาภิบาลและ Compliance",
+        "land": "L2",
+        "gap": [
+          "Governance/Compliance Framework",
+          "Enterprise Risk Management",
+          "Audit"
+        ]
+      },
+      "eng": {
+        "why": "งานคุณภาพเชิงเทคนิค เชื่อมกับวิศวกรรม",
+        "land": "L2",
+        "gap": [
+          "Engineering Design/Standards",
+          "Technical Domain",
+          "ใบ กว. (ถ้าจำเป็น)"
+        ]
+      }
     },
     "rnd": {
-      "eng": "การวิจัยพัฒนา เชื่อมกับวิศวกรรมผลิตภัณฑ์",
-      "dig": "R&D ต่อยอดสู่นวัตกรรมดิจิทัล/AI",
-      "bds": "การนำผลวิจัยสู่เชิงพาณิชย์ (Commercialization)"
+      "eng": {
+        "why": "การวิจัยพัฒนา เชื่อมกับวิศวกรรมผลิตภัณฑ์",
+        "land": "L2",
+        "gap": [
+          "Engineering Design & Standards",
+          "Manufacturing/Scale-up",
+          "Product Engineering"
+        ]
+      },
+      "dig": {
+        "why": "R&D ต่อยอดสู่นวัตกรรมดิจิทัล/AI",
+        "land": "L2",
+        "gap": [
+          "Digital/Data & AI Tools",
+          "Software/Automation",
+          "Digital Product Development"
+        ]
+      },
+      "bds": {
+        "why": "การนำผลวิจัยสู่เชิงพาณิชย์ (Commercialization)",
+        "land": "L2",
+        "gap": [
+          "Commercialization & Go-to-Market",
+          "Business/Financial Modeling",
+          "Market Analysis"
+        ]
+      }
     },
     "grc": {
-      "fin": "ตรวจสอบ/ความเสี่ยง เชื่อมกับการเงินและการควบคุมภายใน",
-      "hr": "ธรรมาภิบาล/ระเบียบ เชื่อมกับนโยบายด้านคน",
-      "qse": "Compliance เชื่อมกับ ESG และมาตรฐานความปลอดภัย"
+      "fin": {
+        "why": "ตรวจสอบ/ความเสี่ยง เชื่อมกับการเงินและการควบคุมภายใน",
+        "land": "L2",
+        "gap": [
+          "บัญชี/การเงินเชิงลึก",
+          "Financial Analysis",
+          "Treasury/Reporting"
+        ]
+      },
+      "hr": {
+        "why": "ธรรมาภิบาล/ระเบียบ เชื่อมกับนโยบายด้านคน",
+        "land": "L2",
+        "gap": [
+          "HR Operations/HRIS",
+          "Talent/OD",
+          "กฎหมายแรงงานเชิงปฏิบัติ"
+        ]
+      },
+      "qse": {
+        "why": "Compliance เชื่อมกับ ESG และมาตรฐานความปลอดภัย",
+        "land": "L2",
+        "gap": [
+          "ISO/QSE Standards",
+          "EHS/Safety",
+          "Operational Quality"
+        ]
+      }
     },
     "bds": {
-      "fin": "กลยุทธ์/การลงทุน เชื่อมกับการเงิน",
-      "sal": "การพัฒนาธุรกิจ เชื่อมกับการขาย/การตลาด",
-      "dig": "กลยุทธ์ธุรกิจ เชื่อมกับ Digital Business",
-      "pmo": "การพัฒนาธุรกิจ สู่การบริหารพอร์ตโครงการ"
+      "fin": {
+        "why": "กลยุทธ์/การลงทุน เชื่อมกับการเงิน",
+        "land": "L2",
+        "gap": [
+          "Accounting/Corporate Finance",
+          "Financial Modeling & Valuation",
+          "Treasury/Reporting"
+        ]
+      },
+      "sal": {
+        "why": "การพัฒนาธุรกิจ เชื่อมกับการขาย/การตลาด",
+        "land": "L2",
+        "gap": [
+          "Sales Process/Pipeline",
+          "Account/Customer Management",
+          "Marketing"
+        ]
+      },
+      "dig": {
+        "why": "กลยุทธ์ธุรกิจ เชื่อมกับ Digital Business",
+        "land": "L2",
+        "gap": [
+          "Digital Business/Platform",
+          "Data & Analytics",
+          "Digital Product/GTM"
+        ]
+      },
+      "pmo": {
+        "why": "การพัฒนาธุรกิจ สู่การบริหารพอร์ตโครงการ",
+        "land": "L2",
+        "gap": [
+          "PM methodology",
+          "Portfolio Governance",
+          "Scheduling/Resource"
+        ]
+      }
     },
     "exe": {
-      "bds": "เส้นทางกลยุทธ์/พัฒนาธุรกิจ สู่ผู้บริหารสูงสุด",
-      "fin": "เส้นทาง CFO สู่ผู้บริหารสูงสุด",
-      "ops": "เส้นทาง COO/ปฏิบัติการ สู่ผู้บริหารสูงสุด"
+      "bds": {
+        "why": "เส้นทางกลยุทธ์/พัฒนาธุรกิจ สู่ผู้บริหารสูงสุด",
+        "land": "L4",
+        "gap": [
+          "Deep Corporate Strategy/Development",
+          "M&A/Investment",
+          "Board-level Communication"
+        ]
+      },
+      "fin": {
+        "why": "เส้นทาง CFO สู่ผู้บริหารสูงสุด",
+        "land": "L4",
+        "gap": [
+          "Corporate Finance/Treasury",
+          "Capital Markets/IR",
+          "Financial Governance"
+        ]
+      },
+      "ops": {
+        "why": "เส้นทาง COO/ปฏิบัติการ สู่ผู้บริหารสูงสุด",
+        "land": "L4",
+        "gap": [
+          "Operations/Supply Chain at scale",
+          "P&L Ownership",
+          "Operational Excellence"
+        ]
+      }
     },
     "gss": {
-      "ops": "งานสนับสนุนทั่วไป เชื่อมกับปฏิบัติการ",
-      "hr": "งานธุรการ/สนับสนุน เชื่อมกับงานบุคคล",
-      "scm": "งานสนับสนุน/พัสดุ เชื่อมกับซัพพลายเชน"
+      "ops": {
+        "why": "งานสนับสนุนทั่วไป เชื่อมกับปฏิบัติการ",
+        "land": "L1",
+        "gap": [
+          "Operations/Production พื้นฐาน",
+          "EHS/Safety",
+          "Process Discipline"
+        ]
+      },
+      "hr": {
+        "why": "งานธุรการ/สนับสนุน เชื่อมกับงานบุคคล",
+        "land": "L1",
+        "gap": [
+          "HR Operations/Payroll",
+          "Recruitment พื้นฐาน",
+          "กฎหมายแรงงานเบื้องต้น"
+        ]
+      },
+      "scm": {
+        "why": "งานสนับสนุน/พัสดุ เชื่อมกับซัพพลายเชน",
+        "land": "L1",
+        "gap": [
+          "Inventory/Warehouse",
+          "Procurement พื้นฐาน",
+          "Logistics"
+        ]
+      }
     }
   }
 }
