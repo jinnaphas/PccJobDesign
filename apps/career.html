@@ -5,41 +5,88 @@
 <title>Career Path — PCC People</title>
 <link rel="stylesheet" href="shared.css">
 <style>
-  .ctrl{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
-  .risk{font-size:12px;font-weight:700;padding:5px 12px;border-radius:16px;color:#fff}
-  .ladder{display:grid;grid-template-columns:repeat(7,minmax(120px,1fr));gap:8px;margin-bottom:18px;overflow-x:auto}
+  .ctrl{display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap;margin-bottom:14px}
+  .fld{display:flex;flex-direction:column;gap:4px}
+  .fld label{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+  .risk{font-size:12px;font-weight:700;padding:6px 12px;border-radius:16px;color:#fff;align-self:center}
+  .seg{display:inline-flex;background:#eef2f8;border:1.5px solid var(--border);border-radius:8px;overflow:hidden}
+  .seg button{border:0;background:none;color:var(--muted);font:inherit;font-size:12.5px;font-weight:800;padding:7px 12px;cursor:pointer}
+  .seg button[aria-pressed="true"]{color:#fff}
+  h2{font-size:16px;color:var(--navy);margin:22px 0 4px}
+  .sub{font-size:12px;color:var(--muted);margin:0 0 12px}
+  .legend2{display:flex;gap:14px;flex-wrap:wrap;font-size:11.5px;color:var(--muted);align-items:center;margin-left:auto}
+  .legend2 .sw{width:20px;height:3px;border-radius:2px;display:inline-block;margin-right:5px;vertical-align:middle}
+  /* lattice board */
+  .board{position:relative;background:var(--card);border:1.5px solid var(--border);border-radius:11px;padding:16px 14px 8px;overflow-x:auto}
+  .grid{display:grid;gap:7px;position:relative;z-index:2;min-width:600px}
+  .colh{padding:7px 6px 8px;border-radius:10px 10px 0 0;text-align:center;position:relative}
+  .colh .fi{font-size:15px}.colh .fn{font-size:11px;font-weight:700;margin-top:2px;line-height:1.15}
+  .colh .rk{font-size:9px;margin-top:3px;color:var(--muted);display:inline-flex;align-items:center;gap:4px}
+  .colh.home{outline:2px solid var(--blue);background:#eaf1fb}
+  .colh.home::after{content:"สายปัจจุบัน";position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:var(--blue);color:#fff;font-size:9px;font-weight:800;padding:2px 7px;border-radius:20px;white-space:nowrap}
+  .colh.tgt{cursor:pointer}.colh.tgt:hover{background:#f3f8ff}
+  .lvl-cell{font-size:11px;font-weight:800;color:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center;padding:0 6px}
+  .cell{background:#f7fafe;border:1.4px solid var(--border);border-radius:9px;min-height:42px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;padding:4px;position:relative}
+  .cell .n{font-size:14px;font-weight:800;line-height:1}.cell .k{font-size:8.5px;color:var(--muted);text-transform:uppercase}
+  .cell.empty{opacity:.4}.cell.empty .n{color:var(--muted);font-weight:500}
+  .cell.here{border-color:var(--blue);background:#e7f0fc;box-shadow:0 0 0 3px rgba(46,95,158,.22)}
+  .cell.here .tag{position:absolute;top:-8px;left:50%;transform:translateX(-50%);background:var(--blue);color:#fff;font-size:8px;font-weight:800;padding:1px 6px;border-radius:20px;white-space:nowrap}
+  .cell.land{border-width:2px}
+  .cell.land .tag{position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);color:#fff;font-size:8px;font-weight:800;padding:1px 6px;border-radius:20px;white-space:nowrap}
+  .arrows{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:visible}
+  /* destination cards */
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px}
+  .dcard{background:var(--card);border:1.5px solid var(--border);border-left:5px solid #888;border-radius:11px;padding:13px 14px}
+  .dcard .r1{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+  .dcard .fic{font-size:18px}.dcard .ft{font-weight:800;font-size:14px;line-height:1.15}
+  .dcard .move{margin-left:auto;font-size:10px;font-weight:800;padding:3px 8px;border-radius:20px;color:#fff;white-space:nowrap}
+  .flow{display:flex;align-items:center;gap:8px;background:#f7fafe;border:1px solid var(--border);border-radius:9px;padding:6px 9px;margin-bottom:9px;font-size:12px}
+  .flow .lv{font-size:11px;font-weight:800;color:#fff;padding:2px 8px;border-radius:7px;white-space:nowrap}
+  .flow .ar{flex:1;height:2px;background:currentColor;position:relative;border-radius:2px;opacity:.5}
+  .flow .ar::after{content:"";position:absolute;right:-1px;top:-3px;border:4px solid transparent;border-left-color:currentColor}
+  .why2{font-size:12px;color:var(--text);margin-bottom:9px;line-height:1.45}
+  .gaplabel{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--warn);margin-bottom:4px}
+  .chips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:9px}
+  .chip2{font-size:10.5px;background:#fff8e6;color:var(--text);border:1px solid #f0d98c;border-radius:20px;padding:2px 8px}
+  .exlabel{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);margin:2px 0 5px}
+  .ex{display:flex;align-items:center;gap:7px;background:#f7fafe;border:1px solid var(--border);border-radius:8px;padding:5px 8px;margin-bottom:4px;text-decoration:none;color:inherit}
+  .ex:hover{background:#eef5ff;border-color:var(--blue)}
+  .ex .exl{font-size:10px;font-weight:800;color:#fff;padding:1px 6px;border-radius:6px}
+  .ex .ext{font-size:11.5px;font-weight:600;flex:1;line-height:1.15}.ex .exc{font-size:9px;color:var(--muted)}
+  /* in-family ladder */
+  .ladder{display:grid;grid-template-columns:repeat(7,minmax(120px,1fr));gap:8px;overflow-x:auto}
   .col{background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:8px;min-height:70px}
   .col h4{font-size:11px;text-align:center;color:#fff;border-radius:6px;padding:3px;margin-bottom:6px}
   .role{font-size:11px;border:1.2px solid var(--border);border-left-width:4px;border-radius:6px;padding:5px 6px;margin-bottom:5px;background:#fafcff;cursor:pointer}
   .role:hover{background:#eef5ff;border-color:var(--blue)}
   .role b{display:block;font-size:11.5px}.role span{color:var(--muted);font-size:9.5px}
-  h2{font-size:17px;color:var(--navy);margin:8px 0 12px}
-  .btitle{font-size:12.5px;font-weight:800;color:var(--navy);margin:2px 0 6px}
-  .bwrap{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:8px;margin:0 0 16px}
-  .bcard{background:#fff;border:1.5px solid var(--border);border-left:4px solid #8b5cf6;border-radius:9px;padding:8px 10px}
-  .bcard .bh{font-size:12px;font-weight:700}
-  .bcard .blvl{font-size:9px;font-weight:800;color:#fff;padding:1px 6px;border-radius:9px;white-space:nowrap}
-  .bcard .brz{font-size:10.5px;color:var(--muted);margin:3px 0 5px;line-height:1.4}
-  .bcard .bgap{font-size:10px;color:var(--text);margin:0 0 6px;line-height:1.4}
-  .bcard .bgap b{color:var(--warn)}
-  .bcard .bex{font-size:10.5px;color:var(--blue);text-decoration:none;font-weight:600;display:block}
-  .bcard .bex:hover{text-decoration:underline}
-  .bcard .bex .mono{color:var(--muted);font-weight:400}
   .trans{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
   .tc{background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:13px}
   .tc h3{font-size:13px;color:var(--blue)}.tc .tl{font-size:11px;color:var(--muted);margin:3px 0 7px}
   .tc li{font-size:12px;margin-left:16px;margin-bottom:3px}.tc .mix{font-size:11px;color:var(--muted);margin-top:7px;border-top:1px dashed var(--border);padding-top:6px}
+  @media (prefers-reduced-motion:no-preference){
+    .arrows path{stroke-dasharray:620;stroke-dashoffset:620;animation:draw .6s ease forwards}
+    @keyframes draw{to{stroke-dashoffset:0}}
+  }
 </style>
 </head>
 <body>
 <div id="nav"></div>
 <div class="wrap">
   <div class="ctrl">
-    <label id="l-fam"> <select id="fam"></select></label>
-    <label id="l-co"> <select id="co"></select></label>
+    <label class="fld" id="l-fam"><span></span><select id="fam"></select></label>
+    <label class="fld" id="l-co"><span></span><select id="co"></select></label>
+    <div class="fld"><label id="l-lvl"></label><div class="seg" id="lvlSeg"></div></div>
     <span class="risk" id="risk"></span>
   </div>
-  <div id="bridge" class="bridge"></div>
+
+  <div class="row" style="align-items:baseline"><h2 id="t-cross" style="margin-top:6px"></h2>
+    <div class="legend2" id="legend"></div></div>
+  <p class="sub" id="cross-sub"></p>
+  <div class="board" id="board"><div class="grid" id="grid"></div><svg class="arrows" id="arrows"></svg></div>
+  <div class="cards" id="cards" style="margin-top:14px"></div>
+
+  <h2 id="t-ladder"></h2><p class="sub" id="ladder-sub"></p>
   <div class="ladder" id="ladder"></div>
   <h2 id="t-trans"></h2>
   <div class="trans" id="trans"></div>
@@ -48,60 +95,134 @@
 <script src="shared.js"></script>
 <script>
 const RC={Low:'#1a7f5a',Medium:'#b87c00',High:'#c0392b'};
-let REF,ROLES,OV;const $=id=>document.getElementById(id);
-function exampleRole(tf,co,land){
-  const cand=ROLES.filter(r=>PCC.famId(r)===tf);
-  if(!cand.length)return null;
+const FAMCOLOR={fin:'#2f9e6f',hr:'#c2557a',scm:'#c67b1e',ops:'#6b7280',eng:'#3b7dd8',sal:'#d0533b',it:'#5b8def',dig:'#7c4dd1',pmo:'#0e9aa7',qse:'#2fa84f',rnd:'#0891b2',grc:'#5a6bd8',bds:'#e0a52e',exe:'#8b5cf6',gss:'#9ca3af'};
+const LV6=['L1','L2','L3','L4','L5','L6'];
+let REF,ROLES,OV,curLevel='L3';
+const $=id=>document.getElementById(id);
+const th=()=>PCC.lang()==='th';
+const li=l=>LV6.indexOf(l);
+function famName(id){return PCC.famName(id);}   // icon + EN name
+function famIcon(id){const f=REF.consolidated_families.find(x=>x.id===id);return f?f.icon:'•';}
+function countRoles(f,l){return ROLES.filter(r=>PCC.famId(r)===f&&r.level===l).length;}
+function moveType(land){const d=li(land)-li(curLevel);
+  if(d>=1)return{k:'up',label:(th()?'ก้าวขึ้น +':'up +')+d,col:'#1a7f5a'};
+  if(d===0)return{k:'lat',label:th()?'ระดับใกล้เคียง':'lateral',col:'#2E5F9E'};
+  return{k:'re',label:(th()?'ลง ':'down ')+(-d)+(th()?' ระดับ · re-skill':' · re-skill'),col:'#b8730a'};}
+function exampleRoles(tf,co,land,n){
+  const cand=ROLES.filter(r=>PCC.famId(r)===tf); if(!cand.length)return[];
   const coRank=r=>(co&&r.company===co)?0:(r.company==='GRP'?1:(r.company==='PCC'?2:3));
-  const li=l=>PCC.LEVELS.indexOf(l), tgt=li(land||'L2');
-  return cand.slice().sort((a,b)=>coRank(a)-coRank(b)||Math.abs(li(a.level)-tgt)-Math.abs(li(b.level)-tgt)||((a.je_score||0)-(b.je_score||0)))[0];
+  const t=PCC.LEVELS.indexOf(land);
+  return cand.slice().sort((a,b)=>Math.abs(PCC.LEVELS.indexOf(a.level)-t)-Math.abs(PCC.LEVELS.indexOf(b.level)-t)||coRank(a)-coRank(b)||((a.je_score||0)-(b.je_score||0))).slice(0,n||2);
 }
+
 async function boot(){
   PCC.nav('career');
-  $('l-fam').firstChild.textContent=PCC.t('family')+': ';$('l-co').firstChild.textContent=PCC.t('company')+': ';
-  $('t-trans').textContent=(PCC.lang()==='th'?'เส้นทางเลื่อนระดับ (Level Transitions)':'Level Transitions');
+  $('l-fam').firstChild.textContent=PCC.t('family');$('l-co').firstChild.textContent=PCC.t('company');
+  $('l-lvl').textContent=th()?'ระดับที่คุณอยู่':'You are here';
+  $('t-trans').textContent=th()?'เส้นทางเลื่อนระดับในสาย (Level Transitions)':'Level Transitions';
+  $('t-cross').textContent=th()?'🔀 เส้นทางข้ามสายงาน (Cross-Family Career Paths)':'🔀 Cross-Family Career Paths';
+  $('t-ladder').textContent=th()?'🪜 บันไดเติบโตในสาย (Career Ladder)':'🪜 Career Ladder (in-family)';
+  $('ladder-sub').textContent=th()?'คลิกตำแหน่งเพื่อเปิด JD':'Click a role to open its JD';
+  $('legend').innerHTML=['#1a7f5a|ก้าวขึ้น|Step-up','#2E5F9E|ระดับใกล้เคียง|Lateral','#b8730a|ลงเพื่อ re-skill|Re-skill entry']
+    .map(x=>{const[c,tt,en]=x.split('|');return `<span><span class="sw" style="background:${c}"></span>${th()?tt:en}</span>`;}).join('');
   try{
     REF=await PCC.ref();
     ROLES=(await (await fetch('../data/job_roles.json')).json()).roles.filter(r=>r.status==='active');
     OV=await (await fetch('../data/career_overlay.json')).json();
-  }catch(e){$('ladder').innerHTML=PCC.needLiveMsg();return;}
-  REF.consolidated_families.forEach(f=>{const o=document.createElement('option');o.value=f.id;o.textContent=f.icon+' '+f.name_en;$('fam').appendChild(o);});
+  }catch(e){$('board').innerHTML=PCC.needLiveMsg();return;}
+  REF.consolidated_families.filter(f=>(OV.bridges||{})[f.id]).forEach(f=>{const o=document.createElement('option');o.value=f.id;o.textContent=f.icon+' '+f.name_en;$('fam').appendChild(o);});
   const oc=document.createElement('option');oc.value='';oc.textContent=PCC.t('allco');$('co').appendChild(oc);
   REF.companies.forEach(c=>{const o=document.createElement('option');o.value=c.code;o.textContent=c.code;$('co').appendChild(o);});
   $('fam').value=PCC.qs('family')||'hr'; if(PCC.qs('company'))$('co').value=PCC.qs('company');
-  $('fam').onchange=render;$('co').onchange=render;render();
+  LV6.forEach(l=>{const b=document.createElement('button');b.textContent=l;b.dataset.l=l;b.onclick=()=>{curLevel=l;render();};$('lvlSeg').appendChild(b);});
+  $('fam').onchange=render;$('co').onchange=render;
+  render();
 }
+
 function render(){
   const fam=$('fam').value,co=$('co').value;
-  const rs=ROLES.filter(r=>PCC.famId(r)===fam&&(!co||r.company===co));
   const ar=(OV.ai_risk||{})[fam];const rk=$('risk');
   if(ar){rk.style.background=RC[ar.label]||'#888';rk.textContent='AI Risk: '+ar.label+' — '+ar.reason;}else rk.textContent='';
-  const th=PCC.lang()==='th';
-  const br=((OV.bridges||{})[fam]||[]).filter(b=>b!==fam);
+  [...$('lvlSeg').children].forEach(b=>{const on=b.dataset.l===curLevel;b.setAttribute('aria-pressed',on);b.style.background=on?PCC.LC[curLevel]:'none';});
+  renderCross(fam,co);
+  renderLadder(fam,co);
+  renderTrans(fam,co);
+}
+
+function renderCross(fam,co){
+  const targets=((OV.bridges||{})[fam]||[]).filter(t=>t!==fam);
   const rat=(OV.bridge_rationale||{})[fam]||{};
-  let bh=br.length?`<div class="btitle">🔀 ${th?'เส้นทางข้ามสาย (Optional Career Paths) — ก้าวไปยังสายงานอื่น':'Optional Cross-Family Career Paths'}</div><div class="bwrap">`:'';
-  br.forEach(tf=>{
-    let info=rat[tf]||{}; if(typeof info==='string')info={why:info};
-    const land=info.land||'L2';
-    const ex=exampleRole(tf,co,land);
-    bh+=`<div class="bcard"><div class="bh">${PCC.famName(tf)} <span class="blvl" style="background:${PCC.LC[land]||'#888'}">${th?'ลงที่ ':'land '}${land}</span></div>`+
-        (info.why?`<div class="brz">${PCC.esc(info.why)}</div>`:'')+
-        (info.gap&&info.gap.length?`<div class="bgap"><b>${th?'ต้องเสริมก่อนข้าม':'Build first'}:</b> ${info.gap.map(PCC.esc).join(' · ')}</div>`:'')+
-        (ex?`<a class="bex" href="library.html?role=${encodeURIComponent(ex.code)}">→ ${th?'ตัวอย่างตำแหน่ง':'e.g. role'}: ${PCC.esc(PCC.title(ex))} <span class="mono">(${ex.code} · ${ex.level})</span></a>`:'')+
-        `</div>`;
+  const cols=[fam,...targets];
+  $('cross-sub').textContent=th()
+    ? `จาก ${famIcon(fam)} ${PCC.famName(fam)} · ระดับ ${curLevel} — ลูกศรชี้ไปยังระดับปลายทางที่แนะนำ (${targets.length} เส้นทาง) · คลิกหัวคอลัมน์เพื่อสำรวจสายนั้นต่อ`
+    : `From ${PCC.famName(fam)} at ${curLevel} — arrows point to the recommended landing level (${targets.length} paths). Click a column header to explore that family.`;
+  const grid=$('grid');
+  grid.style.gridTemplateColumns=`50px repeat(${cols.length},minmax(94px,1fr))`;
+  let h='<div></div>';
+  cols.forEach((c,i)=>{const home=i===0;
+    h+=`<div class="colh ${home?'home':'tgt'}" ${home?'':`data-fam="${c}"`} style="border-bottom:3px solid ${FAMCOLOR[c]||'#888'}">
+      <div class="fi">${famIcon(c)}</div><div class="fn">${(REF.consolidated_families.find(x=>x.id===c)||{}).name_en||c}</div>${riskDot(c)}</div>`;});
+  [...LV6].reverse().forEach(l=>{
+    h+=`<div class="lvl-cell" style="background:${PCC.LC[l]}">${l}</div>`;
+    cols.forEach((c,i)=>{
+      const n=countRoles(c,l), here=(i===0&&l===curLevel), land=(i>0&&!here&&rat[c]&&rat[c].land===l);
+      let cls='cell'+(n?'':' empty')+(here?' here':'')+(land?' land':''),style='',tag='';
+      if(here)tag='<span class="tag">You are here</span>';
+      if(land){const mt=moveType(l);style=`border-color:${mt.col}`;tag=`<span class="tag" style="background:${mt.col}">${th()?'ลงที่นี่':'land'}</span>`;}
+      h+=`<div class="${cls}" id="cell-${c}-${l}" style="${style}">${tag}<span class="n">${n||'·'}</span>${n?'<span class="k">roles</span>':''}</div>`;
+    });
   });
-  $('bridge').innerHTML=bh+(br.length?'</div>':'');
+  grid.innerHTML=h;
+  grid.querySelectorAll('.colh.tgt').forEach(el=>el.onclick=()=>{$('fam').value=el.dataset.fam;render();});
+  requestAnimationFrame(drawArrows);
+  // destination cards
+  const cards=$('cards');cards.innerHTML='';
+  targets.forEach(t=>{
+    const info=rat[t]||{},land=info.land||'L2',mt=moveType(land),ex=exampleRoles(t,co,land,2);
+    const d=document.createElement('div');d.className='dcard';d.style.borderLeftColor=FAMCOLOR[t]||'#888';
+    d.innerHTML=`<div class="r1"><span class="fic">${famIcon(t)}</span><span class="ft">${(REF.consolidated_families.find(x=>x.id===t)||{}).name_en||t}</span>
+      <span class="move" style="background:${mt.col}">${mt.label}</span></div>
+      <div class="flow" style="color:${mt.col}"><span class="lv" style="background:${PCC.LC[curLevel]}">${famIcon(fam)} ${curLevel}</span><span class="ar"></span><span class="lv" style="background:${PCC.LC[land]}">${famIcon(t)} ${land}</span></div>
+      ${info.why?`<div class="why2">${PCC.esc(info.why)}</div>`:''}
+      ${(info.gap||[]).length?`<div class="gaplabel">⚑ ${th()?'ต้องเสริมก่อนข้าม':'Build first'}</div><div class="chips">${info.gap.map(g=>`<span class="chip2">${PCC.esc(g)}</span>`).join('')}</div>`:''}
+      <div class="exlabel">${th()?'ตำแหน่งปลายทางแนะนำ':'Example destination roles'}</div>
+      ${ex.map(r=>`<a class="ex" href="library.html?role=${encodeURIComponent(r.code)}"><span class="exl" style="background:${PCC.LC[r.level]}">${r.level}</span><span class="ext">${PCC.esc(PCC.title(r))}</span><span class="exc mono">${r.code}</span></a>`).join('')||`<div class="ex"><span class="ext" style="color:var(--muted)">— ${th()?'ยังไม่มีตำแหน่ง':'no role yet'} —</span></div>`}`;
+    cards.appendChild(d);
+  });
+}
+function riskDot(f){const r=(OV.ai_risk||{})[f];if(!r)return'';const c=RC[r.label]||'#888';
+  return `<div class="rk"><span style="width:7px;height:7px;border-radius:50%;background:${c};display:inline-block"></span>AI ${r.label}</div>`;}
+
+function drawArrows(){
+  const svg=$('arrows'),board=$('board'),br=board.getBoundingClientRect();
+  svg.setAttribute('width',br.width);svg.setAttribute('height',br.height);
+  const fam=$('fam').value,from=document.getElementById(`cell-${fam}-${curLevel}`);
+  if(!from){svg.innerHTML='';return;}
+  const fr=from.getBoundingClientRect(),fx=fr.right-br.left-3,fy=fr.top+fr.height/2-br.top;
+  let s='';
+  ((OV.bridges||{})[fam]||[]).filter(t=>t!==fam).forEach(t=>{
+    const land=(OV.bridge_rationale||{})[fam]?.[t]?.land,to=document.getElementById(`cell-${t}-${land}`);if(!to)return;
+    const tr=to.getBoundingClientRect(),tx=tr.left-br.left+tr.width/2,ty=tr.top+tr.height/2-br.top,mt=moveType(land),mx=(fx+tx)/2;
+    s+=`<path d="M ${fx} ${fy} C ${mx} ${fy}, ${mx} ${ty}, ${tx-2} ${ty}" fill="none" stroke="${mt.col}" stroke-width="2.4" opacity=".9" marker-end="url(#ah-${mt.k})"/>`;
+  });
+  svg.innerHTML=`<defs>${[['up','#1a7f5a'],['lat','#2E5F9E'],['re','#b8730a']].map(([k,c])=>`<marker id="ah-${k}" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="${c}"/></marker>`).join('')}</defs>`+s;
+}
+
+function renderLadder(fam,co){
+  const rs=ROLES.filter(r=>PCC.famId(r)===fam&&(!co||r.company===co));
   const lad=$('ladder');lad.innerHTML='';
   PCC.LEVELS.forEach(l=>{
     const col=document.createElement('div');col.className='col';col.innerHTML=`<h4 style="background:${PCC.LC[l]}">${l}</h4>`;
     rs.filter(r=>r.level===l).forEach(r=>{
       const d=document.createElement('div');d.className='role';d.style.borderLeftColor=PCC.coColor(r.company);
       d.innerHTML=`<b>${PCC.title(r)}</b><span class="mono">${r.code} · JE ${r.je_score??'—'}</span>`;
-      d.onclick=()=>location.href='library.html?role='+encodeURIComponent(r.code);
-      col.appendChild(d);
+      d.onclick=()=>location.href='library.html?role='+encodeURIComponent(r.code);col.appendChild(d);
     });
     lad.appendChild(col);
   });
+}
+function renderTrans(fam,co){
+  const rs=ROLES.filter(r=>PCC.famId(r)===fam&&(!co||r.company===co));
   const present=PCC.LEVELS.filter(l=>rs.some(r=>r.level===l));
   const tr=$('trans');tr.innerHTML='';
   [['F1','L1'],['L1','L2'],['L2','L3'],['L3','L4'],['L4','L5'],['L5','L6']].forEach(([a,b])=>{
@@ -113,6 +234,7 @@ function render(){
     card.innerHTML=h;tr.appendChild(card);
   });
 }
+window.addEventListener('resize',()=>requestAnimationFrame(drawArrows));
 boot();
 </script>
 </body>
