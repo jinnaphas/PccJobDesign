@@ -7,17 +7,17 @@
     "generated": "2026-06-15",
     "pilot_set": "Pilot: full level coverage F1->L5 + HR ladder + Agentic-AI L1 + Finance L5. Batch 2: GRP Common L1 across families (FIN/SCM/PMO/QA/ESG/CX).",
     "validation_summary": {
-      "total_records": 199,
-      "active": 197,
-      "detailed": 198,
-      "with_je_breakdown_clean": 74,
-      "with_dataquality_flags": 135,
+      "total_records": 210,
+      "active": 208,
+      "detailed": 209,
+      "with_je_breakdown_clean": 85,
+      "with_dataquality_flags": 146,
       "by_level": {
-        "F1": 7,
-        "L1": 76,
-        "L2": 29,
+        "F1": 9,
+        "L1": 79,
+        "L2": 34,
         "L3": 57,
-        "L4": 12,
+        "L4": 13,
         "L5": 15,
         "L6": 1
       },
@@ -22880,6 +22880,1370 @@
         }
       ],
       "updated": "2026-08-11"
+    },
+    {
+      "company": "GRP",
+      "je_source": "regenerated_proposed",
+      "detail_level": "detailed",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "other",
+          "severity": "info",
+          "message": "JD created 2026-08-11 (new role added per HR request). JE derived from the per-level baseline (je_level_baseline) + role KRs; je_source=regenerated_proposed — pending HR confirmation before use as a pay grade."
+        }
+      ],
+      "updated": "2026-08-11",
+      "code": "GRP-SVS-GEN-F1",
+      "title_en": "General Worker",
+      "title_th": "พนักงานปฏิบัติงานทั่วไป",
+      "family_code": "SVS",
+      "level": "F1",
+      "report_to": "หัวหน้างาน / Section Supervisor",
+      "purpose_th": "ปฏิบัติงานสนับสนุนทั่วไปตามที่ได้รับมอบหมายในหน่วยงานต่าง ๆ ของกลุ่มบริษัท PCC เช่น การจัดเตรียม เคลื่อนย้าย ทำความสะอาดพื้นที่ปฏิบัติงาน ช่วยงานผลิต/คลัง/สำนักงาน และงานอื่น ๆ ตามความจำเป็น เพื่อให้การดำเนินงานประจำวันราบรื่นและมีประสิทธิภาพ (ตำแหน่งใช้ร่วมได้ทุกบริษัทในกลุ่ม)",
+      "krs": [
+        {
+          "seq": 1,
+          "name_th": "ปฏิบัติงานสนับสนุนตามที่ได้รับมอบหมาย",
+          "kpis": [
+            "งานเสร็จตามกำหนด 100%",
+            "คุณภาพงานผ่านมาตรฐาน"
+          ],
+          "weight_pct": 40
+        },
+        {
+          "seq": 2,
+          "name_th": "ดูแลความเป็นระเบียบ ความสะอาด และความปลอดภัยของพื้นที่",
+          "kpis": [
+            "ผลตรวจ 5ส ผ่านเกณฑ์",
+            "อุบัติเหตุจากการทำงาน 0"
+          ],
+          "weight_pct": 30
+        },
+        {
+          "seq": 3,
+          "name_th": "ใช้และดูแลรักษาอุปกรณ์/เครื่องมือเบื้องต้น",
+          "kpis": [
+            "อุปกรณ์พร้อมใช้งาน",
+            "ไม่มีความเสียหายจากการใช้ผิดวิธี"
+          ],
+          "weight_pct": 20
+        },
+        {
+          "seq": 4,
+          "name_th": "รายงานปัญหาและให้ความร่วมมือกับทีม",
+          "kpis": [
+            "รายงานปัญหาตรงเวลา"
+          ],
+          "weight_pct": 10
+        }
+      ],
+      "specs": {
+        "education": {
+          "level": "Vocational",
+          "field": "ไม่จำกัดวุฒิ / ม.3–ปวช. หรือเทียบเท่า"
+        },
+        "experience": {
+          "min_years": 0,
+          "note": "ยินดีรับผู้ไม่มีประสบการณ์"
+        },
+        "skills": [
+          "ความรับผิดชอบและตรงต่อเวลา",
+          "การทำงานเป็นทีม",
+          "ปฏิบัติตามกฎความปลอดภัย"
+        ],
+        "languages": {
+          "english": "Low"
+        },
+        "digital": [],
+        "certs": []
+      },
+      "market_benchmark": {
+        "comparable_titles": "General Worker / Operator Helper / General Staff",
+        "salary_range_thb": "9,000 – 14,000 บาท/เดือน"
+      },
+      "je_breakdown": [
+        2,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "je_score": 35
+    },
+    {
+      "company": "GRP",
+      "je_source": "regenerated_proposed",
+      "detail_level": "detailed",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "other",
+          "severity": "info",
+          "message": "JD created 2026-08-11 (new role added per HR request). JE derived from the per-level baseline (je_level_baseline) + role KRs; je_source=regenerated_proposed — pending HR confirmation before use as a pay grade."
+        }
+      ],
+      "updated": "2026-08-11",
+      "code": "GRP-SCM-WHA-F1",
+      "title_en": "Warehouse Admin Staff",
+      "title_th": "พนักงานธุรการคลังสินค้า",
+      "family_code": "SCM",
+      "level": "F1",
+      "report_to": "ผู้จัดการบริหารคลังสินค้า (GRP-SCM-WHM-L2)",
+      "purpose_th": "สนับสนุนงานธุรการและงานเอกสารของคลังสินค้า เช่น บันทึกรับ-จ่ายสินค้า จัดทำเอกสารคลัง ตรวจนับสต็อกเบื้องต้น คีย์ข้อมูลเข้าระบบ และประสานงานกับหน่วยงานที่เกี่ยวข้อง เพื่อให้ข้อมูลคลังสินค้าถูกต้องและการเบิก-จ่ายเป็นไปอย่างราบรื่น",
+      "krs": [
+        {
+          "seq": 1,
+          "name_th": "บันทึกและจัดทำเอกสารรับ-จ่าย/โอนย้ายสินค้า",
+          "kpis": [
+            "ความถูกต้องเอกสาร ≥98%",
+            "บันทึกตรงเวลา 100%"
+          ],
+          "weight_pct": 35
+        },
+        {
+          "seq": 2,
+          "name_th": "คีย์ข้อมูลเข้าระบบ (WMS/ERP) และดูแลข้อมูลสต็อกให้เป็นปัจจุบัน",
+          "kpis": [
+            "Data Accuracy ≥98%",
+            "Stock Discrepancy ต่ำ"
+          ],
+          "weight_pct": 30
+        },
+        {
+          "seq": 3,
+          "name_th": "ตรวจนับสต็อกเบื้องต้นและสนับสนุนการตรวจนับประจำงวด",
+          "kpis": [
+            "การตรวจนับตรงเวลา",
+            "ผลต่างอยู่ในเกณฑ์"
+          ],
+          "weight_pct": 20
+        },
+        {
+          "seq": 4,
+          "name_th": "ประสานงานเบิก-จ่ายกับหน่วยงานที่เกี่ยวข้อง",
+          "kpis": [
+            "ให้บริการตรงเวลา",
+            "ข้อร้องเรียนต่ำ"
+          ],
+          "weight_pct": 15
+        }
+      ],
+      "specs": {
+        "education": {
+          "level": "Vocational",
+          "field": "ปวช./ปวส. บัญชี / โลจิสติกส์ / บริหาร หรือเทียบเท่า"
+        },
+        "experience": {
+          "min_years": 0,
+          "note": "0–1 ปี งานธุรการ/คลังสินค้า"
+        },
+        "skills": [
+          "งานเอกสารและบันทึกข้อมูล",
+          "ความละเอียดรอบคอบ",
+          "การประสานงาน"
+        ],
+        "languages": {
+          "english": "Low"
+        },
+        "digital": [
+          "MS Excel / Office",
+          "WMS / ERP เบื้องต้น"
+        ],
+        "certs": []
+      },
+      "market_benchmark": {
+        "comparable_titles": "Warehouse Admin / Inventory Clerk / Stock Keeper",
+        "salary_range_thb": "12,000 – 18,000 บาท/เดือน"
+      },
+      "je_breakdown": [
+        2,
+        0,
+        2,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "je_score": 37
+    },
+    {
+      "company": "GRP",
+      "je_source": "regenerated_proposed",
+      "detail_level": "detailed",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "other",
+          "severity": "info",
+          "message": "JD created 2026-08-11 (new role added per HR request). JE derived from the per-level baseline (je_level_baseline) + role KRs; je_source=regenerated_proposed — pending HR confirmation before use as a pay grade."
+        }
+      ],
+      "updated": "2026-08-11",
+      "code": "GRP-ENG-DPE-L1",
+      "title_en": "Design & Product Engineer",
+      "title_th": "วิศวกรออกแบบและผลิตภัณฑ์",
+      "family_code": "ENG",
+      "level": "L1",
+      "report_to": "ผู้จัดการส่วนงานออกแบบและผลิตภัณฑ์ (GRP-ENG-DPM-L2)",
+      "purpose_th": "ออกแบบและพัฒนาผลิตภัณฑ์/ชิ้นงานทางวิศวกรรมตามความต้องการของลูกค้าและมาตรฐาน โดยจัดทำแบบ (CAD), คำนวณและเลือกวัสดุ, ทำต้นแบบและทดสอบ พร้อมประสานฝ่ายผลิตและจัดซื้อ เพื่อให้ผลิตภัณฑ์ผลิตได้จริง มีคุณภาพ และต้นทุนเหมาะสม",
+      "krs": [
+        {
+          "seq": 1,
+          "name_th": "ออกแบบผลิตภัณฑ์/ชิ้นงานและจัดทำแบบวิศวกรรม (CAD/Drawing)",
+          "kpis": [
+            "Design On-Time ≥90%",
+            "Drawing Accuracy",
+            "Design Change Rate ต่ำ"
+          ],
+          "weight_pct": 35
+        },
+        {
+          "seq": 2,
+          "name_th": "พัฒนาและทดสอบต้นแบบ (Prototype & Testing)",
+          "kpis": [
+            "Prototype Pass Rate",
+            "Time-to-Prototype"
+          ],
+          "weight_pct": 30
+        },
+        {
+          "seq": 3,
+          "name_th": "เลือกวัสดุ คำนวณต้นทุน และปรับปรุงให้ผลิตได้จริง (DfM)",
+          "kpis": [
+            "Cost Target Met",
+            "Manufacturability Score"
+          ],
+          "weight_pct": 20
+        },
+        {
+          "seq": 4,
+          "name_th": "ประสานฝ่ายผลิต/จัดซื้อ และจัดทำเอกสารทางเทคนิค (BOM/Spec)",
+          "kpis": [
+            "BOM/Spec ครบถ้วน",
+            "ข้อผิดพลาดต่ำ"
+          ],
+          "weight_pct": 15
+        }
+      ],
+      "specs": {
+        "education": {
+          "level": "Bachelor",
+          "field": "วิศวกรรมเครื่องกล / ไฟฟ้า / อุตสาหการ / วัสดุ / ออกแบบผลิตภัณฑ์"
+        },
+        "experience": {
+          "min_years": 0,
+          "note": "0–2 ปี งานออกแบบ/พัฒนาผลิตภัณฑ์"
+        },
+        "skills": [
+          "CAD (SolidWorks/AutoCAD)",
+          "Product & Mechanical Design",
+          "Material Selection",
+          "GD&T"
+        ],
+        "languages": {
+          "english": "Medium"
+        },
+        "digital": [
+          "CAD/CAE",
+          "PLM เบื้องต้น"
+        ],
+        "certs": [
+          "ใบ กว. (ภาคีวิศวกร) — plus"
+        ]
+      },
+      "market_benchmark": {
+        "comparable_titles": "Product / Design Engineer (Junior)",
+        "salary_range_thb": "22,000 – 35,000 บาท/เดือน"
+      },
+      "je_breakdown": [
+        2,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        3,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        2,
+        1,
+        2,
+        2,
+        1,
+        2,
+        1,
+        1,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1
+      ],
+      "je_score": 50
+    },
+    {
+      "company": "GRP",
+      "je_source": "regenerated_proposed",
+      "detail_level": "detailed",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "other",
+          "severity": "info",
+          "message": "JD created 2026-08-11 (new role added per HR request). JE derived from the per-level baseline (je_level_baseline) + role KRs; je_source=regenerated_proposed — pending HR confirmation before use as a pay grade."
+        }
+      ],
+      "updated": "2026-08-11",
+      "code": "GRP-MKT-GRD-L1",
+      "title_en": "Graphic Design Officer",
+      "title_th": "เจ้าหน้าที่ออกแบบกราฟิก",
+      "family_code": "MKT",
+      "level": "L1",
+      "report_to": "หัวหน้างานสื่อสารการตลาด (Marketing Communications Supervisor)",
+      "purpose_th": "ออกแบบงานกราฟิกและสื่อสารการตลาดของกลุ่มบริษัท PCC ทั้งสื่อออนไลน์และออฟไลน์ เช่น สื่อโฆษณา โซเชียลมีเดีย งานนำเสนอ และสื่อองค์กร โดยรักษาอัตลักษณ์องค์กร (Corporate Identity) เพื่อสื่อสารได้ชัดเจนและสร้างภาพลักษณ์ที่ดีให้องค์กร",
+      "krs": [
+        {
+          "seq": 1,
+          "name_th": "ออกแบบงานกราฟิก/สื่อการตลาดตาม Brief",
+          "kpis": [
+            "งานส่งตรงเวลา ≥95%",
+            "Revision Rounds ต่ำ",
+            "ผู้ขอใช้พึงพอใจ ≥4/5"
+          ],
+          "weight_pct": 40
+        },
+        {
+          "seq": 2,
+          "name_th": "ดูแลความสอดคล้องกับอัตลักษณ์องค์กร (CI Guidelines)",
+          "kpis": [
+            "CI Compliance 100%"
+          ],
+          "weight_pct": 25
+        },
+        {
+          "seq": 3,
+          "name_th": "จัดทำสื่อสำหรับ Digital/Social และงานนำเสนอ",
+          "kpis": [
+            "Asset ครบตามแผนแคมเปญ"
+          ],
+          "weight_pct": 20
+        },
+        {
+          "seq": 4,
+          "name_th": "จัดเก็บและบริหารไฟล์งาน/Asset Library",
+          "kpis": [
+            "Asset จัดเก็บเป็นระบบ ค้นหาได้"
+          ],
+          "weight_pct": 15
+        }
+      ],
+      "specs": {
+        "education": {
+          "level": "Bachelor",
+          "field": "นิเทศศิลป์ / ออกแบบกราฟิก / Digital Media หรือที่เกี่ยวข้อง"
+        },
+        "experience": {
+          "min_years": 0,
+          "note": "0–2 ปี มี Portfolio ผลงานออกแบบ"
+        },
+        "skills": [
+          "Layout & Typography",
+          "Branding / CI",
+          "ความคิดสร้างสรรค์"
+        ],
+        "languages": {
+          "english": "Medium"
+        },
+        "digital": [
+          "Adobe Photoshop / Illustrator / InDesign",
+          "Canva / Figma",
+          "ตัดต่อวิดีโอเบื้องต้น"
+        ],
+        "certs": []
+      },
+      "market_benchmark": {
+        "comparable_titles": "Graphic Designer (Junior)",
+        "salary_range_thb": "18,000 – 30,000 บาท/เดือน"
+      },
+      "je_breakdown": [
+        2,
+        1,
+        2,
+        2,
+        2,
+        3,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        2,
+        1,
+        2,
+        2,
+        1,
+        2,
+        1,
+        1,
+        2,
+        3,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "je_score": 50
+    },
+    {
+      "company": "GRP",
+      "je_source": "regenerated_proposed",
+      "detail_level": "detailed",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "other",
+          "severity": "info",
+          "message": "JD created 2026-08-11 (new role added per HR request). JE derived from the per-level baseline (je_level_baseline) + role KRs; je_source=regenerated_proposed — pending HR confirmation before use as a pay grade."
+        }
+      ],
+      "updated": "2026-08-11",
+      "code": "GRP-ENG-CVE-L1",
+      "title_en": "Civil Engineer",
+      "title_th": "วิศวกรโยธา",
+      "family_code": "ENG",
+      "level": "L1",
+      "report_to": "วิศวกรอาวุโส / ผู้จัดการโครงการ (Engineering / Project)",
+      "purpose_th": "ปฏิบัติงานวิศวกรรมโยธาสำหรับโครงการก่อสร้าง/ปรับปรุงของกลุ่มบริษัท PCC ตั้งแต่การออกแบบและคำนวณเบื้องต้น จัดทำแบบและ BOQ ควบคุมงานก่อสร้างหน้างานให้เป็นไปตามแบบ มาตรฐาน ความปลอดภัย งบประมาณ และกำหนดเวลา",
+      "krs": [
+        {
+          "seq": 1,
+          "name_th": "ออกแบบ/คำนวณและจัดทำแบบ-BOQ งานโยธา",
+          "kpis": [
+            "แบบ/BOQ ถูกต้องตรงเวลา",
+            "Design Error ต่ำ"
+          ],
+          "weight_pct": 35
+        },
+        {
+          "seq": 2,
+          "name_th": "ควบคุมและตรวจสอบงานก่อสร้างหน้างาน (Site Supervision)",
+          "kpis": [
+            "งานตรงแบบ/มาตรฐาน",
+            "Progress ตามแผน",
+            "Rework ต่ำ"
+          ],
+          "weight_pct": 35
+        },
+        {
+          "seq": 3,
+          "name_th": "ควบคุมคุณภาพ ความปลอดภัย และบริหารผู้รับเหมา",
+          "kpis": [
+            "QC ผ่านเกณฑ์",
+            "อุบัติเหตุ 0",
+            "ผู้รับเหมาส่งงานตามสัญญา"
+          ],
+          "weight_pct": 20
+        },
+        {
+          "seq": 4,
+          "name_th": "จัดทำรายงานความก้าวหน้าและเอกสารโครงการ",
+          "kpis": [
+            "รายงานตรงเวลา"
+          ],
+          "weight_pct": 10
+        }
+      ],
+      "specs": {
+        "education": {
+          "level": "Bachelor",
+          "field": "วิศวกรรมโยธา"
+        },
+        "experience": {
+          "min_years": 0,
+          "note": "0–2 ปี งานออกแบบ/ควบคุมงานก่อสร้าง"
+        },
+        "skills": [
+          "Structural / Civil Design",
+          "Site Supervision",
+          "BOQ / Estimation",
+          "Construction Standards"
+        ],
+        "languages": {
+          "english": "Medium"
+        },
+        "digital": [
+          "AutoCAD",
+          "MS Project",
+          "STAAD/โปรแกรมวิเคราะห์โครงสร้างเบื้องต้น"
+        ],
+        "certs": [
+          "ใบ กว. (ภาคีวิศวกรโยธา) — Strongly Preferred"
+        ]
+      },
+      "market_benchmark": {
+        "comparable_titles": "Civil Engineer (Junior)",
+        "salary_range_thb": "22,000 – 35,000 บาท/เดือน"
+      },
+      "je_breakdown": [
+        2,
+        1,
+        2,
+        2,
+        2,
+        1,
+        2,
+        3,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        2,
+        2,
+        2,
+        2,
+        1,
+        2,
+        1,
+        1,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "je_score": 49
+    },
+    {
+      "company": "GRP",
+      "je_source": "regenerated_proposed",
+      "detail_level": "detailed",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "other",
+          "severity": "info",
+          "message": "JD created 2026-08-11 (new role added per HR request). JE derived from the per-level baseline (je_level_baseline) + role KRs; je_source=regenerated_proposed — pending HR confirmation before use as a pay grade."
+        }
+      ],
+      "updated": "2026-08-11",
+      "code": "GRP-IT-BSAM-L2",
+      "title_en": "Business & System Analyst Manager",
+      "title_th": "ผู้จัดการวิเคราะห์ธุรกิจและระบบ",
+      "family_code": "IT",
+      "level": "L2",
+      "report_to": "ผู้จัดการฝ่าย IT / Digital (L3)",
+      "purpose_th": "นำทีมวิเคราะห์ความต้องการทางธุรกิจและออกแบบโซลูชันระบบสารสนเทศให้กลุ่มบริษัท PCC เชื่อมโยงความต้องการของหน่วยธุรกิจกับทีมพัฒนา/Vendor จัดทำ Requirement, Process & System Design และควบคุมการส่งมอบให้ตรงเป้าหมายและใช้งานได้จริง",
+      "krs": [
+        {
+          "seq": 1,
+          "name_th": "วิเคราะห์ความต้องการธุรกิจและจัดทำ Requirement/Process (BA)",
+          "kpis": [
+            "Requirement Sign-off On-Time",
+            "Change Request ต่ำ"
+          ],
+          "weight_pct": 30
+        },
+        {
+          "seq": 2,
+          "name_th": "ออกแบบระบบ/โซลูชันและเชื่อม Business ↔ IT (SA)",
+          "kpis": [
+            "Solution Fit Score",
+            "Defect หลัง UAT ต่ำ"
+          ],
+          "weight_pct": 30
+        },
+        {
+          "seq": 3,
+          "name_th": "ควบคุมการส่งมอบและประสาน Vendor/ทีมพัฒนา",
+          "kpis": [
+            "On-Time Delivery ≥90%",
+            "UAT Pass Rate"
+          ],
+          "weight_pct": 20
+        },
+        {
+          "seq": 4,
+          "name_th": "นำทีมนักวิเคราะห์และพัฒนาทีม",
+          "kpis": [
+            "Team Performance",
+            "Coaching / Skill Development"
+          ],
+          "weight_pct": 20
+        }
+      ],
+      "specs": {
+        "education": {
+          "level": "Bachelor",
+          "field": "IT / Computer Science / MIS / วิศวกรรมคอมพิวเตอร์"
+        },
+        "experience": {
+          "min_years": 4,
+          "note": "4–7 ปี ด้าน BA/SA รวมประสบการณ์นำทีม/โครงการ"
+        },
+        "skills": [
+          "Business & Systems Analysis",
+          "Requirement Engineering",
+          "Process Design (BPMN)",
+          "UML / Solution Design",
+          "Stakeholder Management"
+        ],
+        "languages": {
+          "english": "High"
+        },
+        "digital": [
+          "SQL",
+          "BPMN / UML tools",
+          "ERP / System Integration",
+          "Jira / Azure DevOps"
+        ],
+        "certs": [
+          "CBAP (IIBA) — plus",
+          "Agile / Scrum — plus"
+        ]
+      },
+      "market_benchmark": {
+        "comparable_titles": "Business Analyst / System Analyst Lead / BSA Manager",
+        "salary_range_thb": "50,000 – 85,000 บาท/เดือน"
+      },
+      "je_breakdown": [
+        3,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2,
+        3,
+        3,
+        2,
+        3,
+        1,
+        3,
+        3,
+        1,
+        1,
+        3,
+        3,
+        2,
+        4,
+        2,
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "je_score": 71
+    },
+    {
+      "company": "GRP",
+      "je_source": "regenerated_proposed",
+      "detail_level": "detailed",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "other",
+          "severity": "info",
+          "message": "JD created 2026-08-11 (new role added per HR request). JE derived from the per-level baseline (je_level_baseline) + role KRs; je_source=regenerated_proposed — pending HR confirmation before use as a pay grade."
+        }
+      ],
+      "updated": "2026-08-11",
+      "code": "GRP-IT-ITSM-L2",
+      "title_en": "Group IT Support Manager",
+      "title_th": "ผู้จัดการสนับสนุนไอทีกลุ่ม",
+      "family_code": "IT",
+      "level": "L2",
+      "report_to": "ผู้จัดการฝ่าย IT (L3) / สำนักงาน CIO",
+      "purpose_th": "นำทีม IT Support/Helpdesk ดูแลผู้ใช้งานและโครงสร้างพื้นฐาน IT ของกลุ่มบริษัท PCC ให้ระบบพร้อมใช้งาน แก้ไขปัญหาตาม SLA บริหารสินทรัพย์ IT และความปลอดภัยเบื้องต้น เพื่อสนับสนุนการทำงานของทุกบริษัทในกลุ่มอย่างต่อเนื่อง",
+      "krs": [
+        {
+          "seq": 1,
+          "name_th": "บริหารบริการ IT Support/Helpdesk ตาม SLA",
+          "kpis": [
+            "SLA Met ≥95%",
+            "First-Call Resolution",
+            "User Satisfaction ≥4/5"
+          ],
+          "weight_pct": 35
+        },
+        {
+          "seq": 2,
+          "name_th": "ดูแลโครงสร้างพื้นฐาน/อุปกรณ์ IT และ Uptime",
+          "kpis": [
+            "System Uptime ≥99%",
+            "Incident MTTR"
+          ],
+          "weight_pct": 25
+        },
+        {
+          "seq": 3,
+          "name_th": "บริหารสินทรัพย์ IT, License และความปลอดภัยเบื้องต้น",
+          "kpis": [
+            "Asset/License Compliance",
+            "Patch Coverage"
+          ],
+          "weight_pct": 20
+        },
+        {
+          "seq": 4,
+          "name_th": "นำทีมและปรับปรุงกระบวนการ (ITIL)",
+          "kpis": [
+            "Team Performance",
+            "Process Improvement"
+          ],
+          "weight_pct": 20
+        }
+      ],
+      "specs": {
+        "education": {
+          "level": "Bachelor",
+          "field": "IT / วิศวกรรมคอมพิวเตอร์ / Computer Science"
+        },
+        "experience": {
+          "min_years": 4,
+          "note": "4–7 ปี ด้าน IT Support/Infrastructure รวมประสบการณ์นำทีม"
+        },
+        "skills": [
+          "IT Service Management (ITIL)",
+          "Infrastructure / Network",
+          "Troubleshooting / RCA",
+          "Vendor Management"
+        ],
+        "languages": {
+          "english": "High"
+        },
+        "digital": [
+          "Windows / Active Directory",
+          "Network",
+          "Endpoint / Helpdesk Tools",
+          "Microsoft 365"
+        ],
+        "certs": [
+          "ITIL Foundation — Preferred",
+          "MCP / CCNA — plus"
+        ]
+      },
+      "market_benchmark": {
+        "comparable_titles": "IT Support / Helpdesk Manager",
+        "salary_range_thb": "50,000 – 80,000 บาท/เดือน"
+      },
+      "je_breakdown": [
+        3,
+        2,
+        2,
+        2,
+        3,
+        2,
+        3,
+        4,
+        3,
+        2,
+        2,
+        3,
+        3,
+        2,
+        3,
+        1,
+        3,
+        3,
+        1,
+        1,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "je_score": 71
+    },
+    {
+      "company": "GRP",
+      "je_source": "regenerated_proposed",
+      "detail_level": "detailed",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "other",
+          "severity": "info",
+          "message": "JD created 2026-08-11 (new role added per HR request). JE derived from the per-level baseline (je_level_baseline) + role KRs; je_source=regenerated_proposed — pending HR confirmation before use as a pay grade."
+        }
+      ],
+      "updated": "2026-08-11",
+      "code": "GRP-SCM-WHM-L2",
+      "title_en": "Warehouse Management Manager",
+      "title_th": "ผู้จัดการบริหารคลังสินค้า",
+      "family_code": "SCM",
+      "level": "L2",
+      "report_to": "ผู้จัดการฝ่ายซัพพลายเชน / โลจิสติกส์ (L3)",
+      "purpose_th": "บริหารการดำเนินงานคลังสินค้าของกลุ่มบริษัท PCC ให้การรับ-จัดเก็บ-เบิกจ่าย-ส่งมอบมีประสิทธิภาพ ถูกต้อง ปลอดภัย ควบคุมความแม่นยำของสต็อก บริหารพื้นที่และทีมงาน พร้อมปรับปรุงกระบวนการเพื่อลดต้นทุนและเพิ่มความเร็วในการส่งมอบ",
+      "krs": [
+        {
+          "seq": 1,
+          "name_th": "บริหารปฏิบัติการคลัง (รับ/จัดเก็บ/เบิกจ่าย/ส่งมอบ)",
+          "kpis": [
+            "OTIF / On-Time",
+            "Order Accuracy ≥99%",
+            "Throughput"
+          ],
+          "weight_pct": 30
+        },
+        {
+          "seq": 2,
+          "name_th": "ควบคุมความแม่นยำสต็อกและการตรวจนับ",
+          "kpis": [
+            "Inventory Accuracy ≥99%",
+            "Stock Loss ต่ำ"
+          ],
+          "weight_pct": 25
+        },
+        {
+          "seq": 3,
+          "name_th": "บริหารพื้นที่ ความปลอดภัย และมาตรฐาน (5ส/WMS)",
+          "kpis": [
+            "Space Utilization",
+            "Safety Incident 0",
+            "Audit Pass"
+          ],
+          "weight_pct": 20
+        },
+        {
+          "seq": 4,
+          "name_th": "นำทีมและปรับปรุงกระบวนการ/ต้นทุน",
+          "kpis": [
+            "Cost/Unit ลดลง",
+            "Team Performance"
+          ],
+          "weight_pct": 25
+        }
+      ],
+      "specs": {
+        "education": {
+          "level": "Bachelor",
+          "field": "โลจิสติกส์ / ซัพพลายเชน / บริหาร / วิศวกรรมอุตสาหการ"
+        },
+        "experience": {
+          "min_years": 4,
+          "note": "4–7 ปี งานคลัง/โลจิสติกส์ รวมประสบการณ์นำทีม"
+        },
+        "skills": [
+          "Warehouse & Inventory Management",
+          "WMS",
+          "Lean / Process Improvement",
+          "People Management"
+        ],
+        "languages": {
+          "english": "Medium"
+        },
+        "digital": [
+          "WMS / ERP",
+          "Excel / BI"
+        ],
+        "certs": [
+          "Lean Six Sigma — plus"
+        ]
+      },
+      "market_benchmark": {
+        "comparable_titles": "Warehouse / Logistics Manager",
+        "salary_range_thb": "45,000 – 75,000 บาท/เดือน"
+      },
+      "je_breakdown": [
+        3,
+        3,
+        2,
+        2,
+        3,
+        2,
+        3,
+        3,
+        3,
+        2,
+        2,
+        3,
+        3,
+        2,
+        3,
+        1,
+        4,
+        3,
+        1,
+        1,
+        3,
+        3,
+        2,
+        3,
+        2,
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "je_score": 71
+    },
+    {
+      "company": "GRP",
+      "je_source": "regenerated_proposed",
+      "detail_level": "detailed",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "other",
+          "severity": "info",
+          "message": "JD created 2026-08-11 (new role added per HR request). JE derived from the per-level baseline (je_level_baseline) + role KRs; je_source=regenerated_proposed — pending HR confirmation before use as a pay grade."
+        }
+      ],
+      "updated": "2026-08-11",
+      "code": "GRP-ENG-DPM-L2",
+      "title_en": "Design & Product Section Manager",
+      "title_th": "ผู้จัดการส่วนงานออกแบบและผลิตภัณฑ์",
+      "family_code": "ENG",
+      "level": "L2",
+      "report_to": "ผู้จัดการฝ่ายวิศวกรรม / R&D (L3)",
+      "purpose_th": "นำทีมออกแบบและพัฒนาผลิตภัณฑ์ของกลุ่มบริษัท PCC ตั้งแต่แนวคิด ออกแบบ ต้นแบบ จนถึงพร้อมผลิต บริหารคุณภาพ ต้นทุน และกำหนดเวลาของงานออกแบบ ประสานฝ่ายผลิต/การตลาด/ลูกค้า และพัฒนาทีมวิศวกรออกแบบ",
+      "krs": [
+        {
+          "seq": 1,
+          "name_th": "บริหารงานออกแบบและพัฒนาผลิตภัณฑ์ (Concept → Production)",
+          "kpis": [
+            "NPD On-Time ≥85%",
+            "Design Quality",
+            "Time-to-Market"
+          ],
+          "weight_pct": 30
+        },
+        {
+          "seq": 2,
+          "name_th": "ควบคุมคุณภาพ ต้นทุน และ Manufacturability (DfM)",
+          "kpis": [
+            "Cost Target Met",
+            "First-Pass Yield",
+            "Design Change ต่ำ"
+          ],
+          "weight_pct": 25
+        },
+        {
+          "seq": 3,
+          "name_th": "ประสานฝ่ายผลิต/การตลาด/ลูกค้า และมาตรฐาน",
+          "kpis": [
+            "Cross-functional Satisfaction",
+            "Spec Compliance"
+          ],
+          "weight_pct": 20
+        },
+        {
+          "seq": 4,
+          "name_th": "นำทีมวิศวกรออกแบบและพัฒนาทีม",
+          "kpis": [
+            "Team Performance",
+            "Skill Development"
+          ],
+          "weight_pct": 25
+        }
+      ],
+      "specs": {
+        "education": {
+          "level": "Bachelor",
+          "field": "วิศวกรรมเครื่องกล / อุตสาหการ / ออกแบบผลิตภัณฑ์ (ป.โท เป็นข้อได้เปรียบ)"
+        },
+        "experience": {
+          "min_years": 4,
+          "note": "4–7 ปี งานออกแบบ/พัฒนาผลิตภัณฑ์ รวมประสบการณ์นำทีม"
+        },
+        "skills": [
+          "Product Design & Development",
+          "CAD / CAE",
+          "DfM / Cost Engineering",
+          "Project & People Management"
+        ],
+        "languages": {
+          "english": "High"
+        },
+        "digital": [
+          "CAD / CAE",
+          "PLM",
+          "Project Tools"
+        ],
+        "certs": [
+          "PMP — plus"
+        ]
+      },
+      "market_benchmark": {
+        "comparable_titles": "Design / Product Development Manager",
+        "salary_range_thb": "50,000 – 85,000 บาท/เดือน"
+      },
+      "je_breakdown": [
+        3,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2,
+        3,
+        3,
+        2,
+        3,
+        1,
+        3,
+        3,
+        1,
+        1,
+        3,
+        3,
+        2,
+        3,
+        2,
+        2,
+        2,
+        1,
+        3,
+        2
+      ],
+      "je_score": 71
+    },
+    {
+      "company": "GRP",
+      "je_source": "regenerated_proposed",
+      "detail_level": "detailed",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "other",
+          "severity": "info",
+          "message": "JD created 2026-08-11 (new role added per HR request). JE derived from the per-level baseline (je_level_baseline) + role KRs; je_source=regenerated_proposed — pending HR confirmation before use as a pay grade."
+        }
+      ],
+      "updated": "2026-08-11",
+      "code": "GRP-SCM-BLVM-L2",
+      "title_en": "Business Logistics & Vendor Management Manager",
+      "title_th": "ผู้จัดการบริหารโลจิสติกส์ธุรกิจและผู้ขาย",
+      "family_code": "SCM",
+      "level": "L2",
+      "report_to": "ผู้จัดการฝ่ายซัพพลายเชน (L3)",
+      "purpose_th": "บริหารงานโลจิสติกส์เชิงธุรกิจและการบริหารผู้ขาย/คู่ค้า (Vendor Management) ของกลุ่มบริษัท PCC ให้การจัดส่ง-กระจายสินค้าและการจัดหามีประสิทธิภาพ ต้นทุนเหมาะสม พร้อมคัดเลือก ประเมิน และพัฒนาผู้ขายให้ได้คุณภาพ ส่งมอบตรงเวลา และลดความเสี่ยงของซัพพลายเชน",
+      "krs": [
+        {
+          "seq": 1,
+          "name_th": "บริหารโลจิสติกส์/การขนส่ง-กระจายสินค้า",
+          "kpis": [
+            "On-Time Delivery ≥95%",
+            "Logistics Cost/Unit",
+            "Fill Rate"
+          ],
+          "weight_pct": 30
+        },
+        {
+          "seq": 2,
+          "name_th": "บริหารผู้ขาย/คู่ค้า (Selection / Evaluation / Development)",
+          "kpis": [
+            "Vendor Scorecard",
+            "On-Time-In-Full",
+            "Supplier Risk ต่ำ"
+          ],
+          "weight_pct": 30
+        },
+        {
+          "seq": 3,
+          "name_th": "เจรจาสัญญา/ราคา และบริหารต้นทุน",
+          "kpis": [
+            "Cost Saving",
+            "Contract Compliance"
+          ],
+          "weight_pct": 20
+        },
+        {
+          "seq": 4,
+          "name_th": "นำทีมและปรับปรุงกระบวนการ/ความเสี่ยง",
+          "kpis": [
+            "Team Performance",
+            "Process Improvement"
+          ],
+          "weight_pct": 20
+        }
+      ],
+      "specs": {
+        "education": {
+          "level": "Bachelor",
+          "field": "โลจิสติกส์ / ซัพพลายเชน / บริหารธุรกิจ (ป.โท เป็นข้อได้เปรียบ)"
+        },
+        "experience": {
+          "min_years": 4,
+          "note": "4–7 ปี ด้านโลจิสติกส์/จัดซื้อ/Vendor รวมประสบการณ์นำทีม"
+        },
+        "skills": [
+          "Logistics & Distribution",
+          "Vendor / Supplier Management",
+          "Negotiation & Contract",
+          "S&OP"
+        ],
+        "languages": {
+          "english": "High"
+        },
+        "digital": [
+          "ERP / SCM",
+          "TMS",
+          "Excel / BI"
+        ],
+        "certs": [
+          "CPIM / CSCP — plus"
+        ]
+      },
+      "market_benchmark": {
+        "comparable_titles": "Logistics / Vendor Management Manager",
+        "salary_range_thb": "50,000 – 85,000 บาท/เดือน"
+      },
+      "je_breakdown": [
+        3,
+        2,
+        3,
+        2,
+        3,
+        2,
+        3,
+        3,
+        3,
+        2,
+        2,
+        3,
+        3,
+        2,
+        3,
+        1,
+        3,
+        3,
+        1,
+        1,
+        3,
+        3,
+        2,
+        3,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "je_score": 71
+    },
+    {
+      "company": "PCC",
+      "je_source": "regenerated_proposed",
+      "detail_level": "detailed",
+      "status": "active",
+      "version": "1.0",
+      "data_quality": [
+        {
+          "code": "other",
+          "severity": "info",
+          "message": "JD created 2026-08-11 (new role added per HR request). JE derived from the per-level baseline (je_level_baseline) + role KRs; je_source=regenerated_proposed — pending HR confirmation before use as a pay grade."
+        }
+      ],
+      "updated": "2026-08-11",
+      "code": "PCC-INV-HPC-L4",
+      "title_en": "Head of Physical Capital",
+      "title_th": "ผู้อำนวยการฝ่ายทุนกายภาพ (Physical Capital)",
+      "family_code": "INV",
+      "level": "L4",
+      "report_to": "President & Group Chief Operating Officer (PCC-MGT-PGCO-L6) / Board of Directors",
+      "purpose_th": "บริหารและพัฒนา 'ทุนกายภาพ' (Physical Capital) ของบริษัท PCC ในฐานะ Holding Company — ครอบคลุมสินทรัพย์ที่ลงทุนแล้วและที่ต้องลงทุนทั้งหมดของกลุ่ม เช่น ที่ดิน อาคาร โรงงาน เครื่องจักร และโครงสร้างพื้นฐาน รับผิดชอบตั้งแต่กลยุทธ์การลงทุนในสินทรัพย์ การจัดหาและพัฒนา การบริหารพอร์ตสินทรัพย์ การใช้ประโยชน์และมูลค่าสินทรัพย์ ให้เกิดผลตอบแทนและความยั่งยืนสูงสุดต่อกลุ่ม รายงานต่อผู้บริหารสูงสุด/คณะกรรมการ",
+      "krs": [
+        {
+          "seq": 1,
+          "name_th": "กลยุทธ์และแผนการลงทุนในสินทรัพย์กายภาพของกลุ่ม (CapEx / Asset Investment Strategy)",
+          "kpis": [
+            "Investment Plan On-Time",
+            "ROI / IRR ≥ Target",
+            "CapEx Utilization"
+          ],
+          "weight_pct": 30
+        },
+        {
+          "seq": 2,
+          "name_th": "จัดหา พัฒนา และบริหารโครงการสินทรัพย์ (Asset Development & Projects)",
+          "kpis": [
+            "Project On-Time / On-Budget",
+            "Asset Readiness"
+          ],
+          "weight_pct": 25
+        },
+        {
+          "seq": 3,
+          "name_th": "บริหารพอร์ตสินทรัพย์ การใช้ประโยชน์และมูลค่า (Asset Portfolio & Utilization)",
+          "kpis": [
+            "Asset Utilization",
+            "Asset Value Growth",
+            "Lifecycle / Maintenance Cost"
+          ],
+          "weight_pct": 25
+        },
+        {
+          "seq": 4,
+          "name_th": "กำกับดูแล ความเสี่ยง ธรรมาภิบาลสินทรัพย์ และบริหารทีม",
+          "kpis": [
+            "Governance / Compliance",
+            "Asset Risk",
+            "Team Performance"
+          ],
+          "weight_pct": 20
+        }
+      ],
+      "specs": {
+        "education": {
+          "level": "Master",
+          "field": "วิศวกรรม / การเงิน / Real Estate / MBA หรือที่เกี่ยวข้อง"
+        },
+        "experience": {
+          "min_years": 12,
+          "note": "12+ ปี ด้านบริหารสินทรัพย์ / การลงทุน / โครงการขนาดใหญ่ รวมประสบการณ์ระดับบริหาร"
+        },
+        "skills": [
+          "Asset & Investment Management",
+          "CapEx & Project Portfolio",
+          "Real Estate / Facilities",
+          "Financial Modeling & Valuation",
+          "Governance & Risk"
+        ],
+        "languages": {
+          "english": "High"
+        },
+        "digital": [
+          "Asset Management / ERP",
+          "BI / Analytics",
+          "Project Portfolio Tools"
+        ],
+        "certs": [
+          "CFA / FRM / RICS / PMP — Preferred",
+          "DCP (IOD) — Preferred"
+        ]
+      },
+      "market_benchmark": {
+        "comparable_titles": "Head of Physical Capital / VP Asset Management / Head of Corporate Real Estate & Investment — Holding",
+        "salary_range_thb": "150,000 – 300,000+ บาท/เดือน"
+      },
+      "je_breakdown": [
+        5,
+        4,
+        4,
+        3,
+        4,
+        4,
+        4,
+        4,
+        4,
+        3,
+        4,
+        3,
+        4,
+        4,
+        4,
+        1,
+        5,
+        4,
+        3,
+        1,
+        4,
+        5,
+        4,
+        5,
+        5,
+        4,
+        4,
+        4,
+        4,
+        17
+      ],
+      "je_score": 128
     }
   ]
 }
