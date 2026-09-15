@@ -175,9 +175,9 @@
     {
       "id": "D3",
       "title": "Duplicate L5 file — PCC-DT-VPDT-L5",
-      "status": "OPEN — recommend retire v1.0",
-      "detail": "Active/Level 5 contains both PCC-DT-VPDT-L5 v1.0 (VP Digital Transformation) and v2.0 (VP Intellectual Capital Development). Same job code, two files. Active folder has 196 files but ~195 unique job codes.",
-      "action": "Move v1.0 to Inactive/ ; keep v2.0 as the live record."
+      "status": "RESOLVED (2026-09-15)",
+      "detail": "Active/Level 5 contained both PCC-DT-VPDT-L5 v1.0 (VP Digital Transformation) and v2.0 (VP Intellectual Capital Development). Same job code, two files. Active folder has 196 files but ~195 unique job codes.",
+      "action": "Done: retired v1.0 re-coded PCC-DT-VPDT-L5 → PCC-DT-VPDT-RETIRED-L5 (kept inactive as history); active v2.0 keeps PCC-DT-VPDT-L5. No duplicate job codes remain in job_roles.json."
     },
     {
       "id": "D4",

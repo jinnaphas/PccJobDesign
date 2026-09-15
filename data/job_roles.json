@@ -22574,7 +22574,7 @@
    ]
   },
   {
-   "code": "PCC-DT-VPDT-L5",
+   "code": "PCC-DT-VPDT-RETIRED-L5",
    "title_en": "VP Digital Transformation",
    "company": "PCC",
    "family_code": "DT",
@@ -22587,10 +22587,11 @@
    "data_quality": [
     {
      "code": "other",
-     "severity": "warning",
-     "message": "Duplicate job code (D3): superseded by PCC-DT-VPDT-L5 v2.0 'VP Intellectual Capital Development'. Marked inactive; should move docx to Inactive/."
+     "severity": "info",
+     "message": "Retired v1.0 (VP Digital Transformation) — superseded by PCC-DT-VPDT-L5 v2.0 'VP Intellectual Capital Development'. Re-coded PCC-DT-VPDT-L5 → PCC-DT-VPDT-RETIRED-L5 (2026-09-15) เพื่อลบรหัสซ้ำ; คงสถานะ inactive เก็บไว้เป็นประวัติ"
     }
-   ]
+   ],
+   "updated": "2026-09-15"
   },
   {
    "code": "GRP-MGT-GCEO-L6",
