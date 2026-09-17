@@ -51,12 +51,13 @@ const TX={
  title: th?'PCC People Architecture Portal':'PCC People Architecture Portal',
  sub: th?'Job Role Library เป็นศูนย์กลางข้อมูล — ป้อนต่อให้ Career Path และการประเมินคน · single source of truth'
         :'The Job Role Library is the data hub — feeding Career Paths and people evaluation · single source of truth',
- chips: th?['196 ตำแหน่งงาน','9 บริษัท','สายอาชีพ F1–L6','JE 30 ข้อ']:['196 Job Roles','9 Companies','F1–L6 Pipeline','JE 30-item'],
+ chips: th?['208 ตำแหน่งงาน','9 บริษัท','สายอาชีพ F1–L6','JE 30 ข้อ']:['208 Job Roles','9 Companies','F1–L6 Pipeline','JE 30-item'],
  health: th?'สถานะข้อมูล':'Data Health',
  cards:[
   ['library.html','📚','#3b82f6',100,'LIVE', th?'คลังตำแหน่งงาน':'Job Role Library', th?'JD ทั้งหมด · กรองบริษัท/ระดับ/สายงาน · เจาะ JE + KR + KPI · ป้าย JE ยืนยัน/รอทบทวน':'All JDs · filter by company/level/family · drill into JE + KR + KPI · verified/under-review badges', th?'ศูนย์กลางข้อมูล →':'data hub →'],
   ['career.html','🪜','#10b981',75,'LIVE', th?'เส้นทางเติบโต':'Career Path Explorer', th?'บันได F1→L6 ต่อสายงาน · เลื่อนระดับ · AI risk (ข้อมูลจริง 196 ตำแหน่ง)':'F1→L6 ladder per family · transitions · AI risk (real 196 roles)', th?'ต่อยอดจาก Library →':'built on Library →'],
   ['evaluate.html','🎯','#f59e0b',60,'16 CAND.', th?'ประเมินคน':'Evaluation', th?'โหมด Hiring ใช้ได้ (16 ผู้สมัคร × HCDM-L3) · radar + เทียบผู้สมัคร · Export CSV':'Hiring mode live (16 candidates × HCDM-L3) · radar + compare · CSV export', th?'engine เดียว ใช้ JD เป็นเกณฑ์ →':'one engine, JD as rubric →'],
+  ['https://claude.ai/artifact/VyPe8ThfAxXZ5W9ZSzLfHy','🤖','#a9772a',100,'AI', th?'คัดกรอง Resume (AI)':'Resume Screening (AI)', th?'วาง/อัปโหลด resume หลายคน → เลือก Job Role (208 ตำแหน่ง) หรือวาง JD ใหม่ → AI วิเคราะห์ จัดอันดับ สรุปจุดแข็ง-จุดอ่อน':'Upload multiple resumes → pick a job role (208) or paste a new JD → AI screens, scores and ranks candidates', th?'ใช้เกณฑ์ scoring_model เดิม →':'uses the same scoring_model →'],
   ['admin.html','⚙️','#8b5cf6',100,'LIVE', th?'ข้อมูล / สุขภาพระบบ':'Admin / Data Health', th?'สถานะข้อมูล · worklist JE ที่ต้องแก้ · open decisions · แนวทาง authoring':'data status · JE worklist · open decisions · authoring guide', th?'data เป็น master →':'data is master →']
  ]
 };
@@ -67,7 +68,7 @@ function boot(){
   document.getElementById('hchips').innerHTML=TX.chips.map(c=>`<span>${c}</span>`).join('');
   document.getElementById('st-health').textContent=TX.health;
   document.getElementById('mods').innerHTML=TX.cards.map(([href,ic,col,pct,badge,t,d,m])=>
-    `<a class="card" href="${href}"><span class="badge">${badge}</span><div class="ic">${ic}</div><h3>${t}</h3><div class="d">${d}</div><div class="meta">${m}</div><div class="bar2"><i style="width:${pct}%;background:${col}"></i></div></a>`).join('');
+    `<a class="card" href="${href}"${/^https?:/.test(href)?' target="_blank" rel="noopener"':''}><span class="badge">${badge}</span><div class="ic">${ic}</div><h3>${t}</h3><div class="d">${d}</div><div class="meta">${m}</div><div class="bar2"><i style="width:${pct}%;background:${col}"></i></div></a>`).join('');
   document.getElementById('health').innerHTML=
     `<div class="h ok"><div class="n" id="h-active">—</div><div class="l">${th?'ตำแหน่ง active':'active roles'}</div></div>
      <div class="h ok"><div class="n" id="h-ver">—</div><div class="l">JE verified</div></div>
