@@ -1,0 +1,95 @@
+{
+ "_meta": {
+  "title": "Candidates — Chief Technology Officer (PDE-TECH-CTO-L5)",
+  "schema": "../schema/person.schema.json",
+  "source": "Resume Screening Console (AI)",
+  "target_role_code": "PDE-TECH-CTO-L5",
+  "kr_keys": {
+   "0": "Digital Technology Strategy & Roadmap กำหนด Digital Technology Strategy",
+   "1": "Digital Product & Platform Development บริหาร Development ของ Digital Energy Products",
+   "2": "AI Data & Analytics Leadership บริหาร Data Strategy Data Governance",
+   "3": "Cybersecurity & IT Infrastructure กำหนด Cybersecurity Strategy",
+   "4": "Technology Team Leadership & Innovation Culture สร้าง World-Class Technology Team"
+  },
+  "batches": [
+   {
+    "id": "b-20260917-auj3",
+    "label": "คัดกรอง Chief Technology Officer · 2026-09-17",
+    "date": "2026-09-17",
+    "count": 1,
+    "source": "Resume Screening Console (AI)",
+    "method": "ai"
+   }
+  ]
+ },
+ "people": [
+  {
+   "id": "cand-echctol5-01",
+   "name": "Mr.Niwat Jhanthakhat",
+   "type": "candidate",
+   "source_file": "Niwat Jhanthakhat.pdf",
+   "current_title": "Enterprise Architect / Cloud, Data, DevSecOps, MLOps Engineer",
+   "current_company": "Krungsri Bank",
+   "target_role_codes": [
+    "PDE-TECH-CTO-L5"
+   ],
+   "education": {
+    "level": "Other",
+    "field": "ไม่ระบุในเรซูเม่"
+   },
+   "experience": {
+    "total_years": 20,
+    "relevant_years": 10
+   },
+   "evaluation": {
+    "target_role_code": "PDE-TECH-CTO-L5",
+    "mode": "hiring",
+    "analyzed_at": "2026-09-17",
+    "batch_id": "b-20260917-auj3",
+    "scores": {
+     "certifications": 10,
+     "digital": 72,
+     "education": 10,
+     "english": 55,
+     "experience": 60,
+     "skills": 58
+    },
+    "kr_alignment": {
+     "0": 62,
+     "1": 55,
+     "2": 60,
+     "3": 58,
+     "4": 40
+    },
+    "overall_pct": 48,
+    "recommendation": "Not Suitable",
+    "key_strengths": [
+     "Enterprise Architecture Governance Lead และ ARB Secretary กำหนดมาตรฐานสถาปัตยกรรมและ roadmap องค์กร",
+     "ประสบการณ์ 20+ ปี ครอบคลุม Cloud (AWS), Data, MLOps, DevSecOps",
+     "ออกแบบ MLOps/ML lifecycle: SageMaker, MLflow, DVC, model monitoring",
+     "Application Team Lead และคุมงาน outsourcing/รายงานสถานะโปรเจกต์"
+    ],
+    "key_gaps": [
+     "ไม่ระบุวุฒิการศึกษา/ปริญญาโทสาขาที่ JD ต้องการ",
+     "ไม่ปรากฏตำแหน่งระดับ CTO/VP Engineering/Head of Technology 8+ ปี",
+     "ไม่มีใบรับรอง AWS/Azure/GCP Professional, CISSP/CISM, AI/ML",
+     "ไม่มีประสบการณ์ Energy Domain (Smart Grid/SCADA/EMS) และ IoT"
+    ],
+    "evidence": [
+     "\"Serve as Enterprise Architecture Governance Lead and ARB Secretary\" ที่ Krungsri Bank",
+     "\"over 20 years of experience across software development, cloud engineering, data engineering, DevSecOps\"",
+     "\"Provision AWS Service (VPC, SageMaker, AMI, EC2, Lambda, ECS, EKS, Step Function, CloudWatch)\"",
+     "\"Design & Develop DevSecOps pipeline\" (Jenkins, GitLab, Nexus, SonarQube, Harbor, Terraform)"
+    ],
+    "risk_flags": [
+     "ไม่ระบุข้อมูลการศึกษาในเรซูเม่ ต้องตรวจสอบเพิ่มเติม",
+     "ประสบการณ์กระจุกในภาคธนาคาร ไม่มี Energy/IoT domain",
+     "ระดับงานเป็น Architect/Team Lead ยังไม่ถึงระดับบริหารสูงสุด (L5)"
+    ]
+   },
+   "languages": {
+    "english": "Medium"
+   }
+  }
+ ]
+}

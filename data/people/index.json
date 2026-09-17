@@ -14,6 +14,16 @@
    "count": 16,
    "batches": 1,
    "latest": "2026-05-19"
+  },
+  {
+   "code": "PDE-TECH-CTO-L5",
+   "file": "candidates_PDE-TECH-CTO-L5.json",
+   "title_en": "Chief Technology Officer",
+   "title_th": "ประธานเจ้าหน้าที่ด้านเทคโนโลยี",
+   "level": "L5",
+   "count": 1,
+   "batches": 1,
+   "latest": "2026-09-17"
   }
  ]
 }

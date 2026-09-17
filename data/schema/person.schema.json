@@ -84,8 +84,10 @@
             "Vocational",
             "Bachelor",
             "Master",
-            "PhD"
-          ]
+            "PhD",
+            "Other"
+          ],
+          "description": "Highest attained level. 'Other' = not stated in the resume / not classifiable."
         },
         "field": {
           "type": "string"
@@ -245,6 +247,20 @@
         "batch_id": {
           "type": "string",
           "description": "Id of the analysis batch this evaluation belongs to; see _meta.batches in the candidates file."
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Quotes or facts taken from the source resume that back the scores."
+        },
+        "risk_flags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Observations to verify at interview (career gaps, domain mismatch, unverified claims)."
         }
       }
     }
