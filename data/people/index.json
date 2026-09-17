@@ -5,6 +5,16 @@
  },
  "datasets": [
   {
+   "code": "GRP-HR-HRS-L2",
+   "file": "candidates_GRP-HR-HRS-L2.json",
+   "title_en": "HR Supervisor",
+   "title_th": "หัวหน้าแผนก HR",
+   "level": "L2",
+   "count": 3,
+   "batches": 1,
+   "latest": "2026-09-17"
+  },
+  {
    "code": "PCC-HR-HCDM-L3",
    "file": "candidates_PCC-HR-HCDM-L3.json",
    "title_en": "Human Capital Development Manager",

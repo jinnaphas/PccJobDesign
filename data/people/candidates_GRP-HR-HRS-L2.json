@@ -1,0 +1,227 @@
+{
+ "_meta": {
+  "title": "Candidates — HR Supervisor (GRP-HR-HRS-L2)",
+  "schema": "../schema/person.schema.json",
+  "source": "Resume Screening Console (AI)",
+  "target_role_code": "GRP-HR-HRS-L2",
+  "kr_keys": {
+   "0": "Recruitment & Selection",
+   "1": "Learning & Development",
+   "2": "Performance Management",
+   "3": "Employee Relations & Compliance",
+   "4": "HR Operations & Team Management"
+  },
+  "batches": [
+   {
+    "id": "b-20260917-xf2i",
+    "label": "คัดกรอง HR Supervisor · 2026-09-17",
+    "date": "2026-09-17",
+    "count": 3,
+    "source": "Resume Screening Console (AI)",
+    "method": "ai"
+   }
+  ]
+ },
+ "people": [
+  {
+   "id": "cand-phrhrsl2-01",
+   "name": "Mayuree Khamarj",
+   "type": "candidate",
+   "source_file": "K. Mayuree Khamarj.pdf",
+   "current_title": "Senior Human Resources Business Partner (HRBP) – Plant Production",
+   "current_company": "Schneider Electric (Thailand) Ltd.",
+   "target_role_codes": [
+    "GRP-HR-HRS-L2"
+   ],
+   "education": {
+    "level": "Master",
+    "field": "Young Executive MBA (NIDA); ป.ตรี รัฐศาสตร์ บริหารรัฐกิจ จุฬาฯ"
+   },
+   "experience": {
+    "total_years": 14,
+    "relevant_years": 14
+   },
+   "evaluation": {
+    "target_role_code": "GRP-HR-HRS-L2",
+    "mode": "hiring",
+    "analyzed_at": "2026-09-17",
+    "batch_id": "b-20260917-xf2i",
+    "scores": {
+     "certifications": 20,
+     "digital": 62,
+     "education": 95,
+     "english": 75,
+     "experience": 88,
+     "skills": 78
+    },
+    "kr_alignment": {
+     "0": 40,
+     "1": 88,
+     "2": 95,
+     "3": 82,
+     "4": 60
+    },
+    "overall_pct": 75,
+    "recommendation": "Proceed",
+    "key_strengths": [
+     "เชี่ยวชาญ Performance/Competency Appraisal ทั้งนโยบายและปฏิบัติ รวม 360-degree feedback",
+     "งาน Training & Development, Trainer Development, IDP/HRD framework ครบวงจร",
+     "แรงงานสัมพันธ์: เจรจาและสื่อสารกับสหภาพแรงงานในโรงงาน",
+     "ประสบการณ์ HR ระดับภูมิภาคกว่า 14 ปี และเคยคุมทีมผู้ใต้บังคับบัญชา"
+    ],
+    "key_gaps": [
+     "ไม่พบหลักฐานงานสรรหาคัดเลือก (Recruitment/Time-to-Fill) โดยตรง",
+     "ไม่ระบุใบรับรอง SHRM / HRCI / PMAT",
+     "ไม่ระบุงาน Payroll / HRIS accuracy และ compliance กฎหมายแรงงานอย่างชัดเจน",
+     "ไม่ระบุระดับ MS Excel / HR Analytics tools อย่างเป็นทางการ"
+    ],
+    "evidence": [
+     "\"Appraisal system management both policy, analysis and operation (Competency and Performance)\"",
+     "\"Supervised subordinates in developing and implementing the appraisal system across all employees\"",
+     "\"Lead and support negotiations and communication with labor unions\"",
+     "\"SAP system kaizen and maintain to support operation job in company\""
+    ],
+    "risk_flags": [
+     "ระบุวันที่เริ่มงานปัจจุบัน January 2026 และ Toyota ถึง December 2025 ควรตรวจสอบไทม์ไลน์"
+    ]
+   },
+   "languages": {
+    "english": "High"
+   }
+  },
+  {
+   "id": "cand-phrhrsl2-02",
+   "name": "ณัฐพงศ์ ย่องบุตร (Natthapong Yongbut)",
+   "type": "candidate",
+   "source_file": "K. ณัฐพงศ์ ย่องบุตร.pdf",
+   "current_title": "Head of Academic and Learning Affairs",
+   "current_company": "Thaksin University",
+   "target_role_codes": [
+    "GRP-HR-HRS-L2"
+   ],
+   "education": {
+    "level": "Master",
+    "field": "Public Administration (รัฐประศาสนศาสตร์)"
+   },
+   "experience": {
+    "total_years": 13,
+    "relevant_years": 13
+   },
+   "evaluation": {
+    "target_role_code": "GRP-HR-HRS-L2",
+    "mode": "hiring",
+    "analyzed_at": "2026-09-17",
+    "batch_id": "b-20260917-xf2i",
+    "scores": {
+     "certifications": 60,
+     "digital": 70,
+     "education": 85,
+     "english": 55,
+     "experience": 90,
+     "skills": 80
+    },
+    "kr_alignment": {
+     "0": 88,
+     "1": 92,
+     "2": 60,
+     "3": 50,
+     "4": 72
+    },
+    "overall_pct": 77,
+    "recommendation": "Proceed",
+    "key_strengths": [
+     "ประสบการณ์ HR 13+ ปี ระดับ Manager หลายองค์กร (KBank, Mitrphol, ม.อ.)",
+     "งาน L&D เข้ม: training roadmap, annual plan, HiPPS, IDP/competency gap",
+     "สรรหาเชิงกลยุทธ์: talent pipeline, structured interview, โค้ชทีมสรรหา",
+     "ใช้ SAP HR module, ออกแบบ HRIS ใหม่, ทำ dashboard/HR analytics"
+    ],
+    "key_gaps": [
+     "ไม่ระบุผลงานด้าน Performance Management/PIP และ review completion ชัดเจน",
+     "ไม่พบหลักฐานงานแรงงานสัมพันธ์ กฎหมายแรงงาน พ.ร.บ.คุ้มครองแรงงาน",
+     "ไม่พบงาน payroll accuracy และการดูแลทีม HR ขนาดชัดเจน",
+     "วุฒิเป็นรัฐประศาสนศาสตร์ ไม่ใช่ HRM โดยตรง และไม่มี SHRM/HRCI/PMAT"
+    ],
+    "evidence": [
+     "Head of Academic and Learning Affairs, Thaksin University 2025-Now",
+     "HRD Manager, Faculty of Medicine PSU 2021-2024: training roadmap ทุกสาขา",
+     "Asst. HRD Manager, Kasikornbank 2018-2019: SAP HR modules, dashboard",
+     "Certification: HR Professional-PHR Level 4 (TPQI)"
+    ],
+    "risk_flags": [
+     "ช่วงเวลาทำงานมีช่องว่าง/ทับซ้อน เช่น 2019-2021 และ MP APCON ปี 2024",
+     "ระดับภาษาอังกฤษระบุไว้แต่ไม่มีคะแนนทดสอบอ้างอิง"
+    ]
+   },
+   "languages": {
+    "english": "Medium"
+   }
+  },
+  {
+   "id": "cand-phrhrsl2-03",
+   "name": "Sirikamon Janesiripong",
+   "type": "candidate",
+   "source_file": "K. สิริกมล เจนสิริพงศ์.pdf",
+   "current_title": "Assistant Manager - HRBP",
+   "current_company": "Chubb Life Assurance Public Company Limited",
+   "target_role_codes": [
+    "GRP-HR-HRS-L2"
+   ],
+   "education": {
+    "level": "Bachelor",
+    "field": "BBA, Business Industrial Development"
+   },
+   "experience": {
+    "total_years": 6,
+    "relevant_years": 6
+   },
+   "evaluation": {
+    "target_role_code": "GRP-HR-HRS-L2",
+    "mode": "hiring",
+    "analyzed_at": "2026-09-17",
+    "batch_id": "b-20260917-xf2i",
+    "scores": {
+     "certifications": 20,
+     "digital": 70,
+     "education": 80,
+     "english": 70,
+     "experience": 80,
+     "skills": 70
+    },
+    "kr_alignment": {
+     "0": 75,
+     "1": 70,
+     "2": 90,
+     "3": 45,
+     "4": 50
+    },
+    "overall_pct": 69,
+    "recommendation": "Consider",
+    "key_strengths": [
+     "ประสบการณ์ HR 6+ ปี ครอบคลุม HRBP, OD, สรรหา และ L&D",
+     "เชี่ยวชาญ Performance Management ออกแบบระบบครอบคลุม 100% องค์กร",
+     "เคยทำ Talent Acquisition สาย IT แบบ end-to-end รวมถึงต่อรอง offer",
+     "ทำงานร่วมที่ปรึกษาระดับโลก (WTW) ออกแบบ job architecture"
+    ],
+    "key_gaps": [
+     "ไม่พบหลักฐานงานแรงงานสัมพันธ์/กฎหมายแรงงาน พ.ร.บ.คุ้มครองแรงงาน",
+     "ไม่ระบุการบังคับบัญชาทีมโดยตรงอย่างน้อย 1 ปี",
+     "ไม่พบใบรับรอง SHRM / HRCI / PMAT",
+     "ไม่พบประสบการณ์ payroll และความถูกต้องของ HRIS"
+    ],
+    "evidence": [
+     "\"HR Business Partner & Organization Development professional with 6+ years of experience\"",
+     "\"Rolled out new performance and goal-setting system within 1 month, covering 100% of the organization\"",
+     "\"Managed end-to-end recruitment processes for IT roles ... offer negotiation\"",
+     "\"Tools & Systems: HRIS/PMS, MS Office (All), G-Suite (All), Power BI, Jira\""
+    ],
+    "risk_flags": [
+     "เพิ่งเริ่มงานที่บริษัทปัจจุบัน Aug 2025 (ระยะเวลาสั้น)",
+     "ประสบการณ์เน้น OD/HRBP มากกว่างาน HR operations ประจำวัน"
+    ]
+   },
+   "languages": {
+    "english": "Medium"
+   }
+  }
+ ]
+}
