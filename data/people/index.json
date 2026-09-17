@@ -1,0 +1,19 @@
+{
+ "_meta": {
+  "title": "Index of candidate datasets",
+  "generated": "2026-09-17",
+  "note": "GitHub Pages cannot list a directory — evaluate.html reads this to populate the role picker."
+ },
+ "datasets": [
+  {
+   "code": "PCC-HR-HCDM-L3",
+   "file": "candidates_PCC-HR-HCDM-L3.json",
+   "title_en": "Human Capital Development Manager",
+   "title_th": "ผู้จัดการพัฒนาทุนมนุษย์",
+   "level": "L3",
+   "count": 16,
+   "batches": 1,
+   "latest": "2026-05-19"
+  }
+ ]
+}
