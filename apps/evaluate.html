@@ -97,12 +97,16 @@ async function boot(){
     $('lb-search').textContent='Search';$('clearf').textContent='Clear filters';$('t-log').textContent='Analysis log';}
   try{REF=await PCC.ref();ROLES=(await (await fetch('../data/job_roles.json')).json()).roles;MODEL=await (await fetch('../data/scoring_model.json')).json();}
   catch(e){$('tablewrap').innerHTML=PCC.needLiveMsg();return;}
-  try{IDX=(await (await fetch('../data/people/index.json')).json()).datasets||[];}catch(e){IDX=[];}
+  try{IDX=(await (await fetch('../data/people/index.json?v='+Date.now(),{cache:'no-store'})).json()).datasets||[];}catch(e){IDX=[];}
 
-  const want=PCC.qs('target'); if(want)TARGET=want;
+  // newest analysis round first, so a freshly synced batch is what opens
+  IDX.sort((a,b)=>(b.latest||'').localeCompare(a.latest||''));
+  const want=PCC.qs('target');
+  if(want)TARGET=want; else if(IDX.length)TARGET=IDX[0].code;
   if(!IDX.some(d=>d.code===TARGET)&&IDX.length)TARGET=IDX[0].code;
   IDX.forEach(d=>{const o=document.createElement('option');o.value=d.code;
-    o.textContent=`${(th()&&d.title_th)||d.title_en} (${d.code}) · ${d.count} คน`;$('role').appendChild(o);});
+    o.textContent=`${(th()&&d.title_th)||d.title_en} (${d.code}) · ${d.count} คน${d.latest?' · '+d.latest:''}`;
+    $('role').appendChild(o);});
   if(!IDX.length){const o=document.createElement('option');o.value=TARGET;o.textContent=TARGET;$('role').appendChild(o);}
   $('role').value=TARGET;$('role').onchange=()=>{TARGET=$('role').value;load();};
 
@@ -124,7 +128,7 @@ async function boot(){
 function toggleLog(){const b=$('logb');b.hidden=!b.hidden;$('logar').textContent=(b.hidden?'▼ ':'▲ ')+(b.hidden?(th()?'แสดง':'show'):(th()?'ซ่อน':'hide'));}
 
 async function load(){
-  try{const pf=await (await fetch('../data/people/candidates_'+TARGET+'.json')).json();
+  try{const pf=await (await fetch('../data/people/candidates_'+TARGET+'.json?v='+Date.now(),{cache:'no-store'})).json();
     PEOPLE=pf.people||[];KR=pf._meta.kr_keys||{};BATCHES=(pf._meta.batches||[]).slice().sort((a,b)=>(b.date||'').localeCompare(a.date||''));}
   catch(e){PEOPLE=[];KR={};BATCHES=[];}
   // batch picker — default to the newest round so old and new analyses never mix
