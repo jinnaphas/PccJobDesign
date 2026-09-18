@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<base target="_top">
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap">
+<style>
+:root{--ground:#f4f6f8;--surface:#fff;--surface-2:#eef2f5;--ink:#16232e;--ink-2:#4a5b6a;--ink-3:#748596;
+  --line:#dce3ea;--navy:#1f3a5f;--brass:#a9772a;--brass-soft:#f2e7ce;
+  --good:#2f7a55;--good-s:#e3f1e9;--mid:#b7791f;--mid-s:#f8ecd4;--low:#b04a34;--low-s:#f7e3de;--track:#eef2f5;
+  --font:"IBM Plex Sans Thai","IBM Plex Sans",system-ui,sans-serif;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--font);font-size:14px;line-height:1.5}
+.wrap{max-width:1080px;margin:0 auto;padding:24px 18px 40px}
+h1{font-size:23px;margin:0}
+.sub{color:var(--ink-2);font-size:13px;margin-top:6px}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-top:14px}
+.sh{display:flex;align-items:center;gap:10px;margin-bottom:11px;flex-wrap:wrap}
+.sn{background:var(--navy);color:#fff;width:24px;height:24px;border-radius:7px;display:grid;place-items:center;font-weight:700;font-size:13px;flex:none}
+.st{font-weight:600;font-size:15px}
+.hint{font-size:12px;color:var(--ink-3);margin-left:auto}
+input,select,textarea{font:inherit;font-size:13px;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:8px 10px;width:100%}
+textarea{min-height:100px;resize:vertical}
+.grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:8px}
+.btn{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:9px;padding:8px 14px;font:inherit;font-size:13px;font-weight:600;cursor:pointer}
+.btn.pri{background:var(--navy);border-color:var(--navy);color:#fff}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn.sm{padding:5px 10px;font-size:12px}
+.row{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+.rolecard{background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-top:10px;font-size:13px}
+.rolecard b{font-size:14px}
+.chip{display:inline-block;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:3px 10px;font-size:11.5px;color:var(--ink-2);margin:6px 5px 0 0}
+.drop{border:1.5px dashed var(--line);border-radius:10px;padding:18px;text-align:center;color:var(--ink-3);font-size:13px;cursor:pointer;background:var(--surface-2)}
+.drop:hover{border-color:var(--brass);color:var(--brass)}
+.cand{background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-top:8px;display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.cand .cm{font-size:11.5px;color:var(--ink-3)}
+.x{border:0;background:none;color:var(--ink-3);cursor:pointer;font-size:17px}
+.msg{border-radius:9px;padding:9px 12px;font-size:12.5px;margin-top:10px}
+.msg.err{background:var(--low-s);border:1px solid var(--low);color:var(--low)}
+.msg.ok{background:var(--good-s);border:1px solid var(--good);color:var(--good)}
+.msg.warn{background:var(--mid-s);border:1px solid var(--mid);color:var(--mid)}
+.prog{height:7px;background:var(--track);border-radius:4px;overflow:hidden;margin-top:10px}
+.prog i{display:block;height:100%;background:var(--navy);width:0;transition:width .3s}
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin-bottom:10px}
+.kpi{background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.kpi .n{font-size:22px;font-weight:700}.kpi .l{font-size:11px;color:var(--ink-2);margin-top:3px}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th{background:var(--surface-2);text-align:left;padding:9px 10px;font-size:11px;text-transform:uppercase;color:var(--ink-2);border-bottom:1px solid var(--line)}
+td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top}
+tr.clk{cursor:pointer}tr.clk:hover td{background:var(--surface-2)}
+.pill{display:inline-block;padding:2px 9px;border-radius:999px;font-size:11.5px;font-weight:600}
+.pill.g{background:var(--good-s);color:var(--good)}.pill.m{background:var(--mid-s);color:var(--mid)}.pill.l{background:var(--low-s);color:var(--low)}
+.bar{height:7px;background:var(--track);border-radius:4px;width:70px;display:inline-block;vertical-align:middle;overflow:hidden}
+.bar i{display:block;height:100%}
+.tw{overflow-x:auto}
+dialog{border:0;border-radius:14px;padding:0;max-width:620px;width:92%}
+dialog::backdrop{background:rgba(10,20,28,.45)}
+.dh{background:var(--navy);color:#fff;padding:14px 18px}
+.db{padding:16px 18px;max-height:65vh;overflow-y:auto}
+.brow{display:grid;grid-template-columns:110px 1fr 38px;gap:8px;align-items:center;font-size:12.5px;margin-top:6px}
+ul{margin:4px 0;padding-left:18px;font-size:12.5px;color:var(--ink-2)}
+@media(max-width:720px){.grid{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>PCC Resume Screening</h1>
+  <div class="sub">วาง/อัปโหลด resume → เลือกตำแหน่งจากคลัง JD → AI วิเคราะห์และจัดอันดับ · เข้าใช้ด้วยบัญชี Google ขององค์กร</div>
+
+  <div id="codeBox" class="step" hidden>
+    <div class="sh"><span class="sn">0</span><span class="st">รหัสเข้าใช้งาน</span></div>
+    <input id="accessCode" type="password" placeholder="กรอกรหัสที่ผู้ดูแลให้ไว้">
+  </div>
+
+  <div class="step">
+    <div class="sh"><span class="sn">1</span><span class="st">เลือกตำแหน่ง</span><span class="hint" id="roleCount">กำลังโหลด…</span></div>
+    <div class="grid">
+      <input id="q" type="search" placeholder="ค้นหา รหัส / ชื่อตำแหน่ง…">
+      <select id="fLv"><option value="">ทุกระดับ</option></select>
+      <select id="fCo"><option value="">ทุกบริษัท</option></select>
+    </div>
+    <select id="pick" size="6" style="margin-top:8px"></select>
+    <div id="roleInfo"></div>
+  </div>
+
+  <div class="step">
+    <div class="sh"><span class="sn">2</span><span class="st">นำเข้า Resume</span><span class="hint" id="candCount">0 คน</span></div>
+    <div class="drop" id="drop">ลากไฟล์มาวาง หรือคลิกเลือก · รองรับ <b>PDF / TXT</b> (หลายไฟล์)
+      <input id="file" type="file" multiple accept=".pdf,.txt,.md" hidden></div>
+    <div class="row" style="margin-top:9px">
+      <button class="btn sm" id="addPaste">+ วางข้อความ</button>
+      <button class="btn sm" id="clearAll">ล้างทั้งหมด</button>
+    </div>
+    <div id="pastePane" hidden style="margin-top:9px">
+      <input id="pName" placeholder="ชื่อผู้สมัคร (เว้นว่างได้)" style="margin-bottom:6px">
+      <textarea id="pText" placeholder="วางข้อความ resume…"></textarea>
+      <div class="row" style="margin-top:6px">
+        <button class="btn sm pri" id="pAdd">เพิ่ม</button>
+        <button class="btn sm" id="pCancel">ยกเลิก</button>
+      </div>
+    </div>
+    <div id="cands"></div><div id="fileMsg"></div>
+  </div>
+
+  <div class="step">
+    <div class="sh"><span class="sn">3</span><span class="st">วิเคราะห์</span></div>
+    <button class="btn pri" id="run" disabled>🤖 เริ่มวิเคราะห์</button>
+    <div class="prog" id="progWrap" hidden><i id="progBar"></i></div>
+    <div id="plog" style="font-size:12px;color:var(--ink-2);margin-top:7px"></div>
+    <div id="runMsg"></div>
+    <div style="font-size:11.5px;color:var(--ink-3);margin-top:9px">
+      AI ให้คะแนน<b>รายมิติ</b>จากหลักฐานใน resume · <b>คะแนนรวมคำนวณด้วยสูตรถ่วงน้ำหนัก</b>ในหน้านี้ ไม่ใช่ AI ประมาณเอง ·
+      ระบบสั่งไม่ให้พิจารณา อายุ เพศ ศาสนา สถานภาพสมรส
+    </div>
+  </div>
+
+  <div class="step" id="results" hidden>
+    <div class="sh"><span class="sn">4</span><span class="st">ผลการคัดกรอง</span><span class="hint" id="resHint"></span></div>
+    <div class="kpis" id="kpis"></div>
+    <div class="tw"><table id="tbl"></table></div>
+    <div class="row" style="margin-top:11px">
+      <button class="btn sm" id="csv">⤓ ดาวน์โหลด CSV</button>
+      <span class="hint" id="csvMsg"></span>
+    </div>
+    <textarea id="csvOut" hidden style="margin-top:9px;min-height:130px"></textarea>
+  </div>
+</div>
+
+<dialog id="dlg"><div id="dlgBody"></div></dialog>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+// weights mirror data/scoring_model.json (hiring mode)
+var W={skills:25,experience:25,education:15,digital:15,english:10,certifications:10};
+var THR={high:75,mid:60};
+var DIMS=['education','experience','skills','english','digital','certifications'];
+var LABEL={education:'การศึกษา',experience:'ประสบการณ์',skills:'ทักษะหลัก',english:'ภาษาอังกฤษ',digital:'ดิจิทัล',certifications:'ใบรับรอง'};
+var IDX=[],ROLE=null,CANDS=[],RESULTS=[];
+var $=function(id){return document.getElementById(id)};
+var esc=function(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){
+  return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})};
+
+function call(fn,arg){return new Promise(function(res,rej){
+  google.script.run.withSuccessHandler(res).withFailureHandler(rej)[fn](arg);});}
+
+call('needsAccessCode').then(function(n){ if(n) $('codeBox').hidden=false; });
+
+call('getRoleIndex').then(function(list){
+  IDX=list;
+  var lv={},co={};
+  list.forEach(function(r){lv[r.l]=1;co[r.co]=1;});
+  Object.keys(lv).sort().forEach(function(v){$('fLv').add(new Option(v,v))});
+  Object.keys(co).sort().forEach(function(v){$('fCo').add(new Option(v,v))});
+  fill();
+}).catch(function(e){ $('roleCount').textContent='โหลดไม่สำเร็จ'; showErr('runMsg',e); });
+
+function fill(){
+  var q=$('q').value.trim().toLowerCase(),lv=$('fLv').value,co=$('fCo').value;
+  var list=IDX.filter(function(r){
+    return (!lv||r.l===lv)&&(!co||r.co===co)&&
+      (!q||r.c.toLowerCase().indexOf(q)>=0||r.t.toLowerCase().indexOf(q)>=0||(r.th||'').indexOf(q)>=0);});
+  var sel=$('pick'),keep=ROLE&&list.some(function(r){return r.c===ROLE.code})?ROLE.code:null;
+  sel.innerHTML='';
+  list.slice(0,400).forEach(function(r){sel.add(new Option(r.c+' · '+r.t+' ('+r.l+')',r.c))});
+  $('roleCount').textContent=list.length+' / '+IDX.length+' ตำแหน่ง';
+  if(sel.options.length){ sel.value=keep||sel.options[0].value; if(!keep) loadRole(sel.value); }
+  else { ROLE=null; $('roleInfo').innerHTML=''; sync(); }
+}
+['q','fLv','fCo'].forEach(function(id){$(id).addEventListener('input',fill)});
+$('pick').addEventListener('change',function(){loadRole(this.value)});
+
+function loadRole(code){
+  $('roleInfo').innerHTML='<div class="rolecard">กำลังโหลดรายละเอียด…</div>';
+  call('getRole',code).then(function(r){
+    ROLE=r;
+    $('roleInfo').innerHTML='<div class="rolecard"><b>'+esc(r.title_en)+'</b><br>'+esc(r.title_th)+' · '+esc(r.code)+
+      '<div><span class="chip">ระดับ '+esc(r.level)+'</span><span class="chip">'+esc(r.company)+'</span>'+
+      '<span class="chip">ประสบการณ์ ≥ '+r.specs.min_years+' ปี</span><span class="chip">KR '+r.krs.length+' ข้อ</span></div></div>';
+    sync();
+  }).catch(function(e){showErr('roleInfo',e)});
+}
+
+// ---- resumes ----
+$('drop').onclick=function(){$('file').click()};
+$('drop').addEventListener('dragover',function(e){e.preventDefault()});
+$('drop').addEventListener('drop',function(e){e.preventDefault();files(e.dataTransfer.files)});
+$('file').addEventListener('change',function(e){files(e.target.files)});
+
+function files(list){
+  $('fileMsg').innerHTML='';
+  Array.prototype.forEach.call(list,function(f){
+    var done=function(txt){
+      txt=(txt||'').trim();
+      if(txt.length<40){$('fileMsg').innerHTML+='<div class="msg warn">«'+esc(f.name)+'» อ่านข้อความไม่ได้ (ถ้าเป็น PDF สแกน ให้วางข้อความแทน)</div>';return;}
+      CANDS.push({id:'c'+Math.random().toString(36).slice(2,8),name:f.name.replace(/\.[^.]+$/,''),src:f.name,text:txt});
+      renderCands();};
+    if(/\.pdf$/i.test(f.name)){
+      f.arrayBuffer().then(function(buf){
+        pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+        return pdfjsLib.getDocument({data:buf}).promise;
+      }).then(function(pdf){
+        var pages=[],i;
+        var next=function(n){ if(n>pdf.numPages){done(pages.join('\n'));return;}
+          pdf.getPage(n).then(function(p){return p.getTextContent()}).then(function(tc){
+            pages.push(tc.items.map(function(s){return s.str}).join(' ')); next(n+1);});};
+        next(1);
+      }).catch(function(){$('fileMsg').innerHTML+='<div class="msg warn">«'+esc(f.name)+'» อ่าน PDF ไม่สำเร็จ — กรุณาวางข้อความแทน</div>';});
+    } else { f.text().then(done); }
+  });
+}
+$('addPaste').onclick=function(){$('pastePane').hidden=false;$('pText').focus()};
+$('pCancel').onclick=function(){$('pastePane').hidden=true;$('pName').value='';$('pText').value=''};
+$('pAdd').onclick=function(){
+  var t=$('pText').value.trim();
+  if(t.length<40){alert('กรุณาวางข้อความ resume (อย่างน้อย 40 ตัวอักษร)');return;}
+  CANDS.push({id:'c'+Math.random().toString(36).slice(2,8),name:$('pName').value.trim()||'(ไม่ระบุชื่อ)',src:'paste',text:t});
+  $('pName').value='';$('pText').value='';$('pastePane').hidden=true;renderCands();};
+$('clearAll').onclick=function(){CANDS=[];renderCands()};
+
+function renderCands(){
+  $('candCount').textContent=CANDS.length+' คน';
+  $('cands').innerHTML=CANDS.map(function(c){
+    return '<div class="cand"><div><b>'+esc(c.name)+'</b><div class="cm">'+esc(c.src)+' · '+c.text.length+' ตัวอักษร</div></div>'+
+      '<button class="x" data-del="'+c.id+'">×</button></div>';}).join('');
+  Array.prototype.forEach.call($('cands').querySelectorAll('[data-del]'),function(b){
+    b.onclick=function(){CANDS=CANDS.filter(function(x){return x.id!==b.dataset.del});renderCands();};});
+  sync();
+}
+function sync(){ $('run').disabled=!(ROLE&&CANDS.length); }
+function showErr(el,e){ $(el).innerHTML='<div class="msg err">'+esc(e&&e.message||e)+'</div>'; }
+
+// ---- analyse ----
+$('run').onclick=function(){
+  $('run').disabled=true;$('runMsg').innerHTML='';$('progWrap').hidden=false;
+  RESULTS=[];
+  var n=CANDS.length,i=0,fails=0;
+  var step=function(){
+    if(i>=n){
+      $('plog').textContent='เสร็จสิ้น '+(n-fails)+'/'+n+' คน'+(fails?' · ล้มเหลว '+fails:'');
+      $('run').disabled=false;render();return;}
+    var c=CANDS[i];
+    $('plog').textContent='กำลังวิเคราะห์ '+(i+1)+'/'+n+' — '+c.name+'…';
+    call('analyze',{role:ROLE,resume:c.text,accessCode:$('accessCode')?$('accessCode').value:''})
+      .then(function(d){ RESULTS.push(finalize(d,c)); })
+      .catch(function(e){ fails++; RESULTS.push({name:c.name,src:c.src,error:(e&&e.message)||'ผิดพลาด',
+        scores:{},kr:[],overall:0,rec:'—',key_strengths:[],key_gaps:[],evidence:[],risk_flags:[]}); })
+      .then(function(){ i++; $('progBar').style.width=Math.round(i/n*100)+'%'; step(); });
+  };
+  step();
+};
+function finalize(d,c){
+  var tot=0,wt=0;
+  DIMS.forEach(function(k){var v=Number(d.scores[k]); if(isFinite(v)){tot+=v*W[k];wt+=W[k];}});
+  var overall=wt?Math.round(tot/wt):0;
+  return {src:c.src,name:d.name||c.name,current_title:d.current_title,current_company:d.current_company,
+    education:d.education,experience:d.experience,languages:d.languages,scores:d.scores,
+    kr:d.kr_alignment||[],key_strengths:d.key_strengths||[],key_gaps:d.key_gaps||[],
+    evidence:d.evidence||[],risk_flags:d.risk_flags||[],analyzed_at:d.analyzed_at,
+    overall:overall,rec:overall>=THR.high?'Proceed':overall>=THR.mid?'Consider':'Not Suitable'};
+}
+var cls=function(r){return r==='Proceed'?'g':r==='Consider'?'m':r==='Not Suitable'?'l':''};
+var colr=function(v){return v>=THR.high?'var(--good)':v>=THR.mid?'var(--mid)':'var(--low)'};
+
+function render(){
+  if(!RESULTS.length)return;
+  $('results').hidden=false;
+  $('resHint').textContent=ROLE?ROLE.title_en:'';
+  var ok=RESULTS.filter(function(r){return !r.error});
+  var cnt=function(x){return RESULTS.filter(function(r){return r.rec===x}).length};
+  var avg=ok.length?Math.round(ok.reduce(function(a,b){return a+b.overall},0)/ok.length):0;
+  $('kpis').innerHTML=
+    '<div class="kpi"><div class="n">'+RESULTS.length+'</div><div class="l">ทั้งหมด</div></div>'+
+    '<div class="kpi"><div class="n" style="color:var(--good)">'+cnt('Proceed')+'</div><div class="l">Proceed ≥'+THR.high+'%</div></div>'+
+    '<div class="kpi"><div class="n" style="color:var(--mid)">'+cnt('Consider')+'</div><div class="l">Consider ≥'+THR.mid+'%</div></div>'+
+    '<div class="kpi"><div class="n" style="color:var(--low)">'+cnt('Not Suitable')+'</div><div class="l">Not Suitable</div></div>'+
+    '<div class="kpi"><div class="n">'+avg+'%</div><div class="l">ค่าเฉลี่ย</div></div>';
+  var sorted=RESULTS.slice().sort(function(a,b){return b.overall-a.overall});
+  $('tbl').innerHTML='<thead><tr><th>#</th><th>ผู้สมัคร</th><th>ปัจจุบัน</th><th>ปสก.</th><th>ความเหมาะสม</th><th>ผล</th></tr></thead><tbody>'+
+    sorted.map(function(r,i){
+      if(r.error)return '<tr><td>'+(i+1)+'</td><td><b>'+esc(r.name)+'</b></td><td colspan="4"><span class="pill l">ผิดพลาด</span> '+esc(r.error)+'</td></tr>';
+      return '<tr class="clk" data-i="'+i+'"><td>'+(i+1)+'</td>'+
+        '<td><b>'+esc(r.name)+'</b><div class="cm">'+esc((r.education||{}).level||'')+'</div></td>'+
+        '<td class="cm">'+esc(r.current_title||'-')+'<br>'+esc(r.current_company||'')+'</td>'+
+        '<td>'+((r.experience||{}).total_years||0)+' ปี</td>'+
+        '<td><span class="bar"><i style="width:'+r.overall+'%;background:'+colr(r.overall)+'"></i></span> <b>'+r.overall+'%</b></td>'+
+        '<td><span class="pill '+cls(r.rec)+'">'+esc(r.rec)+'</span></td></tr>';}).join('')+'</tbody>';
+  Array.prototype.forEach.call($('tbl').querySelectorAll('tr.clk'),function(tr){
+    tr.onclick=function(){detail(sorted[+tr.dataset.i])};});
+}
+function detail(r){
+  var bar=function(l,v,c){return '<div class="brow"><span>'+esc(l)+'</span><span class="bar" style="width:100%"><i style="width:'+
+    Math.max(0,Math.min(100,v))+'%;background:'+c+'"></i></span><b style="text-align:right">'+v+'</b></div>'};
+  var lst=function(t,a){return a&&a.length?'<h4 style="margin:14px 0 2px;font-size:12.5px;color:var(--brass)">'+t+'</h4><ul>'+
+    a.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul>':''};
+  var krs=(ROLE&&ROLE.krs||[]).map(function(k,i){
+    return bar(k.name.length>24?k.name.slice(0,24)+'…':k.name, Math.round(r.kr[i]||0),'var(--navy)')}).join('');
+  $('dlgBody').innerHTML='<div class="dh"><b style="font-size:16px">'+esc(r.name)+'</b><div style="font-size:12px;opacity:.85">'+
+    esc(r.current_title||'')+(r.current_company?' · '+esc(r.current_company):'')+'</div></div><div class="db">'+
+    '<div style="font-size:30px;font-weight:700;color:'+colr(r.overall)+'">'+r.overall+'% '+
+    '<span class="pill '+cls(r.rec)+'" style="font-size:12px;vertical-align:middle">'+esc(r.rec)+'</span></div>'+
+    '<h4 style="margin:14px 0 2px;font-size:12.5px;color:var(--brass)">คะแนนรายมิติ</h4>'+
+    DIMS.map(function(d){return bar(LABEL[d]+' ('+W[d]+'%)',Math.round(r.scores[d]||0),'var(--navy)')}).join('')+
+    (krs?'<h4 style="margin:14px 0 2px;font-size:12.5px;color:var(--brass)">ความสอดคล้องกับ KR</h4>'+krs:'')+
+    lst('จุดแข็ง',r.key_strengths)+lst('จุดที่ยังขาด',r.key_gaps)+
+    lst('หลักฐานอ้างอิงจาก resume',r.evidence)+lst('ข้อสังเกต / ความเสี่ยง',r.risk_flags)+
+    '<div style="margin-top:16px"><button class="btn" onclick="document.getElementById(\'dlg\').close()">ปิด</button></div></div>';
+  $('dlg').showModal();
+}
+
+// ---- CSV ----
+$('csv').onclick=function(){
+  var hdr=['Rank','Name','Current Title','Company','Education','TotalYears','Overall%','Recommendation']
+    .concat(DIMS).concat(['Strengths','Gaps','AnalyzedAt','RoleCode']);
+  var rows=RESULTS.slice().sort(function(a,b){return b.overall-a.overall}).map(function(r,i){
+    return [i+1,r.name,r.current_title,r.current_company,(r.education||{}).level,
+      (r.experience||{}).total_years,r.overall,r.rec]
+      .concat(DIMS.map(function(d){return r.scores[d]||''}))
+      .concat([(r.key_strengths||[]).join(' | '),(r.key_gaps||[]).join(' | '),r.analyzed_at||'',ROLE?ROLE.code:'']);});
+  var csv='﻿'+[hdr].concat(rows).map(function(row){
+    return row.map(function(c){return '"'+String(c==null?'':c).replace(/"/g,'""')+'"'}).join(',')}).join('\n');
+  try{
+    var a=document.createElement('a');
+    a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));
+    a.download='screening_'+(ROLE?ROLE.code:'role')+'_'+new Date().toISOString().slice(0,10)+'.csv';
+    document.body.appendChild(a);a.click();a.remove();
+    $('csvMsg').textContent='ดาวน์โหลดแล้ว';
+  }catch(e){
+    $('csvOut').hidden=false;$('csvOut').value=csv;$('csvOut').select();
+    $('csvMsg').textContent='ดาวน์โหลดไม่ได้ในมุมมองนี้ — คัดลอกข้อความด้านล่างแทน';
+  }
+};
+</script>
+</body>
+</html>
