@@ -5,13 +5,21 @@
   "source": "analysis_log.json (Candidate Evaluation, 2026-05-19), 16 resumes",
   "target_role_code": "PCC-HR-HCDM-L3",
   "kr_keys": {
-   "l_and_d": "Learning & Development",
-   "talent_mgmt": "Talent Management",
-   "competency": "Competency Development",
-   "od_culture": "OD & Culture",
-   "analytics": "HR Analytics"
+   "0": "L&D Strategy & Learning Program Design",
+   "1": "Talent Management & Succession Planning",
+   "2": "Competency Framework & Career Development",
+   "3": "OD Strategy & Culture Development",
+   "4": "HCD Analytics, Digital Tools & Team Development"
   },
   "batches": [
+   {
+    "id": "b-20260923-iohs",
+    "label": "คัดกรอง Human Capital Development Manager · 2026-09-23",
+    "date": "2026-09-23",
+    "count": 7,
+    "source": "Resume Screening Console (AI)",
+    "method": "ai"
+   },
    {
     "id": "b-20260519",
     "label": "รอบแรก — คัดกรอง 16 resumes",
@@ -885,6 +893,465 @@
     ],
     "analyzed_at": "2026-05-19",
     "batch_id": "b-20260519"
+   }
+  },
+  {
+   "id": "cand-hrhcdml3-01",
+   "name": "CHUTIMA DETAUDOMLURD",
+   "type": "candidate",
+   "source_file": "7. Chutima Detaudomlurd.pdf",
+   "current_title": "HR Manager",
+   "current_company": "Brothers Pictures Co., Ltd",
+   "target_role_codes": [
+    "PCC-HR-HCDM-L3"
+   ],
+   "education": {
+    "level": "Master",
+    "field": "Human Resource and Organization Development (NIDA)"
+   },
+   "experience": {
+    "total_years": 11,
+    "relevant_years": 3
+   },
+   "evaluation": {
+    "target_role_code": "PCC-HR-HCDM-L3",
+    "mode": "hiring",
+    "analyzed_at": "2026-09-23",
+    "batch_id": "b-20260923-iohs",
+    "scores": {
+     "certifications": 15,
+     "digital": 25,
+     "education": 85,
+     "english": 30,
+     "experience": 45,
+     "skills": 45
+    },
+    "kr_alignment": {
+     "0": 45,
+     "1": 35,
+     "2": 35,
+     "3": 30,
+     "4": 20
+    },
+    "overall_pct": 44,
+    "recommendation": "Not Suitable",
+    "key_strengths": [
+     "วุฒิโท HR & OD จาก NIDA ตรงกับสาขาที่ JD ต้องการ",
+     "ประสบการณ์ HR ครบวงจร 8+ ปี รวม L&D, Performance, Comp&Ben",
+     "มีประสบการณ์ตรงด้าน Training needs assessment, career development plan ที่ I AM Consulting"
+    ],
+    "key_gaps": [
+     "ไม่พบประสบการณ์ Talent/Succession Planning หรือ Competency Framework ระดับองค์กรใหญ่ตามที่ JD ต้องการ 3+ ปี",
+     "ไม่พบหลักฐานการใช้ LMS, People Analytics (Power BI/Tableau/Visier) หรือ AI Tools",
+     "ไม่พบใบรับรองวิชาชีพ SHRM/CIPD/CPLP/ICF/Prosci ตามที่ JD ระบุ",
+     "ไม่พบระบุระดับภาษาอังกฤษหรือหลักฐานการใช้ภาษาอังกฤษในงาน"
+    ],
+    "evidence": [
+     "Master of Science in Human Resource and Organization Development, NIDA, 2024",
+     "'Conducted an organization-wide training needs assessment...training roadmap, career development plans'",
+     "TOOLS: Empeo, Tiger Soft, Business Plus, PyjamHR, Asana, MS Office (ไม่มี LMS/Power BI/AI Tools)",
+     "TRAINING/COURSES: Individual Development Plan, Talent Management & Career Development, Become a Facilitator"
+    ],
+    "risk_flags": [
+     "ไม่มีหลักฐานประสบการณ์ Succession Planning หรือ Leadership Pipeline โดยตรง",
+     "ไม่มีใบรับรองวิชาชีพด้าน HCD/L&D ตามที่ JD กำหนด"
+    ]
+   },
+   "languages": {
+    "english": "Medium"
+   }
+  },
+  {
+   "id": "cand-hrhcdml3-02",
+   "name": "Ratchaniwan Kaewmanee",
+   "type": "candidate",
+   "source_file": "1. Ratchaniwan Kaewmanee.pdf",
+   "current_title": "Assistant Human Resources Development Manager",
+   "current_company": "Berli Jucker Foods Company Limited",
+   "target_role_codes": [
+    "PCC-HR-HCDM-L3"
+   ],
+   "education": {
+    "level": "Bachelor",
+    "field": "Public Administration - HRM"
+   },
+   "experience": {
+    "total_years": 10,
+    "relevant_years": 6
+   },
+   "evaluation": {
+    "target_role_code": "PCC-HR-HCDM-L3",
+    "mode": "hiring",
+    "analyzed_at": "2026-09-23",
+    "batch_id": "b-20260923-iohs",
+    "scores": {
+     "certifications": 15,
+     "digital": 50,
+     "education": 45,
+     "english": 30,
+     "experience": 65,
+     "skills": 68
+    },
+    "kr_alignment": {
+     "0": 70,
+     "1": 65,
+     "2": 55,
+     "3": 55,
+     "4": 35
+    },
+    "overall_pct": 52,
+    "recommendation": "Not Suitable",
+    "key_strengths": [
+     "มีประสบการณ์ TNA, IDP, Succession Planning และ Kirkpatrick ROI tracking ตรงกับ JD",
+     "ดูแลฝึกอบรมพนักงาน 600+ คน และ Culture/Engagement เพิ่ม 8%",
+     "มีทักษะ Facilitation, Train The Trainer, Leadership Development Program"
+    ],
+    "key_gaps": [
+     "วุฒิการศึกษาระดับ Bachelor ไม่ถึงเกณฑ์ Master ที่ JD ต้องการ",
+     "ไม่พบใบรับรองวิชาชีพ SHRM/CIPD/CPLP/ICF/Prosci ตามที่ระบุใน JD",
+     "ไม่พบหลักฐานการใช้ AI Tools, People Analytics (Power BI/Tableau) หรือ LMS ระดับ Enterprise เช่น SuccessFactors",
+     "ไม่ระบุระดับภาษาอังกฤษชัดเจนใน resume"
+    ],
+    "evidence": [
+     "'Conduct comprehensive Training Needs Analysis (TNA) and design tailored curriculum/learning paths'",
+     "'Monitor and evaluate training effectiveness using Kirkpatrick's 4 Levels of Evaluation'",
+     "'Partner with department heads to establish Individual Development Plans (IDPs)'",
+     "Tools: 'Microsoft 365, Canva, LMS/Digital Learning Platforms, HRIS Systems'"
+    ],
+    "risk_flags": [
+     "ประสบการณ์ระดับผู้บริหาร/จัดการเชิงกลยุทธ์ (Manager เต็มตำแหน่ง) ยังไม่ปรากฏชัด เป็นเพียง Assistant Manager"
+    ]
+   },
+   "languages": {
+    "english": "Medium"
+   }
+  },
+  {
+   "id": "cand-hrhcdml3-03",
+   "name": "Mr. Taweekiat Khunwattanatham",
+   "type": "candidate",
+   "source_file": "2. Taweekiat Khunwattanatham.pdf",
+   "current_title": "Consultant & Trainer",
+   "current_company": "Beyond Training / Thailand Insurance Institute",
+   "target_role_codes": [
+    "PCC-HR-HCDM-L3"
+   ],
+   "education": {
+    "level": "Master",
+    "field": "Human Resource Management (Burapha University)"
+   },
+   "experience": {
+    "total_years": 24,
+    "relevant_years": 20
+   },
+   "evaluation": {
+    "target_role_code": "PCC-HR-HCDM-L3",
+    "mode": "hiring",
+    "analyzed_at": "2026-09-23",
+    "batch_id": "b-20260923-iohs",
+    "scores": {
+     "certifications": 20,
+     "digital": 30,
+     "education": 85,
+     "english": 30,
+     "experience": 90,
+     "skills": 75
+    },
+    "kr_alignment": {
+     "0": 75,
+     "1": 85,
+     "2": 80,
+     "3": 75,
+     "4": 30
+    },
+    "overall_pct": 64,
+    "recommendation": "Consider",
+    "key_strengths": [
+     "ประสบการณ์ HRD/OD มากกว่า 20 ปี ครอบคลุม Succession Plan, Talent Management, Competency Management",
+     "เคยดำรงตำแหน่งระดับ Manager/Senior Manager ด้าน HRD/OD ในองค์กรขนาดใหญ่หลายแห่ง",
+     "มี Masterpiece ตรง KR เช่น Succession Plan, Core Values & Corporate Culture, HR Digitalization"
+    ],
+    "key_gaps": [
+     "ไม่ปรากฏหลักฐานระดับภาษาอังกฤษในเรซูเม่",
+     "ไม่ระบุการใช้ LMS/People Analytics/AI Tools อย่างชัดเจน",
+     "ไม่มีใบรับรองวิชาชีพตามที่ JD ระบุ (SHRM, CIPD, CPLP, ICF, Prosci)"
+    ],
+    "evidence": [
+     "Master Degree in Human Resource Management, Burapha University",
+     "Masterpiece Performance: Succession Plan, Talent Management, Core Values & Corporate Culture, HR Digitalization, Competency Management",
+     "HRD Division Manager, Pranda Jewelry: Manage, initiate and create HRD projects to enhance employees' competency"
+    ],
+    "risk_flags": [
+     "ไม่มีข้อมูลใบรับรองวิชาชีพหรือระดับภาษาอังกฤษในเรซูเม่"
+    ]
+   },
+   "languages": {
+    "english": "Medium"
+   }
+  },
+  {
+   "id": "cand-hrhcdml3-04",
+   "name": "Thanathorn Wattanavongvisut",
+   "type": "candidate",
+   "source_file": "3. Thanathorn Wattanavongvisut.pdf",
+   "current_title": "Senior Supervisor Human Resource Development",
+   "current_company": "Thai-German Products Public Company Limited",
+   "target_role_codes": [
+    "PCC-HR-HCDM-L3"
+   ],
+   "education": {
+    "level": "Master",
+    "field": "MBA (Bachelor of Laws)"
+   },
+   "experience": {
+    "total_years": 8,
+    "relevant_years": 4
+   },
+   "evaluation": {
+    "target_role_code": "PCC-HR-HCDM-L3",
+    "mode": "hiring",
+    "analyzed_at": "2026-09-23",
+    "batch_id": "b-20260923-iohs",
+    "scores": {
+     "certifications": 15,
+     "digital": 30,
+     "education": 65,
+     "english": 50,
+     "experience": 55,
+     "skills": 65
+    },
+    "kr_alignment": {
+     "0": 60,
+     "1": 65,
+     "2": 65,
+     "3": 60,
+     "4": 30
+    },
+    "overall_pct": 51,
+    "recommendation": "Not Suitable",
+    "key_strengths": [
+     "มีประสบการณ์ตรงด้าน Career Planning, Succession plan, Competency Dictionary/Mapping",
+     "ทำ OD, Org Chart, JD, Employee Engagement Survey มาแล้วจริง",
+     "ดูแล Training budget และ Training needs analysis"
+    ],
+    "key_gaps": [
+     "ตำแหน่งปัจจุบันเป็น Senior Supervisor ไม่ใช่ระดับ Manager ตามที่ JD ต้องการ",
+     "ประสบการณ์ L&D/OD รวมยังไม่ถึง 5 ปีเต็มตามที่ resume ระบุ (เริ่ม Feb 2022)",
+     "ไม่พบหลักฐานการใช้ LMS, Power BI/Tableau/Visier หรือ AI Tools ระดับองค์กรใน HCD",
+     "ไม่พบใบรับรอง SHRM/CIPD/CPLP/ICF/Prosci ใน resume"
+    ],
+    "evidence": [
+     "Develop and implement training programs, including...High Potential Program, Career Planning, Leadership Development Program",
+     "Establish Competency Dictionary, Competency Mapping, and Training Roadmap",
+     "Computer Competence: Microsoft office...ChatGPT (AI)...ไม่มี LMS/People Analytics tools ระบุ",
+     "English reading,writing,speaking(good),listening(good)"
+    ],
+    "risk_flags": [
+     "ประสบการณ์ตรง L&D/OD/HCD ต่ำกว่าเกณฑ์ขั้นต่ำ 5 ปีที่ JD กำหนด",
+     "ไม่มีวุฒิ/พื้นฐานสาย HRM, จิตวิทยาองค์การ หรือ OD โดยตรง (จบนิติศาสตร์และ MBA)"
+    ]
+   },
+   "languages": {
+    "english": "Medium"
+   }
+  },
+  {
+   "id": "cand-hrhcdml3-05",
+   "name": "Phimnara (Pang)",
+   "type": "candidate",
+   "source_file": "4. PHIMNARA MANGGORNWET.pdf",
+   "current_title": "HROD",
+   "current_company": "Beger Co., Ltd.",
+   "target_role_codes": [
+    "PCC-HR-HCDM-L3"
+   ],
+   "education": {
+    "level": "Bachelor",
+    "field": "Political Science"
+   },
+   "experience": {
+    "total_years": 3,
+    "relevant_years": 3
+   },
+   "evaluation": {
+    "target_role_code": "PCC-HR-HCDM-L3",
+    "mode": "hiring",
+    "analyzed_at": "2026-09-23",
+    "batch_id": "b-20260923-iohs",
+    "scores": {
+     "certifications": 5,
+     "digital": 45,
+     "education": 30,
+     "english": 10,
+     "experience": 30,
+     "skills": 45
+    },
+    "kr_alignment": {
+     "0": 40,
+     "1": 45,
+     "2": 40,
+     "3": 40,
+     "4": 40
+    },
+    "overall_pct": 32,
+    "recommendation": "Not Suitable",
+    "key_strengths": [
+     "มีประสบการณ์ตรงด้าน HROD/HRD รวม Talent Succession, Competency, KPI, Manpower Planning",
+     "ริเริ่มโครงการ AI Adoption ('Beger AI Impact') สอดคล้องกับ JD ด้าน AI Tools",
+     "ใช้ Google Workspace, AI Productivity Tools (ChatGPT, Gemini, NotebookLM)"
+    ],
+    "key_gaps": [
+     "วุฒิการศึกษาระดับ Bachelor สาขารัฐศาสตร์ ไม่ตรงกับ Master ด้าน HRM/OD ที่ JD ต้องการ",
+     "ประสบการณ์รวมประมาณ 3 ปี (2023-ปัจจุบัน) ต่ำกว่าเกณฑ์ขั้นต่ำ 8 ปีมาก",
+     "ไม่พบข้อมูลใบรับรองวิชาชีพ (SHRM/CIPD/CPLP/ICF/Prosci) ใน resume",
+     "ไม่พบข้อมูลระดับภาษาอังกฤษหรือหลักฐานการใช้ภาษาอังกฤษใน resume",
+     "ไม่พบ LMS (SuccessFactors/Cornerstone) หรือ People Analytics tools (Power BI/Tableau/Visier)"
+    ],
+    "evidence": [
+     "Bachelor of Political Science, Kasetsart University (2013-2017)",
+     "HROD Apr 2025–Present: Re-engineered Onboarding Framework, JD & Competency Architecture, KPI Matrix",
+     "COD Co., Ltd.: Managed Talent Development Database and coordinated Talent Succession Plan",
+     "AI Productivity Tools (ChatGPT, Gemini, NotebookLM, Google Flow), Workflow Automation (n8n)"
+    ],
+    "risk_flags": [
+     "ประสบการณ์รวม (~3 ปี) ต่ำกว่าเกณฑ์ขั้นต่ำของตำแหน่ง (8 ปี) อย่างมีนัยสำคัญ",
+     "ไม่มีวุฒิ Master ตามที่ JD ระบุ",
+     "ไม่พบหลักฐานระดับภาษาอังกฤษใน resume"
+    ]
+   },
+   "languages": {
+    "english": "Low"
+   }
+  },
+  {
+   "id": "cand-hrhcdml3-06",
+   "name": "Rawinkorn Lertthanakulkorn",
+   "type": "candidate",
+   "source_file": "5. Rawinkorn Lertthanakulkorn.pdf",
+   "current_title": "HRM Supervisor",
+   "current_company": "Technology Promotion Association (Thailand-Japan)",
+   "target_role_codes": [
+    "PCC-HR-HCDM-L3"
+   ],
+   "education": {
+    "level": "Bachelor",
+    "field": "Public Administration (Local Governance)"
+   },
+   "experience": {
+    "total_years": 10,
+    "relevant_years": 3
+   },
+   "evaluation": {
+    "target_role_code": "PCC-HR-HCDM-L3",
+    "mode": "hiring",
+    "analyzed_at": "2026-09-23",
+    "batch_id": "b-20260923-iohs",
+    "scores": {
+     "certifications": 15,
+     "digital": 40,
+     "education": 30,
+     "english": 20,
+     "experience": 45,
+     "skills": 35
+    },
+    "kr_alignment": {
+     "0": 25,
+     "1": 40,
+     "2": 20,
+     "3": 35,
+     "4": 35
+    },
+    "overall_pct": 34,
+    "recommendation": "Not Suitable",
+    "key_strengths": [
+     "ประสบการณ์ HR operations กว่า 10 ปี ครอบคลุม payroll, recruitment, HRIS",
+     "มีส่วนร่วมด้าน OD/Talent review และ succession planning เบื้องต้น",
+     "มีประสบการณ์ HR analytics dashboard และ digital transformation project",
+     "ผ่านอบรม Mini Master in HR Management และ Lean for Indirect"
+    ],
+    "key_gaps": [
+     "ไม่มีวุฒิปริญญาโทตามที่ JD ต้องการ (Master HRM/OD/MBA)",
+     "ไม่มีประสบการณ์ตรงด้าน L&D/Instructional Design (ADDIE/Agile) หรือ Executive Coaching",
+     "ไม่มีใบรับรองวิชาชีพที่ระบุใน JD (SHRM/CIPD/CPLP/ICF/Prosci)",
+     "ไม่พบหลักฐานระดับภาษาอังกฤษ หรือการใช้ LMS/People Analytics tools เฉพาะทาง"
+    ],
+    "evidence": [
+     "Position: HRM Supervisor (Direct Reports: 3) | July 2022 – Present",
+     "Support talent review and succession planning initiatives to strengthen the leadership pipeline",
+     "Deliver HR analytics dashboards to management, supporting manpower cost optimization",
+     "2023: Mini Master in HR Management (Batch 54)"
+    ],
+    "risk_flags": [
+     "ประสบการณ์ตรงด้าน L&D/OD/HCD ไม่ถึงเกณฑ์ขั้นต่ำ 5 ปีตามที่ JD กำหนด",
+     "ไม่มีวุฒิการศึกษาระดับปริญญาโทตามที่ JD ต้องการ"
+    ]
+   },
+   "languages": {
+    "english": "Low"
+   }
+  },
+  {
+   "id": "cand-hrhcdml3-07",
+   "name": "Woraphat Nathlada",
+   "type": "candidate",
+   "source_file": "6. Woraphat Nathlada.pdf",
+   "current_title": "(ไม่ระบุ)",
+   "current_company": "(ไม่ระบุ)",
+   "target_role_codes": [
+    "PCC-HR-HCDM-L3"
+   ],
+   "education": {
+    "level": "Other",
+    "field": "ไม่ปรากฏข้อมูลวุฒิการศึกษา"
+   },
+   "experience": {
+    "total_years": 0,
+    "relevant_years": 0
+   },
+   "evaluation": {
+    "target_role_code": "PCC-HR-HCDM-L3",
+    "mode": "hiring",
+    "analyzed_at": "2026-09-23",
+    "batch_id": "b-20260923-iohs",
+    "scores": {
+     "certifications": 5,
+     "digital": 25,
+     "education": 10,
+     "english": 10,
+     "experience": 15,
+     "skills": 20
+    },
+    "kr_alignment": {
+     "0": 20,
+     "1": 10,
+     "2": 10,
+     "3": 15,
+     "4": 20
+    },
+    "overall_pct": 16,
+    "recommendation": "Not Suitable",
+    "key_strengths": [
+     "มีหัวข้อบทความเกี่ยวกับ HRBP และการสร้างทักษะผู้นำ/โค้ชทีมงาน",
+     "มีเนื้อหาเกี่ยวกับ AI Agent และ Custom GPT ซึ่งเกี่ยวข้องกับ AI Tools บางส่วน"
+    ],
+    "key_gaps": [
+     "ไม่มีข้อมูลวุฒิการศึกษา",
+     "ไม่มีข้อมูลประสบการณ์การทำงาน/จำนวนปี",
+     "ไม่มีข้อมูลใบรับรองวิชาชีพ (SHRM/CIPD/CPLP/ICF/Prosci)",
+     "ไม่มีข้อมูลระดับภาษาอังกฤษ"
+    ],
+    "evidence": [
+     "'พัฒนา HR สู่บทบาทพันธมิตรทางธุรกิจ (HRBP)'",
+     "'สร้างทักษะผู้นำที่ดีและ Coach ทีมงานอย่างมืออาชีพเพื่อพาองค์กรสู่เป้าหมาย'",
+     "'สร้าง Custom GPT ให้เป็นผู้ช่วยงาน Recruit แบบไม่ต้องเขียนโค้ด'",
+     "'เริ่มต้นสร้างผู้ช่วยอัจฉริยะ: พัฒนา AI Agent ตั้งแต่พื้นฐานสู่การใช้งานจริง'"
+    ],
+    "risk_flags": [
+     "เอกสารที่ให้มาเป็นเพียงรายชื่อบทความ/หัวข้อสัมมนา ไม่ใช่ resume ที่มีข้อมูลการศึกษา ประสบการณ์ หรือทักษะครบถ้วน ไม่สามารถประเมินความเหมาะสมกับ JD ได้อย่างแม่นยำ"
+    ]
+   },
+   "languages": {
+    "english": "Low"
    }
   }
  ]
