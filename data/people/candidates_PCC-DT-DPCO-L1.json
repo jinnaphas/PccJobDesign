@@ -1,0 +1,419 @@
+{
+ "_meta": {
+  "title": "Candidates — Digital Process Capital Officer (PCC-DT-DPCO-L1)",
+  "schema": "../schema/person.schema.json",
+  "source": "Resume Screening Console (AI)",
+  "target_role_code": "PCC-DT-DPCO-L1",
+  "kr_keys": {
+   "0": "สนับสนุนการวิเคราะห์และจัดทำเอกสารกระบวนการ (Process Analysis & Documentation)",
+   "1": "พัฒนาและดูแล Workflow / Automation & RPA ตามที่ได้รับมอบหมาย",
+   "2": "เก็บ วิเคราะห์ข้อมูลประสิทธิภาพกระบวนการ และจัดทำ Dashboard/รายงาน",
+   "3": "สนับสนุน Digital Adoption และจัดเก็บองค์ความรู้ดิจิทัล (Knowledge Base/SOP)"
+  },
+  "batches": [
+   {
+    "id": "b-20260925-1tvy",
+    "label": "คัดกรอง Digital Process Capital Officer · 2026-09-25",
+    "date": "2026-09-25",
+    "count": 6,
+    "source": "Resume Screening Console (AI)",
+    "method": "ai"
+   }
+  ]
+ },
+ "people": [
+  {
+   "id": "cand-dtdpcol1-01",
+   "name": "รัตนา เกี่ยวกระโทก",
+   "type": "candidate",
+   "source_file": "6. นางสาว รัตนา เกี้ยวกระโทก.pdf",
+   "current_title": "เจ้าหน้าที่โครงการ",
+   "current_company": "ส่วนทรัพยากรบุคคล มหาวิทยาลัยเทคโนโลยีสุรนารี",
+   "target_role_codes": [
+    "PCC-DT-DPCO-L1"
+   ],
+   "education": {
+    "level": "Bachelor",
+    "field": "เทคโนโลยีสารสนเทศ (ระบบสารสนเทศเพื่อการจัดการ)"
+   },
+   "experience": {
+    "total_years": 8,
+    "relevant_years": 5
+   },
+   "evaluation": {
+    "target_role_code": "PCC-DT-DPCO-L1",
+    "mode": "hiring",
+    "analyzed_at": "2026-09-25",
+    "batch_id": "b-20260925-1tvy",
+    "scores": {
+     "certifications": 20,
+     "digital": 60,
+     "education": 90,
+     "english": 70,
+     "experience": 72,
+     "skills": 70
+    },
+    "kr_alignment": {
+     "0": 72,
+     "1": 35,
+     "2": 78,
+     "3": 58
+    },
+    "overall_pct": 67,
+    "recommendation": "Consider",
+    "key_strengths": [
+     "วุฒิ MIS ตรงสาย JD",
+     "เก็บ Requirements และจัดทำ Flow Diagram/Activity Flow",
+     "ทำ Dashboard และรายงานด้วย Power BI, จัดการ SQL Server/View",
+     "ประสานงานจัดซื้อจัดจ้าง จัดทำ TOR และทำงานกับผู้พัฒนาระบบภายนอก"
+    ],
+    "key_gaps": [
+     "ไม่พบประสบการณ์ RPA (UiPath) หรือ Power Automate/Power Apps",
+     "ไม่ระบุการทำ BPMN หรือ SOP อย่างชัดเจน",
+     "ไม่มีใบรับรอง Power Platform/UiPath หรือ Lean Six Sigma",
+     "ไม่ระบุระดับ Excel ขั้นสูง"
+    ],
+    "evidence": [
+     "\"เก็บรวบรวมความต้องการผู้ใช้งาน (Requirements) และจัดทำ Flow Diagram, Activity Flow\"",
+     "\"จัดการฐานข้อมูลด้วย SQL Server และจัดทำ View สำหรับเชื่อมต่อข้อมูลกับ Power BI\"",
+     "\"ตรวจสอบข้อมูลจาก API Request และ API Response พร้อมกำหนดรายละเอียด Data Type\"",
+     "\"ภาษาอังกฤษ: ปานกลาง\"; อบรม Power BI และการวิเคราะห์ข้อมูลสำหรับผู้เริ่มต้น"
+    ],
+    "risk_flags": [
+     "ไม่มีหลักฐานงาน Automation/Low-Code ซึ่งเป็น KR น้ำหนัก 30%",
+     "ประวัติการทำงานหลากหลายสายงาน (ฝ่ายผลิต/ประสานงานขาย) ต่อเนื่องไม่ตรงสาย"
+    ]
+   },
+   "languages": {
+    "english": "Medium"
+   }
+  },
+  {
+   "id": "cand-dtdpcol1-02",
+   "name": "Mananya Sangklinhom",
+   "type": "candidate",
+   "source_file": "1. นางสาว มนันยา สังข์กลิ่นหอม.pdf",
+   "current_title": "DT Business Partner — Project Manager & Business Analyst",
+   "current_company": "Rangsit Plaza Co., Ltd.",
+   "target_role_codes": [
+    "PCC-DT-DPCO-L1"
+   ],
+   "education": {
+    "level": "Master",
+    "field": "Information Technology"
+   },
+   "experience": {
+    "total_years": 15,
+    "relevant_years": 15
+   },
+   "evaluation": {
+    "target_role_code": "PCC-DT-DPCO-L1",
+    "mode": "hiring",
+    "analyzed_at": "2026-09-25",
+    "batch_id": "b-20260925-1tvy",
+    "scores": {
+     "certifications": 10,
+     "digital": 65,
+     "education": 90,
+     "english": 40,
+     "experience": 85,
+     "skills": 80
+    },
+    "kr_alignment": {
+     "0": 85,
+     "1": 45,
+     "2": 60,
+     "3": 70
+    },
+    "overall_pct": 70,
+    "recommendation": "Consider",
+    "key_strengths": [
+     "ประสบการณ์ BA/SA 15+ ปี ด้าน requirement gathering และ process mapping",
+     "ทำ flowcharts, BRD, functional specs และ process maps เป็นประจำ",
+     "มีทักษะ Power BI / PowerApps และ SQL/Oracle/PL-SQL",
+     "เคยทำ UAT, user training และ documentation ครบวงจร"
+    ],
+    "key_gaps": [
+     "ไม่พบประสบการณ์ RPA (UiPath / Power Automate) ในเรซูเม่",
+     "ไม่ระบุ BPMN notation หรือ Lean Six Sigma โดยตรง",
+     "ภาษาอังกฤษระบุ Basic ต่ำกว่าเกณฑ์ Medium ที่ JD ต้องการ",
+     "ไม่พบใบรับรอง Power Platform / UiPath / Yellow Belt"
+    ],
+    "evidence": [
+     "'Experienced IT professional with 15+ years ... IT Project Management and Business Analysis'",
+     "'Process Mapping & Flowcharts' ใน Core Competencies",
+     "'Power BI PowerApps SQL Oracle PHP MySQL PL/SQL' ใน Key Tools",
+     "'translated outcomes into BRDs, flowcharts, and process maps'"
+    ],
+    "risk_flags": [
+     "ระดับตำแหน่ง JD เป็น Manage Self (L1, 0-2 ปี) แต่ผู้สมัครมีประสบการณ์ระดับ PM/Senior BA 15+ ปี — เสี่ยง overqualified",
+     "ภาษาอังกฤษระบุ Basic ต่ำกว่าที่ JD กำหนด"
+    ]
+   },
+   "languages": {
+    "english": "Low"
+   }
+  },
+  {
+   "id": "cand-dtdpcol1-03",
+   "name": "Raiwin Sraumcheep",
+   "type": "candidate",
+   "source_file": "2. นาย ไรวินท์ สรวมชีพ.pdf",
+   "current_title": "Senior Quality Engineer",
+   "current_company": "NEC Platforms Thai Co., Ltd.",
+   "target_role_codes": [
+    "PCC-DT-DPCO-L1"
+   ],
+   "education": {
+    "level": "Bachelor",
+    "field": "Industrial Technology — Electronics & Computer Technology"
+   },
+   "experience": {
+    "total_years": 5,
+    "relevant_years": 3
+   },
+   "evaluation": {
+    "target_role_code": "PCC-DT-DPCO-L1",
+    "mode": "hiring",
+    "analyzed_at": "2026-09-25",
+    "batch_id": "b-20260925-1tvy",
+    "scores": {
+     "certifications": 20,
+     "digital": 78,
+     "education": 75,
+     "english": 70,
+     "experience": 70,
+     "skills": 72
+    },
+    "kr_alignment": {
+     "0": 70,
+     "1": 72,
+     "2": 85,
+     "3": 65
+    },
+    "overall_pct": 67,
+    "recommendation": "Consider",
+    "key_strengths": [
+     "ทำ Automation จริง: VBA + Power Automate + Task Scheduler ลดเวลารายงาน 1 ชม. เหลือ 1 นาที",
+     "สร้าง Power BI Dashboard สำหรับประชุม Production/QC (FPY, trend, supplier ranking)",
+     "มีประสบการณ์จัดทำ/อัปเดต WI, SOP, QMS และสนับสนุน Internal Audit ISO 9001/IATF 16949",
+     "Process Improvement + RCA (5Why/Ishikawa) และ SPC สอดคล้องแนวคิด Lean"
+    ],
+    "key_gaps": [
+     "ไม่พบประสบการณ์ BPMN และ Requirement Gathering อย่างเป็นทางการ",
+     "ไม่พบ RPA tool เฉพาะ (UiPath) และ Power Apps / Low-Code App Development",
+     "SQL ระบุเป็นระดับ Basic และไม่พบประสบการณ์ API",
+     "ไม่พบใบรับรอง Power Platform/UiPath หรือ Lean Six Sigma Yellow Belt"
+    ],
+    "evidence": [
+     "\"Create QC reports, KPIs, dashboards, and automated workflows (Excel, VBA, Power BI, Power Automate)\"",
+     "\"Built automated reporting pipelines using VBA + Power Automate + Task Scheduler\"",
+     "\"Update WI, SOP, QMS documents and support Internal Audit (ISO 9001 / IATF 16949)\"",
+     "\"Excel reporting time reduced from 1 hr → 1 min\" และ \"English: Good (Speaking / Listening)\""
+    ],
+    "risk_flags": [
+     "เป้าหมายอาชีพระบุมุ่งสาย MES/System Engineer ในโรงงาน อาจไม่ตรงกับงาน Digital Process ระดับ L1",
+     "ปัจจุบันเป็น Senior Engineer ดูแลผู้ตรวจสอบ 13 คน อาจ over-qualified เทียบระดับ Manage Self (L1)"
+    ]
+   },
+   "languages": {
+    "english": "Medium"
+   }
+  },
+  {
+   "id": "cand-dtdpcol1-04",
+   "name": "WARAPORN AMONWECH",
+   "type": "candidate",
+   "source_file": "3. นางสาว วราภรณ์ อมรเวช.pdf",
+   "current_title": "นักศึกษาปริญญาโท (Data Science and Analytics)",
+   "current_company": "King Mongkut's Institute of Technology Ladkrabang (KMITL)",
+   "target_role_codes": [
+    "PCC-DT-DPCO-L1"
+   ],
+   "education": {
+    "level": "Master",
+    "field": "Data Science and Analytics (ป.ตรี วิศวกรรมอุตสาหการ)"
+   },
+   "experience": {
+    "total_years": 0,
+    "relevant_years": 0
+   },
+   "evaluation": {
+    "target_role_code": "PCC-DT-DPCO-L1",
+    "mode": "hiring",
+    "analyzed_at": "2026-09-25",
+    "batch_id": "b-20260925-1tvy",
+    "scores": {
+     "certifications": 30,
+     "digital": 58,
+     "education": 92,
+     "english": 60,
+     "experience": 45,
+     "skills": 70
+    },
+    "kr_alignment": {
+     "0": 65,
+     "1": 30,
+     "2": 85,
+     "3": 45
+    },
+    "overall_pct": 60,
+    "recommendation": "Consider",
+    "key_strengths": [
+     "ป.ตรี วิศวกรรมอุตสาหการ + ป.โท Data Science ตรงสาย JD",
+     "ทำ Process/Data Flow Mapping แบบ end-to-end ในโปรเจกต์ M-Flow",
+     "Power BI, Python, SQL, Excel ขั้นสูง ใช้ทำ dashboard จริง"
+    ],
+    "key_gaps": [
+     "ไม่พบประสบการณ์ RPA/Low-Code (Power Automate, Power Apps, UiPath)",
+     "ไม่พบ BPMN และการจัดทำ SOP/Knowledge Base โดยตรง",
+     "ไม่มีใบรับรอง Power Platform/UiPath หรือ Lean Six Sigma",
+     "ไม่ระบุประสบการณ์ทำงานเต็มเวลา มีเพียงโปรเจกต์การศึกษา"
+    ],
+    "evidence": [
+     "\"Mapped the end-to-end business and data process flow ... similar in approach to Business Process Mapping\"",
+     "\"Built interactive Power BI dashboards with geographic mapping, trend analysis, and drill-down filters\"",
+     "\"Built automated data quality checks across four dimensions and translated results into a scoring system\"",
+     "\"Python (Pandas, NumPy), SQL, Statistical Analysis\" และ Data Science Bootcamp 12 - DataRockie School"
+    ],
+    "risk_flags": [
+     "ระบุจบ ป.โท ปี 2026 และ cert Mar 2026 อาจยังไม่สำเร็จการศึกษา ณ ปัจจุบัน"
+    ]
+   },
+   "languages": {
+    "english": "Medium"
+   }
+  },
+  {
+   "id": "cand-dtdpcol1-05",
+   "name": "Sirintra Insuriya",
+   "type": "candidate",
+   "source_file": "4. นางสาว สิรินทรา อินทร์สุริยา.pdf",
+   "current_title": "System Analyst / Business Analyst (Programmer)",
+   "current_company": "Taokaenoi Food & Marketing PCL",
+   "target_role_codes": [
+    "PCC-DT-DPCO-L1"
+   ],
+   "education": {
+    "level": "Bachelor",
+    "field": "Information Systems (Business Computer)"
+   },
+   "experience": {
+    "total_years": 3,
+    "relevant_years": 3
+   },
+   "evaluation": {
+    "target_role_code": "PCC-DT-DPCO-L1",
+    "mode": "hiring",
+    "analyzed_at": "2026-09-25",
+    "batch_id": "b-20260925-1tvy",
+    "scores": {
+     "certifications": 10,
+     "digital": 65,
+     "education": 90,
+     "english": 60,
+     "experience": 80,
+     "skills": 78
+    },
+    "kr_alignment": {
+     "0": 85,
+     "1": 70,
+     "2": 55,
+     "3": 70
+    },
+    "overall_pct": 70,
+    "recommendation": "Consider",
+    "key_strengths": [
+     "ทำ Requirement Gathering และ Workflow Design พร้อมเอกสาร Functional/System Spec, Flowchart, ISO",
+     "พัฒนาระบบ workflow อนุมัติเอกสาร/Change Request/Leave ครบวงจรด้วย ASP.NET MVC + SQL Server",
+     "มีพื้นฐาน SQL Server และ RESTful API ตรงกับข้อกำหนด SQL/API เบื้องต้น",
+     "จัดทำ User Manual และเอกสารถ่ายทอดความรู้ รองรับงาน Knowledge Base/SOP"
+    ],
+    "key_gaps": [
+     "ไม่พบประสบการณ์ RPA (UiPath) หรือ Low-Code (Power Automate / Power Apps)",
+     "ไม่พบ Power BI / Excel ขั้นสูง และงาน Dashboard วิเคราะห์ประสิทธิภาพกระบวนการ",
+     "ไม่ระบุ BPMN โดยตรง (ระบุเพียง Flowchart / Workflow Design)",
+     "ไม่มีใบรับรอง Power Platform/UiPath หรือ Lean Six Sigma และไม่ระบุระดับภาษาอังกฤษ"
+    ],
+    "evidence": [
+     "\"Analyzed and gathered user requirements... translate them into appropriate system features\"",
+     "\"Functional Specifications, System Specifications, Database Specifications, Flowcharts, User Manuals, ISO-related software documentation\"",
+     "\"Online Executive Document Approval System... document submission and approval workflows... status tracking\"",
+     "B.B.A. Information Systems (Business Computer), RMUTT 2020-2022; ทำงานที่ Taokaenoi ตั้งแต่ Jun 2022"
+    ],
+    "risk_flags": [
+     "สายงานเน้น Software Development มากกว่า Process Improvement/Automation Tools ตาม JD"
+    ]
+   },
+   "languages": {
+    "english": "Medium"
+   }
+  },
+  {
+   "id": "cand-dtdpcol1-06",
+   "name": "Issares Sungwanna",
+   "type": "candidate",
+   "source_file": "5. นาย อิศเรศ สังข์วรรณะ.pdf",
+   "current_title": "Family Business (Data Analysis/Marketing)",
+   "current_company": "THE TARA / Guitalia (ธุรกิจครอบครัว)",
+   "target_role_codes": [
+    "PCC-DT-DPCO-L1"
+   ],
+   "education": {
+    "level": "Master",
+    "field": "Artificial Intelligence for Business Analytics (ป.ตรี Information Technology)"
+   },
+   "experience": {
+    "total_years": 3,
+    "relevant_years": 1
+   },
+   "evaluation": {
+    "target_role_code": "PCC-DT-DPCO-L1",
+    "mode": "hiring",
+    "analyzed_at": "2026-09-25",
+    "batch_id": "b-20260925-1tvy",
+    "scores": {
+     "certifications": 55,
+     "digital": 60,
+     "education": 90,
+     "english": 70,
+     "experience": 55,
+     "skills": 65
+    },
+    "kr_alignment": {
+     "0": 50,
+     "1": 65,
+     "2": 70,
+     "3": 40
+    },
+    "overall_pct": 65,
+    "recommendation": "Consider",
+    "key_strengths": [
+     "ป.โท AI for Business Analytics และ ป.ตรี IT GPA 3.95 ตรงสายที่ JD ระบุ",
+     "มีประสบการณ์ RPA จริงจากสหกิจศึกษา GoSoft พร้อมใบรับรอง Kryon RPA",
+     "ทักษะ Data Analysis, SQL, Python, Excel และเคยทำ Data Mining เพิ่มกำไร 30%",
+     "เคยเข้าประชุมเก็บ Requirement และทำงานเป็นส่วนหนึ่งของทีมโปรเจกต์"
+    ],
+    "key_gaps": [
+     "ไม่พบหลักฐานการใช้ Power Automate / Power Apps / UiPath ตามที่ JD ระบุ",
+     "ไม่พบประสบการณ์ Process Mapping ด้วย BPMN และการจัดทำ SOP",
+     "ไม่พบการใช้ Power BI หรือการทำ Dashboard เชิงระบบ",
+     "ไม่มีใบรับรอง Power Platform Fundamentals หรือ Lean Six Sigma Yellow Belt"
+    ],
+    "evidence": [
+     "Cooperative Education: GoSoft — Robotic Process Automation (RPA), Decrease Human error in report by automation",
+     "Writing code for program development (with Python); Join meeting to get requirement",
+     "Hard Skill: Data Analysis, Business Process, SQL, Python, Excel",
+     "Certificate: Receiving RPA certifications of Kryon RPA Training; Data Analysis Level 3 (Mahidol)"
+    ],
+    "risk_flags": [
+     "ประสบการณ์ทำงานหลักเป็นธุรกิจครอบครัว ทำให้ประเมินบริบทองค์กรขนาดใหญ่ได้จำกัด",
+     "ช่วงปี 2022-2025 เรียน ป.โทควบคู่ ทำให้ประสบการณ์ full-time ในสายงานยังไม่ชัดเจน"
+    ]
+   },
+   "languages": {
+    "english": "Medium"
+   }
+  }
+ ]
+}

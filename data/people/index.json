@@ -15,6 +15,16 @@
    "latest": "2026-09-17"
   },
   {
+   "code": "PCC-DT-DPCO-L1",
+   "file": "candidates_PCC-DT-DPCO-L1.json",
+   "title_en": "Digital Process Capital Officer",
+   "title_th": "เจ้าหน้าที่พัฒนากระบวนการดิจิทัลและทุนดิจิทัล",
+   "level": "L1",
+   "count": 6,
+   "batches": 1,
+   "latest": "2026-09-25"
+  },
+  {
    "code": "PCC-HR-HCDM-L3",
    "file": "candidates_PCC-HR-HCDM-L3.json",
    "title_en": "Human Capital Development Manager",
