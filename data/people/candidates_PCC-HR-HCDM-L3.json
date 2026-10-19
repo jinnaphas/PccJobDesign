@@ -13,6 +13,14 @@
   },
   "batches": [
    {
+    "id": "b-20261019-9nek",
+    "label": "คัดกรอง Human Capital Development Manager · 2026-10-19",
+    "date": "2026-10-19",
+    "count": 4,
+    "source": "Resume Screening Console (AI)",
+    "method": "ai"
+   },
+   {
     "id": "b-20260923-iohs",
     "label": "คัดกรอง Human Capital Development Manager · 2026-09-23",
     "date": "2026-09-23",
@@ -1352,6 +1360,279 @@
    },
    "languages": {
     "english": "Low"
+   }
+  },
+  {
+   "id": "cand-hrhcdml3-01x",
+   "name": "PHISIT KHAUER-IN",
+   "type": "candidate",
+   "source_file": "นาย พิสิษฐ์ เครืออินทร์.pdf",
+   "current_title": "Corporate Performance Management Specialist, Corporate Strategy Division",
+   "current_company": "THAI ROONG RUANG Sugar Group",
+   "target_role_codes": [
+    "PCC-HR-HCDM-L3"
+   ],
+   "education": {
+    "level": "Bachelor",
+    "field": "Business Administration (University of Phayao, GPA 3.36)"
+   },
+   "experience": {
+    "total_years": 1,
+    "relevant_years": 1
+   },
+   "evaluation": {
+    "target_role_code": "PCC-HR-HCDM-L3",
+    "mode": "hiring",
+    "analyzed_at": "2026-10-19",
+    "batch_id": "b-20261019-9nek",
+    "scores": {
+     "certifications": 0,
+     "digital": 10,
+     "education": 45,
+     "english": 45,
+     "experience": 20,
+     "skills": 30
+    },
+    "kr_alignment": {
+     "0": 20,
+     "1": 25,
+     "2": 45,
+     "3": 35,
+     "4": 15
+    },
+    "overall_pct": 25,
+    "recommendation": "Not Suitable",
+    "key_strengths": [
+     "มีประสบการณ์พัฒนา Performance Management System และ Competency Framework ที่เชื่อมกับกลยุทธ์องค์กร",
+     "มีประสบการณ์ Change Management และ Transformation Office ระดับองค์กร ร่วมงานใกล้ชิดกับ CEO",
+     "เคยทำ Training Needs Analysis (TNA) ร่วมกับ HR และผู้นำธุรกิจ",
+     "มีทักษะวิเคราะห์ข้อมูล KPI/OKR และการรายงานต่อผู้บริหารระดับสูงและ Board"
+    ],
+    "key_gaps": [
+     "วุฒิปริญญาตรีบริหารธุรกิจ ไม่มีปริญญาโทด้าน HRM/OD/จิตวิทยาองค์การตามที่ JD ต้องการ",
+     "resume แสดงประสบการณ์เพียง ก.ย. 2024-ปัจจุบัน ห่างจากเกณฑ์ 8 ปี และ L&D/OD/HCD 5 ปี",
+     "ไม่พบ Instructional Design, 70-20-10, Executive Coaching, Psychometric, Succession Planning",
+     "ไม่ระบุ LMS, People Analytics tools, AI Tools หรือใบรับรอง SHRM/CIPD/ATD/ICF/Prosci"
+    ],
+    "evidence": [
+     "Education: Bachelor's Degree in Business Administration, University of Phayao GPA 3.36",
+     "Develop and enhance performance evaluation frameworks such as KPIs, OKRs, and Competency Frameworks",
+     "Analyze performance evaluation results to support compensation adjustments, talent development, and promotion",
+     "Conduct annual training needs analysis (TNA) in collaboration with Sustainability, Compliance, HR"
+    ],
+    "risk_flags": [
+     "resume ถูกตัดท้าย ข้อมูลอาจไม่ครบ ควรขอ resume ฉบับเต็มเพื่อยืนยันประวัติการทำงานก่อนหน้า",
+     "งานหลักเน้น Strategy/PMO/ESG/Governance มากกว่า HCD โดยตรง อาจไม่ตรงสายงาน L3 HCD",
+     "ระบุว่าเป็น expert หลายด้าน แต่ไม่มีหลักฐานจำนวนปีหรือผลลัพธ์เชิงตัวเลขรองรับ",
+     "ภาษาอังกฤษไม่ระบุระดับ (สะกด 'Enghish') ควรทดสอบเพิ่มเติม"
+    ]
+   },
+   "languages": {
+    "english": "Medium"
+   }
+  },
+  {
+   "id": "cand-hrhcdml3-02x",
+   "name": "PANNAPAT JANLA",
+   "type": "candidate",
+   "source_file": "นางสาว พรรณพัชร จันทร์ลา.pdf",
+   "current_title": "HR Consultant / Assistant Consultant",
+   "current_company": "Think People Consulting Co., Ltd.",
+   "target_role_codes": [
+    "PCC-HR-HCDM-L3"
+   ],
+   "education": {
+    "level": "Bachelor",
+    "field": "Psychology (วท.บ. จิตวิทยา เกียรตินิยมอันดับ 1)"
+   },
+   "experience": {
+    "total_years": 3,
+    "relevant_years": 3
+   },
+   "evaluation": {
+    "target_role_code": "PCC-HR-HCDM-L3",
+    "mode": "hiring",
+    "analyzed_at": "2026-10-19",
+    "batch_id": "b-20261019-9nek",
+    "scores": {
+     "certifications": 10,
+     "digital": 35,
+     "education": 45,
+     "english": 65,
+     "experience": 15,
+     "skills": 30
+    },
+    "kr_alignment": {
+     "0": 20,
+     "1": 10,
+     "2": 45,
+     "3": 10,
+     "4": 30
+    },
+    "overall_pct": 31,
+    "recommendation": "Not Suitable",
+    "key_strengths": [
+     "มีประสบการณ์ออกแบบ Competency Model, OKPIs และ Career Path ให้ลูกค้าในฐานะที่ปรึกษา HR",
+     "พื้นฐานจิตวิทยาแข็งแรง (เกียรตินิยมอันดับ 1, GPAX 3.91) สอดคล้องกับงาน HCD/OD",
+     "ใช้ Generative AI (ChatGPT, Claude, Gemini) และ AI-Assisted Data Analysis ได้",
+     "มีประสบการณ์ประสานงาน Public Training ตั้งแต่ต้นจนจบ"
+    ],
+    "key_gaps": [
+     "ประสบการณ์ราว 3 ปี ต่ำกว่าเกณฑ์ 8 ปี และไม่มีประสบการณ์ L&D/OD/HCD ภายในองค์กรถึง 5 ปี",
+     "ไม่มีวุฒิปริญญาโท และไม่มีใบรับรองตาม JD (SHRM, CIPD, CPTD, ICF, Prosci)",
+     "ไม่พบหลักฐาน Instructional Design, Executive Coaching, Talent/Succession Planning หรือ OD/Culture",
+     "ไม่พบการใช้ LMS หรือ People Analytics (Power BI/Tableau/Visier) และไม่มีประสบการณ์บริหารทีม"
+    ],
+    "evidence": [
+     "\"Designed organizational OKPIs and Competency Models aligned with clients' strategic goals\" (2022–Present)",
+     "\"Coordinated Public Training programs, managing course scheduling, client inquiries...\"",
+     "B.Sc. Psychology, 1st Class Honors (GPAX 3.91), Srinakharinwirot University (2018–2022)",
+     "English: TOEIC 810 (Listening 465, Reading 345); Tools: ChatGPT, Claude, Gemini, Advanced MS Office"
+    ],
+    "risk_flags": [
+     "ระดับปัจจุบันเป็น Assistant Consultant ห่างจากตำแหน่ง Manage Function (L3) ค่อนข้างมาก",
+     "งานด้าน Training เน้นการประสานงานและการตลาดหลักสูตร มากกว่าการออกแบบหลักสูตร/กลยุทธ์ L&D"
+    ]
+   },
+   "languages": {
+    "english": "Medium"
+   }
+  },
+  {
+   "id": "cand-hrhcdml3-03x",
+   "name": "Mr.Ammat Songkam (นายอานาจ ซองคา)",
+   "type": "candidate",
+   "source_file": "นาย อำนาจ ซองคำ.pdf",
+   "current_title": "HRD, GA and Safety Manager",
+   "current_company": "Linex International (Thailand) Co., Ltd.",
+   "target_role_codes": [
+    "PCC-HR-HCDM-L3"
+   ],
+   "education": {
+    "level": "Master",
+    "field": "MBA in Industrial Management (Ramkhamhaeng University)"
+   },
+   "experience": {
+    "total_years": 20,
+    "relevant_years": 6
+   },
+   "evaluation": {
+    "target_role_code": "PCC-HR-HCDM-L3",
+    "mode": "hiring",
+    "analyzed_at": "2026-10-19",
+    "batch_id": "b-20261019-9nek",
+    "scores": {
+     "certifications": 5,
+     "digital": 10,
+     "education": 75,
+     "english": 45,
+     "experience": 50,
+     "skills": 30
+    },
+    "kr_alignment": {
+     "0": 45,
+     "1": 15,
+     "2": 15,
+     "3": 40,
+     "4": 15
+    },
+    "overall_pct": 38,
+    "recommendation": "Not Suitable",
+    "key_strengths": [
+     "ประสบการณ์ HR รวมประมาณ 20 ปี ในระดับ Supervisor ถึง Manager ในอุตสาหกรรมยานยนต์และโลจิสติกส์",
+     "ดูแลงาน Training & Development และ Employee Engagement ต่อเนื่องในหลายองค์กร",
+     "มีพื้นฐาน Train the Trainer และจัดกิจกรรมสร้างความสัมพันธ์และวัฒนธรรมองค์กร",
+     "วุฒิ MBA ซึ่งอยู่ในกลุ่มสาขาที่ JD ยอมรับ"
+    ],
+    "key_gaps": [
+     "ไม่พบหลักฐานการออกแบบ Talent Management, Succession Planning หรือ Competency Framework",
+     "ไม่พบทักษะ Instructional Design (ADDIE/Agile), 70-20-10, Executive Coaching หรือ Psychometric",
+     "ไม่พบการใช้ LMS, People Analytics หรือ AI Tools ระบุเพียง Microsoft Office",
+     "ไม่มีใบรับรอง SHRM/CIPD/CPTD/ICF/Prosci และภาษาอังกฤษระบุเพียงระดับ fairly"
+    ],
+    "evidence": [
+     "Apr 2014 – Nov 2024 HR Section Manager, Yarnapund PCL: oversee training, employee development, welfare and benefits",
+     "Jan 2025 – ปัจจุบัน HRD, GA and Safety Manager, Linex: manage HRD including development, training, engagement",
+     "Ability: Train the trainer for Occupational Safety, Health and Environment; Microsoft Office",
+     "Ability to speak, read and write English fairly; ใบรับรองเน้น Safety Officer และ ISO Internal Audit"
+    ],
+    "risk_flags": [
+     "ประสบการณ์หลักเน้น IR, HSE, GA และ Compliance มากกว่า HCD/OD เชิงกลยุทธ์ระดับกลุ่มบริษัท",
+     "ช่วงงานปัจจุบันระบุสิ้นสุด Sep 2026 ควรตรวจสอบสถานะการจ้างงานและความถูกต้องของวันที่",
+     "มีช่องว่างการทำงานสั้นๆ ระหว่าง Nov 2024 – Jan 2025"
+    ]
+   },
+   "languages": {
+    "english": "Medium"
+   }
+  },
+  {
+   "id": "cand-hrhcdml3-04x",
+   "name": "Yuttasil Sriviroj",
+   "type": "candidate",
+   "source_file": "นาย ยุทธศิลป์ ศรีวิโรจน์.pdf",
+   "current_title": "HR Manager",
+   "current_company": "BST Group Holding (Baansomtum Restaurant)",
+   "target_role_codes": [
+    "PCC-HR-HCDM-L3"
+   ],
+   "education": {
+    "level": "Bachelor",
+    "field": "Business Administration (Human Resource Management)"
+   },
+   "experience": {
+    "total_years": 7,
+    "relevant_years": 3
+   },
+   "evaluation": {
+    "target_role_code": "PCC-HR-HCDM-L3",
+    "mode": "hiring",
+    "analyzed_at": "2026-10-19",
+    "batch_id": "b-20261019-9nek",
+    "scores": {
+     "certifications": 5,
+     "digital": 20,
+     "education": 45,
+     "english": 50,
+     "experience": 35,
+     "skills": 25
+    },
+    "kr_alignment": {
+     "0": 35,
+     "1": 20,
+     "2": 10,
+     "3": 15,
+     "4": 15
+    },
+    "overall_pct": 30,
+    "recommendation": "Not Suitable",
+    "key_strengths": [
+     "มีประสบการณ์ระดับ HR Manager ต่อเนื่องราว 7 ปี (2019-2026) ดูแลพนักงาน 450-500+ คน หลายสาขา",
+     "มีพื้นฐานงานฝึกอบรม เช่น สำรวจ Training Needs จัดหลักสูตร ทำแบบประเมินหลังอบรม และออกแบบโปรแกรม T&D",
+     "เคยขับเคลื่อน OKRs/KPIs เพื่อวัดและพัฒนาผลิตภาพของพนักงาน",
+     "วุฒิปริญญาตรีสาขา HRM ซึ่งตรงสาขาและผ่านเกณฑ์ขั้นต่ำของ JD"
+    ],
+    "key_gaps": [
+     "ไม่มีวุฒิปริญญาโท และประสบการณ์ที่ระบุใน resume (~7 ปี) ยังไม่ถึงเกณฑ์ 8 ปี",
+     "ไม่พบประสบการณ์ Competency Framework, Succession Planning, Leadership Pipeline, OD หรือ Psychometric Assessment",
+     "ไม่พบการใช้ LMS, People Analytics (Power BI/Tableau) หรือ AI Tools ตามที่ JD กำหนด",
+     "ไม่มีใบรับรองด้าน HR/L&D/Coaching เช่น SHRM, CIPD, CPTD, ICF หรือ Prosci"
+    ],
+    "evidence": [
+     "Bachelor of Business Administration (Human Resource Management), Chandrakasem Rajabhat University, 2013",
+     "Training & Development: Designed, implemented, and supervised employee training and development programs",
+     "Cavallino Motor: Ask the training needs of each department manager; prepare a questionnaire for each training session",
+     "Software: Microsoft Office, Humansoft Express, OneDrive, Microsoft 365; Certificate: IATF 16949"
+    ],
+    "risk_flags": [
+     "ข้อความบรรยายงานของ 2 บริษัทล่าสุดซ้ำกันเกือบทั้งหมด จึงควรสอบถามขอบเขตงานจริงของแต่ละแห่ง",
+     "ไม่พบข้อมูลการทำงานในช่วงปี 2013-2019 หลังจบการศึกษา",
+     "งานที่ Cavallino Motor เน้นงานธุรการ/อาคาร/จัดซื้อ มากกว่างาน HCD เชิงกลยุทธ์",
+     "ภาษาอังกฤษประเมินจากการระบุเองและการเขียนใน resume ซึ่งมีข้อผิดพลาดบางจุด ควรทดสอบเพิ่มเติม"
+    ]
+   },
+   "languages": {
+    "english": "Medium"
    }
   }
  ]
