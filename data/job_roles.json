@@ -7,18 +7,18 @@
   "generated": "2026-06-15",
   "pilot_set": "Pilot: full level coverage F1->L5 + HR ladder + Agentic-AI L1 + Finance L5. Batch 2: GRP Common L1 across families (FIN/SCM/PMO/QA/ESG/CX).",
   "validation_summary": {
-   "total_records": 210,
-   "active": 208,
-   "detailed": 209,
-   "with_je_breakdown_clean": 85,
-   "with_dataquality_flags": 146,
+   "total_records": 211,
+   "active": 209,
+   "detailed": 210,
+   "with_je_breakdown_clean": 86,
+   "with_dataquality_flags": 147,
    "by_level": {
     "F1": 9,
     "L1": 79,
     "L2": 34,
     "L3": 57,
     "L4": 13,
-    "L5": 15,
+    "L5": 16,
     "L6": 1
    },
    "note": "je_breakdown present = JE table verified clean & sums to total. Flagged roles keep je_score (in-band) but breakdown omitted pending JE regeneration (HR to confirm item-30-by-level)."
@@ -24261,6 +24261,210 @@
     17
    ],
    "je_score": 128
+  },
+  {
+   "code": "GRP-STR-CSO-L5",
+   "title_en": "Chief Strategy Officer (CSO)",
+   "title_th": "ประธานเจ้าหน้าที่ฝ่ายกลยุทธ์",
+   "company": "GRP",
+   "family_code": "STR",
+   "level": "L5",
+   "report_to": "CEO / Managing Director ของบริษัทในเครือ (สายบังคับบัญชาตรง) | ประสานเชิงเมทริกซ์กับ VP Intellectual Capital Development (PCC-DT-VPDT-L5) และ President & Group COO (PCC-MGT-PGCO-L6) ของ Holding",
+   "unit_type": "Strategy & Business Development — Subsidiary C-Suite",
+   "purpose_th": "ผู้นำสูงสุดด้านกลยุทธ์และการบริหารธุรกิจของบริษัทในเครือ PCC รับผิดชอบ 'Business Management' แบบครบวงจร — ตั้งแต่การกำหนดกลยุทธ์ (Strategy) ออกแบบโมเดลธุรกิจ (Business Model) จัดทำแผนธุรกิจ (Business Plan) และขับเคลื่อนการพัฒนาธุรกิจใหม่ (Business Development) — ควบคู่กับการสร้างและบริหาร 'ทุนทางปัญญา' (Intellectual Capital) ของบริษัทให้เป็นสินทรัพย์ที่วัดผลและต่อยอดได้ 6 ด้าน ได้แก่ Digital Process Capital (ทุนกระบวนการดิจิทัล), Information Capital (ทุนสารสนเทศ/ข้อมูล), Human Capital (ทุนมนุษย์), Customer Capital (ทุนลูกค้า), Relationship Capital (ทุนความสัมพันธ์/พันธมิตร) และ Innovation Capital (ทุนนวัตกรรม) โดยทำงานร่วมกับ VP Intellectual Capital Development ของบริษัท Holding อย่างใกล้ชิด เพื่อให้กลยุทธ์และการสะสมทุนทางปัญญา ของบริษัทในเครือสอดคล้องกับทิศทางของกลุ่ม ใช้มาตรฐาน แพลตฟอร์ม และ Playbook ร่วมกันได้ และส่งต่อผลไปยังเป้าหมายการปรับสมดุลรายได้ (Revenue Stream Types) และการเติบโตของกำไรสุทธิระดับกลุ่ม รายงานตรงต่อ CEO/MD ของบริษัทในเครือ",
+   "krs": [
+    {
+     "seq": 1,
+     "name_th": "กลยุทธ์ โมเดลธุรกิจ และแผนธุรกิจ (Strategy · Business Model · Business Plan)",
+     "name_en": "Corporate Strategy, Business Model & Business Plan",
+     "expected_th": "บริษัทมีกลยุทธ์ 3–5 ปีและแผนธุรกิจประจำปีที่ชัดเจน วัดผลได้ สอดคล้องกับทิศทางกลุ่ม และโมเดลธุรกิจถูกทบทวน/ปรับให้แข่งขันได้",
+     "kpis": [
+      "Strategic Plan & Annual Business Plan อนุมัติตรงเวลา",
+      "Strategy Execution Rate (ตัวชี้วัดกลยุทธ์ที่บรรลุ) ≥ เป้า",
+      "Revenue / NPAT ตามแผนธุรกิจ",
+      "Business Model Review ≥ 1 ครั้ง/ปี พร้อมข้อเสนอปรับ"
+     ],
+     "weight_pct": 25
+    },
+    {
+     "seq": 2,
+     "name_th": "การพัฒนาธุรกิจและการเติบโต (Business Development & Growth)",
+     "name_en": "Business Development & Portfolio Growth",
+     "expected_th": "เกิดธุรกิจใหม่ ตลาดใหม่ และพันธมิตรเชิงกลยุทธ์ที่สร้างรายได้จริง และช่วยปรับสัดส่วนรายได้ (RST) ของบริษัทตามเป้าหมายกลุ่ม",
+     "kpis": [
+      "รายได้จากธุรกิจ/ตลาดใหม่ ≥ แผน",
+      "สัดส่วนรายได้ตาม RST เข้าใกล้เป้าหมาย",
+      "จำนวนพันธมิตร/ดีลเชิงกลยุทธ์ที่ปิดได้ต่อปี",
+      "Pipeline Conversion & Win Rate"
+     ],
+     "weight_pct": 20
+    },
+    {
+     "seq": 3,
+     "name_th": "ทุนกระบวนการดิจิทัลและทุนสารสนเทศ (Digital Process Capital & Information Capital)",
+     "name_en": "Digital Process & Information Capital",
+     "expected_th": "กระบวนการหลักถูกออกแบบใหม่ให้เป็นดิจิทัลและวัดผลได้ มีข้อมูล/สารสนเทศที่เชื่อถือได้เป็นสินทรัพย์ขององค์กร ใช้ร่วมกับแพลตฟอร์มกลางของกลุ่ม",
+     "kpis": [
+      "สัดส่วนกระบวนการหลักที่เป็นดิจิทัล/อัตโนมัติ",
+      "Process Efficiency & Cost-to-Serve ดีขึ้น",
+      "Data Quality / Single Source of Truth ตามมาตรฐานกลุ่ม",
+      "การใช้ข้อมูลประกอบการตัดสินใจ (Data-driven Decision)"
+     ],
+     "weight_pct": 15
+    },
+    {
+     "seq": 4,
+     "name_th": "ทุนลูกค้าและทุนความสัมพันธ์ (Customer Capital & Relationship Capital)",
+     "name_en": "Customer & Relationship Capital",
+     "expected_th": "ฐานลูกค้าและเครือข่ายพันธมิตรถูกบริหารเป็นสินทรัพย์ มีข้อมูลลูกค้ารวมศูนย์ เพิ่มมูลค่าตลอดวงจร และต่อยอด Cross-sell ข้ามบริษัทในเครือได้",
+     "kpis": [
+      "Customer Lifetime Value / Retention Rate",
+      "Customer Satisfaction / NPS ≥ เป้า",
+      "Cross-sell & Referral Revenue ข้ามบริษัทในเครือ",
+      "ความครบถ้วนของฐานข้อมูลลูกค้า (CRM Coverage)"
+     ],
+     "weight_pct": 15
+    },
+    {
+     "seq": 5,
+     "name_th": "ทุนมนุษย์และทุนนวัตกรรม (Human Capital & Innovation Capital)",
+     "name_en": "Human & Innovation Capital",
+     "expected_th": "บุคลากรมีขีดความสามารถตรงกับกลยุทธ์ มีผู้สืบทอดตำแหน่งสำคัญ และมีท่อนวัตกรรมที่แปลงเป็นมูลค่าธุรกิจได้จริง (ร่วมกับ HR และหน่วยงาน R&D)",
+     "kpis": [
+      "Strategic Capability Coverage (ทักษะที่กลยุทธ์ต้องการ)",
+      "Succession Coverage ตำแหน่งสำคัญ",
+      "Innovation Pipeline Value และจำนวนที่ขยายผลสำเร็จ/ปี",
+      "รายได้จากผลิตภัณฑ์/บริการใหม่ (%)"
+     ],
+     "weight_pct": 15
+    },
+    {
+     "seq": 6,
+     "name_th": "ธรรมาภิบาลการขับเคลื่อนกลยุทธ์ และการประสานกับ Holding (Strategy Governance & Group Collaboration)",
+     "name_en": "Strategy Governance & Collaboration with Group VP Intellectual Capital",
+     "expected_th": "กลยุทธ์ถูกถ่ายทอดเป็น KPI/OKR ทุกระดับ ติดตามผลสม่ำเสมอ และทำงานร่วมกับ VP Intellectual Capital ของ Holding ให้ใช้มาตรฐาน/แพลตฟอร์ม/Playbook ร่วมกันโดยไม่ซ้ำซ้อน",
+     "kpis": [
+      "Strategy Cascade ครบทุกหน่วยงาน (KPI/OKR Alignment)",
+      "รายงานความคืบหน้าต่อ CEO/MD และกลุ่ม ตรงเวลา",
+      "การนำมาตรฐาน/แพลตฟอร์มกลางของกลุ่มมาใช้ (Adoption)",
+      "Group Synergy Value ที่บริษัทมีส่วนสร้าง"
+     ],
+     "weight_pct": 10
+    }
+   ],
+   "specs": {
+    "education": {
+     "level": "Master",
+     "field": "MBA / Strategic Management / Economics / Engineering / Business Administration (ปริญญาเอก เป็นข้อได้เปรียบ)"
+    },
+    "experience": {
+     "min_years": 15,
+     "note": "15+ ปี โดยมีอย่างน้อย 5 ปีในระดับบริหารด้านกลยุทธ์/พัฒนาธุรกิจ · เคยจัดทำและขับเคลื่อนแผนกลยุทธ์ระดับบริษัทจนเห็นผล · มีประสบการณ์หลายโมเดลรายได้ (โครงการ/ประมูล, Omni-channel, สัญญาระยะยาว/PPA, Recurring) และเคยทำงานกับบริษัทในกลุ่ม/Holding"
+    },
+    "skills": [
+     "Corporate Strategy & Business Model Design (เช่น Business Model Canvas, Scenario Planning)",
+     "Business Planning & Financial Modeling / Valuation",
+     "Business Development, Strategic Partnership & M&A",
+     "Intellectual Capital & Intangible Asset Management (Human / Structural / Relational)",
+     "Digital Process Design & Information / Data Architecture (ระดับกำกับ)",
+     "Customer & Relationship Capital Management (CRM, CX, Ecosystem)",
+     "Innovation Portfolio & Commercialization",
+     "Strategy Execution & Performance Management (BSC / OKR / Strategy Map)",
+     "Matrix Collaboration & Change Management"
+    ],
+    "competency_targets": {
+     "challenge_complexity": 5,
+     "team_leadership": 4,
+     "working_relationship": 5,
+     "education_qual": 5,
+     "experience_qual": 5,
+     "innovation": 5,
+     "problem_solving": 5,
+     "technical_expertise": 4,
+     "quality_focus": 4,
+     "communication": 5,
+     "planning_mgmt": 5,
+     "autonomy": 5,
+     "data_analytics": 5,
+     "budget_responsibility": 4,
+     "people_org_mgmt": 4,
+     "external_representation": 5,
+     "project_systems_design": 5,
+     "stakeholder_responsibility": 5
+    },
+    "languages": {
+     "english": "High"
+    },
+    "digital": [
+     "Strategy & Performance Dashboard (BSC / OKR)",
+     "BI & Analytics (Power BI / Data Visualization)",
+     "CRM & Customer Data Platform",
+     "Process Mining / Workflow Automation",
+     "Innovation & Project Portfolio Management Tools",
+     "AI & Data-driven Decision Support"
+    ],
+    "certs": [
+     "Director Certification Programme (DCP – IOD) — Preferred",
+     "Balanced Scorecard / Strategy Execution Certification — Preferred",
+     "PMP หรือ Project Portfolio Management — Preferred",
+     "CFA / Financial Modeling & Valuation — Plus"
+    ]
+   },
+   "je_score": 185,
+   "je_breakdown": [
+    5,
+    4,
+    5,
+    4,
+    5,
+    5,
+    4,
+    5,
+    5,
+    4,
+    5,
+    5,
+    5,
+    5,
+    4,
+    1,
+    4,
+    5,
+    4,
+    1,
+    5,
+    5,
+    5,
+    4,
+    5,
+    6,
+    6,
+    4,
+    5,
+    55
+   ],
+   "je_source": "regenerated_proposed",
+   "detail_level": "detailed",
+   "status": "active",
+   "version": "1.0",
+   "source_docx": "GRP-STR-CSO-L5_Chief Strategy Officer_GRP_v1.0.docx",
+   "market_benchmark": {
+    "comparable_titles": "Chief Strategy Officer / Head of Strategy & Business Development / VP Corporate Strategy — บริษัทในเครือของกลุ่มจดทะเบียน (ประเทศไทย)",
+    "salary_range_thb": "200,000 – 450,000+ บาท/เดือน (ขึ้นกับขนาดและความซับซ้อนของบริษัทในเครือ รวม Variable / LTI)"
+   },
+   "data_quality": [
+    {
+     "code": "other",
+     "severity": "info",
+     "message": "JD จัดทำ 2026-11-09 — ตำแหน่ง C-Level ด้านกลยุทธ์ของบริษัทในเครือ ใช้ร่วมได้ทุกบริษัท (company=GRP) ตามรูปแบบเดียวกับ GRP-FIN-CFO-L5 / GRP-OPS-COO-L5 / GRP-TECH-CTO-L5 · ขอบเขตครอบคลุม Strategy / Business Model / Business Plan / Business Development + ทุนทางปัญญา 6 ด้าน (Digital Process, Information, Human, Customer, Relationship, Innovation) ซึ่งแมปเข้ากรอบ Intellectual Capital เดิมของกลุ่ม: Structural = Digital Process + Information + Innovation · Relational = Customer + Relationship · Human = Human Capital · ทำงานคู่กับ VP Intellectual Capital Development (PCC-DT-VPDT-L5) ของ Holding"
+    },
+    {
+     "code": "other",
+     "severity": "info",
+     "message": "je_source=regenerated_proposed — JE 185 จัดทำจาก baseline ระดับ L5 (184) ปรับตามลักษณะงานกลยุทธ์ อยู่ในกรอบ L5 (162–185) และเทียบเท่า COO/CTO ระดับเดียวกัน · รอ HR ปรับเทียบก่อนใช้เป็น Pay Grade · Market benchmark เป็นข้อมูลอ้างอิง รอ HR ยืนยัน"
+    }
+   ],
+   "updated": "2026-11-09"
   }
  ]
 }
