@@ -196,6 +196,33 @@ If a push fails — token expired, GitHub unreachable — the upload still
 succeeds and the row stays in the tab with an empty `pushed` column. The next
 upload retries it, or run `pushAuditNow()` from the editor.
 
+## Importing an existing recruitment sheet
+
+`importFromDrive()` loads requisitions from a CSV named **`recruit_import.csv`**
+placed in the attachments folder. Its header must be the `Requisitions` columns,
+in order.
+
+1. Upload the CSV to the Drive folder named in `DRIVE_FOLDER_ID`
+2. Run `importFromDrive` from the Run dropdown
+3. Read the log: `added`, `updated`, `skipped_without_req_id`
+4. **Delete the CSV from the folder**
+
+It upserts on `req_id`, so running it twice updates rather than duplicates, and
+only genuinely new rows get a `History` entry. That makes a correct-and-re-run
+loop safe: fix the CSV, upload it again, run it again.
+
+The CSV goes to Drive and never into this repository. A real recruitment sheet
+carries employee names in its notes — "ได้คนแล้ว น.ส. ..." — and the repository is
+public.
+
+### Statuses
+
+`pending_ec` ("รออนุมัติ EC") exists because a headcount awaiting approval is
+not a paused search. It is excluded from the Fill Rate denominator along with
+`cancelled`: neither has anything to fill, so counting them would report a
+worse fill rate than reality. It is also not counted as open, so it never
+enters Time to Fill or the SLA figures.
+
 ## If something does not work
 
 Open the `/exec` URL in a browser tab. What comes back names the problem:

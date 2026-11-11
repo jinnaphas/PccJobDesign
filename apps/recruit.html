@@ -100,6 +100,7 @@
       <div class="fld"><label>บริษัท</label><select id="fCo"><option value="">ทุกบริษัท</option></select></div>
       <div class="fld"><label>สถานะ</label><select id="fStatus">
         <option value="open">กำลังสรรหา</option><option value="">ทุกสถานะ</option>
+        <option value="pending_ec">รออนุมัติ EC</option>
         <option value="filled">ปิดแล้ว</option><option value="hold">พักไว้</option><option value="cancelled">ยกเลิก</option></select></div>
       <label style="display:flex;align-items:center;gap:5px;font-size:12.5px;color:var(--muted)">
         <input type="checkbox" id="fLate" style="width:auto"> เฉพาะที่เกินกำหนด</label>
@@ -145,7 +146,7 @@ const CS=[{k:"submitted",n:"ส่งใบสมัครให้หน่ว�
           {k:"onboard",   n:"แจ้งเริ่มงาน",          c:"#2f7a52",sla:3}];
 const CX=[{k:"rejected",n:"ไม่ผ่าน",c:"#9c5a4a"},{k:"declined",n:"ปฏิเสธ Offer",c:"#7b5aa0"}];
 const ALLC=CS.concat(CX), CM=Object.fromEntries(ALLC.map(s=>[s.k,s]));
-const RS={open:"กำลังสรรหา",filled:"ปิดแล้ว",hold:"พักไว้",cancelled:"ยกเลิก"};
+const RS={pending_ec:"รออนุมัติ EC",open:"กำลังสรรหา",filled:"ปิดแล้ว",hold:"พักไว้",cancelled:"ยกเลิก"};
 const SOURCES=["เว็บหางาน","ใบสมัครตรง","Agency","พนักงานแนะนำ","Headhunt","LinkedIn","อื่น ๆ"];
 const REJECTS=["คุณสมบัติไม่ตรง","ประสบการณ์ไม่พอ","เงินเดือนไม่ตรงกัน","หน่วยงานไม่เลือก","ถอนตัว","ติดต่อไม่ได้","อื่น ๆ"];
 
@@ -320,7 +321,11 @@ function renderKpi(){
   const tf=reqs.filter(r=>r.status==="filled").map(r=>{const o=onboardDate(r.req_id);
     return o&&r.opened_at?days(r.opened_at,o):null;}).filter(v=>v!=null).sort((a,b)=>a-b);
   const avg=tf.length?Math.round(tf.reduce((a,b)=>a+b,0)/tf.length):0, med=tf.length?tf[Math.floor(tf.length/2)]:0;
-  const hcT=reqs.reduce((n,r)=>n+(Number(r.headcount)||1),0), hcF=cands.filter(c=>c.stage==="onboard").length;
+  /* Only approved, live headcount belongs in the Fill Rate denominator: a
+     requisition still waiting for EC approval has nothing to fill yet, and a
+     cancelled one never will. */
+  const appr=reqs.filter(r=>r.status!=="pending_ec"&&r.status!=="cancelled");
+  const hcT=appr.reduce((n,r)=>n+(Number(r.headcount)||1),0), hcF=cands.filter(c=>c.stage==="onboard").length;
   const onb=cands.filter(c=>reached(c.cand_id).has("onboard")).length, dec=cands.filter(c=>c.stage==="declined").length;
   $("kpiTop").innerHTML=
    '<div class="k nv"><div class="n">'+avg+'</div><div class="l">Time to Fill เฉลี่ย (วัน)<br>มัธยฐาน '+med+"</div></div>"+
@@ -465,8 +470,8 @@ function reqForm(r){
     '<div class="db"><div class="fld"><label>ตำแหน่งจากคลัง JD</label>'+
       '<input type="search" id="fq" placeholder="พิมพ์เพื่อกรอง…" style="margin-bottom:5px">'+
       '<select id="fRole" size="5">'+opts+"</select></div>"+
-    '<div class="g2"><div class="fld"><label>บริษัทที่สรรหา</label><select id="fCo">'+coOpts(r?r.company:"")+'</select>'+
-      '<div class="hint" id="fCoHint"></div></div>'+
+    '<div class="g2"><div class="fld"><label>บริษัทที่สรรหา</label><select id="fReqCo">'+coOpts(r?r.company:"")+'</select>'+
+      '<div class="hint" id="fReqCoHint"></div></div>'+
       '<div class="fld"><label>จำนวนอัตรา</label><input type="number" id="fHead" min="1" value="'+(r?r.headcount||1:1)+'"></div></div>'+
     '<div class="fld"><label>หน่วยงาน</label><input id="fDept" value="'+esc(r?r.dept:"")+'"></div>'+
     '<div class="g2"><div class="fld"><label>ผู้บังคับบัญชา</label><input id="fMgr" value="'+esc(r?r.hiring_manager:"")+'"></div>'+
@@ -483,13 +488,13 @@ function reqForm(r){
      keeps the common case at zero clicks without ever assuming it. */
   let coTouched=!!(r&&r.company);
   const coHint=()=>{
-    const role=ROLES.find(x=>x.c===$("fRole").value), co=$("fCo").value;
-    $("fCoHint").textContent=(role&&co&&co!==role.co)
+    const role=ROLES.find(x=>x.c===$("fRole").value), co=$("fReqCo").value;
+    $("fReqCoHint").textContent=(role&&co&&co!==role.co)
       ? "JD \u0e19\u0e35\u0e49\u0e2d\u0e22\u0e39\u0e48\u0e43\u0e15\u0e49 "+(COMPANIES[role.co]||role.co)+" \u00b7 \u0e2a\u0e23\u0e23\u0e2b\u0e32\u0e43\u0e2b\u0e49 "+(COMPANIES[co]||co) : "";
   };
   const coSync=()=>{ const role=ROLES.find(x=>x.c===$("fRole").value);
-    if(role&&!coTouched)$("fCo").value=role.co; coHint(); };
-  $("fCo").onchange=()=>{ coTouched=true; coHint(); };
+    if(role&&!coTouched)$("fReqCo").value=role.co; coHint(); };
+  $("fReqCo").onchange=()=>{ coTouched=true; coHint(); };
   $("fRole").onchange=coSync; coSync();
   $("fq").oninput=e=>{const q=e.target.value.trim().toLowerCase();
     $("fRole").innerHTML=ROLES.filter(x=>!q||x.c.toLowerCase().includes(q)||x.t.toLowerCase().includes(q)||(x.th||"").includes(q))
@@ -497,10 +502,10 @@ function reqForm(r){
   $("fSave").onclick=async()=>{
     const role=ROLES.find(x=>x.c===$("fRole").value);
     if(!role)return msg("fMsg","err","กรุณาเลือกตำแหน่ง");
-    if(!$("fCo").value)return msg("fMsg","err","\u0e01\u0e23\u0e38\u0e13\u0e32\u0e40\u0e25\u0e37\u0e2d\u0e01\u0e1a\u0e23\u0e34\u0e23\u0e17\u0e31\u0e17\u0e35\u0e48\u0e2a\u0e23\u0e23\u0e2b\u0e32");
+    if(!$("fReqCo").value)return msg("fMsg","err","\u0e01\u0e23\u0e38\u0e13\u0e32\u0e40\u0e25\u0e37\u0e2d\u0e01\u0e1a\u0e23\u0e34\u0e23\u0e17\u0e31\u0e17\u0e35\u0e48\u0e2a\u0e23\u0e23\u0e2b\u0e32");
     if(!$("fDept").value.trim())return msg("fMsg","err","กรุณากรอกหน่วยงาน");
     const req=Object.assign({},r||{},{role_code:role.c,role_title:role.t,role_title_th:role.th,
-      company:$("fCo").value,level:role.l,dept:$("fDept").value.trim(),headcount:+$("fHead").value||1,
+      company:$("fReqCo").value,level:role.l,dept:$("fDept").value.trim(),headcount:+$("fHead").value||1,
       hiring_manager:$("fMgr").value.trim(),recruiter:$("fRec").value.trim(),
       opened_at:$("fOpen").value||today(),target_start:$("fStart").value||"",note:$("fNote").value.trim()});
     $("fSave").disabled=true;

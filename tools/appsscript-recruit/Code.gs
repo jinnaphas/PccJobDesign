@@ -49,7 +49,7 @@ var USER_COLS = ['username','pass_hash','salt','name','email','role','active','c
 
 /* stage keys are shared with the page; keep both in step */
 var CAND_STAGES = ['submitted','interview','confirmed','onboard','rejected','declined'];
-var REQ_STATUS  = ['open','filled','hold','cancelled'];
+var REQ_STATUS  = ['pending_ec','open','filled','hold','cancelled'];
 
 function prop(k, dflt) {
   var v = PropertiesService.getScriptProperties().getProperty(k);
@@ -423,6 +423,58 @@ function autoCloseReq_(reqId, me) {
     upsert_(SH_REQ, REQ_COLS, req, 'req_id');
     history_('req', reqId, 'open', 'filled', me, 'ครบจำนวนอัตราที่ต้องการ');
   }
+}
+
+/* ---------- one-off import of the existing recruitment sheet ---------- */
+
+/**
+ * Loads requisitions from a CSV placed in the attachments folder and named
+ * recruit_import.csv. Its header must be the Requisitions columns.
+ *
+ * Takes no arguments, so it runs straight from the Run dropdown. It upserts on
+ * req_id, so running it twice does not duplicate anything: a row already
+ * present is updated, not added again, and only genuinely new rows get a
+ * History entry. Delete the CSV afterwards -- it holds employee names, and the
+ * attachments folder is the right place for that, not the repository.
+ */
+function importFromDrive() {
+  var fid = prop('DRIVE_FOLDER_ID', '');
+  if (!fid) throw new Error('ยังไม่ได้ตั้ง DRIVE_FOLDER_ID');
+  var it = DriveApp.getFolderById(fid).getFilesByName('recruit_import.csv');
+  if (!it.hasNext()) throw new Error('ไม่พบไฟล์ recruit_import.csv ในโฟลเดอร์แนบเอกสาร');
+  var text = it.next().getBlob().getDataAsString('UTF-8').replace(/^\uFEFF/, '');
+  var table = Utilities.parseCsv(text);
+  if (table.length < 2) throw new Error('ไฟล์ว่าง');
+
+  var head = table[0].map(function (h) { return String(h).trim(); });
+  var miss = REQ_COLS.filter(function (c) { return head.indexOf(c) < 0; });
+  if (miss.length) throw new Error('หัวคอลัมน์ขาด: ' + miss.join(', '));
+
+  var have = {};
+  rows_(SH_REQ, REQ_COLS).forEach(function (r) { have[r.req_id] = true; });
+
+  var added = 0, updated = 0, skipped = 0;
+  var lock = LockService.getScriptLock(); lock.waitLock(60000);
+  try {
+    for (var i = 1; i < table.length; i++) {
+      var o = {};
+      head.forEach(function (h, j) { o[h] = table[i][j]; });
+      if (!o.req_id) { skipped++; continue; }
+      var isNew = !have[o.req_id];
+      upsert_(SH_REQ, REQ_COLS, o, 'req_id');
+      if (isNew) {
+        history_('req', o.req_id, '', o.status, 'นำเข้าจาก Excel',
+                 'นำเข้าข้อมูลเดิม' + (o.opened_at ? ' (EC ' + o.opened_at + ')' : ''));
+        have[o.req_id] = true; added++;
+      } else updated++;
+    }
+  } finally { lock.releaseLock(); }
+
+  var out = { added: added, updated: updated, skipped_without_req_id: skipped,
+              total_in_sheet: rows_(SH_REQ, REQ_COLS).length,
+              next: 'ลบไฟล์ recruit_import.csv ออกจากโฟลเดอร์เมื่อเสร็จ' };
+  Logger.log(JSON.stringify(out, null, 2));
+  return out;
 }
 
 /* ---------- attachment audit, mirrored to the repository ---------- */
