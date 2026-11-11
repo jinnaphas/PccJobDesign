@@ -20,7 +20,7 @@
  */
 
 var SITE = 'https://jinnaphas.github.io/PccJobDesign';
-var SH_REQ = 'Requisitions', SH_CAND = 'Candidates', SH_HIST = 'History';
+var SH_REQ = 'Requisitions', SH_CAND = 'Candidates', SH_HIST = 'History', SH_USER = 'Users';
 
 var REQ_COLS  = ['req_id','ref','role_code','role_title','role_title_th','company','level',
                  'dept','hiring_manager','recruiter','headcount','opened_at','target_start',
@@ -29,6 +29,8 @@ var CAND_COLS = ['cand_id','req_id','name','source','stage','stage_since','appli
                  'interview_at','interviewer','offer_salary','reject_reason','note','files',
                  'created_by','created_at','updated_at'];
 var HIST_COLS = ['at','entity','entity_id','from_stage','to_stage','by','note'];
+// Tokens are stored as SHA-256 hashes: reading this sheet never yields a usable token.
+var USER_COLS = ['token_hash','name','email','role','active','created_at','last_seen'];
 
 /* stage keys are shared with the page; keep both in step */
 var CAND_STAGES = ['submitted','interview','confirmed','onboard','rejected','declined'];
@@ -46,23 +48,98 @@ function doGet() {
     .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
 }
 
-/* ---------- access ---------- */
-function requireAccess_(accessCode) {
-  var email = '';
-  try { email = Session.getActiveUser().getEmail() || ''; } catch (e) { email = ''; }
-  var domain = prop('ALLOWED_DOMAIN', '');
-  if (domain) {
-    var suffix = '@' + domain.toLowerCase();
-    if (!email) throw new Error('ไม่สามารถยืนยันตัวตนได้ — กรุณาเปิดด้วยบัญชี @' + domain);
-    if (email.toLowerCase().slice(-suffix.length) !== suffix) {
-      throw new Error('บัญชี ' + email + ' ไม่มีสิทธิ์ใช้งาน (ต้องเป็น @' + domain + ')');
+/* ---------- access: per-person tokens, verified here (never in the page) ---------- */
+function authMode_() { return (prop('AUTH_MODE', 'token') || 'token').toLowerCase(); }
+function authMode() { return authMode_(); }
+
+function hash_(t) {
+  var salt = prop('TOKEN_SALT', 'pcc-recruit');
+  var raw = Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256, salt + '|' + String(t), Utilities.Charset.UTF_8);
+  return raw.map(function (b) { return ('0' + (b & 0xff).toString(16)).slice(-2); }).join('');
+}
+
+/** Resolve the caller; throws when the token is unknown or switched off. */
+function requireAuth_(token) {
+  if (authMode_() === 'google') {
+    var email = '';
+    try { email = Session.getActiveUser().getEmail() || ''; } catch (e) { email = ''; }
+    var domain = prop('ALLOWED_DOMAIN', '');
+    if (domain) {
+      var suffix = '@' + domain.toLowerCase();
+      if (!email) throw new Error('ไม่สามารถยืนยันตัวตนได้ — กรุณาเปิดด้วยบัญชี @' + domain);
+      if (email.toLowerCase().slice(-suffix.length) !== suffix) throw new Error('บัญชี ' + email + ' ไม่มีสิทธิ์ใช้งาน');
+    }
+    return { name: email || 'unknown', email: email, role: 'recruiter' };
+  }
+  if (!token) throw new Error('UNAUTHENTICATED');
+  throttle_();
+  var h = hash_(token);
+  var sh = sheet_(SH_USER, USER_COLS);
+  var rows = rows_(SH_USER, USER_COLS);
+  for (var i = 0; i < rows.length; i++) {
+    if (rows[i].token_hash === h) {
+      if (String(rows[i].active).toUpperCase() === 'FALSE') throw new Error('บัญชีนี้ถูกปิดการใช้งานแล้ว');
+      var at = rowIndex_(sh, 'token_hash', h);
+      if (at > 0) sh.getRange(at, USER_COLS.indexOf('last_seen') + 1).setValue(now_());
+      return { name: rows[i].name, email: rows[i].email, role: rows[i].role || 'recruiter' };
     }
   }
-  var code = prop('ACCESS_CODE', '');
-  if (code && String(accessCode || '') !== code) throw new Error('รหัสเข้าใช้งานไม่ถูกต้อง');
-  return email || 'unknown';
+  bumpFail_();
+  throw new Error('UNAUTHENTICATED');
 }
-function needsAccessCode() { return !!prop('ACCESS_CODE', ''); }
+
+/** Light brake on guessing; tokens carry ~122 bits, so this is belt and braces. */
+function throttle_() {
+  if (Number(CacheService.getScriptCache().get('authfail') || 0) >= 15) {
+    throw new Error('พยายามเข้าสู่ระบบผิดหลายครั้ง — กรุณารอสักครู่');
+  }
+}
+function bumpFail_() {
+  var c = CacheService.getScriptCache();
+  c.put('authfail', String(Number(c.get('authfail') || 0) + 1), 600);
+}
+
+/** Called by the login screen. Returns the profile, never the token. */
+function login(payload) {
+  var u = requireAuth_(payload && payload.token);
+  return { name: u.name, email: u.email, role: u.role, mode: authMode_() };
+}
+
+/* ---- user administration: run these from the Apps Script editor ---- */
+
+/** createUser('ชื่อน้อง A','a@precise.co.th') — logs the token ONCE; it cannot be read back. */
+function createUser(name, email, role) {
+  if (!name) throw new Error('ต้องระบุชื่อ');
+  var token = 'PCC-' + Utilities.getUuid().replace(/-/g, '').toUpperCase().replace(/(.{5})/g, '$1-').slice(0, 23);
+  sheet_(SH_USER, USER_COLS);
+  upsert_(SH_USER, USER_COLS, { token_hash: hash_(token), name: name, email: email || '',
+    role: role || 'recruiter', active: 'TRUE', created_at: now_(), last_seen: '' }, 'token_hash');
+  Logger.log('ส่ง token นี้ให้ ' + name + ' แบบส่วนตัว (แสดงครั้งเดียวเท่านั้น):\n\n    ' + token + '\n');
+  return 'สร้างแล้ว — ดู token ใน Execution log';
+}
+
+/** revokeUser('ชื่อน้อง A') — stops that token working, keeps the audit trail. */
+function revokeUser(name) {
+  var sh = sheet_(SH_USER, USER_COLS), n = 0;
+  rows_(SH_USER, USER_COLS).forEach(function (u) {
+    if (u.name === name) {
+      var at = rowIndex_(sh, 'token_hash', u.token_hash);
+      if (at > 0) { sh.getRange(at, USER_COLS.indexOf('active') + 1).setValue('FALSE'); n++; }
+    }
+  });
+  Logger.log(n ? ('ปิดการใช้งาน ' + n + ' token ของ ' + name) : ('ไม่พบผู้ใช้ชื่อ ' + name));
+  return n;
+}
+
+/** listUsers() — who can sign in, without exposing any token. */
+function listUsers() {
+  var out = rows_(SH_USER, USER_COLS).map(function (u) {
+    return { name: u.name, email: u.email, role: u.role, active: u.active,
+             last_seen: d_(u.last_seen) || u.last_seen };
+  });
+  Logger.log(JSON.stringify(out, null, 2));
+  return out;
+}
 
 /* ---------- sheet helpers ---------- */
 function book_() {
@@ -126,7 +203,7 @@ function d_(v) {
 
 /* ---------- read ---------- */
 function getAll(payload) {
-  requireAccess_(payload && payload.accessCode);
+  var me = requireAuth_(payload && payload.token);
   var reqs = rows_(SH_REQ, REQ_COLS).map(function (r) {
     r.opened_at = d_(r.opened_at); r.target_start = d_(r.target_start);
     r.files = parseFiles_(r.files); r.headcount = Number(r.headcount) || 1;
@@ -140,7 +217,7 @@ function getAll(payload) {
     return c;
   });
   var hist = rows_(SH_HIST, HIST_COLS).map(function (h) { h.at = d_(h.at) || String(h.at); return h; });
-  return { reqs: reqs, cands: cands, hist: hist, me: requireAccess_(payload && payload.accessCode) };
+  return { reqs: reqs, cands: cands, hist: hist, me: me.name, email: me.email, role: me.role };
 }
 function parseFiles_(v) {
   if (!v) return [];
@@ -148,7 +225,8 @@ function parseFiles_(v) {
 }
 
 /* the role library, read from the live site and cached */
-function getRoleIndex() {
+function getRoleIndex(payload) {
+  requireAuth_(payload && payload.token);
   var cache = CacheService.getScriptCache(), hit = cache.get('roleIdx');
   if (hit) return JSON.parse(hit);
   var res = UrlFetchApp.fetch(SITE + '/data/job_roles.json', { muteHttpExceptions: true });
@@ -169,7 +247,7 @@ function getRoleIndex() {
 
 /* ---------- write ---------- */
 function saveReq(payload) {
-  var me = requireAccess_(payload && payload.accessCode);
+  var me = requireAuth_(payload && payload.token).name;
   var r = payload.req || {};
   var lock = LockService.getScriptLock(); lock.waitLock(20000);
   try {
@@ -202,7 +280,7 @@ function nextRef_() {
 }
 
 function saveCand(payload) {
-  var me = requireAccess_(payload && payload.accessCode);
+  var me = requireAuth_(payload && payload.token).name;
   var c = payload.cand || {};
   if (!c.req_id) throw new Error('ไม่พบตำแหน่งที่ผูกกับผู้สมัคร');
   var lock = LockService.getScriptLock(); lock.waitLock(20000);
@@ -254,7 +332,7 @@ function history_(entity, id, from, to, by, note) {
 }
 
 function deleteReq(payload) {
-  var me = requireAccess_(payload && payload.accessCode);
+  var me = requireAuth_(payload && payload.token).name;
   var id = payload.req_id;
   rows_(SH_CAND, CAND_COLS).filter(function (c) { return c.req_id === id; })
     .forEach(function (c) { remove_(SH_CAND, CAND_COLS, 'cand_id', c.cand_id); });
@@ -262,14 +340,14 @@ function deleteReq(payload) {
   history_('req', id, '', 'deleted', me, 'ลบตำแหน่งและผู้สมัครที่ผูกอยู่');
 }
 function deleteCand(payload) {
-  var me = requireAccess_(payload && payload.accessCode);
+  var me = requireAuth_(payload && payload.token).name;
   remove_(SH_CAND, CAND_COLS, 'cand_id', payload.cand_id);
   history_('cand', payload.cand_id, '', 'deleted', me, '');
 }
 
 /* ---------- attachments (Drive — any file type) ---------- */
 function uploadFile(payload) {
-  var me = requireAccess_(payload && payload.accessCode);
+  var me = requireAuth_(payload && payload.token).name;
   var fid = prop('DRIVE_FOLDER_ID', '');
   if (!fid) throw new Error('ยังไม่ได้ตั้งค่า DRIVE_FOLDER_ID ใน Script Properties');
   var bytes = Utilities.base64Decode(payload.data);
@@ -300,7 +378,7 @@ function uploadFile(payload) {
 }
 
 function removeFile(payload) {
-  requireAccess_(payload && payload.accessCode);
+  requireAuth_(payload && payload.token);
   var lock = LockService.getScriptLock(); lock.waitLock(20000);
   try {
     var keep = function (f) { return f.id !== payload.file_id; };
@@ -319,10 +397,16 @@ function removeFile(payload) {
 
 /** One-time check from the editor: creates the sheets and reports the setup. */
 function setupCheck() {
-  var out = { sheet: !!prop('SHEET_ID',''), folder: !!prop('DRIVE_FOLDER_ID',''),
-              domain: prop('ALLOWED_DOMAIN','(ไม่ได้ตั้ง)'), accessCode: needsAccessCode() };
-  if (out.sheet) { sheet_(SH_REQ, REQ_COLS); sheet_(SH_CAND, CAND_COLS); sheet_(SH_HIST, HIST_COLS);
-                   out.sheets = 'created/verified'; }
+  var out = { mode: authMode_(), sheet: !!prop('SHEET_ID', ''), folder: !!prop('DRIVE_FOLDER_ID', ''),
+              salt_set: !!prop('TOKEN_SALT', '') };
+  if (out.sheet) {
+    sheet_(SH_REQ, REQ_COLS); sheet_(SH_CAND, CAND_COLS);
+    sheet_(SH_HIST, HIST_COLS); sheet_(SH_USER, USER_COLS);
+    out.sheets = 'created/verified';
+    out.users = rows_(SH_USER, USER_COLS).length;
+  }
+  if (out.mode === 'token' && !out.salt_set) out.warning = 'ยังไม่ได้ตั้ง TOKEN_SALT — ตั้งก่อนสร้างผู้ใช้';
+  if (out.mode === 'token' && out.users === 0) out.next = "รัน createUser('ชื่อ','อีเมล') เพื่อออก token";
   Logger.log(JSON.stringify(out, null, 2));
   return out;
 }

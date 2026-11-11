@@ -105,20 +105,37 @@ footer{margin-top:26px;padding-top:14px;border-top:1px solid var(--line);color:v
 </style>
 </head>
 <body>
-<div class="wrap">
+<div class="wrap" id="loginView" style="max-width:420px">
+  <div class="top" style="display:block">
+    <div class="eyebrow">PCC People Architecture · Recruitment</div>
+    <h1 class="t">Recruitment Tracker</h1>
+  </div>
+  <div class="panel" style="margin-top:18px">
+    <h3>เข้าสู่ระบบ</h3>
+    <div class="fld"><label for="tok">Access Token</label>
+      <input id="tok" type="password" autocomplete="current-password" placeholder="PCC-XXXXX-XXXXX-XXXXX"></div>
+    <label class="cnt" style="display:flex;align-items:center;gap:6px;margin-bottom:10px">
+      <input type="checkbox" id="remember" style="width:auto"> จำไว้ในเครื่องนี้</label>
+    <button class="btn pri" id="loginGo" style="width:100%">เข้าสู่ระบบ</button>
+    <div id="loginMsg"></div>
+    <div class="note">token เป็นของแต่ละคน ห้ามแชร์ต่อ — ทุกการบันทึกจะถูกบันทึกชื่อผู้ทำไว้<br>
+      ลืม token หรือสงสัยว่าหลุด แจ้งผู้ดูแลเพื่อออกใหม่ (ของเดิมจะถูกปิดทันที)</div>
+  </div>
+</div>
+
+<div class="wrap" id="appView" hidden>
   <div class="top">
     <div>
       <div class="eyebrow">PCC People Architecture · Recruitment</div>
       <h1 class="t">Recruitment Tracker</h1>
       <div class="who" id="who">กำลังเชื่อมต่อ…</div>
     </div>
-    <button class="btn pri" id="addReq">+ เปิดตำแหน่งใหม่</button>
+    <div style="display:flex;gap:8px;align-items:center">
+      <button class="btn sm" id="logout">ออกจากระบบ</button>
+      <button class="btn pri" id="addReq">+ เปิดตำแหน่งใหม่</button>
+    </div>
   </div>
 
-  <div id="codeBox" style="display:none;margin-top:12px">
-    <input id="accessCode" type="password" placeholder="รหัสเข้าใช้งาน" style="max-width:260px">
-    <button class="btn sm" id="codeGo">ยืนยัน</button>
-  </div>
 
   <div class="tabs"><button id="tList" class="on">รายการสรรหา</button><button id="tKpi">KPI สรุป</button></div>
 
@@ -193,19 +210,48 @@ const money=n=>n?Number(n).toLocaleString("th-TH"):"";
 let REQS=[],CANDS=[],HIST=[],ROLES=[],COMPANIES={},ME="",OPEN=null,TAB="list";
 const S={q:"",co:"",status:"open",late:false};
 
+let TOKEN="";
+try{TOKEN=sessionStorage.getItem("pcc-rt")||localStorage.getItem("pcc-rt")||"";}catch(e){}
 function call(fn,arg){return new Promise((res,rej)=>{
   google.script.run.withSuccessHandler(res).withFailureHandler(rej)[fn](
-    Object.assign({accessCode:($("accessCode")||{}).value||""},arg||{}));});}
+    Object.assign({token:TOKEN},arg||{}));});}
+function isAuthErr(e){return /UNAUTHENTICATED/.test(String(e&&e.message||e));}
+function signOut(msg){
+  TOKEN="";try{sessionStorage.removeItem("pcc-rt");localStorage.removeItem("pcc-rt");}catch(e){}
+  $("appView").hidden=true;$("loginView").style.display="";
+  if(msg)$("loginMsg").innerHTML='<div class="msg warn">'+esc(msg)+"</div>";
+}
 function err(e){$("pageMsg").innerHTML='<div class="msg err">'+esc(e&&e.message||e)+"</div>";}
 function ok(m){$("pageMsg").innerHTML='<div class="msg ok">'+esc(m)+"</div>";setTimeout(()=>$("pageMsg").innerHTML="",2500);}
 
 /* ---------- boot ---------- */
-google.script.run.withSuccessHandler(n=>{if(n)$("codeBox").style.display="block";}).needsAccessCode();
-google.script.run.withSuccessHandler(d=>{
-  ROLES=d.roles||[]; COMPANIES=Object.fromEntries((d.companies||[]).map(c=>[c.c,c.n]));
-  (d.companies||[]).forEach(c=>{$("fCo").add(new Option(c.n,c.c));$("kCo").add(new Option(c.n,c.c));});
-}).withFailureHandler(err).getRoleIndex();
-$("codeGo").onclick=load;
+function startApp(){
+  $("loginView").style.display="none";$("appView").hidden=false;
+  call("getRoleIndex").then(d=>{
+    ROLES=d.roles||[]; COMPANIES=Object.fromEntries((d.companies||[]).map(c=>[c.c,c.n]));
+    $("fCo").length=1;$("kCo").length=1;
+    (d.companies||[]).forEach(c=>{$("fCo").add(new Option(c.n,c.c));$("kCo").add(new Option(c.n,c.c));});
+  }).catch(err);
+  load();
+}
+function doLogin(tok,remember){
+  $("loginMsg").innerHTML='<div class="msg">กำลังตรวจสอบ…</div>';
+  TOKEN=tok;
+  call("login").then(u=>{
+    try{ (remember?localStorage:sessionStorage).setItem("pcc-rt",tok); }catch(e){}
+    $("loginMsg").innerHTML="";startApp();
+  }).catch(e=>{
+    TOKEN="";
+    $("loginMsg").innerHTML='<div class="msg err">'+
+      (isAuthErr(e)?"Token ไม่ถูกต้อง":esc(e&&e.message||e))+"</div>";
+  });
+}
+$("loginGo").onclick=()=>{const t=$("tok").value.trim();
+  if(!t){$("loginMsg").innerHTML='<div class="msg err">กรุณากรอก token</div>';return;}
+  doLogin(t,$("remember").checked);};
+$("tok").addEventListener("keydown",e=>{if(e.key==="Enter")$("loginGo").click();});
+$("logout").onclick=()=>signOut("ออกจากระบบแล้ว");
+if(TOKEN) doLogin(TOKEN,false); else $("loginView").style.display="";
 function load(){
   call("getAll").then(d=>{
     REQS=d.reqs||[];CANDS=d.cands||[];HIST=d.hist||[];ME=d.me||"";
@@ -213,9 +259,8 @@ function load(){
     const recs=[...new Set(REQS.map(r=>r.recruiter).filter(Boolean))].sort();
     $("kRec").innerHTML='<option value="">ผู้รับผิดชอบทุกคน</option>'+recs.map(r=>'<option>'+esc(r)+"</option>").join("");
     $("pageMsg").innerHTML=""; renderList(); if(TAB==="kpi")renderKpi();
-  }).catch(err);
+  }).catch(e=>{ if(isAuthErr(e)) signOut("เซสชันหมดอายุ กรุณาเข้าสู่ระบบใหม่"); else err(e); });
 }
-load();
 $("reload").onclick=load;
 
 /* ---------- helpers ---------- */
