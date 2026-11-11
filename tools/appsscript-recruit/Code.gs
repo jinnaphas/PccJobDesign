@@ -16,8 +16,9 @@
  *                               Set it BEFORE creating any user: changing it
  *                               later invalidates every stored password.
  *
- * Setup order: set the three properties → run setupCheck() → run createUser()
- * once per person → deploy → paste the /exec URL into data/recruit_config.json.
+ * Setup: run setup() once from the editor → deploy → paste the /exec URL
+ * into data/recruit_config.json. setup() fills the three properties below
+ * itself; there is nothing to type into Script properties by hand.
  *
  * Deploy: Deploy → New deployment → Web app
  *   Execute as: Me       Who has access: Anyone
@@ -451,22 +452,67 @@ function removeFile_(payload) {
   return true;
 }
 
-/** One-time check from the editor: creates the sheets and reports the setup. */
-function setupCheck() {
-  var out = { auth: 'username + password', sheet_id_set: !!prop('SHEET_ID', ''),
-              folder_id_set: !!prop('DRIVE_FOLDER_ID', ''), salt_set: !!prop('TOKEN_SALT', '') };
-  if (out.sheet_id_set) {
-    sheet_(SH_REQ, REQ_COLS); sheet_(SH_CAND, CAND_COLS);
-    sheet_(SH_HIST, HIST_COLS); sheet_(SH_USER, USER_COLS);
-    out.sheets = 'created/verified';
-    out.users = rows_(SH_USER, USER_COLS).length;
-  } else {
-    out.error = 'SHEET_ID ยังว่าง — ใส่ id ของ Google Sheet (เอาเฉพาะ id จาก URL ไม่ใช่ URL ทั้งอัน) ที่ Project Settings → Script properties';
+/**
+ * Run this once from the editor and the setup is done. It creates the
+ * spreadsheet and the attachments folder, generates the password pepper,
+ * builds the four tabs, and creates the two recruiter accounts with random
+ * passwords — which it prints once, in the execution log.
+ *
+ * Safe to run again: it never overwrites a property, re-creates a user, or
+ * resets a password. A second run just reports the current state.
+ *
+ * Pass ids to adopt a spreadsheet and folder that already exist:
+ *   setup('<spreadsheet id>', '<folder id>')
+ */
+function setup(sheetId, folderId) {
+  var sp = PropertiesService.getScriptProperties(), out = {}, made = [];
+
+  if (sp.getProperty('TOKEN_SALT')) out.pepper = 'already set (left alone)';
+  else {
+    sp.setProperty('TOKEN_SALT', Utilities.getUuid() + Utilities.getUuid());
+    out.pepper = 'generated';
   }
-  if (!out.folder_id_set) out.warning_folder = 'DRIVE_FOLDER_ID ยังว่าง — การแนบเอกสารจะใช้ไม่ได้';
-  if (!out.salt_set) out.warning_salt = 'TOKEN_SALT ยังว่าง — ตั้งก่อนสร้างผู้ใช้ มิฉะนั้นรหัสผ่านที่สร้างไว้จะใช้ไม่ได้';
-  if (out.users === 0)
-    out.next = "รัน createUser('recruit.a','รหัสผ่านอย่างน้อย8ตัว','ชื่อผู้ใช้','email@precise.co.th') หนื่งครั้งต่อคน";
+
+  var sid = sp.getProperty('SHEET_ID') || sheetId;
+  if (!sid) { sid = SpreadsheetApp.create('PCC Recruitment Data').getId(); out.spreadsheet = 'created'; }
+  else out.spreadsheet = sp.getProperty('SHEET_ID') ? 'already set' : 'adopted';
+  sp.setProperty('SHEET_ID', sid);
+  out.spreadsheet_url = 'https://docs.google.com/spreadsheets/d/' + sid + '/edit';
+
+  var fid = sp.getProperty('DRIVE_FOLDER_ID') || folderId;
+  if (!fid) { fid = DriveApp.createFolder('PCC Recruitment \u2014 Attachments').getId(); out.folder = 'created'; }
+  else out.folder = sp.getProperty('DRIVE_FOLDER_ID') ? 'already set' : 'adopted';
+  sp.setProperty('DRIVE_FOLDER_ID', fid);
+  out.folder_url = 'https://drive.google.com/drive/folders/' + fid;
+
+  sheet_(SH_REQ, REQ_COLS); sheet_(SH_CAND, CAND_COLS);
+  sheet_(SH_HIST, HIST_COLS); sheet_(SH_USER, USER_COLS);
+  out.tabs = [SH_REQ, SH_CAND, SH_HIST, SH_USER].join(', ');
+
+  var have = rows_(SH_USER, USER_COLS).map(function (u) { return String(u.username).toLowerCase(); });
+  [['recruit.a', '\u0e19\u0e49\u0e2d\u0e07 A'], ['recruit.b', '\u0e19\u0e49\u0e2d\u0e07 B']].forEach(function (pair) {
+    if (have.indexOf(pair[0]) >= 0) return;
+    var pw = newPassword_();
+    createUser(pair[0], pw, pair[1], '');
+    made.push(pair[0] + '    ' + pw);
+  });
+  out.users = rows_(SH_USER, USER_COLS).length;
+  if (made.length) out.PASSWORDS_SHOWN_ONCE = made;
+  else out.passwords = 'users already existed, so no password is shown \u2014 ' +
+                       "change one with setPassword('recruit.a','\u0e23\u0e2b\u0e31\u0e2a\u0e43\u0e2b\u0e21\u0e48')";
+
+  out.NEXT = 'Deploy \u2192 Manage deployments \u2192 Edit \u2192 Version: New version \u2192 Deploy';
   Logger.log(JSON.stringify(out, null, 2));
   return out;
+}
+
+/** The name earlier instructions used. */
+function setupCheck() { return setup(); }
+
+/** Random password without characters that are easy to confuse by eye. */
+function newPassword_() {
+  var a = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789', s = '';
+  var hex = (Utilities.getUuid() + Utilities.getUuid()).replace(/-/g, '');
+  for (var i = 0; i < 14; i++) s += a.charAt(parseInt(hex.substr(i * 2, 2), 16) % a.length);
+  return s;
 }

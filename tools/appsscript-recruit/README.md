@@ -75,47 +75,44 @@ All computed in the browser from the sheets — no stored totals to drift.
 
 Filter by period, company and recruiter.
 
-## Setup (once, ~20 minutes)
+## Setup (once, about 5 minutes)
 
-### 1. Create the pieces
-- A Google **Sheet** (empty — the script creates all four tabs itself)
-- A Drive **folder** for attachments
-- <https://script.google.com> → New project → replace everything in `Code.gs`
-  with this folder's `Code.gs`, then **save** (the editor does not autosave)
+### 1. Paste the code
+<https://script.google.com> → New project → replace everything in `Code.gs` with
+this folder's `Code.gs`, then **save** (the editor does not autosave).
 
 There is no HTML file in this project. The UI is `apps/recruit.html`, served by
 GitHub Pages; this project is only the API.
 
-### 2. Script properties
-**Project Settings → Script properties:**
+### 2. Run `setup()`
+Pick `setup` in the Run dropdown and run it. Accept the permission prompt the
+first time. That one call does everything else:
 
-| Property | Required | Value |
-|---|---|---|
-| `SHEET_ID` | ✅ | the spreadsheet id **only** — the part between `/d/` and `/edit`, not the whole URL |
-| `DRIVE_FOLDER_ID` | ✅ | the folder id only — the part after `/folders/` |
-| `TOKEN_SALT` | ✅ | any long random string (the password pepper) — **set it before creating users** |
+- creates the spreadsheet and the attachments folder in **this** Google account
+- generates `TOKEN_SALT`, the password pepper, so no secret is ever typed or
+  pasted anywhere
+- builds the four tabs
+- creates `recruit.a` and `recruit.b` with **random passwords, printed once** in
+  the execution log
 
-These three are the only properties the script reads.
+Copy the two passwords out of the log and hand each person theirs privately.
+They are not stored in readable form and cannot be shown again; to change one,
+run `setPassword('recruit.a','รหัสใหม่')`. `listUsers()` shows who can sign in and
+when they last did.
 
-`TOKEN_SALT` must be set first: changing it later invalidates every password
-already stored, and everyone has to be recreated.
+Running `setup()` again is safe: it never overwrites a property, re-creates a
+user or resets a password, and reports the current state instead.
 
-### 3. Create the two accounts
-Run `setupCheck` once from the editor (this also authorises the script and
-creates the four tabs). It returns a small report — check `sheets:
-"created/verified"` and that no `error` or `warning_*` field is present before
-going on. Then once per person:
+To use a spreadsheet and folder that already exist, pass their ids:
+`setup('<spreadsheet id>', '<folder id>')`.
 
-```javascript
-createUser('recruit.a', 'รหัสผ่านอย่างน้อย8ตัว', 'ชื่อน้อง A', 'a@precise.co.th')
-createUser('recruit.b', 'รหัสผ่านอย่างน้อย8ตัว', 'ชื่อน้อง B', 'b@precise.co.th')
-```
+> The script reads exactly three script properties — `SHEET_ID`,
+> `DRIVE_FOLDER_ID` and `TOKEN_SALT` — and `setup()` fills all three. There is
+> nothing to enter under Project Settings by hand. Never change `TOKEN_SALT`
+> afterwards: every stored password becomes unusable and both accounts have to
+> be created again.
 
-Hand each person their username and password privately, and have them change it
-later with `setPassword('recruit.a','รหัสใหม่')` run by an admin.
-`listUsers()` shows who can sign in and when they last did.
-
-### 4. Deploy, then point the portal at it
+### 3. Deploy, then point the portal at it
 **Deploy → New deployment → Web app** · Execute as **Me** · Who has access
 **Anyone**. "Anyone" is required: the browser calls this URL from
 `jinnaphas.github.io`, and a Google-login deployment would redirect that call to
