@@ -32,8 +32,10 @@ directly — so none of it happens in the browser.
 - Revoke one person with `revokeUser('username')` without disturbing the other.
 - Repeated failures are throttled.
 
-To switch to Google Workspace login later, set `AUTH_MODE` to `google` and
-`ALLOWED_DOMAIN` to your domain. Nothing else changes.
+Google Workspace login is **not** implemented: the script always checks a
+username and password. Switching to Google login would mean a domain-restricted
+deployment, which the browser cannot call from `github.io` — so it would also
+mean moving the UI off GitHub Pages and back into Apps Script.
 
 ## Data model
 
@@ -46,7 +48,7 @@ that split.
 | `Requisitions` | an open position | ref, role_code, dept, headcount, opened_at, target_start, status, recruiter |
 | `Candidates` | one applicant for one requisition | req_id, name, source, stage, stage_since, interview_at, offer_salary, reject_reason |
 | `History` | one status change | at, entity, entity_id, from, to, **by**, note |
-| `Users` | one person who may sign in | token_hash, name, email, role, active, last_seen |
+| `Users` | one person who may sign in | username, pass_hash, salt, name, email, role, active, last_seen |
 
 **Stages.** The requisition carries stage 1 (เปิดรับสมัคร → ปิด/พัก/ยกเลิก);
 each candidate carries stages 2–5 (ส่งใบสมัครให้หน่วยงาน → รอสัมภาษณ์ →
@@ -86,18 +88,20 @@ Filter by period, company and recruiter.
 
 | Property | Required | Value |
 |---|---|---|
-| `SHEET_ID` | ✅ | the spreadsheet id from its URL |
-| `DRIVE_FOLDER_ID` | ✅ | the folder id from its URL |
+| `SHEET_ID` | ✅ | the spreadsheet id **only** — the part between `/d/` and `/edit`, not the whole URL |
+| `DRIVE_FOLDER_ID` | ✅ | the folder id only — the part after `/folders/` |
 | `TOKEN_SALT` | ✅ | any long random string (the password pepper) — **set it before creating users** |
-| `AUTH_MODE` | optional | `token` (default) or `google` |
-| `ALLOWED_DOMAIN` | only with `google` | `precise.co.th` |
 
-`TOKEN_SALT` must be set first: changing it later invalidates every token
-already issued.
+These three are the only properties the script reads.
+
+`TOKEN_SALT` must be set first: changing it later invalidates every password
+already stored, and everyone has to be recreated.
 
 ### 3. Create the two accounts
 Run `setupCheck` once from the editor (this also authorises the script and
-creates the sheets), then once per person:
+creates the four tabs). It returns a small report — check `sheets:
+"created/verified"` and that no `error` or `warning_*` field is present before
+going on. Then once per person:
 
 ```javascript
 createUser('recruit.a', 'รหัสผ่านอย่างน้อย8ตัว', 'ชื่อน้อง A', 'a@precise.co.th')

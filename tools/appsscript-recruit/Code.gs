@@ -1,22 +1,30 @@
 /**
  * PCC Recruitment Tracker — Google Apps Script backend
  *
- * The recruitment team records requisitions and candidates from a browser
- * using their own Google account. No token to hand out: Google login is the
- * credential, and the signed-in address is recorded on every change.
+ * This is the API only. The recruitment team works in the portal page
+ * apps/recruit.html, signing in with a username and password that this script
+ * verifies. The signed-in person is recorded on every change.
  *
  * Storage
- *   Google Sheet  — Requisitions / Candidates / History (created on first run)
+ *   Google Sheet  — Requisitions / Candidates / History / Users (created on first run)
  *   Drive folder  — attachments (any file type, including .docx and .xlsx)
  *
  * Script Properties (Project Settings → Script properties):
  *   SHEET_ID        (required)  the spreadsheet used as the database
  *   DRIVE_FOLDER_ID (required)  folder that holds uploaded documents
- *   ALLOWED_DOMAIN  (recommended) e.g. precise.co.th
- *   ACCESS_CODE     (optional)  only for "Anyone" deployments
+ *   TOKEN_SALT      (required)  long random string, the password pepper.
+ *                               Set it BEFORE creating any user: changing it
+ *                               later invalidates every stored password.
+ *
+ * Setup order: set the three properties → run setupCheck() → run createUser()
+ * once per person → deploy → paste the /exec URL into data/recruit_config.json.
  *
  * Deploy: Deploy → New deployment → Web app
- *   Execute as: Me       Who has access: Anyone within <your Workspace domain>
+ *   Execute as: Me       Who has access: Anyone
+ *   "Anyone" is required. The browser calls this URL from github.io; a
+ *   domain-restricted deployment answers that call with a Google sign-in page
+ *   the browser cannot follow, and every request fails. The username and
+ *   password are the gate, not the deployment setting.
  */
 
 var SITE = 'https://jinnaphas.github.io/PccJobDesign';
@@ -445,16 +453,20 @@ function removeFile_(payload) {
 
 /** One-time check from the editor: creates the sheets and reports the setup. */
 function setupCheck() {
-  var out = { mode: authMode_(), sheet: !!prop('SHEET_ID', ''), folder: !!prop('DRIVE_FOLDER_ID', ''),
-              salt_set: !!prop('TOKEN_SALT', '') };
-  if (out.sheet) {
+  var out = { auth: 'username + password', sheet_id_set: !!prop('SHEET_ID', ''),
+              folder_id_set: !!prop('DRIVE_FOLDER_ID', ''), salt_set: !!prop('TOKEN_SALT', '') };
+  if (out.sheet_id_set) {
     sheet_(SH_REQ, REQ_COLS); sheet_(SH_CAND, CAND_COLS);
     sheet_(SH_HIST, HIST_COLS); sheet_(SH_USER, USER_COLS);
     out.sheets = 'created/verified';
     out.users = rows_(SH_USER, USER_COLS).length;
+  } else {
+    out.error = 'SHEET_ID ยังว่าง — ใส่ id ของ Google Sheet (เอาเฉพาะ id จาก URL ไม่ใช่ URL ทั้งอัน) ที่ Project Settings → Script properties';
   }
-  if (out.mode === 'token' && !out.salt_set) out.warning = 'ยังไม่ได้ตั้ง TOKEN_SALT — ตั้งก่อนสร้างผู้ใช้';
-  if (out.mode === 'token' && out.users === 0) out.next = "รัน createUser('ชื่อ','อีเมล') เพื่อออก token";
+  if (!out.folder_id_set) out.warning_folder = 'DRIVE_FOLDER_ID ยังว่าง — การแนบเอกสารจะใช้ไม่ได้';
+  if (!out.salt_set) out.warning_salt = 'TOKEN_SALT ยังว่าง — ตั้งก่อนสร้างผู้ใช้ มิฉะนั้นรหัสผ่านที่สร้างไว้จะใช้ไม่ได้';
+  if (out.users === 0)
+    out.next = "รัน createUser('recruit.a','รหัสผ่านอย่างน้อย8ตัว','ชื่อผู้ใช้','email@precise.co.th') หนื่งครั้งต่อคน";
   Logger.log(JSON.stringify(out, null, 2));
   return out;
 }
