@@ -105,21 +105,39 @@ Copy the two passwords out of the log and hand each person theirs privately.
 | **Passwords** | nowhere in readable form. The sheet holds only a hash, salted per person, peppered and iterated 1,200 times. |
 | **The passwords as first issued** | printed once in the log of the `setup()` run. Still readable afterwards under **⏱ Executions** in the left sidebar — open that run and read `PASSWORDS_SHOWN_ONCE`. That history is not kept forever. |
 
-### Changing a password
+### Managing who can sign in
 
 The Run button calls a function with **no arguments**, so typing
-`setPassword('recruit.a','...')` into the editor and pressing Run does nothing.
-Two functions exist for this instead:
+`createUser('a','b','c','d')` or `setPassword('recruit.a','...')` into the
+editor and pressing Run does nothing at all. Use these instead — each takes its
+values from lines inside itself, so each runs from the Run dropdown:
 
 | Run this | What it does |
 |---|---|
-| `changePassword` | Fill in `USERNAME` and `NEW_PASSWORD` inside the function, run it once, then blank both lines and save. Use it to set a password you chose. |
-| `resetBothPasswords` | Takes no arguments. Issues a fresh random password for each account and prints both once. Use it when the original log is gone. No password is ever typed into the source. |
+| `addUser` | Adds a person. Fill in `USERNAME` and `NAME`; leave `PASSWORD` empty for a random one, printed once. Refuses a username that already exists rather than overwriting it. |
+| `changePassword` | Sets a password you chose for an existing person. |
+| `resetBothPasswords` | Takes no values at all: issues a fresh random password for `recruit.a` and `recruit.b` and prints both once. For when the original log is gone. |
+| `listUsers` | Who can sign in, and when each last did. |
 
-Neither needs a re-deploy: the code runs in the editor and writes straight to
-the sheet. There is no password-change screen in the portal — the API exposes
-only `login` and `logout` without a session, so a password can only be changed
-by someone who can open this project.
+After running `addUser` or `changePassword`, blank the password line again and
+save, so no secret sits in the project source.
+
+None of them needs a re-deploy: they run in the editor and write straight to
+the sheet.
+
+**Everyone who signs in has the same access.** The `role` column is a label and
+gates nothing — nothing in the backend or the page reads it. Anyone you add can
+open, edit and delete requisitions and candidates and attach or remove
+documents.
+
+To stop someone, set their `active` cell to `FALSE` in the `Users` tab. That
+takes effect at their next sign-in; a session already issued lasts up to six
+hours. (`revokeUser('username')` does the same but needs an argument, so it has
+the Run-button problem described above.)
+
+There is no password-change screen in the portal — the API exposes only `login`
+and `logout` without a session, so a password can only be changed by someone
+who can open this Apps Script project.
 
 `listUsers()` shows who can sign in and when they last did.
 `revokeUser('username')` needs an argument, so it needs the same treatment as

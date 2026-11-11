@@ -157,6 +157,43 @@ function createUser(username, password, name, email, role) {
 }
 /** setPassword('recruit.a','รหัสผ่านใหม่') */
 /* ---------------------------------------------------------------------------
+   Add a person who can sign in.
+
+   Fill in the lines below, pick addUser in the Run dropdown, run it once, then
+   blank PASSWORD again and save. Leave PASSWORD empty to get a random one,
+   printed once in the log, so no secret is typed into the source at all.
+
+   Everyone who can sign in has the same access: the role column is a label and
+   gates nothing. Adding a person lets them open, edit and delete requisitions
+   and candidates and attach or remove documents.
+   --------------------------------------------------------------------------- */
+function addUser() {
+  var USERNAME = '';            // e.g. 'recruit.c' -- lowercase, no spaces
+  var NAME     = '';            // the name written on every change they make
+  var EMAIL    = '';            // optional
+  var PASSWORD = '';            // empty = random, shown once below
+
+  if (!USERNAME || !NAME)
+    throw new Error('\u0e43\u0e2a\u0e48 USERNAME \u0e41\u0e25\u0e30 NAME \u0e43\u0e19\u0e1f\u0e31\u0e07\u0e01\u0e4c\u0e0a\u0e31\u0e19 addUser \u0e01\u0e48\u0e2d\u0e19');
+  if (/\s/.test(USERNAME)) throw new Error('USERNAME \u0e2b\u0e49\u0e32\u0e21\u0e21\u0e35\u0e0a\u0e48\u0e2d\u0e07\u0e27\u0e48\u0e32\u0e07');
+
+  /* Refuse an existing username rather than overwrite it: createUser upserts,
+     so a second call with the same name would silently reset that person's
+     password and lock them out. */
+  var taken = rows_(SH_USER, USER_COLS).some(function (u) {
+    return String(u.username).toLowerCase() === USERNAME.toLowerCase(); });
+  if (taken) throw new Error('\u0e21\u0e35\u0e1c\u0e39\u0e49\u0e43\u0e0a\u0e49 ' + USERNAME +
+    ' \u0e2d\u0e22\u0e39\u0e48\u0e41\u0e25\u0e49\u0e27 \u2014 \u0e2b\u0e32\u0e01\u0e15\u0e49\u0e2d\u0e07\u0e01\u0e32\u0e23\u0e40\u0e1b\u0e25\u0e35\u0e48\u0e22\u0e19\u0e23\u0e2b\u0e31\u0e2a\u0e1c\u0e48\u0e32\u0e19 \u0e43\u0e0a\u0e49 changePassword');
+
+  var pw = PASSWORD || newPassword_();
+  createUser(USERNAME, pw, NAME, EMAIL, 'recruiter');
+  Logger.log(JSON.stringify({ username: USERNAME, name: NAME, email: EMAIL,
+    PASSWORD_SHOWN_ONCE: pw,
+    next: '\u0e41\u0e08\u0e49\u0e07\u0e23\u0e2b\u0e31\u0e2a\u0e41\u0e1a\u0e1a\u0e2a\u0e48\u0e27\u0e19\u0e15\u0e31\u0e27 \u0e41\u0e25\u0e49\u0e27\u0e25\u0e1a\u0e04\u0e48\u0e32\u0e43\u0e19\u0e1f\u0e31\u0e07\u0e01\u0e4c\u0e0a\u0e31\u0e19\u0e19\u0e35\u0e49\u0e2d\u0e2d\u0e01 \u0e41\u0e25\u0e49\u0e27 save' }, null, 2));
+  return 'ok';
+}
+
+/* ---------------------------------------------------------------------------
    Change one password from the editor.
 
    The Run button calls a function with no arguments, so setPassword('a','b')
