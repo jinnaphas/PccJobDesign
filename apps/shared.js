@@ -6,7 +6,7 @@ PCC.lang = ()=> localStorage.getItem(LS) || 'th';
 PCC.setLang = l=>{localStorage.setItem(LS,l); location.reload();};
 
 const T = {
- th:{hub:'หน้าหลัก',library:'คลังตำแหน่ง',career:'เส้นทางเติบโต',evaluate:'ประเมินคน',admin:'ข้อมูล/ระบบ',
+ th:{hub:'หน้าหลัก',library:'คลังตำแหน่ง',career:'เส้นทางเติบโต',evaluate:'ประเมินคน',recruit:'สรรหา',admin:'ข้อมูล/ระบบ',
    search:'ค้นหา code / ชื่อตำแหน่ง...',reset:'ล้างตัวกรอง',company:'บริษัท',level:'ระดับ',family:'สายงาน',
    results:'ผลลัพธ์',sort:'เรียง',allco:'ทุกบริษัท',roles:'ตำแหน่ง',
    je_ok:'JE ยืนยันแล้ว',je_rev:'JE รอทบทวน',viewCareer:'ดูเส้นทางเติบโต',doEval:'ประเมินกับตำแหน่งนี้',
@@ -14,7 +14,7 @@ const T = {
    specs:'คุณสมบัติ',jescore:'คะแนน JE',clearAll:'ล้างทั้งหมด',filters:'ตัวกรอง',close:'ปิด',
    sortJEdesc:'JE มาก→น้อย',sortJEasc:'JE น้อย→มาก',sortTitle:'ชื่อ A→Z',sortLevel:'ระดับ',
    needLive:'เปิดผ่าน GitHub Pages / web server เพื่อโหลดข้อมูล (file:// โหลด JSON ไม่ได้)'},
- en:{hub:'Hub',library:'Library',career:'Career',evaluate:'Evaluate',admin:'Admin',
+ en:{hub:'Hub',library:'Library',career:'Career',evaluate:'Evaluate',recruit:'Recruitment',admin:'Admin',
    search:'Search code / title...',reset:'Reset filters',company:'Company',level:'Level',family:'Family',
    results:'results',sort:'Sort',allco:'All companies',roles:'roles',
    je_ok:'JE Verified',je_rev:'JE Under review',viewCareer:'View career path',doEval:'Evaluate this role',
@@ -52,7 +52,7 @@ PCC.exportCSV = (filename, rows)=>{
 
 PCC.nav = (active)=>{
   const L=PCC.t, lang=PCC.lang();
-  const links=[['index.html','hub'],['library.html','library'],['career.html','career'],['evaluate.html','evaluate'],['admin.html','admin']];
+  const links=[['index.html','hub'],['library.html','library'],['career.html','career'],['evaluate.html','evaluate'],['recruit.html','recruit'],['admin.html','admin']];
   const html=`<div class="nav">
     <button class="burger" aria-label="menu" onclick="document.querySelector('.nav .links').classList.toggle('open')">☰</button>
     <div class="brand"><span class="dot"></span> PCC People</div>

@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recruitment — PCC People</title>
+<link rel="stylesheet" href="shared.css">
+<style>
+  .login{max-width:400px;margin:36px auto}
+  .card{background:#fff;border:1.5px solid var(--border);border-radius:12px;padding:20px 22px}
+  .card h2{font-size:17px;color:var(--navy);margin-bottom:4px}
+  .fld{margin-bottom:11px}
+  .fld label{display:block;font-size:11px;font-weight:700;color:var(--muted);margin-bottom:3px;text-transform:uppercase;letter-spacing:.04em}
+  .fld input,.fld select,.fld textarea{width:100%;font:inherit;font-size:13.5px;padding:8px 10px;border:1.5px solid var(--border);border-radius:9px;background:#fff}
+  .fld textarea{min-height:60px;resize:vertical}
+  .g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .msg{border-radius:9px;padding:9px 12px;font-size:12.5px;margin-top:10px}
+  .msg.err{background:#fdeceb;border:1px solid var(--crit);color:var(--crit)}
+  .msg.ok{background:#e6f7f0;border:1px solid var(--ok);color:var(--ok)}
+  .msg.warn{background:#fdf3e2;border:1px solid var(--warn);color:var(--warn)}
+  .kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:12px}
+  .k{background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:11px 14px}
+  .k .n{font-size:23px;font-weight:800}.k .l{font-size:11px;color:var(--muted);margin-top:3px;line-height:1.35}
+  .k.good .n{color:var(--ok)}.k.mid .n{color:var(--warn)}.k.bad .n{color:var(--crit)}.k.nv .n{color:var(--navy)}
+  .fbar{background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:11px 13px;margin-bottom:12px;display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end}
+  .fbar .fld{margin-bottom:0}.fbar input,.fbar select{min-width:140px;width:auto}
+  .tw{overflow-x:auto}
+  .fun{display:flex;gap:3px;align-items:center}
+  .fun i{display:block;width:16px;height:5px;border-radius:2px}
+  .age{font-variant-numeric:tabular-nums;font-weight:700;white-space:nowrap}
+  .age.ok{color:var(--ok)}.age.warn{color:var(--warn)}.age.crit{color:var(--crit)}
+  .ov{position:fixed;inset:0;background:rgba(10,20,28,.45);display:none;z-index:50}
+  .ov.show{display:block}
+  .dw{position:fixed;top:0;right:0;bottom:0;width:min(560px,100%);background:#fff;z-index:51;display:none;flex-direction:column}
+  .dw.show{display:flex}
+  .dh{background:var(--navy);color:#fff;padding:14px 18px;display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+  .dh h2{font-size:17px}.dh .dm{font-size:11.5px;opacity:.85;margin-top:2px}
+  .xc{border:0;background:none;color:inherit;font-size:21px;cursor:pointer;line-height:1}
+  .db{padding:16px 18px;overflow-y:auto;flex:1}
+  .sec{margin-top:16px}.sec h3{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#a8762b;font-weight:700;margin-bottom:7px}
+  .kv{display:grid;grid-template-columns:116px 1fr;gap:8px;font-size:12.5px;padding:5px 0;border-top:1px solid #eef1f6}
+  .kv:first-of-type{border-top:0}.kv span{color:var(--muted)}
+  .cnd{border:1.5px solid var(--border);border-left:3px solid var(--sc);border-radius:9px;padding:9px 11px;margin-bottom:7px;background:#fafbfd}
+  .steps{display:flex;gap:4px;flex-wrap:wrap;margin-top:7px}
+  .stp{border:1.5px solid var(--border);background:#fff;border-radius:7px;padding:4px 8px;font-size:11px;cursor:pointer;color:var(--muted)}
+  .stp.cur{background:var(--sc);border-color:var(--sc);color:#fff;font-weight:700}
+  .files{display:grid;gap:5px;margin-top:6px}
+  .file{display:flex;align-items:center;gap:7px;background:#fff;border:1.5px solid var(--border);border-radius:7px;padding:6px 9px;font-size:11.5px}
+  .file a{color:var(--navy);font-weight:700;text-decoration:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .file .fs{color:var(--muted);margin-left:auto;white-space:nowrap}
+  .drop{border:1.5px dashed var(--border);border-radius:8px;padding:10px;text-align:center;color:var(--muted);font-size:11.5px;cursor:pointer;background:#fff}
+  .drop:hover{border-color:#a8762b;color:#a8762b}
+  .panel{background:#fff;border:1.5px solid var(--border);border-radius:11px;padding:14px 16px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .fnrow{display:grid;grid-template-columns:130px 1fr 74px;gap:9px;align-items:center;font-size:12.5px;margin-bottom:7px}
+  .fnb{height:18px;background:#eef1f6;border-radius:5px;overflow:hidden}.fnb i{display:block;height:100%}
+  .mini{width:100%;font-size:12px}.mini th,.mini td{padding:6px 8px}
+  @media(max-width:860px){.kpis{grid-template-columns:1fr 1fr}.grid2,.g2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div id="nav"></div>
+
+<!-- ===== LOGIN ===== -->
+<div class="wrap login" id="loginView">
+  <div class="card">
+    <h2>เข้าสู่ระบบสรรหา</h2>
+    <p class="muted" style="font-size:12.5px;margin-bottom:14px">สำหรับทีม Recruitment — ใช้บัญชีที่ผู้ดูแลออกให้</p>
+    <form id="loginForm" autocomplete="on">
+      <div class="fld"><label for="u">ชื่อผู้ใช้</label><input id="u" name="username" autocomplete="username" required></div>
+      <div class="fld"><label for="p">รหัสผ่าน</label><input id="p" name="password" type="password" autocomplete="current-password" required></div>
+      <label style="display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--muted);margin-bottom:12px">
+        <input type="checkbox" id="remember" style="width:auto"> จำการเข้าสู่ระบบในเครื่องนี้</label>
+      <button class="btn" type="submit" id="go" style="width:100%;background:var(--navy);color:#fff;border-color:var(--navy)">เข้าสู่ระบบ</button>
+    </form>
+    <div id="loginMsg"></div>
+    <div class="muted" style="font-size:11px;margin-top:12px;line-height:1.6">
+      เซสชันหมดอายุใน 6 ชั่วโมง · ลืมรหัสผ่านแจ้งผู้ดูแลเพื่อตั้งใหม่
+    </div>
+  </div>
+</div>
+
+<!-- ===== APP ===== -->
+<div class="wrap" id="appView" hidden>
+  <div class="row no-print" style="margin-bottom:10px">
+    <div class="seg" style="display:inline-flex;border:1.5px solid var(--border);border-radius:8px;overflow:hidden">
+      <button class="btn sm" id="tabList" style="border:0;border-radius:0">รายการสรรหา</button>
+      <button class="btn sm" id="tabKpi" style="border:0;border-radius:0">KPI สรุป</button>
+    </div>
+    <span class="spacer"></span>
+    <span class="muted" id="who" style="font-size:12px"></span>
+    <button class="btn sm" id="newReq">+ เปิดตำแหน่งใหม่</button>
+    <button class="btn sm" id="logout">ออกจากระบบ</button>
+  </div>
+
+  <div id="viewList">
+    <div class="kpis" id="listKpis"></div>
+    <div class="fbar no-print">
+      <div class="fld"><label>ค้นหา</label><input type="search" id="q" placeholder="ตำแหน่ง / หน่วยงาน / ผู้สมัคร"></div>
+      <div class="fld"><label>บริษัท</label><select id="fCo"><option value="">ทุกบริษัท</option></select></div>
+      <div class="fld"><label>สถานะ</label><select id="fStatus">
+        <option value="open">กำลังสรรหา</option><option value="">ทุกสถานะ</option>
+        <option value="filled">ปิดแล้ว</option><option value="hold">พักไว้</option><option value="cancelled">ยกเลิก</option></select></div>
+      <label style="display:flex;align-items:center;gap:5px;font-size:12.5px;color:var(--muted)">
+        <input type="checkbox" id="fLate" style="width:auto"> เฉพาะที่เกินกำหนด</label>
+      <span class="spacer"></span>
+      <span class="muted" id="cnt" style="font-size:12px"></span>
+      <button class="btn sm" id="exp">⬇️ CSV</button>
+      <button class="btn sm" id="refresh">↻</button>
+    </div>
+    <div class="tw" id="tableWrap"></div>
+  </div>
+
+  <div id="viewKpi" hidden>
+    <div class="fbar no-print">
+      <div class="fld"><label>ช่วงเวลา</label><select id="kPeriod">
+        <option value="90">90 วัน</option><option value="180">180 วัน</option>
+        <option value="365" selected>12 เดือน</option><option value="0">ทั้งหมด</option></select></div>
+      <div class="fld"><label>บริษัท</label><select id="kCo"><option value="">ทุกบริษัท</option></select></div>
+      <div class="fld"><label>ผู้รับผิดชอบ</label><select id="kRec"><option value="">ทุกคน</option></select></div>
+      <span class="spacer"></span><span class="muted" id="kNote" style="font-size:12px"></span>
+    </div>
+    <div class="kpis" id="kpiTop"></div>
+    <div class="grid2">
+      <div class="panel"><h3 style="font-size:13px;margin-bottom:10px">Funnel — ผู้สมัครที่ผ่านแต่ละขั้น</h3>
+        <div id="kFunnel"></div><div class="muted" id="kConv" style="font-size:11.5px"></div></div>
+      <div class="panel"><h3 style="font-size:13px;margin-bottom:10px">ค้างในแต่ละสถานะ (เทียบ SLA)</h3><div id="kSla"></div></div>
+      <div class="panel"><h3 style="font-size:13px;margin-bottom:10px">แหล่งที่มาผู้สมัคร</h3><div id="kSource"></div></div>
+      <div class="panel"><h3 style="font-size:13px;margin-bottom:10px">เหตุผลที่ไม่ผ่าน</h3><div id="kReject"></div></div>
+      <div class="panel" style="grid-column:1/-1"><h3 style="font-size:13px;margin-bottom:10px">แนวโน้มรายเดือน</h3><div id="kTrend"></div></div>
+    </div>
+  </div>
+  <div id="pageMsg"></div>
+</div>
+
+<div class="ov" id="ov"></div>
+<aside class="dw" id="dw"><div id="dBody" style="display:flex;flex-direction:column;flex:1;min-height:0"></div></aside>
+<footer>PCC Group · Recruitment Control List</footer>
+
+<script src="shared.js"></script>
+<script>
+const CS=[{k:"submitted",n:"ส่งใบสมัครให้หน่วยงาน",c:"#2f6fae",sla:5},
+          {k:"interview", n:"รอสัมภาษณ์",          c:"#2a8080",sla:7},
+          {k:"confirmed", n:"หน่วยงานคอนเฟิม",      c:"#b1822a",sla:5},
+          {k:"onboard",   n:"แจ้งเริ่มงาน",          c:"#2f7a52",sla:3}];
+const CX=[{k:"rejected",n:"ไม่ผ่าน",c:"#9c5a4a"},{k:"declined",n:"ปฏิเสธ Offer",c:"#7b5aa0"}];
+const ALLC=CS.concat(CX), CM=Object.fromEntries(ALLC.map(s=>[s.k,s]));
+const RS={open:"กำลังสรรหา",filled:"ปิดแล้ว",hold:"พักไว้",cancelled:"ยกเลิก"};
+const SOURCES=["เว็บหางาน","ใบสมัครตรง","Agency","พนักงานแนะนำ","Headhunt","LinkedIn","อื่น ๆ"];
+const REJECTS=["คุณสมบัติไม่ตรง","ประสบการณ์ไม่พอ","เงินเดือนไม่ตรงกัน","หน่วยงานไม่เลือก","ถอนตัว","ติดต่อไม่ได้","อื่น ๆ"];
+
+const $=id=>document.getElementById(id);
+const esc=s=>PCC.esc(String(s==null?"":s));
+const today=()=>new Date().toISOString().slice(0,10);
+const days=(a,b)=>{if(!a)return 0;const x=new Date(a+"T00:00:00"),y=b?new Date(b+"T00:00:00"):new Date();
+  return Math.max(0,Math.round((y-x)/864e5));};
+let API="",SID="",ME=null,REQS=[],CANDS=[],HIST=[],ROLES=[],COMPANIES={},OPEN=null,TAB="list";
+const S={q:"",co:"",status:"open",late:false};
+
+/* ---------- transport: text/plain keeps the request "simple" (no CORS preflight) ---------- */
+async function api(action,payload){
+  if(!API)throw new Error("ยังไม่ได้ตั้งค่าปลายทาง API (data/recruit_config.json)");
+  const res=await fetch(API,{method:"POST",redirect:"follow",
+    headers:{"Content-Type":"text/plain;charset=utf-8"},
+    body:JSON.stringify({action,session:SID,payload:payload||{}})});
+  if(!res.ok)throw new Error("เชื่อมต่อไม่สำเร็จ ("+res.status+")");
+  const j=await res.json();
+  if(!j.ok)throw new Error(j.error||"ผิดพลาด");
+  return j.data;
+}
+const isAuthErr=e=>/UNAUTHENTICATED/.test(String(e&&e.message||e));
+function msg(el,kind,t){$(el).innerHTML=t?'<div class="msg '+kind+'">'+esc(t)+"</div>":"";}
+function fail(e){ if(isAuthErr(e))signOut("เซสชันหมดอายุ กรุณาเข้าสู่ระบบใหม่"); else msg("pageMsg","err",e&&e.message||e); }
+
+/* ---------- session ---------- */
+function store(k,v,persist){try{(persist?localStorage:sessionStorage).setItem(k,v);}catch(e){}}
+function load(k){try{return sessionStorage.getItem(k)||localStorage.getItem(k)||"";}catch(e){return "";}}
+function signOut(note){
+  if(SID)api("logout").catch(()=>{});
+  SID="";ME=null;
+  try{sessionStorage.removeItem("pcc-rsid");localStorage.removeItem("pcc-rsid");}catch(e){}
+  $("appView").hidden=true;$("loginView").hidden=false;
+  msg("loginMsg",note?"warn":"",note||"");
+}
+
+async function boot(){
+  PCC.nav("recruit");
+  try{ API=(await (await fetch("../data/recruit_config.json?v="+Date.now(),{cache:"no-store"})).json()).api_url||""; }
+  catch(e){ API=""; }
+  if(!API){ msg("loginMsg","warn","ยังไม่ได้เชื่อมต่อระบบหลังบ้าน — ผู้ดูแลต้องใส่ URL ของ Apps Script ใน data/recruit_config.json"); }
+  SID=load("pcc-rsid");
+  if(SID){ try{ await start(); return; }catch(e){ SID=""; } }
+  $("loginView").hidden=false;
+}
+$("loginForm").addEventListener("submit",async e=>{
+  e.preventDefault();
+  const u=$("u").value.trim(),p=$("p").value;
+  if(!u||!p)return msg("loginMsg","err","กรอกชื่อผู้ใช้และรหัสผ่าน");
+  $("go").disabled=true; msg("loginMsg","","กำลังตรวจสอบ…");
+  try{
+    const r=await api("login",{username:u,password:p});
+    SID=r.session; ME=r.user;
+    store("pcc-rsid",SID,$("remember").checked);
+    $("p").value=""; msg("loginMsg","",""); await start();
+  }catch(err){ msg("loginMsg","err",err&&err.message||err); }
+  $("go").disabled=false;
+});
+$("logout").onclick=()=>signOut("ออกจากระบบแล้ว");
+
+async function start(){
+  const d=await api("roles");
+  ROLES=d.roles||[]; COMPANIES=Object.fromEntries((d.companies||[]).map(c=>[c.c,c.n]));
+  $("fCo").length=1;$("kCo").length=1;
+  (d.companies||[]).forEach(c=>{$("fCo").add(new Option(c.n,c.c));$("kCo").add(new Option(c.n,c.c));});
+  $("loginView").hidden=true;$("appView").hidden=false;
+  await refresh();
+}
+async function refresh(){
+  try{
+    const d=await api("getAll");
+    REQS=d.reqs||[];CANDS=d.cands||[];HIST=d.hist||[];
+    ME=ME||{name:d.me};
+    $("who").textContent=(ME&&ME.name||d.me)+" · "+REQS.length+" ตำแหน่ง · "+CANDS.length+" ผู้สมัคร";
+    const recs=[...new Set(REQS.map(r=>r.recruiter).filter(Boolean))].sort();
+    $("kRec").innerHTML='<option value="">ทุกคน</option>'+recs.map(r=>"<option>"+esc(r)+"</option>").join("");
+    msg("pageMsg","","");renderList(); if(TAB==="kpi")renderKpi();
+  }catch(e){ fail(e); }
+}
+$("refresh").onclick=refresh;
+
+/* ---------- derived ---------- */
+const coName=r=>COMPANIES[r.company]||r.company||"";
+const candsOf=id=>CANDS.filter(c=>c.req_id===id);
+const activeC=c=>c.stage!=="rejected"&&c.stage!=="declined";
+const reached=cid=>{const s=new Set(HIST.filter(h=>h.entity==="cand"&&h.entity_id===cid).map(h=>h.to_stage));
+  const c=CANDS.find(x=>x.cand_id===cid); if(c)s.add(c.stage); return s;};
+const reqLate=r=>candsOf(r.req_id).some(c=>{const st=CM[c.stage];return activeC(c)&&st&&st.sla&&days(c.stage_since)>st.sla;});
+const reqAge=r=>days(r.opened_at);
+function onboardDate(id){
+  return candsOf(id).filter(c=>c.stage==="onboard").map(c=>{
+    const h=HIST.filter(x=>x.entity==="cand"&&x.entity_id===c.cand_id&&x.to_stage==="onboard").map(x=>x.at).sort()[0];
+    return h||c.stage_since;}).filter(Boolean).sort()[0]||"";
+}
+function filtered(){
+  const q=S.q.trim().toLowerCase();
+  return REQS.filter(r=>{
+    if(S.status&&r.status!==S.status)return false;
+    if(S.co&&r.company!==S.co)return false;
+    if(S.late&&!reqLate(r))return false;
+    if(q){const n=candsOf(r.req_id).map(c=>c.name).join(" ");
+      if(![r.role_title,r.role_title_th,r.dept,r.ref,r.recruiter,n].join(" ").toLowerCase().includes(q))return false;}
+    return true;
+  }).sort((a,b)=>(reqLate(b)-reqLate(a))||(reqAge(b)-reqAge(a)));
+}
+
+/* ---------- list ---------- */
+function renderList(){
+  const open=REQS.filter(r=>r.status==="open");
+  $("listKpis").innerHTML=
+   '<div class="k nv"><div class="n">'+open.length+'</div><div class="l">ตำแหน่งกำลังสรรหา</div></div>'+
+   '<div class="k bad"><div class="n">'+open.filter(reqLate).length+'</div><div class="l">มีผู้สมัครค้างเกิน SLA</div></div>'+
+   '<div class="k"><div class="n">'+CANDS.filter(activeC).length+'</div><div class="l">ผู้สมัครที่ยังดำเนินการ</div></div>'+
+   '<div class="k mid"><div class="n">'+CANDS.filter(c=>c.stage==="interview").length+'</div><div class="l">รอสัมภาษณ์</div></div>'+
+   '<div class="k good"><div class="n">'+CANDS.filter(c=>c.stage==="onboard").length+'</div><div class="l">แจ้งเริ่มงานแล้ว</div></div>';
+  const list=filtered();
+  $("cnt").textContent="แสดง "+list.length+" จาก "+REQS.length;
+  if(!list.length){$("tableWrap").innerHTML='<div class="msg">'+
+    (REQS.length?"ไม่มีรายการตรงกับตัวกรอง":"ยังไม่มีตำแหน่ง — กด “+ เปิดตำแหน่งใหม่”")+"</div>";return;}
+  $("tableWrap").innerHTML="<table><thead><tr><th>ตำแหน่ง</th><th>หน่วยงาน</th><th>อัตรา</th><th>ผู้สมัคร</th>"+
+    "<th>Funnel</th><th>เปิดรับมาแล้ว</th><th>สถานะ</th></tr></thead><tbody>"+
+    list.map(r=>{const cs=candsOf(r.req_id),a=reqAge(r),L=reqLate(r);
+      const got=CS.map(s=>cs.filter(c=>reached(c.cand_id).has(s.k)).length);
+      return '<tr style="cursor:pointer" data-id="'+esc(r.req_id)+'">'+
+        "<td><b>"+esc(r.role_title||"—")+'</b><div class="muted" style="font-size:11px">'+esc(r.ref||"")+" · "+esc(r.role_code||"")+"</div></td>"+
+        "<td>"+esc(r.dept||"—")+'<div class="muted" style="font-size:11px">'+esc(coName(r))+"</div></td>"+
+        "<td>"+(r.headcount||1)+"</td>"+
+        "<td>"+cs.filter(activeC).length+'<div class="muted" style="font-size:11px">ทั้งหมด '+cs.length+"</div></td>"+
+        '<td><div class="fun">'+CS.map((s,i)=>'<i style="background:'+(got[i]?s.c:"#dde3ea")+'" title="'+esc(s.n)+": "+got[i]+'"></i>').join("")+
+          '</div><div class="muted" style="font-size:11px">'+got.join(" › ")+"</div></td>"+
+        '<td><span class="age '+(L?"crit":a>45?"warn":"ok")+'">'+a+" วัน"+(L?" ⚠":"")+"</span></td>"+
+        '<td><span class="pill '+(r.status==="open"?"":r.status==="filled"?"ok":"")+'">'+esc(RS[r.status]||r.status)+"</span></td></tr>";
+    }).join("")+"</tbody></table>";
+  $("tableWrap").querySelectorAll("tr[data-id]").forEach(tr=>tr.onclick=()=>openReq(tr.dataset.id));
+}
+["q","fCo","fStatus","fLate"].forEach(id=>$(id).addEventListener("input",e=>{
+  S[{q:"q",fCo:"co",fStatus:"status",fLate:"late"}[id]]=id==="fLate"?e.target.checked:e.target.value;renderList();}));
+$("tabList").onclick=()=>{TAB="list";$("viewList").hidden=false;$("viewKpi").hidden=true;};
+$("tabKpi").onclick=()=>{TAB="kpi";$("viewList").hidden=true;$("viewKpi").hidden=false;renderKpi();};
+["kPeriod","kCo","kRec"].forEach(id=>$(id).addEventListener("change",renderKpi));
+
+/* ---------- KPI ---------- */
+function renderKpi(){
+  const d=+$("kPeriod").value||0,co=$("kCo").value,rec=$("kRec").value;
+  const cut=d?new Date(Date.now()-d*864e5).toISOString().slice(0,10):"";
+  const reqs=REQS.filter(r=>(!cut||(r.opened_at||"")>=cut)&&(!co||r.company===co)&&(!rec||r.recruiter===rec));
+  const ids=new Set(reqs.map(r=>r.req_id)), cands=CANDS.filter(c=>ids.has(c.req_id));
+  $("kNote").textContent=reqs.length+" ตำแหน่ง · "+cands.length+" ผู้สมัคร";
+  const tf=reqs.filter(r=>r.status==="filled").map(r=>{const o=onboardDate(r.req_id);
+    return o&&r.opened_at?days(r.opened_at,o):null;}).filter(v=>v!=null).sort((a,b)=>a-b);
+  const avg=tf.length?Math.round(tf.reduce((a,b)=>a+b,0)/tf.length):0, med=tf.length?tf[Math.floor(tf.length/2)]:0;
+  const hcT=reqs.reduce((n,r)=>n+(Number(r.headcount)||1),0), hcF=cands.filter(c=>c.stage==="onboard").length;
+  const onb=cands.filter(c=>reached(c.cand_id).has("onboard")).length, dec=cands.filter(c=>c.stage==="declined").length;
+  $("kpiTop").innerHTML=
+   '<div class="k nv"><div class="n">'+avg+'</div><div class="l">Time to Fill เฉลี่ย (วัน)<br>มัธยฐาน '+med+"</div></div>"+
+   '<div class="k good"><div class="n">'+(hcT?Math.round(hcF/hcT*100):0)+'%</div><div class="l">Fill Rate<br>'+hcF+"/"+hcT+" อัตรา</div></div>"+
+   '<div class="k mid"><div class="n">'+((onb+dec)?Math.round(onb/(onb+dec)*100):0)+'%</div><div class="l">Offer Acceptance<br>รับ '+onb+" · ปฏิเสธ "+dec+"</div></div>"+
+   '<div class="k"><div class="n">'+reqs.filter(r=>r.status==="open").length+'</div><div class="l">ยังเปิดรับอยู่</div></div>'+
+   '<div class="k bad"><div class="n">'+reqs.filter(r=>r.status==="open"&&reqLate(r)).length+'</div><div class="l">มีผู้สมัครค้างเกิน SLA</div></div>';
+  const f=CS.map(s=>({s,n:cands.filter(c=>reached(c.cand_id).has(s.k)).length})),mx=Math.max(1,...f.map(x=>x.n));
+  $("kFunnel").innerHTML=f.map(x=>'<div class="fnrow"><span>'+esc(x.s.n)+'</span><span class="fnb">'+
+    '<i style="width:'+Math.round(x.n/mx*100)+"%;background:"+x.s.c+'"></i></span><b style="text-align:right">'+x.n+"</b></div>").join("");
+  const cv=(a,b)=>a?Math.round(b/a*100)+"%":"—";
+  $("kConv").innerHTML="ส่ง→สัมภาษณ์ <b>"+cv(f[0].n,f[1].n)+"</b> · สัมภาษณ์→คอนเฟิม <b>"+cv(f[1].n,f[2].n)+
+    "</b> · คอนเฟิม→เริ่มงาน <b>"+cv(f[2].n,f[3].n)+"</b>";
+  $("kSla").innerHTML=CS.map(s=>{const inS=cands.filter(c=>c.stage===s.k);
+    const late=inS.filter(c=>days(c.stage_since)>s.sla).length;
+    const ad=inS.length?Math.round(inS.reduce((a,c)=>a+days(c.stage_since),0)/inS.length):0;
+    const pct=inS.length?Math.round((inS.length-late)/inS.length*100):100;
+    return '<div class="fnrow"><span>'+esc(s.n)+'</span><span class="fnb"><i style="width:'+pct+"%;background:"+
+      (pct>=80?"#1a7f5a":pct>=50?"#b87c00":"#c0392b")+'"></i></span><b style="text-align:right;font-size:11.5px">'+
+      pct+"% <span class='muted'>"+ad+"ว</span></b></div>";}).join("")+
+    '<div class="muted" style="font-size:11px">แถบ = สัดส่วนที่ยังอยู่ใน SLA · ตัวเลขเล็ก = วันเฉลี่ยที่ค้าง</div>';
+  const grp=(key,l)=>{const m={};l.forEach(c=>{const k=c[key]||"ไม่ระบุ";(m[k]=m[k]||[]).push(c);});return m;};
+  const src=grp("source",cands);
+  $("kSource").innerHTML=Object.keys(src).length?'<table class="mini"><thead><tr><th>แหล่งที่มา</th><th>ผู้สมัคร</th><th>เริ่มงาน</th><th>สำเร็จ</th></tr></thead><tbody>'+
+    Object.entries(src).sort((a,b)=>b[1].length-a[1].length).map(([k,v])=>{const h=v.filter(c=>reached(c.cand_id).has("onboard")).length;
+      return "<tr><td>"+esc(k)+"</td><td>"+v.length+"</td><td>"+h+"</td><td>"+(v.length?Math.round(h/v.length*100):0)+"%</td></tr>";}).join("")+
+    "</tbody></table>":'<div class="muted">ยังไม่มีข้อมูล</div>';
+  const rj=grp("reject_reason",cands.filter(c=>c.stage==="rejected"||c.stage==="declined"));
+  const rt=Object.values(rj).reduce((n,x)=>n+x.length,0);
+  $("kReject").innerHTML=rt?'<table class="mini"><thead><tr><th>เหตุผล</th><th>จำนวน</th><th>สัดส่วน</th></tr></thead><tbody>'+
+    Object.entries(rj).sort((a,b)=>b[1].length-a[1].length).map(([k,v])=>
+      "<tr><td>"+esc(k)+"</td><td>"+v.length+"</td><td>"+Math.round(v.length/rt*100)+"%</td></tr>").join("")+
+    "</tbody></table>":'<div class="muted">ยังไม่มีข้อมูล</div>';
+  const mo={};
+  reqs.forEach(r=>{const m=(r.opened_at||"").slice(0,7);if(m){mo[m]=mo[m]||{o:0,f:0};mo[m].o++;}});
+  reqs.filter(r=>r.status==="filled").forEach(r=>{const m=(onboardDate(r.req_id)||"").slice(0,7);
+    if(m){mo[m]=mo[m]||{o:0,f:0};mo[m].f++;}});
+  const ks=Object.keys(mo).sort().slice(-12),mo2=Math.max(1,...ks.map(k=>mo[k].o));
+  $("kTrend").innerHTML=ks.length?'<table class="mini"><thead><tr><th>เดือน</th><th>เปิดรับ</th><th>ปิดได้</th><th></th></tr></thead><tbody>'+
+    ks.map(k=>"<tr><td>"+k+"</td><td>"+mo[k].o+"</td><td>"+mo[k].f+'</td><td><span class="fnb" style="display:block">'+
+      '<i style="width:'+Math.round(mo[k].o/mo2*100)+'%;background:#2E5F9E"></i></span></td></tr>').join("")+
+    "</tbody></table>":'<div class="muted">ยังไม่มีข้อมูล</div>';
+}
+
+/* ---------- drawer ---------- */
+function closeD(){OPEN=null;$("dw").classList.remove("show");$("ov").classList.remove("show");}
+$("ov").onclick=closeD;
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeD();});
+function openDrawer(){$("dw").classList.add("show");$("ov").classList.add("show");}
+
+function openReq(id){
+  const r=REQS.find(x=>x.req_id===id); if(!r)return closeD();
+  OPEN=id; const cs=candsOf(id);
+  $("dBody").innerHTML='<div class="dh"><div><h2>'+esc(r.role_title||"—")+"</h2>"+
+    '<div class="dm">'+esc(r.ref)+" · "+esc(r.role_code||"")+" · "+esc(coName(r))+"</div></div>"+
+    '<button class="xc" id="dx">×</button></div><div class="db">'+
+    '<div class="sec"><h3>รายละเอียดตำแหน่ง</h3>'+
+      '<div class="kv"><span>หน่วยงาน</span><b>'+esc(r.dept||"—")+"</b></div>"+
+      '<div class="kv"><span>ผู้บังคับบัญชา</span><b>'+esc(r.hiring_manager||"—")+"</b></div>"+
+      '<div class="kv"><span>ผู้รับผิดชอบ</span><b>'+esc(r.recruiter||"—")+"</b></div>"+
+      '<div class="kv"><span>อัตรา</span><b>'+(r.headcount||1)+"</b></div>"+
+      '<div class="kv"><span>เปิดรับ</span><b>'+esc(r.opened_at||"—")+" ("+reqAge(r)+" วัน)</b></div>"+
+      '<div class="kv"><span>เริ่มงานเป้าหมาย</span><b>'+esc(r.target_start||"—")+"</b></div>"+
+      '<div style="display:flex;gap:6px;margin-top:10px;flex-wrap:wrap">'+
+        Object.keys(RS).map(k=>'<button class="stp'+(k===r.status?" cur":"")+'" style="--sc:var(--navy)" data-st="'+k+'">'+esc(RS[k])+"</button>").join("")+
+        '<button class="btn sm" id="rEdit">✎ แก้ไข</button><button class="btn sm" id="rDel">ลบ</button></div></div>'+
+    '<div class="sec"><h3>เอกสารของตำแหน่ง</h3><div class="files" id="rFiles"></div>'+
+      '<div class="drop" id="rDrop">แนบไฟล์ (ทุกชนิด รวม .docx/.xlsx) สูงสุด 5 MB<input type="file" id="rFile" multiple hidden></div></div>'+
+    '<div class="sec"><h3>ผู้สมัคร ('+cs.length+')</h3><div id="cList"></div>'+
+      '<button class="btn sm" id="cAdd" style="margin-top:8px">+ เพิ่มผู้สมัคร</button></div><div id="dMsg"></div></div>';
+  $("dx").onclick=closeD;
+  $("dBody").querySelectorAll("[data-st]").forEach(b=>b.onclick=async()=>{
+    try{ await api("saveReq",{req:Object.assign({},r,{status:b.dataset.st})}); await refresh(); openReq(id); }catch(e){fail(e);}});
+  $("rEdit").onclick=()=>reqForm(r);
+  $("rDel").onclick=async()=>{ if(!confirm("ลบตำแหน่งนี้และผู้สมัครทั้งหมด?"))return;
+    try{ await api("deleteReq",{req_id:id}); closeD(); await refresh(); }catch(e){fail(e);} };
+  renderFiles(r.files||[],$("rFiles"),{req_id:id});
+  $("rDrop").onclick=()=>$("rFile").click();
+  $("rFile").onchange=e=>uploadAll(e.target.files,{req_id:id});
+  renderCands(cs,r);
+  $("cAdd").onclick=()=>candForm(null,r);
+  openDrawer();
+}
+function renderCands(cs,r){
+  $("cList").innerHTML=cs.length?cs.map(c=>{const st=CM[c.stage]||CS[0],a=days(c.stage_since),
+    late=st.sla&&a>st.sla&&activeC(c);
+    return '<div class="cnd" style="--sc:'+st.c+'"><div style="display:flex;gap:8px;align-items:flex-start">'+
+      '<div style="flex:1"><b>'+esc(c.name)+'</b><div class="muted" style="font-size:11px">'+
+      (c.source?esc(c.source)+" · ":"")+'<span class="age '+(late?"crit":"ok")+'">'+a+" วันในสถานะ"+(late?" ⚠":"")+"</span>"+
+      (c.interview_at?" · สัมภาษณ์ "+esc(c.interview_at):"")+(c.offer_salary?" · Offer "+Number(c.offer_salary).toLocaleString("th-TH"):"")+
+      (c.reject_reason?" · "+esc(c.reject_reason):"")+"</div></div>"+
+      '<button class="btn sm" data-ce="'+esc(c.cand_id)+'">✎</button>'+
+      '<button class="btn sm" data-cd="'+esc(c.cand_id)+'">ลบ</button></div>'+
+      '<div class="steps">'+ALLC.map(s=>'<button class="stp'+(s.k===c.stage?" cur":"")+'" style="--sc:'+s.c+
+        '" data-cs="'+esc(c.cand_id)+'" data-to="'+s.k+'">'+esc(s.n)+"</button>").join("")+"</div>"+
+      '<div class="files" data-cf="'+esc(c.cand_id)+'"></div>'+
+      '<div class="drop" data-cu="'+esc(c.cand_id)+'" style="margin-top:5px">แนบเอกสารผู้สมัคร</div></div>';
+  }).join(""):'<div class="muted">ยังไม่มีผู้สมัคร</div>';
+  cs.forEach(c=>renderFiles(c.files||[],$("cList").querySelector('[data-cf="'+c.cand_id+'"]'),{cand_id:c.cand_id}));
+  $("cList").querySelectorAll("[data-to]").forEach(b=>b.onclick=async()=>{
+    const c=CANDS.find(x=>x.cand_id===b.dataset.cs); if(!c)return;
+    if((b.dataset.to==="rejected"||b.dataset.to==="declined")&&!c.reject_reason)return candForm(c,r,b.dataset.to);
+    try{ await api("saveCand",{cand:Object.assign({},c,{stage:b.dataset.to})}); await refresh(); openReq(r.req_id); }catch(e){fail(e);}});
+  $("cList").querySelectorAll("[data-ce]").forEach(b=>b.onclick=()=>candForm(CANDS.find(x=>x.cand_id===b.dataset.ce),r));
+  $("cList").querySelectorAll("[data-cd]").forEach(b=>b.onclick=async()=>{
+    if(!confirm("ลบผู้สมัครคนนี้?"))return;
+    try{ await api("deleteCand",{cand_id:b.dataset.cd}); await refresh(); openReq(r.req_id); }catch(e){fail(e);}});
+  $("cList").querySelectorAll("[data-cu]").forEach(d=>{
+    const inp=document.createElement("input");inp.type="file";inp.multiple=true;inp.hidden=true;
+    d.appendChild(inp); d.onclick=e=>{if(e.target!==inp)inp.click();};
+    inp.onchange=e=>uploadAll(e.target.files,{cand_id:d.dataset.cu});});
+}
+function renderFiles(files,node,ctx){
+  if(!node)return;
+  node.innerHTML=files.length?files.map(f=>'<div class="file">📎 <a href="'+esc(f.url)+'" target="_blank" rel="noopener">'+
+    esc(f.name)+'</a><span class="fs">'+Math.max(1,Math.round((f.size||0)/1024))+" KB</span>"+
+    '<button class="xc" data-rmf="'+esc(f.id)+'" style="color:var(--muted);font-size:15px">×</button></div>').join("")
+    :'<div class="muted" style="font-size:11.5px">ไม่มีเอกสาร</div>';
+  node.querySelectorAll("[data-rmf]").forEach(b=>b.onclick=async ev=>{ev.stopPropagation();
+    try{ await api("removeFile",Object.assign({file_id:b.dataset.rmf},ctx)); await refresh(); if(OPEN)openReq(OPEN); }catch(e){fail(e);}});
+}
+async function uploadAll(files,ctx){
+  if(!files.length)return;
+  msg("dMsg","","กำลังอัปโหลด…");
+  const errs=[];
+  for(const f of files){
+    if(f.size>5*1024*1024){errs.push(f.name+" ใหญ่เกิน 5 MB");continue;}
+    try{
+      const b64=await new Promise((res,rej)=>{const rd=new FileReader();
+        rd.onload=()=>res(rd.result.split(",")[1]);rd.onerror=()=>rej(new Error("อ่านไฟล์ไม่ได้"));rd.readAsDataURL(f);});
+      await api("upload",Object.assign({name:f.name,mime:f.type||"application/octet-stream",data:b64},ctx));
+    }catch(e){ errs.push(f.name+" — "+(e&&e.message||e)); }
+  }
+  msg("dMsg",errs.length?"err":"",errs.join(" · "));
+  await refresh(); if(OPEN)openReq(OPEN);
+}
+
+/* ---------- forms ---------- */
+function reqForm(r){
+  const opts=ROLES.slice(0,500).map(x=>'<option value="'+esc(x.c)+'"'+(r&&r.role_code===x.c?" selected":"")+">"+esc(x.c+" · "+x.t)+"</option>").join("");
+  $("dBody").innerHTML='<div class="dh"><div><h2>'+(r?"แก้ไขตำแหน่ง":"เปิดตำแหน่งใหม่")+'</h2></div><button class="xc" id="fx">×</button></div>'+
+    '<div class="db"><div class="fld"><label>ตำแหน่งจากคลัง JD</label>'+
+      '<input type="search" id="fq" placeholder="พิมพ์เพื่อกรอง…" style="margin-bottom:5px">'+
+      '<select id="fRole" size="5">'+opts+"</select></div>"+
+    '<div class="g2"><div class="fld"><label>หน่วยงาน</label><input id="fDept" value="'+esc(r?r.dept:"")+'"></div>'+
+      '<div class="fld"><label>จำนวนอัตรา</label><input type="number" id="fHead" min="1" value="'+(r?r.headcount||1:1)+'"></div></div>'+
+    '<div class="g2"><div class="fld"><label>ผู้บังคับบัญชา</label><input id="fMgr" value="'+esc(r?r.hiring_manager:"")+'"></div>'+
+      '<div class="fld"><label>ผู้รับผิดชอบสรรหา</label><input id="fRec" value="'+esc(r?r.recruiter:(ME&&ME.name)||"")+'"></div></div>'+
+    '<div class="g2"><div class="fld"><label>วันเปิดรับ</label><input type="date" id="fOpen" value="'+esc(r?r.opened_at:today())+'"></div>'+
+      '<div class="fld"><label>เริ่มงานเป้าหมาย</label><input type="date" id="fStart" value="'+esc(r?r.target_start:"")+'"></div></div>'+
+    '<div class="fld"><label>บันทึก</label><textarea id="fNote">'+esc(r?r.note:"")+"</textarea></div><div id=\"fMsg\"></div>"+
+    '<div style="display:flex;gap:8px;margin-top:10px"><button class="btn sm" id="fSave" style="background:var(--navy);color:#fff;border-color:var(--navy)">บันทึก</button>'+
+      '<button class="btn sm" id="fCancel">ยกเลิก</button></div></div>';
+  $("fx").onclick=closeD; $("fCancel").onclick=()=>r?openReq(r.req_id):closeD();
+  $("fq").oninput=e=>{const q=e.target.value.trim().toLowerCase();
+    $("fRole").innerHTML=ROLES.filter(x=>!q||x.c.toLowerCase().includes(q)||x.t.toLowerCase().includes(q)||(x.th||"").includes(q))
+      .slice(0,500).map(x=>'<option value="'+esc(x.c)+'">'+esc(x.c+" · "+x.t)+"</option>").join("");};
+  $("fSave").onclick=async()=>{
+    const role=ROLES.find(x=>x.c===$("fRole").value);
+    if(!role)return msg("fMsg","err","กรุณาเลือกตำแหน่ง");
+    if(!$("fDept").value.trim())return msg("fMsg","err","กรุณากรอกหน่วยงาน");
+    const req=Object.assign({},r||{},{role_code:role.c,role_title:role.t,role_title_th:role.th,
+      company:role.co,level:role.l,dept:$("fDept").value.trim(),headcount:+$("fHead").value||1,
+      hiring_manager:$("fMgr").value.trim(),recruiter:$("fRec").value.trim(),
+      opened_at:$("fOpen").value||today(),target_start:$("fStart").value||"",note:$("fNote").value.trim()});
+    $("fSave").disabled=true;
+    try{ const id=await api("saveReq",{req}); await refresh(); openReq(id); }
+    catch(e){ msg("fMsg","err",e&&e.message||e); $("fSave").disabled=false; }};
+}
+function candForm(c,r,force){
+  const sel=(a,v)=>a.map(x=>"<option"+(x===v?" selected":"")+">"+esc(x)+"</option>").join("");
+  $("dBody").innerHTML='<div class="dh"><div><h2>'+(c?"แก้ไขผู้สมัคร":"เพิ่มผู้สมัคร")+'</h2><div class="dm">'+esc(r.role_title)+
+    '</div></div><button class="xc" id="fx">×</button></div><div class="db">'+
+    '<div class="fld"><label>ชื่อผู้สมัคร</label><input id="cName" value="'+esc(c?c.name:"")+'"></div>'+
+    '<div class="g2"><div class="fld"><label>แหล่งที่มา</label><select id="cSrc"><option value=""></option>'+sel(SOURCES,c&&c.source)+"</select></div>"+
+      '<div class="fld"><label>วันที่ส่งใบสมัคร</label><input type="date" id="cApp" value="'+esc(c?c.applied_at:today())+'"></div></div>'+
+    '<div class="g2"><div class="fld"><label>นัดสัมภาษณ์</label><input type="date" id="cInt" value="'+esc(c?c.interview_at:"")+'"></div>'+
+      '<div class="fld"><label>ผู้สัมภาษณ์</label><input id="cItr" value="'+esc(c?c.interviewer:"")+'"></div></div>'+
+    '<div class="g2"><div class="fld"><label>เงินเดือน Offer</label><input type="number" id="cSal" value="'+(c&&c.offer_salary||"")+'"></div>'+
+      '<div class="fld"><label>เหตุผลที่ไม่ผ่าน</label><select id="cRej"><option value=""></option>'+sel(REJECTS,c&&c.reject_reason)+"</select></div></div>"+
+    '<div class="fld"><label>บันทึก</label><textarea id="cNote">'+esc(c?c.note:"")+"</textarea></div><div id=\"fMsg\"></div>"+
+    '<div style="display:flex;gap:8px;margin-top:10px"><button class="btn sm" id="cSave" style="background:var(--navy);color:#fff;border-color:var(--navy)">บันทึก</button>'+
+      '<button class="btn sm" id="cCancel">ยกเลิก</button></div></div>';
+  $("fx").onclick=closeD; $("cCancel").onclick=()=>openReq(r.req_id);
+  if(force)msg("fMsg","warn",'เลือกเหตุผลก่อนเปลี่ยนเป็น “'+CM[force].n+"”");
+  $("cSave").onclick=async()=>{
+    if(!$("cName").value.trim())return msg("fMsg","err","กรุณากรอกชื่อผู้สมัคร");
+    if(force&&!$("cRej").value)return msg("fMsg","err","กรุณาเลือกเหตุผล");
+    const cand=Object.assign({},c||{},{req_id:r.req_id,name:$("cName").value.trim(),source:$("cSrc").value,
+      applied_at:$("cApp").value||today(),interview_at:$("cInt").value||"",interviewer:$("cItr").value.trim(),
+      offer_salary:$("cSal").value||"",reject_reason:$("cRej").value,note:$("cNote").value.trim()});
+    if(force)cand.stage=force;
+    $("cSave").disabled=true;
+    try{ await api("saveCand",{cand}); await refresh(); openReq(r.req_id); }
+    catch(e){ msg("fMsg","err",e&&e.message||e); $("cSave").disabled=false; }};
+}
+$("newReq").onclick=()=>{OPEN=null;reqForm(null);openDrawer();};
+
+$("exp").onclick=()=>{
+  const hdr=["Ref","Role Code","Role","Company","Dept","Headcount","Status","Opened","Days open","Target",
+    "Recruiter","Candidate","Source","Stage","Days in stage","Interview","Offer","Reject reason"];
+  const rows=[];
+  filtered().forEach(r=>{const cs=candsOf(r.req_id);
+    const base=[r.ref,r.role_code,r.role_title,coName(r),r.dept,r.headcount,RS[r.status],r.opened_at,reqAge(r),r.target_start,r.recruiter];
+    if(!cs.length)rows.push(base.concat(["","","","","","",""]));
+    cs.forEach(c=>rows.push(base.concat([c.name,c.source,(CM[c.stage]||{}).n||c.stage,days(c.stage_since),c.interview_at,c.offer_salary,c.reject_reason])));});
+  PCC.exportCSV("recruitment_"+today()+".csv",[hdr,...rows]);
+};
+boot();
+</script>
+</body>
+</html>

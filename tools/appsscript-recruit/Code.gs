@@ -29,8 +29,8 @@ var CAND_COLS = ['cand_id','req_id','name','source','stage','stage_since','appli
                  'interview_at','interviewer','offer_salary','reject_reason','note','files',
                  'created_by','created_at','updated_at'];
 var HIST_COLS = ['at','entity','entity_id','from_stage','to_stage','by','note'];
-// Tokens are stored as SHA-256 hashes: reading this sheet never yields a usable token.
-var USER_COLS = ['token_hash','name','email','role','active','created_at','last_seen'];
+// Passwords are stored salted+peppered and iterated: the sheet never holds a usable secret.
+var USER_COLS = ['username','pass_hash','salt','name','email','role','active','created_at','last_seen'];
 
 /* stage keys are shared with the page; keep both in step */
 var CAND_STAGES = ['submitted','interview','confirmed','onboard','rejected','declined'];
@@ -41,54 +41,75 @@ function prop(k, dflt) {
   return (v === null || v === '') ? dflt : v;
 }
 
+/** Opening the web app URL confirms the deployment; the UI lives on the portal. */
 function doGet() {
-  return HtmlService.createHtmlOutputFromFile('Index')
-    .setTitle('PCC Recruitment Tracker')
-    .addMetaTag('viewport', 'width=device-width, initial-scale=1')
-    .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
+  var n = {};
+  try { n = { users: rows_(SH_USER, USER_COLS).length, reqs: rows_(SH_REQ, REQ_COLS).length }; }
+  catch (e) { n = { error: String(e && e.message || e) }; }
+  return HtmlService.createHtmlOutput(
+    '<meta name="viewport" content="width=device-width,initial-scale=1">' +
+    '<div style="font:14px/1.6 system-ui;padding:28px;max-width:560px">' +
+    '<h2 style="margin:0 0 6px">PCC Recruitment API</h2>' +
+    '<p style="color:#555">ปลายทางนี้เป็น API — หน้าใช้งานอยู่ที่พอร์ทัล ' +
+    '<a href="' + SITE + '/apps/recruit.html">Recruitment Control List</a></p>' +
+    '<pre style="background:#f4f6f8;padding:12px;border-radius:8px">' +
+    JSON.stringify(n, null, 2) + '</pre></div>')
+    .setTitle('PCC Recruitment API');
 }
 
-/* ---------- access: per-person tokens, verified here (never in the page) ---------- */
-function authMode_() { return (prop('AUTH_MODE', 'token') || 'token').toLowerCase(); }
-function authMode() { return authMode_(); }
+/* ---------- access: username + password, then a server-issued session ---------- */
+var SESSION_HOURS = 6;
 
-function hash_(t) {
-  var salt = prop('TOKEN_SALT', 'pcc-recruit');
-  var raw = Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256, salt + '|' + String(t), Utilities.Charset.UTF_8);
-  return raw.map(function (b) { return ('0' + (b & 0xff).toString(16)).slice(-2); }).join('');
+function pepper_() { return prop('TOKEN_SALT', 'pcc-recruit'); }
+function sha_(str) {
+  return Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256, str, Utilities.Charset.UTF_8)
+    .map(function (x) { return ('0' + (x & 0xff).toString(16)).slice(-2); }).join('');
+}
+/** Iterated so a leaked sheet cannot be brute-forced cheaply. */
+function hashPw_(pw, salt) {
+  var h = sha_(pepper_() + '|' + salt + '|' + String(pw));
+  for (var i = 0; i < 1200; i++) h = sha_(h);
+  return h;
+}
+function constEq_(a, b) {
+  a = String(a); b = String(b);
+  if (a.length !== b.length) return false;
+  var d = 0;
+  for (var i = 0; i < a.length; i++) d |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  return d === 0;
 }
 
-/** Resolve the caller; throws when the token is unknown or switched off. */
-function requireAuth_(token) {
-  if (authMode_() === 'google') {
-    var email = '';
-    try { email = Session.getActiveUser().getEmail() || ''; } catch (e) { email = ''; }
-    var domain = prop('ALLOWED_DOMAIN', '');
-    if (domain) {
-      var suffix = '@' + domain.toLowerCase();
-      if (!email) throw new Error('ไม่สามารถยืนยันตัวตนได้ — กรุณาเปิดด้วยบัญชี @' + domain);
-      if (email.toLowerCase().slice(-suffix.length) !== suffix) throw new Error('บัญชี ' + email + ' ไม่มีสิทธิ์ใช้งาน');
-    }
-    return { name: email || 'unknown', email: email, role: 'recruiter' };
-  }
-  if (!token) throw new Error('UNAUTHENTICATED');
+/** Exchange username + password for a session id. */
+function login_(username, password) {
   throttle_();
-  var h = hash_(token);
-  var sh = sheet_(SH_USER, USER_COLS);
-  var rows = rows_(SH_USER, USER_COLS);
-  for (var i = 0; i < rows.length; i++) {
-    if (rows[i].token_hash === h) {
-      if (String(rows[i].active).toUpperCase() === 'FALSE') throw new Error('บัญชีนี้ถูกปิดการใช้งานแล้ว');
-      var at = rowIndex_(sh, 'token_hash', h);
-      if (at > 0) sh.getRange(at, USER_COLS.indexOf('last_seen') + 1).setValue(now_());
-      return { name: rows[i].name, email: rows[i].email, role: rows[i].role || 'recruiter' };
-    }
+  var u = rows_(SH_USER, USER_COLS).filter(function (x) {
+    return String(x.username).toLowerCase() === String(username || '').toLowerCase(); })[0];
+  if (!u || String(u.active).toUpperCase() === 'FALSE' ||
+      !constEq_(u.pass_hash, hashPw_(password, u.salt))) {
+    bumpFail_();
+    throw new Error('ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง');
   }
-  bumpFail_();
-  throw new Error('UNAUTHENTICATED');
+  var sh = sheet_(SH_USER, USER_COLS), at = rowIndex_(sh, 'username', u.username);
+  if (at > 0) sh.getRange(at, USER_COLS.indexOf('last_seen') + 1).setValue(now_());
+
+  var sid = Utilities.getUuid() + Utilities.getUuid().slice(0, 8);
+  var who = { name: u.name, email: u.email, role: u.role || 'recruiter', username: u.username };
+  CacheService.getScriptCache().put('s_' + sha_(sid), JSON.stringify(who), SESSION_HOURS * 3600);
+  return { session: sid, user: who, expires_hours: SESSION_HOURS };
 }
 
-/** Light brake on guessing; tokens carry ~122 bits, so this is belt and braces. */
+/** Every data call resolves its caller from the session id. */
+function requireAuth_(session) {
+  if (!session) throw new Error('UNAUTHENTICATED');
+  var raw = CacheService.getScriptCache().get('s_' + sha_(session));
+  if (!raw) throw new Error('UNAUTHENTICATED');
+  return JSON.parse(raw);
+}
+function logout_(session) {
+  if (session) CacheService.getScriptCache().remove('s_' + sha_(session));
+  return true;
+}
+
 function throttle_() {
   if (Number(CacheService.getScriptCache().get('authfail') || 0) >= 15) {
     throw new Error('พยายามเข้าสู่ระบบผิดหลายครั้ง — กรุณารอสักครู่');
@@ -99,46 +120,74 @@ function bumpFail_() {
   c.put('authfail', String(Number(c.get('authfail') || 0) + 1), 600);
 }
 
-/** Called by the login screen. Returns the profile, never the token. */
-function login(payload) {
-  var u = requireAuth_(payload && payload.token);
-  return { name: u.name, email: u.email, role: u.role, mode: authMode_() };
-}
+/* ---- user administration: run from the Apps Script editor ---- */
 
-/* ---- user administration: run these from the Apps Script editor ---- */
-
-/** createUser('ชื่อน้อง A','a@precise.co.th') — logs the token ONCE; it cannot be read back. */
-function createUser(name, email, role) {
-  if (!name) throw new Error('ต้องระบุชื่อ');
-  var token = 'PCC-' + Utilities.getUuid().replace(/-/g, '').toUpperCase().replace(/(.{5})/g, '$1-').slice(0, 23);
+/** createUser('recruit.a','รหัสผ่าน','ชื่อน้อง A','a@precise.co.th') */
+function createUser(username, password, name, email, role) {
+  if (!username || !password) throw new Error('ต้องระบุ username และ password');
+  if (String(password).length < 8) throw new Error('รหัสผ่านต้องยาวอย่างน้อย 8 ตัวอักษร');
   sheet_(SH_USER, USER_COLS);
-  upsert_(SH_USER, USER_COLS, { token_hash: hash_(token), name: name, email: email || '',
-    role: role || 'recruiter', active: 'TRUE', created_at: now_(), last_seen: '' }, 'token_hash');
-  Logger.log('ส่ง token นี้ให้ ' + name + ' แบบส่วนตัว (แสดงครั้งเดียวเท่านั้น):\n\n    ' + token + '\n');
-  return 'สร้างแล้ว — ดู token ใน Execution log';
+  var salt = Utilities.getUuid();
+  upsert_(SH_USER, USER_COLS, {
+    username: String(username).toLowerCase(), pass_hash: hashPw_(password, salt), salt: salt,
+    name: name || username, email: email || '', role: role || 'recruiter',
+    active: 'TRUE', created_at: now_(), last_seen: ''
+  }, 'username');
+  Logger.log('สร้าง/อัปเดตผู้ใช้ ' + username + ' แล้ว — แจ้งรหัสผ่านให้เจ้าตัวแบบส่วนตัว');
+  return 'ok';
 }
-
-/** revokeUser('ชื่อน้อง A') — stops that token working, keeps the audit trail. */
-function revokeUser(name) {
-  var sh = sheet_(SH_USER, USER_COLS), n = 0;
-  rows_(SH_USER, USER_COLS).forEach(function (u) {
-    if (u.name === name) {
-      var at = rowIndex_(sh, 'token_hash', u.token_hash);
-      if (at > 0) { sh.getRange(at, USER_COLS.indexOf('active') + 1).setValue('FALSE'); n++; }
-    }
-  });
-  Logger.log(n ? ('ปิดการใช้งาน ' + n + ' token ของ ' + name) : ('ไม่พบผู้ใช้ชื่อ ' + name));
-  return n;
+/** setPassword('recruit.a','รหัสผ่านใหม่') */
+function setPassword(username, password) { 
+  var u = rows_(SH_USER, USER_COLS).filter(function (x) {
+    return String(x.username).toLowerCase() === String(username).toLowerCase(); })[0];
+  if (!u) throw new Error('ไม่พบผู้ใช้ ' + username);
+  return createUser(u.username, password, u.name, u.email, u.role);
 }
-
-/** listUsers() — who can sign in, without exposing any token. */
+/** revokeUser('recruit.a') — blocks sign-in, keeps the audit trail. */
+function revokeUser(username) {
+  var sh = sheet_(SH_USER, USER_COLS), at = rowIndex_(sh, 'username', String(username).toLowerCase());
+  if (at < 0) { Logger.log('ไม่พบผู้ใช้ ' + username); return 0; }
+  sh.getRange(at, USER_COLS.indexOf('active') + 1).setValue('FALSE');
+  Logger.log('ปิดการใช้งาน ' + username + ' แล้ว');
+  return 1;
+}
 function listUsers() {
   var out = rows_(SH_USER, USER_COLS).map(function (u) {
-    return { name: u.name, email: u.email, role: u.role, active: u.active,
-             last_seen: d_(u.last_seen) || u.last_seen };
-  });
+    return { username: u.username, name: u.name, email: u.email, role: u.role,
+             active: u.active, last_seen: d_(u.last_seen) || u.last_seen }; });
   Logger.log(JSON.stringify(out, null, 2));
   return out;
+}
+
+/* ---------- JSON API for the portal page ----------
+ * The browser posts text/plain so the request stays "simple" and needs no
+ * CORS preflight, which an Apps Script web app cannot answer.
+ */
+function doPost(e) {
+  var out = { ok: false };
+  try {
+    var body = JSON.parse((e && e.postData && e.postData.contents) || '{}');
+    var action = body.action, p = body.payload || {};
+    if (action === 'login')  { out = { ok: true, data: login_(p.username, p.password) }; }
+    else if (action === 'logout') { out = { ok: true, data: logout_(body.session) }; }
+    else {
+      var me = requireAuth_(body.session);          // throws UNAUTHENTICATED
+      p.__me = me;
+      if (action === 'getAll')      out = { ok: true, data: apiGetAll_(me) };
+      else if (action === 'roles')  out = { ok: true, data: roleIndex_() };
+      else if (action === 'saveReq')    out = { ok: true, data: saveReq_(me, p.req, p.note) };
+      else if (action === 'saveCand')   out = { ok: true, data: saveCand_(me, p.cand, p.note) };
+      else if (action === 'deleteReq')  out = { ok: true, data: deleteReq_(me, p.req_id) };
+      else if (action === 'deleteCand') out = { ok: true, data: deleteCand_(me, p.cand_id) };
+      else if (action === 'upload')     out = { ok: true, data: uploadFile_(me, p) };
+      else if (action === 'removeFile') out = { ok: true, data: removeFile_(p) };
+      else throw new Error('ไม่รู้จักคำสั่ง: ' + action);
+    }
+  } catch (err) {
+    out = { ok: false, error: String(err && err.message || err) };
+  }
+  return ContentService.createTextOutput(JSON.stringify(out))
+    .setMimeType(ContentService.MimeType.JSON);
 }
 
 /* ---------- sheet helpers ---------- */
@@ -202,8 +251,7 @@ function d_(v) {
 }
 
 /* ---------- read ---------- */
-function getAll(payload) {
-  var me = requireAuth_(payload && payload.token);
+function apiGetAll_(me) {
   var reqs = rows_(SH_REQ, REQ_COLS).map(function (r) {
     r.opened_at = d_(r.opened_at); r.target_start = d_(r.target_start);
     r.files = parseFiles_(r.files); r.headcount = Number(r.headcount) || 1;
@@ -225,8 +273,7 @@ function parseFiles_(v) {
 }
 
 /* the role library, read from the live site and cached */
-function getRoleIndex(payload) {
-  requireAuth_(payload && payload.token);
+function roleIndex_() {
   var cache = CacheService.getScriptCache(), hit = cache.get('roleIdx');
   if (hit) return JSON.parse(hit);
   var res = UrlFetchApp.fetch(SITE + '/data/job_roles.json', { muteHttpExceptions: true });
@@ -246,9 +293,9 @@ function getRoleIndex(payload) {
 }
 
 /* ---------- write ---------- */
-function saveReq(payload) {
-  var me = requireAuth_(payload && payload.token).name;
-  var r = payload.req || {};
+function saveReq_(meObj, req, note) {
+  var me = meObj.name;
+  var r = req || {};
   var lock = LockService.getScriptLock(); lock.waitLock(20000);
   try {
     var isNew = !r.req_id;
@@ -262,7 +309,7 @@ function saveReq(payload) {
     } else {
       var cur = rows_(SH_REQ, REQ_COLS).filter(function (x) { return x.req_id === r.req_id; })[0] || {};
       if (cur.status && r.status && cur.status !== r.status) {
-        history_('req', r.req_id, cur.status, r.status, me, payload.note || '');
+        history_('req', r.req_id, cur.status, r.status, me, note || '');
       }
       r.ref = r.ref || cur.ref; r.created_by = cur.created_by; r.created_at = cur.created_at;
       r.files = JSON.stringify(r.files || parseFiles_(cur.files));
@@ -279,9 +326,9 @@ function nextRef_() {
   return 'REQ-' + y + '-' + ('00' + n).slice(-3);
 }
 
-function saveCand(payload) {
-  var me = requireAuth_(payload && payload.token).name;
-  var c = payload.cand || {};
+function saveCand_(meObj, cand, note) {
+  var me = meObj.name;
+  var c = cand || {};
   if (!c.req_id) throw new Error('ไม่พบตำแหน่งที่ผูกกับผู้สมัคร');
   var lock = LockService.getScriptLock(); lock.waitLock(20000);
   try {
@@ -298,7 +345,7 @@ function saveCand(payload) {
     } else {
       if (cur.stage && c.stage && cur.stage !== c.stage) {
         c.stage_since = today_();
-        history_('cand', c.cand_id, cur.stage, c.stage, me, payload.note || '');
+        history_('cand', c.cand_id, cur.stage, c.stage, me, note || '');
       } else {
         c.stage_since = c.stage_since || cur.stage_since;
       }
@@ -331,23 +378,24 @@ function history_(entity, id, from, to, by, note) {
   sh.appendRow([today_(), entity, id, from, to, by, note || '']);
 }
 
-function deleteReq(payload) {
-  var me = requireAuth_(payload && payload.token).name;
-  var id = payload.req_id;
+function deleteReq_(meObj, id) {
+  var me = meObj.name;
   rows_(SH_CAND, CAND_COLS).filter(function (c) { return c.req_id === id; })
     .forEach(function (c) { remove_(SH_CAND, CAND_COLS, 'cand_id', c.cand_id); });
   remove_(SH_REQ, REQ_COLS, 'req_id', id);
   history_('req', id, '', 'deleted', me, 'ลบตำแหน่งและผู้สมัครที่ผูกอยู่');
+  return true;
 }
-function deleteCand(payload) {
-  var me = requireAuth_(payload && payload.token).name;
-  remove_(SH_CAND, CAND_COLS, 'cand_id', payload.cand_id);
-  history_('cand', payload.cand_id, '', 'deleted', me, '');
+function deleteCand_(meObj, cand_id) {
+  var me = meObj.name;
+  remove_(SH_CAND, CAND_COLS, 'cand_id', cand_id);
+  history_('cand', cand_id, '', 'deleted', me, '');
+  return true;
 }
 
 /* ---------- attachments (Drive — any file type) ---------- */
-function uploadFile(payload) {
-  var me = requireAuth_(payload && payload.token).name;
+function uploadFile_(meObj, payload) {
+  var me = meObj.name;
   var fid = prop('DRIVE_FOLDER_ID', '');
   if (!fid) throw new Error('ยังไม่ได้ตั้งค่า DRIVE_FOLDER_ID ใน Script Properties');
   var bytes = Utilities.base64Decode(payload.data);
@@ -377,8 +425,7 @@ function uploadFile(payload) {
   return rec;
 }
 
-function removeFile(payload) {
-  requireAuth_(payload && payload.token);
+function removeFile_(payload) {
   var lock = LockService.getScriptLock(); lock.waitLock(20000);
   try {
     var keep = function (f) { return f.id !== payload.file_id; };
@@ -393,6 +440,7 @@ function removeFile(payload) {
     }
   } finally { lock.releaseLock(); }
   try { DriveApp.getFileById(payload.file_id).setTrashed(true); } catch (e) {}
+  return true;
 }
 
 /** One-time check from the editor: creates the sheets and reports the setup. */

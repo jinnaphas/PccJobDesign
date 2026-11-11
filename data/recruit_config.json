@@ -1,0 +1,7 @@
+{
+  "_meta": {
+    "title": "Recruitment backend endpoint",
+    "note": "Paste the Apps Script web app URL here after deploying tools/appsscript-recruit. Until then the page shows a setup notice instead of a login form that cannot work."
+  },
+  "api_url": ""
+}

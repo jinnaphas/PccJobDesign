@@ -1,35 +1,36 @@
 # PCC Recruitment Tracker — Google Apps Script
 
-The recruitment team records requisitions and candidates from a browser, signing
-in with a personal access token. The KPI summary is computed from the same data.
+The recruitment team works in the portal page **`apps/recruit.html`**, signing in
+with a username and password. This Apps Script project is the API behind it.
 
 ```
-ทีม Recruit (token รายคน)
-        ↓
-   Apps Script Web App  ──  Control List  +  KPI Summary
-        ↓                ↘
-  Google Sheet (ข้อมูล)     Google Drive (เอกสารแนบ)
+ทีม Recruit → apps/recruit.html (GitHub Pages)
+                     ↓  POST JSON
+             Apps Script Web App (API)
+                     ↓            ↘
+          Google Sheet (ข้อมูล)   Google Drive (เอกสารแนบ)
 ```
+
+Opening the web app URL directly shows a short status page, not the UI.
 
 ## How sign-in works
 
-Each person gets their own token. The token is **verified on the server**, never
-compared in the browser — a check written in page JavaScript is not a lock,
-because anyone can read the page source and call the backend directly.
+Username and password, checked **on the server**. A check written in page
+JavaScript is not a lock — anyone can read the page source and call the backend
+directly — so none of it happens in the browser.
 
-- Tokens are stored as **SHA-256 hashes** in the `Users` sheet. Reading that
-  sheet does not give anyone a working token.
-- Every call carries the token; the server resolves it to a person and writes
-  that name into the `History` sheet, so each change has an author.
-- Revoking one person does not disturb the other: set `active` to `FALSE`, or
-  run `revokeUser('ชื่อ')`.
-- A token is ~122 bits of randomness, so guessing is not a practical attack; a
-  light throttle sits in front of repeated failures anyway.
+1. The page posts the username and password once.
+2. The server verifies them and returns a **session id** it generated.
+3. Every later call carries that session id; the password is never sent again
+   and never stored in the browser.
 
-**What a token cannot do:** stop someone who was given a token from passing it
-on. With a small team that is a people problem rather than a technical one — but
-it is the reason tokens are per person, so a leak is traceable and revocable
-without changing anything for anyone else.
+- Passwords are stored **salted, peppered and iterated 1,200 times** in the
+  `Users` sheet. Reading that sheet does not give anyone a usable password.
+- The server resolves each session to a person and writes that name into the
+  `History` sheet, so every change has an author.
+- Sessions expire after **6 hours**; the page then returns to the login screen.
+- Revoke one person with `revokeUser('username')` without disturbing the other.
+- Repeated failures are throttled.
 
 To switch to Google Workspace login later, set `AUTH_MODE` to `google` and
 `ALLOWED_DOMAIN` to your domain. Nothing else changes.
@@ -87,7 +88,7 @@ Filter by period, company and recruiter.
 |---|---|---|
 | `SHEET_ID` | ✅ | the spreadsheet id from its URL |
 | `DRIVE_FOLDER_ID` | ✅ | the folder id from its URL |
-| `TOKEN_SALT` | ✅ | any long random string — **set it before creating users** |
+| `TOKEN_SALT` | ✅ | any long random string (the password pepper) — **set it before creating users** |
 | `AUTH_MODE` | optional | `token` (default) or `google` |
 | `ALLOWED_DOMAIN` | only with `google` | `precise.co.th` |
 
@@ -96,33 +97,39 @@ already issued.
 
 ### 3. Create the two accounts
 Run `setupCheck` once from the editor (this also authorises the script and
-creates the sheets), then run, once per person:
+creates the sheets), then once per person:
 
 ```javascript
-createUser('ชื่อน้อง A', 'a@precise.co.th')
-createUser('ชื่อน้อง B', 'b@precise.co.th')
+createUser('recruit.a', 'รหัสผ่านอย่างน้อย8ตัว', 'ชื่อน้อง A', 'a@precise.co.th')
+createUser('recruit.b', 'รหัสผ่านอย่างน้อย8ตัว', 'ชื่อน้อง B', 'b@precise.co.th')
 ```
 
-Each run prints that person's token in the **Execution log**. It is shown once
-and cannot be read back — copy it and hand it over privately (not in a group
-chat). To reissue, run `createUser` again for that person and `revokeUser` on
-the old entry.
+Hand each person their username and password privately, and have them change it
+later with `setPassword('recruit.a','รหัสใหม่')` run by an admin.
+`listUsers()` shows who can sign in and when they last did.
 
-`listUsers()` shows who can sign in and when they last did, without exposing any
-token.
-
-### 4. Deploy
+### 4. Deploy, then point the portal at it
 **Deploy → New deployment → Web app** · Execute as **Me** · Who has access
-**Anyone** (the token is the gate, so the team does not need Workspace
-accounts). With `AUTH_MODE = google` instead, choose **Anyone within
-precise.co.th**.
+**Anyone**. "Anyone" is required: the browser calls this URL from
+`jinnaphas.github.io`, and a Google-login deployment would redirect that call to
+a sign-in page the browser cannot follow. The username and password are the gate.
 
-Send each person the URL and their own token.
+Copy the deployment URL into **`data/recruit_config.json`**:
+
+```json
+{ "api_url": "https://script.google.com/macros/s/XXXXXXXX/exec" }
+```
+
+Commit that and the page is live. Until it is filled in, the page shows a setup
+notice instead of a login form that could not work.
+
+> Re-deploying: use **Manage deployments → Edit → New version** so the URL stays
+> the same. A brand-new deployment gets a new URL and the config needs updating.
 
 ## Limits worth knowing
 
-- **8 MB per attachment** (the file is sent base64-encoded through
-  `google.script.run`). Larger files go straight into the Drive folder by hand.
+- **5 MB per attachment** (the file is sent base64-encoded in the request body).
+  Larger files go straight into the Drive folder by hand.
 - Any file type is accepted, `.docx` and `.xlsx` included.
 - The page loads all rows and filters in the browser: comfortable into the
   thousands of requisitions, not designed for tens of thousands.
