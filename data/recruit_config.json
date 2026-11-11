@@ -3,5 +3,5 @@
     "title": "Recruitment backend endpoint",
     "note": "Paste the Apps Script web app URL here after deploying tools/appsscript-recruit. Until then the page shows a setup notice instead of a login form that cannot work."
   },
-  "api_url": ""
+  "api_url": "https://script.google.com/home/projects/1KLV5LUjzvbxubwrERLfKlEXrXNMpJzCYssdKuajSCUBJU_WTgBT15tly/exec"
 }
