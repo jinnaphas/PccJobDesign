@@ -76,7 +76,7 @@ function boot(){
      <div class="h crit"><div class="n" id="h-crit">—</div><div class="l">${th?'flag วิกฤต':'critical flags'}</div></div>`;
   document.getElementById('hnote').textContent=th?'* อ่านสดจาก data/job_roles.json เมื่อเปิดผ่าน GitHub Pages':'* live counts from data/job_roles.json when served via GitHub Pages';
   PCC.ref().then(ref=>{
-    document.getElementById('legend').innerHTML=ref.companies.map(c=>`<div class="co"><span class="sw" style="background:${c.color}"></span><b>${c.code}</b> · ${th?(c.name_th||c.name_en):c.name_en}</div>`).join('');
+    document.getElementById('legend').innerHTML=ref.companies.map(c=>`<div class="co"><span class="sw" style="background:${c.color}"></span><b>${c.code}</b> · ${c.name_en}</div>`).join('');
   }).catch(()=>{});
   fetch('../data/job_roles.json').then(r=>r.ok?r.json():null).then(d=>{
     if(!d||!d.roles)return;const R=d.roles,act=R.filter(r=>r.status==='active');

@@ -6355,13 +6355,13 @@
    ]
   },
   {
-   "code": "PSL-OPS-FAMO-L1",
+   "code": "PBI-OPS-FAMO-L1",
    "title_en": "Farm Management Officer",
    "title_th": "เจ้าหน้าที่จัดการฟาร์ม",
-   "company": "PSL",
+   "company": "PBI",
    "family_code": "OPS",
    "level": "L1",
-   "purpose_th": "จัดการและดำเนินงานฟาร์มปลูกไม้ไผ่และพืชเศรษฐกิจของ PSL ควบคุมดูแลการปลูก ใส่ปุ๋ย ระบบน้ำ และการเก็บเกี่ยว บันทึกข้อมูลผลผลิต และสนับสนุนการพัฒนาระบบฟาร์มอัจฉริยะ (Smart Farming) เพื่อเพิ่มผลผลิตและลดต้นทุน",
+   "purpose_th": "จัดการและดำเนินงานฟาร์มปลูกไม้ไผ่และพืชเศรษฐกิจของ PBI ควบคุมดูแลการปลูก ใส่ปุ๋ย ระบบน้ำ และการเก็บเกี่ยว บันทึกข้อมูลผลผลิต และสนับสนุนการพัฒนาระบบฟาร์มอัจฉริยะ (Smart Farming) เพื่อเพิ่มผลผลิตและลดต้นทุน",
    "krs": [
     {
      "seq": 1,
@@ -6441,7 +6441,7 @@
    "detail_level": "detailed",
    "status": "active",
    "version": "1.0",
-   "source_docx": "PSL-OPS-FAMO-L1_Farm Management Officer_PSL_v1.0.docx",
+   "source_docx": "PBI-OPS-FAMO-L1_Farm Management Officer_PBI_v1.0.docx",
    "market_benchmark": {
     "comparable_titles": [
      "Facility Officer",
@@ -6460,13 +6460,13 @@
    ]
   },
   {
-   "code": "PSL-OPS-MICO-L1",
+   "code": "PBI-OPS-MICO-L1",
    "title_en": "Micropropagation Officer",
    "title_th": "เจ้าหน้าที่เพาะเลี้ยงเนื้อเยื่อ",
-   "company": "PSL",
+   "company": "PBI",
    "family_code": "OPS",
    "level": "L1",
-   "purpose_th": "ดำเนินงานเพาะเลี้ยงเนื้อเยื่อพืชเศรษฐกิจของ PSL โดยเฉพาะไม้ไผ่และพืชมูลค่าสูง ควบคุมสภาพแวดล้อมใน Growth Chamber ผลิต Plantlets คุณภาพสูง และสนับสนุนการขยายพันธุ์เพื่อใช้ในโครงการปลูกของ PSL",
+   "purpose_th": "ดำเนินงานเพาะเลี้ยงเนื้อเยื่อพืชเศรษฐกิจของ PBI โดยเฉพาะไม้ไผ่และพืชมูลค่าสูง ควบคุมสภาพแวดล้อมใน Growth Chamber ผลิต Plantlets คุณภาพสูง และสนับสนุนการขยายพันธุ์เพื่อใช้ในโครงการปลูกของ PBI",
    "krs": [
     {
      "seq": 1,
@@ -6542,7 +6542,7 @@
    "detail_level": "detailed",
    "status": "active",
    "version": "1.0",
-   "source_docx": "PSL-OPS-MICO-L1_Micropropagation Officer_PSL_v1.0.docx",
+   "source_docx": "PBI-OPS-MICO-L1_Micropropagation Officer_PBI_v1.0.docx",
    "market_benchmark": {
     "comparable_titles": [
      "Facility Officer",
@@ -6561,13 +6561,13 @@
    ]
   },
   {
-   "code": "PSL-QA-BQCO-L1",
+   "code": "PBI-QA-BQCO-L1",
    "title_en": "Quality Assurance Officer (Bio-products)",
    "title_th": "เจ้าหน้าที่ควบคุมคุณภาพผลิตภัณฑ์ชีวภาพ",
-   "company": "PSL",
+   "company": "PBI",
    "family_code": "QA",
    "level": "L1",
-   "purpose_th": "ดำเนินการตรวจสอบและควบคุมคุณภาพผลิตภัณฑ์ชีวภาพของ PSL ครอบคลุม Pulp, Packaging, Biochar และผลิตภัณฑ์จากไม้ไผ่ ทดสอบคุณสมบัติทางกายภาพ-เคมี บันทึก QC Record และสนับสนุนการรับรองมาตรฐาน Organic/Agricultural เพื่อรับประกันคุณภาพผลิตภัณฑ์ให้ลูกค้า",
+   "purpose_th": "ดำเนินการตรวจสอบและควบคุมคุณภาพผลิตภัณฑ์ชีวภาพของ PBI ครอบคลุม Pulp, Packaging, Biochar และผลิตภัณฑ์จากไม้ไผ่ ทดสอบคุณสมบัติทางกายภาพ-เคมี บันทึก QC Record และสนับสนุนการรับรองมาตรฐาน Organic/Agricultural เพื่อรับประกันคุณภาพผลิตภัณฑ์ให้ลูกค้า",
    "krs": [
     {
      "seq": 1,
@@ -6646,7 +6646,7 @@
    "detail_level": "detailed",
    "status": "active",
    "version": "1.0",
-   "source_docx": "PSL-QA-BQCO-L1_Quality Assurance Officer Bio-products_PSL_v1.0.docx",
+   "source_docx": "PBI-QA-BQCO-L1_Quality Assurance Officer Bio-products_PBI_v1.0.docx",
    "market_benchmark": {
     "comparable_titles": [
      "Facility Officer",
@@ -6665,13 +6665,13 @@
    ]
   },
   {
-   "code": "PSL-RND-BIOO-L1",
+   "code": "PBI-RND-BIOO-L1",
    "title_en": "Biochar & Biotech Officer",
    "title_th": "เจ้าหน้าที่ Biochar & Biotech",
-   "company": "PSL",
+   "company": "PBI",
    "family_code": "RND",
    "level": "L1",
-   "purpose_th": "ดำเนินงานการผลิต Biochar จากวัสดุเหลือใช้ทางการเกษตร ทดลองและพัฒนาการประยุกต์ใช้ Biotech ในการเกษตรยั่งยืน ตรวจวัดและบันทึก Carbon Footprint เพื่อสนับสนุนการขอรับรอง Carbon Credit ของ PSL และ PCC Group",
+   "purpose_th": "ดำเนินงานการผลิต Biochar จากวัสดุเหลือใช้ทางการเกษตร ทดลองและพัฒนาการประยุกต์ใช้ Biotech ในการเกษตรยั่งยืน ตรวจวัดและบันทึก Carbon Footprint เพื่อสนับสนุนการขอรับรอง Carbon Credit ของ PBI และ PCC Group",
    "krs": [
     {
      "seq": 1,
@@ -6749,7 +6749,7 @@
    "detail_level": "detailed",
    "status": "active",
    "version": "1.0",
-   "source_docx": "PSL-RND-BIOO-L1_Biochar and Biotech Officer_PSL_v1.0.docx",
+   "source_docx": "PBI-RND-BIOO-L1_Biochar and Biotech Officer_PBI_v1.0.docx",
    "market_benchmark": {
     "comparable_titles": [
      "Facility Officer",
@@ -6768,13 +6768,13 @@
    ]
   },
   {
-   "code": "PSL-RND-RDAO-L1",
+   "code": "PBI-RND-RDAO-L1",
    "title_en": "Agricultural R&D Officer",
    "title_th": "นักวิจัยเกษตร",
-   "company": "PSL",
+   "company": "PBI",
    "family_code": "RND",
    "level": "L1",
-   "purpose_th": "ศึกษาวิจัยและทดลองพัฒนาพันธุ์พืช การจัดการแปลง และเทคโนโลยีการเกษตรของ PSL ครอบคลุมการวิจัยไม้ไผ่ ไบโอชาร์ และพืชเศรษฐกิจ เก็บข้อมูลแปลงทดลอง วิเคราะห์ผลและจัดทำรายงานวิจัย เพื่อพัฒนา Product ด้านการเกษตรยั่งยืนของ PSL",
+   "purpose_th": "ศึกษาวิจัยและทดลองพัฒนาพันธุ์พืช การจัดการแปลง และเทคโนโลยีการเกษตรของ PBI ครอบคลุมการวิจัยไม้ไผ่ ไบโอชาร์ และพืชเศรษฐกิจ เก็บข้อมูลแปลงทดลอง วิเคราะห์ผลและจัดทำรายงานวิจัย เพื่อพัฒนา Product ด้านการเกษตรยั่งยืนของ PBI",
    "krs": [
     {
      "seq": 1,
@@ -6851,7 +6851,7 @@
    "detail_level": "detailed",
    "status": "active",
    "version": "1.0",
-   "source_docx": "PSL-RND-RDAO-L1_Agricultural R&D Officer_PSL_v1.0.docx",
+   "source_docx": "PBI-RND-RDAO-L1_Agricultural R&D Officer_PBI_v1.0.docx",
    "market_benchmark": {
     "comparable_titles": [
      "Facility Officer",
@@ -6870,13 +6870,13 @@
    ]
   },
   {
-   "code": "PSL-SALES-SPPO-L1",
+   "code": "PBI-SALES-SPPO-L1",
    "title_en": "Sale & Operation Plan Officer (Pulp & Packaging)",
    "title_th": "เจ้าหน้าที่วางแผนการขาย Pulp และบรรจุภัณฑ์",
-   "company": "PSL",
+   "company": "PBI",
    "family_code": "SALES",
    "level": "L1",
-   "purpose_th": "วางแผนการขายและดำเนินงาน (S&OP) สำหรับธุรกิจ Pulp & Packaging ของ PSL บริหาร Raw Material (Bamboo) และ Finished Goods Planning ประสานงานกับ Production, Logistics และลูกค้า เพื่อให้การส่งมอบ Pulp และ Packaging Products ตรงตามความต้องการลูกค้าและเป้าหมายยอดขาย",
+   "purpose_th": "วางแผนการขายและดำเนินงาน (S&OP) สำหรับธุรกิจ Pulp & Packaging ของ PBI บริหาร Raw Material (Bamboo) และ Finished Goods Planning ประสานงานกับ Production, Logistics และลูกค้า เพื่อให้การส่งมอบ Pulp และ Packaging Products ตรงตามความต้องการลูกค้าและเป้าหมายยอดขาย",
    "krs": [
     {
      "seq": 1,
@@ -6951,7 +6951,7 @@
    "detail_level": "detailed",
    "status": "active",
    "version": "1.0",
-   "source_docx": "PSL-SALES-SPPO-L1_Sale and Operation Plan Officer Pulp and Packaging_PSL_v1.0.docx",
+   "source_docx": "PBI-SALES-SPPO-L1_Sale and Operation Plan Officer Pulp and Packaging_PBI_v1.0.docx",
    "market_benchmark": {
     "comparable_titles": [
      "Facility Officer",
@@ -6970,13 +6970,13 @@
    ]
   },
   {
-   "code": "PSL-SCM-BCMO-L1",
+   "code": "PBI-SCM-BCMO-L1",
    "title_en": "Business Logistic & Material Officer (Bamboo Supply Chain)",
    "title_th": "เจ้าหน้าที่โลจิสติกส์และวัสดุ (ห่วงโซ่อุปทานไม้ไผ่)",
-   "company": "PSL",
+   "company": "PBI",
    "family_code": "SCM",
    "level": "L1",
-   "purpose_th": "บริหารและดำเนินงานโลจิสติกส์และการจัดการวัสดุสำหรับห่วงโซ่อุปทานไม้ไผ่ของ PSL ตั้งแต่การรับวัตถุดิบจากฟาร์ม การขนส่ง การจัดเก็บในคลัง และการจัดส่งไปยัง Processing Plant เพื่อให้ Raw Material ไม้ไผ่พร้อมใช้งานตามแผนการผลิตอย่างต่อเนื่อง",
+   "purpose_th": "บริหารและดำเนินงานโลจิสติกส์และการจัดการวัสดุสำหรับห่วงโซ่อุปทานไม้ไผ่ของ PBI ตั้งแต่การรับวัตถุดิบจากฟาร์ม การขนส่ง การจัดเก็บในคลัง และการจัดส่งไปยัง Processing Plant เพื่อให้ Raw Material ไม้ไผ่พร้อมใช้งานตามแผนการผลิตอย่างต่อเนื่อง",
    "krs": [
     {
      "seq": 1,
@@ -7053,7 +7053,7 @@
    "detail_level": "detailed",
    "status": "active",
    "version": "1.0",
-   "source_docx": "PSL-SCM-BCMO-L1_Business Logistic and Material Officer Bamboo_PSL_v1.0.docx",
+   "source_docx": "PBI-SCM-BCMO-L1_Business Logistic and Material Officer Bamboo_PBI_v1.0.docx",
    "market_benchmark": {
     "comparable_titles": [
      "Facility Officer",
@@ -11127,13 +11127,13 @@
    ]
   },
   {
-   "code": "PSL-OPS-BAMS-L2",
+   "code": "PBI-OPS-BAMS-L2",
    "title_en": "Bamboo Farm Supervisor",
    "title_th": "หัวหน้าส่วนฟาร์มไม้ไผ่",
-   "company": "PSL",
+   "company": "PBI",
    "family_code": "OPS",
    "level": "L2",
-   "purpose_th": "บริหารและกำกับดูแลการดำเนินงานฟาร์มไม้ไผ่ของ PSL ให้ผลิตวัตถุดิบไม้ไผ่ได้ตามแผน คุณภาพ และ GAP Standard ควบคุม Plantation Management บริหาร Farm Worker และประสาน Supply Chain เพื่อส่งมอบไม้ไผ่อย่างต่อเนื่อง",
+   "purpose_th": "บริหารและกำกับดูแลการดำเนินงานฟาร์มไม้ไผ่ของ PBI ให้ผลิตวัตถุดิบไม้ไผ่ได้ตามแผน คุณภาพ และ GAP Standard ควบคุม Plantation Management บริหาร Farm Worker และประสาน Supply Chain เพื่อส่งมอบไม้ไผ่อย่างต่อเนื่อง",
    "krs": [
     {
      "seq": 1,
@@ -11214,7 +11214,7 @@
    "detail_level": "detailed",
    "status": "active",
    "version": "1.0",
-   "source_docx": "PSL-OPS-BAMS-L2_Bamboo Farm Supervisor_PSL_v1.0.docx",
+   "source_docx": "PBI-OPS-BAMS-L2_Bamboo Farm Supervisor_PBI_v1.0.docx",
    "market_benchmark": {
     "comparable_titles": [
      "HR Manager",
@@ -11234,13 +11234,13 @@
    ]
   },
   {
-   "code": "PSL-OPS-PPRS-L2",
+   "code": "PBI-OPS-PPRS-L2",
    "title_en": "Pulp & Packaging Production Supervisor",
    "title_th": "หัวหน้าส่วนการผลิต Pulp และบรรจุภัณฑ์",
-   "company": "PSL",
+   "company": "PBI",
    "family_code": "OPS",
    "level": "L2",
-   "purpose_th": "บริหารและกำกับดูแลทีมการผลิต Pulp & Packaging ของ PSL ให้ผลิตตามแผน คุณภาพ และมาตรฐานความปลอดภัย บริหาร Process Engineering พัฒนาประสิทธิภาพการผลิต และควบคุม OEE (Overall Equipment Effectiveness)",
+   "purpose_th": "บริหารและกำกับดูแลทีมการผลิต Pulp & Packaging ของ PBI ให้ผลิตตามแผน คุณภาพ และมาตรฐานความปลอดภัย บริหาร Process Engineering พัฒนาประสิทธิภาพการผลิต และควบคุม OEE (Overall Equipment Effectiveness)",
    "krs": [
     {
      "seq": 1,
@@ -11320,7 +11320,7 @@
    "detail_level": "detailed",
    "status": "active",
    "version": "1.0",
-   "source_docx": "PSL-OPS-PPRS-L2_Pulp and Packaging Production Supervisor_PSL_v1.0.docx",
+   "source_docx": "PBI-OPS-PPRS-L2_Pulp and Packaging Production Supervisor_PBI_v1.0.docx",
    "market_benchmark": {
     "comparable_titles": [
      "HR Manager",
@@ -17799,13 +17799,13 @@
    "data_quality": []
   },
   {
-   "code": "PSL-OPS-BIOM-L3",
+   "code": "PBI-OPS-BIOM-L3",
    "title_en": "Bio-Industrial Production Operations Manager",
    "title_th": "ผู้จัดการปฏิบัติการผลิตชีวอุตสาหกรรม",
-   "company": "PSL",
+   "company": "PBI",
    "family_code": "OPS",
    "level": "L3",
-   "purpose_th": "บริหารและควบคุมกระบวนการผลิตชีวอุตสาหกรรม (Bio-Industrial Production) ของ PSL ครอบคลุม Fermentation, Bio-Processing, Solvent Extraction และ Quality Assurance ของผลิตภัณฑ์ชีวภาพ เพื่อให้การผลิตมีประสิทธิภาพ ปลอดภัย ได้มาตรฐาน GMP/ISO และตรงตาม Production Target ที่กำหนด",
+   "purpose_th": "บริหารและควบคุมกระบวนการผลิตชีวอุตสาหกรรม (Bio-Industrial Production) ของ PBI ครอบคลุม Fermentation, Bio-Processing, Solvent Extraction และ Quality Assurance ของผลิตภัณฑ์ชีวภาพ เพื่อให้การผลิตมีประสิทธิภาพ ปลอดภัย ได้มาตรฐาน GMP/ISO และตรงตาม Production Target ที่กำหนด",
    "krs": [
     {
      "seq": 1,
@@ -17922,7 +17922,7 @@
    "detail_level": "detailed",
    "status": "active",
    "version": "1.0",
-   "source_docx": "PSL-OPS-BIOM-L3_Bio-Industrial Production Operations Manager_PSL_v1.0.docx",
+   "source_docx": "PBI-OPS-BIOM-L3_Bio-Industrial Production Operations Manager_PBI_v1.0.docx",
    "market_benchmark": {
     "comparable_titles": [
      "Production Manager",
@@ -17934,13 +17934,13 @@
    "data_quality": []
   },
   {
-   "code": "PSL-RND-AGBM-L3",
+   "code": "PBI-RND-AGBM-L3",
    "title_en": "Agro-Bio Technology & R&D Manager",
    "title_th": "ผู้จัดการเทคโนโลยีเกษตรชีวภาพและวิจัยพัฒนา",
-   "company": "PSL",
+   "company": "PBI",
    "family_code": "RND",
    "level": "L3",
-   "purpose_th": "บริหารงานวิจัยและพัฒนา (R&D) ด้านเทคโนโลยีเกษตรชีวภาพ (Agro-Bio Technology) ของ PSL ครอบคลุม Bio-Solvent, Bio-Enzyme, Agricultural Bio-Input และ Sustainable Chemistry เพื่อพัฒนาผลิตภัณฑ์ใหม่ที่มีมูลค่าสูง ต่อยอด IP และขยายพอร์ตโฟลิโอ Bio-Based Product ของ PSL",
+   "purpose_th": "บริหารงานวิจัยและพัฒนา (R&D) ด้านเทคโนโลยีเกษตรชีวภาพ (Agro-Bio Technology) ของ PBI ครอบคลุม Bio-Solvent, Bio-Enzyme, Agricultural Bio-Input และ Sustainable Chemistry เพื่อพัฒนาผลิตภัณฑ์ใหม่ที่มีมูลค่าสูง ต่อยอด IP และขยายพอร์ตโฟลิโอ Bio-Based Product ของ PBI",
    "krs": [
     {
      "seq": 1,
@@ -18055,7 +18055,7 @@
    "detail_level": "detailed",
    "status": "active",
    "version": "1.0",
-   "source_docx": "PSL-RND-AGBM-L3_Agro-Bio Technology & R&D Manager_PSL_v1.0.docx",
+   "source_docx": "PBI-RND-AGBM-L3_Agro-Bio Technology & R&D Manager_PBI_v1.0.docx",
    "market_benchmark": {
     "comparable_titles": [
      "R&D Manager",
@@ -18067,13 +18067,13 @@
    "data_quality": []
   },
   {
-   "code": "PSL-RND-RDM-L3",
+   "code": "PBI-RND-RDM-L3",
    "title_en": "R&D Manager (Agricultural & Biotech)",
    "title_th": "ผู้จัดการ R&D เกษตรและ Biotech",
-   "company": "PSL",
+   "company": "PBI",
    "family_code": "RND",
    "level": "L3",
-   "purpose_th": "บริหารงานวิจัยและพัฒนาของ PSL ครอบคลุมการวิจัยไม้ไผ่ การผลิต Biochar การเพาะเลี้ยงเนื้อเยื่อ และนวัตกรรมเกษตรยั่งยืน กำหนด R&D Roadmap ประสานงาน Academic Partner และ Technology Partner ขับเคลื่อน Carbon Credit Program และพัฒนา Product Pipeline สำหรับ PSL",
+   "purpose_th": "บริหารงานวิจัยและพัฒนาของ PBI ครอบคลุมการวิจัยไม้ไผ่ การผลิต Biochar การเพาะเลี้ยงเนื้อเยื่อ และนวัตกรรมเกษตรยั่งยืน กำหนด R&D Roadmap ประสานงาน Academic Partner และ Technology Partner ขับเคลื่อน Carbon Credit Program และพัฒนา Product Pipeline สำหรับ PBI",
    "krs": [
     {
      "seq": 1,
@@ -18152,7 +18152,7 @@
    "detail_level": "detailed",
    "status": "active",
    "version": "1.0",
-   "source_docx": "PSL-RND-RDM-L3_R&D Manager Agricultural and Biotech_PSL_v1.0.docx",
+   "source_docx": "PBI-RND-RDM-L3_R&D Manager Agricultural and Biotech_PBI_v1.0.docx",
    "market_benchmark": {
     "comparable_titles": [
      "S&OP Manager",
@@ -19905,13 +19905,13 @@
    ]
   },
   {
-   "code": "PSL-OPS-BIOH-L4",
+   "code": "PBI-OPS-BIOH-L4",
    "title_en": "Bio-Industrial Business Division Head",
    "title_th": "หัวหน้าฝ่ายธุรกิจชีวอุตสาหกรรม",
-   "company": "PSL",
+   "company": "PBI",
    "family_code": "OPS",
    "level": "L4",
-   "purpose_th": "บริหารและขับเคลื่อน Bio-Industrial Business Division ของ PSL ครอบคลุม Bio-Solvent Production, Agro-Bio Product, Green Chemistry และ Bio-Industrial Export เพื่อให้ PSL สร้าง Revenue, บรรลุ Production Target, พัฒนา New Product และสร้างตำแหน่งที่แข็งแกร่งใน Bio-Based Industry ของไทยและตลาดส่งออก",
+   "purpose_th": "บริหารและขับเคลื่อน Bio-Industrial Business Division ของ PBI ครอบคลุม Bio-Solvent Production, Agro-Bio Product, Green Chemistry และ Bio-Industrial Export เพื่อให้ PBI สร้าง Revenue, บรรลุ Production Target, พัฒนา New Product และสร้างตำแหน่งที่แข็งแกร่งใน Bio-Based Industry ของไทยและตลาดส่งออก",
    "krs": [
     {
      "seq": 1,
@@ -20028,7 +20028,7 @@
    "detail_level": "detailed",
    "status": "active",
    "version": "1.0",
-   "source_docx": "PSL-OPS-BIOH-L4_Bio-Industrial Business Division Head_PSL_v1.0.docx",
+   "source_docx": "PBI-OPS-BIOH-L4_Bio-Industrial Business Division Head_PBI_v1.0.docx",
    "market_benchmark": {
     "comparable_titles": [
      "Bio-Industrial Division Head",
@@ -20039,13 +20039,13 @@
    "data_quality": []
   },
   {
-   "code": "PSL-OPS-BM-L4",
+   "code": "PBI-OPS-BM-L4",
    "title_en": "Business Manager (Bamboo Supply Chain)",
    "title_th": "ผู้จัดการธุรกิจ — ห่วงโซ่อุปทานไผ่ครบวงจร",
-   "company": "PSL",
+   "company": "PBI",
    "family_code": "OPS",
    "level": "L4",
-   "purpose_th": "บริหารธุรกิจ Bamboo Supply Chain ของ Precise Sustainable Living Co., Ltd. (PSL) อย่างครบวงจรในฐานะ Business Manager ระดับ L4 ครอบคลุม 4 มิติหลัก ได้แก่ (1) Upstream — บริหารการปลูก จัดหา และเครือข่ายเกษตรกรไผ่... เพื่อสร้างมูลค่าทั้งทางธุรกิจและสิ่งแวดล้อม ให้ PSL เป็น Leading Bamboo Solution Provider ในภูมิภาค ASEAN และเป็นแบบอย่างของ Sustainable Agribusiness ในกลุ่ม PCC",
+   "purpose_th": "บริหารธุรกิจ Bamboo Supply Chain ของ Precise Sustainable Living Co., Ltd. (PBI) อย่างครบวงจรในฐานะ Business Manager ระดับ L4 ครอบคลุม 4 มิติหลัก ได้แก่ (1) Upstream — บริหารการปลูก จัดหา และเครือข่ายเกษตรกรไผ่... เพื่อสร้างมูลค่าทั้งทางธุรกิจและสิ่งแวดล้อม ให้ PBI เป็น Leading Bamboo Solution Provider ในภูมิภาค ASEAN และเป็นแบบอย่างของ Sustainable Agribusiness ในกลุ่ม PCC",
    "krs": [
     {
      "seq": 1,
@@ -20166,7 +20166,7 @@
    "detail_level": "detailed",
    "status": "active",
    "version": "1.0",
-   "source_docx": "PSL-OPS-BM-L4_Business Manager Bamboo Supply Chain_PSL_v1.0.docx",
+   "source_docx": "PBI-OPS-BM-L4_Business Manager Bamboo Supply Chain_PBI_v1.0.docx",
    "market_benchmark": {
     "comparable_titles": [
      "Bio-Industrial Division Head",
