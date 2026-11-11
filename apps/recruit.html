@@ -34,6 +34,7 @@
   .dw.show{display:flex}
   .dh{background:var(--navy);color:#fff;padding:14px 18px;display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
   .dh h2{font-size:17px}.dh .dm{font-size:11.5px;opacity:.85;margin-top:2px}
+  .hint{font-size:11px;color:var(--warn);margin-top:3px;min-height:14px}
   .xc{border:0;background:none;color:inherit;font-size:21px;cursor:pointer;line-height:1}
   .db{padding:16px 18px;overflow-y:auto;flex:1}
   .sec{margin-top:16px}.sec h3{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#a8762b;font-weight:700;margin-bottom:7px}
@@ -250,6 +251,7 @@ $("refresh").onclick=refresh;
 
 /* ---------- derived ---------- */
 const coName=r=>COMPANIES[r.company]||r.company||"";
+const coOpts=sel=>'<option value=""></option>'+Object.keys(COMPANIES).map(c=>'<option value="'+esc(c)+'"'+(c===sel?" selected":"")+">"+esc(c+" · "+COMPANIES[c])+"</option>").join("");
 const candsOf=id=>CANDS.filter(c=>c.req_id===id);
 const activeC=c=>c.stage!=="rejected"&&c.stage!=="declined";
 const reached=cid=>{const s=new Set(HIST.filter(h=>h.entity==="cand"&&h.entity_id===cid).map(h=>h.to_stage));
@@ -463,8 +465,10 @@ function reqForm(r){
     '<div class="db"><div class="fld"><label>ตำแหน่งจากคลัง JD</label>'+
       '<input type="search" id="fq" placeholder="พิมพ์เพื่อกรอง…" style="margin-bottom:5px">'+
       '<select id="fRole" size="5">'+opts+"</select></div>"+
-    '<div class="g2"><div class="fld"><label>หน่วยงาน</label><input id="fDept" value="'+esc(r?r.dept:"")+'"></div>'+
+    '<div class="g2"><div class="fld"><label>บริษัทที่สรรหา</label><select id="fCo">'+coOpts(r?r.company:"")+'</select>'+
+      '<div class="hint" id="fCoHint"></div></div>'+
       '<div class="fld"><label>จำนวนอัตรา</label><input type="number" id="fHead" min="1" value="'+(r?r.headcount||1:1)+'"></div></div>'+
+    '<div class="fld"><label>หน่วยงาน</label><input id="fDept" value="'+esc(r?r.dept:"")+'"></div>'+
     '<div class="g2"><div class="fld"><label>ผู้บังคับบัญชา</label><input id="fMgr" value="'+esc(r?r.hiring_manager:"")+'"></div>'+
       '<div class="fld"><label>ผู้รับผิดชอบสรรหา</label><input id="fRec" value="'+esc(r?r.recruiter:(ME&&ME.name)||"")+'"></div></div>'+
     '<div class="g2"><div class="fld"><label>วันเปิดรับ</label><input type="date" id="fOpen" value="'+esc(r?r.opened_at:today())+'"></div>'+
@@ -473,15 +477,30 @@ function reqForm(r){
     '<div style="display:flex;gap:8px;margin-top:10px"><button class="btn sm" id="fSave" style="background:var(--navy);color:#fff;border-color:var(--navy)">บันทึก</button>'+
       '<button class="btn sm" id="fCancel">ยกเลิก</button></div></div>';
   $("fx").onclick=closeD; $("fCancel").onclick=()=>r?openReq(r.req_id):closeD();
+  /* A JD is not tied to one company: a GRP role is common and gets recruited
+     for an operating company. So the company is chosen here rather than read
+     off the JD. It follows the JD's own company until someone picks one, which
+     keeps the common case at zero clicks without ever assuming it. */
+  let coTouched=!!(r&&r.company);
+  const coHint=()=>{
+    const role=ROLES.find(x=>x.c===$("fRole").value), co=$("fCo").value;
+    $("fCoHint").textContent=(role&&co&&co!==role.co)
+      ? "JD \u0e19\u0e35\u0e49\u0e2d\u0e22\u0e39\u0e48\u0e43\u0e15\u0e49 "+(COMPANIES[role.co]||role.co)+" \u00b7 \u0e2a\u0e23\u0e23\u0e2b\u0e32\u0e43\u0e2b\u0e49 "+(COMPANIES[co]||co) : "";
+  };
+  const coSync=()=>{ const role=ROLES.find(x=>x.c===$("fRole").value);
+    if(role&&!coTouched)$("fCo").value=role.co; coHint(); };
+  $("fCo").onchange=()=>{ coTouched=true; coHint(); };
+  $("fRole").onchange=coSync; coSync();
   $("fq").oninput=e=>{const q=e.target.value.trim().toLowerCase();
     $("fRole").innerHTML=ROLES.filter(x=>!q||x.c.toLowerCase().includes(q)||x.t.toLowerCase().includes(q)||(x.th||"").includes(q))
       .slice(0,500).map(x=>'<option value="'+esc(x.c)+'">'+esc(x.c+" · "+x.t)+"</option>").join("");};
   $("fSave").onclick=async()=>{
     const role=ROLES.find(x=>x.c===$("fRole").value);
     if(!role)return msg("fMsg","err","กรุณาเลือกตำแหน่ง");
+    if(!$("fCo").value)return msg("fMsg","err","\u0e01\u0e23\u0e38\u0e13\u0e32\u0e40\u0e25\u0e37\u0e2d\u0e01\u0e1a\u0e23\u0e34\u0e23\u0e17\u0e31\u0e17\u0e35\u0e48\u0e2a\u0e23\u0e23\u0e2b\u0e32");
     if(!$("fDept").value.trim())return msg("fMsg","err","กรุณากรอกหน่วยงาน");
     const req=Object.assign({},r||{},{role_code:role.c,role_title:role.t,role_title_th:role.th,
-      company:role.co,level:role.l,dept:$("fDept").value.trim(),headcount:+$("fHead").value||1,
+      company:$("fCo").value,level:role.l,dept:$("fDept").value.trim(),headcount:+$("fHead").value||1,
       hiring_manager:$("fMgr").value.trim(),recruiter:$("fRec").value.trim(),
       opened_at:$("fOpen").value||today(),target_start:$("fStart").value||"",note:$("fNote").value.trim()});
     $("fSave").disabled=true;
