@@ -80,8 +80,11 @@ Filter by period, company and recruiter.
 ### 1. Create the pieces
 - A Google **Sheet** (empty — the script creates all four tabs itself)
 - A Drive **folder** for attachments
-- <https://script.google.com> → New project → paste `Code.gs`; then **+ → HTML**,
-  name it exactly `Index`, paste `Index.html`
+- <https://script.google.com> → New project → replace everything in `Code.gs`
+  with this folder's `Code.gs`, then **save** (the editor does not autosave)
+
+There is no HTML file in this project. The UI is `apps/recruit.html`, served by
+GitHub Pages; this project is only the API.
 
 ### 2. Script properties
 **Project Settings → Script properties:**
@@ -134,8 +137,23 @@ and names the problem rather than failing on the first login.
 Commit that and the page is live. Until it is filled in, the page shows a setup
 notice instead of a login form that could not work.
 
-> Re-deploying: use **Manage deployments → Edit → New version** so the URL stays
-> the same. A brand-new deployment gets a new URL and the config needs updating.
+> **Every time you change `Code.gs`, deploy a new version.** A deployment serves
+> a frozen snapshot of the code as it was when that version was cut, so edits in
+> the editor change nothing for the live URL until you do **Manage deployments →
+> ✏ Edit → Version: New version → Deploy**. That keeps the same URL. A brand-new
+> deployment gets a new URL and the config needs updating.
+
+## If something does not work
+
+Open the `/exec` URL in a browser tab. What comes back names the problem:
+
+| What you see | What it means |
+|---|---|
+| **"PCC Recruitment API"** status page | Working. If the page still fails, look elsewhere. |
+| **"Script function not found: doGet"** | The deployed version does not contain this `Code.gs`. Either it was never pasted and saved, or the deployment was cut before pasting it — deploy a new version as above. |
+| A Google **sign-in page** | The deployment is not set to "Anyone". Edit it and change Who has access. |
+| **"Authorization required"** | Run `setupCheck` once from the editor and accept the permission prompt. |
+| A script **error page** naming a function | A real error in the code; the message gives the line. |
 
 ## Limits worth knowing
 
