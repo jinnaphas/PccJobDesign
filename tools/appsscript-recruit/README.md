@@ -124,6 +124,13 @@ Copy the deployment URL into **`data/recruit_config.json`**:
 { "api_url": "https://script.google.com/macros/s/XXXXXXXX/exec" }
 ```
 
+**Take that URL from the deployment, not from the browser's address bar.** The
+editor address looks like `script.google.com/home/projects/<id>`; adding `/exec`
+to it does not make an endpoint, it just points back at a web page, and every
+call fails. The real one contains `/macros/s/` and is shown under **Deploy →
+Manage deployments → Web app → URL**. The portal page checks the shape on load
+and names the problem rather than failing on the first login.
+
 Commit that and the page is live. Until it is filled in, the page shows a setup
 notice instead of a login form that could not work.
 
