@@ -29,7 +29,8 @@
  */
 
 var SITE = 'https://jinnaphas.github.io/PccJobDesign';
-var SH_REQ = 'Requisitions', SH_CAND = 'Candidates', SH_HIST = 'History', SH_USER = 'Users';
+var SH_REQ = 'Requisitions', SH_CAND = 'Candidates', SH_HIST = 'History', SH_USER = 'Users',
+    SH_ATT = 'Attachments';
 
 var REQ_COLS  = ['req_id','ref','role_code','role_title','role_title_th','company','level',
                  'dept','hiring_manager','recruiter','headcount','opened_at','target_start',
@@ -38,6 +39,11 @@ var CAND_COLS = ['cand_id','req_id','name','source','stage','stage_since','appli
                  'interview_at','interviewer','offer_salary','reject_reason','note','files',
                  'created_by','created_at','updated_at'];
 var HIST_COLS = ['at','entity','entity_id','from_stage','to_stage','by','note'];
+/* The attachment audit deliberately holds no personal data: an opaque id, an
+   extension, a size and a hash. The repository it is pushed to is public, so a
+   candidate's name or a filename must never reach it. The hash is what ties a
+   row to the file that stays in Drive. */
+var ATT_COLS = ['at','action','entity','entity_id','req_ref','ext','bytes','sha256','by','pushed'];
 // Passwords are stored salted+peppered and iterated: the sheet never holds a usable secret.
 var USER_COLS = ['username','pass_hash','salt','name','email','role','active','created_at','last_seen'];
 
@@ -70,6 +76,10 @@ function doGet() {
 var SESSION_HOURS = 6;
 
 function pepper_() { return prop('TOKEN_SALT', 'pcc-recruit'); }
+function shaBytes_(bytes) {
+  return Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256, bytes)
+    .map(function (x) { return ('0' + (x & 0xff).toString(16)).slice(-2); }).join('');
+}
 function sha_(str) {
   return Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256, str, Utilities.Charset.UTF_8)
     .map(function (x) { return ('0' + (x & 0xff).toString(16)).slice(-2); }).join('');
@@ -415,6 +425,78 @@ function autoCloseReq_(reqId, me) {
   }
 }
 
+/* ---------- attachment audit, mirrored to the repository ---------- */
+
+/** Always written, whether or not a push is configured. */
+function auditRow_(action, entity, entityId, reqRef, fileName, bytes, sha, by) {
+  var ext = (String(fileName || '').match(/\.[A-Za-z0-9]{1,8}$/) || [''])[0].toLowerCase();
+  sheet_(SH_ATT, ATT_COLS).appendRow([now_(), action, entity, entityId, reqRef || '',
+    ext, bytes == null ? '' : bytes, sha || '', by || '', '']);
+}
+
+/**
+ * Appends every unpushed row to data/recruit_audit/attachments.jsonl in the
+ * repository and marks it pushed. Needs two script properties:
+ *   GITHUB_REPO   e.g. owner/name
+ *   GITHUB_TOKEN  a fine-grained token with Contents: Read and write on that
+ *                 repository only
+ * Without them the rows simply stay in the sheet. A failure here never fails
+ * the upload that produced the row: the next call picks the row up again.
+ */
+function pushPendingAudit_() {
+  var repo = prop('GITHUB_REPO', ''), tok = prop('GITHUB_TOKEN', '');
+  if (!repo || !tok) return { pushed: 0, note: 'GITHUB_REPO / GITHUB_TOKEN not set' };
+
+  var sh = sheet_(SH_ATT, ATT_COLS), rows = rows_(SH_ATT, ATT_COLS);
+  var pend = [], at = ATT_COLS.indexOf('pushed') + 1;
+  rows.forEach(function (r, i) { if (!String(r.pushed)) pend.push({ r: r, line: i + 2 }); });
+  if (!pend.length) return { pushed: 0 };
+
+  var path = 'data/recruit_audit/attachments.jsonl';
+  var url = 'https://api.github.com/repos/' + repo + '/contents/' + path;
+  var head = { Authorization: 'Bearer ' + tok, Accept: 'application/vnd.github+json' };
+  var add = pend.map(function (p) {
+    return JSON.stringify({ at: p.r.at, action: p.r.action, entity: p.r.entity,
+      entity_id: p.r.entity_id, req_ref: p.r.req_ref, ext: p.r.ext,
+      bytes: Number(p.r.bytes) || 0, sha256: p.r.sha256, by: p.r.by });
+  }).join('\n') + '\n';
+
+  for (var attempt = 0; attempt < 2; attempt++) {
+    var get = UrlFetchApp.fetch(url, { headers: head, muteHttpExceptions: true });
+    var code = get.getResponseCode(), sha = null, body = '';
+    if (code === 200) {
+      var j = JSON.parse(get.getContentText());
+      sha = j.sha;
+      body = Utilities.newBlob(Utilities.base64Decode(j.content)).getDataAsString();
+      if (body && body.slice(-1) !== '\n') body += '\n';
+    } else if (code !== 404) {
+      throw new Error('GitHub อ่านไฟล์ไม่สำเร็จ (' + code + ')');
+    }
+    var put = { message: 'Record ' + pend.length + ' recruitment attachment event(s)',
+                content: Utilities.base64Encode(body + add, Utilities.Charset.UTF_8) };
+    if (sha) put.sha = sha;
+    var res = UrlFetchApp.fetch(url, { method: 'put', headers: head,
+      contentType: 'application/json', payload: JSON.stringify(put), muteHttpExceptions: true });
+    var rc = res.getResponseCode();
+    if (rc === 200 || rc === 201) {
+      var stamp = now_();
+      pend.forEach(function (p) { sh.getRange(p.line, at).setValue(stamp); });
+      return { pushed: pend.length };
+    }
+    if (rc !== 409) throw new Error('GitHub เขียนไฟล์ไม่สำเร็จ (' + rc + '): ' +
+      String(res.getContentText()).slice(0, 200));
+    /* 409 means someone else wrote first; re-read and try once more. */
+  }
+  throw new Error('GitHub: ไฟล์ถูกแก้ระหว่างเขียน ลองอีกครั้ง');
+}
+
+/** Editor-runnable: push whatever is pending and report. */
+function pushAuditNow() {
+  var out = pushPendingAudit_();
+  Logger.log(JSON.stringify(out, null, 2));
+  return out;
+}
+
 function history_(entity, id, from, to, by, note) {
   var sh = sheet_(SH_HIST, HIST_COLS);
   sh.appendRow([today_(), entity, id, from, to, by, note || '']);
@@ -444,9 +526,11 @@ function uploadFile_(meObj, payload) {
   if (bytes.length > 8 * 1024 * 1024) throw new Error('ไฟล์ใหญ่เกิน 8 MB');
   var blob = Utilities.newBlob(bytes, payload.mime || 'application/octet-stream', payload.name);
   var file = DriveApp.getFolderById(fid).createFile(blob);
-  var rec = { id: file.getId(), name: payload.name, size: bytes.length,
+  var sha = shaBytes_(bytes);
+  var rec = { id: file.getId(), name: payload.name, size: bytes.length, sha: sha,
               url: 'https://drive.google.com/file/d/' + file.getId() + '/view',
               at: today_(), by: me };
+  var reqRef = '';
 
   var lock = LockService.getScriptLock(); lock.waitLock(20000);
   try {
@@ -456,39 +540,67 @@ function uploadFile_(meObj, payload) {
       var cf = parseFiles_(c.files); cf.push(rec);
       c.files = JSON.stringify(cf); c.updated_at = now_();
       upsert_(SH_CAND, CAND_COLS, c, 'cand_id');
+      var cr = rows_(SH_REQ, REQ_COLS).filter(function (x) { return x.req_id === c.req_id; })[0];
+      reqRef = (cr && cr.ref) || '';
     } else {
       var r = rows_(SH_REQ, REQ_COLS).filter(function (x) { return x.req_id === payload.req_id; })[0];
       if (!r) throw new Error('ไม่พบตำแหน่ง');
       var rf = parseFiles_(r.files); rf.push(rec);
       r.files = JSON.stringify(rf); r.updated_at = now_();
       upsert_(SH_REQ, REQ_COLS, r, 'req_id');
+      reqRef = r.ref || '';
     }
   } finally { lock.releaseLock(); }
+
+  /* The file is already stored, so neither the audit append nor the push may
+     fail the upload. An unpushed row is retried by the next call. */
+  try {
+    auditRow_('attach', payload.cand_id ? 'cand' : 'req',
+              payload.cand_id || payload.req_id, reqRef, payload.name, bytes.length, sha, me);
+    try { pushPendingAudit_(); } catch (e) { Logger.log('audit push deferred: ' + e); }
+  } catch (e) { Logger.log('audit row failed: ' + e); }
   return rec;
 }
 
 function removeFile_(payload) {
+  var gone = null, reqRef = '';
   var lock = LockService.getScriptLock(); lock.waitLock(20000);
   try {
     var keep = function (f) { return f.id !== payload.file_id; };
+    var taken = function (list) {
+      gone = list.filter(function (f) { return f.id === payload.file_id; })[0] || gone; };
     if (payload.cand_id) {
       var c = rows_(SH_CAND, CAND_COLS).filter(function (x) { return x.cand_id === payload.cand_id; })[0];
-      if (c) { c.files = JSON.stringify(parseFiles_(c.files).filter(keep)); c.updated_at = now_();
-               upsert_(SH_CAND, CAND_COLS, c, 'cand_id'); }
+      if (c) { var cl = parseFiles_(c.files); taken(cl);
+               c.files = JSON.stringify(cl.filter(keep)); c.updated_at = now_();
+               upsert_(SH_CAND, CAND_COLS, c, 'cand_id');
+               var cr = rows_(SH_REQ, REQ_COLS).filter(function (x) { return x.req_id === c.req_id; })[0];
+               reqRef = (cr && cr.ref) || ''; }
     } else {
       var r = rows_(SH_REQ, REQ_COLS).filter(function (x) { return x.req_id === payload.req_id; })[0];
-      if (r) { r.files = JSON.stringify(parseFiles_(r.files).filter(keep)); r.updated_at = now_();
-               upsert_(SH_REQ, REQ_COLS, r, 'req_id'); }
+      if (r) { var rl = parseFiles_(r.files); taken(rl);
+               r.files = JSON.stringify(rl.filter(keep)); r.updated_at = now_();
+               upsert_(SH_REQ, REQ_COLS, r, 'req_id'); reqRef = r.ref || ''; }
     }
   } finally { lock.releaseLock(); }
   try { DriveApp.getFileById(payload.file_id).setTrashed(true); } catch (e) {}
+
+  /* Removing is an audit event too, and it reuses the hash recorded when the
+     file arrived, so the pair of rows describes the same file. */
+  try {
+    auditRow_('remove', payload.cand_id ? 'cand' : 'req',
+              payload.cand_id || payload.req_id, reqRef,
+              gone && gone.name, gone && gone.size, gone && gone.sha,
+              (payload.__me && payload.__me.name) || '');
+    try { pushPendingAudit_(); } catch (e) { Logger.log('audit push deferred: ' + e); }
+  } catch (e) { Logger.log('audit row failed: ' + e); }
   return true;
 }
 
 /**
  * Run this once from the editor and the setup is done. It creates the
  * spreadsheet and the attachments folder, generates the password pepper,
- * builds the four tabs, and creates the two recruiter accounts with random
+ * builds the tabs, and creates the two recruiter accounts with random
  * passwords — which it prints once, in the execution log.
  *
  * Safe to run again: it never overwrites a property, re-creates a user, or
@@ -519,8 +631,10 @@ function setup(sheetId, folderId) {
   out.folder_url = 'https://drive.google.com/drive/folders/' + fid;
 
   sheet_(SH_REQ, REQ_COLS); sheet_(SH_CAND, CAND_COLS);
-  sheet_(SH_HIST, HIST_COLS); sheet_(SH_USER, USER_COLS);
-  out.tabs = [SH_REQ, SH_CAND, SH_HIST, SH_USER].join(', ');
+  sheet_(SH_HIST, HIST_COLS); sheet_(SH_USER, USER_COLS); sheet_(SH_ATT, ATT_COLS);
+  out.tabs = [SH_REQ, SH_CAND, SH_HIST, SH_USER, SH_ATT].join(', ');
+  out.audit_push = (prop('GITHUB_REPO', '') && prop('GITHUB_TOKEN', ''))
+    ? 'configured' : 'off (rows stay in the Attachments tab)';
 
   /* A new spreadsheet comes with an empty Sheet1. Drop it, but only when this
      run created the spreadsheet and the tab is genuinely empty, so an adopted

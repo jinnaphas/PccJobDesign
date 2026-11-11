@@ -165,6 +165,37 @@ notice instead of a login form that could not work.
 > ✏ Edit → Version: New version → Deploy**. That keeps the same URL. A brand-new
 > deployment gets a new URL and the config needs updating.
 
+### 4. Optional: mirror the attachment log to the repository
+
+Every attach and remove is written to the **`Attachments`** tab regardless. To
+also commit each event to `data/recruit_audit/attachments.jsonl`, set two more
+script properties:
+
+| Property | Value |
+|---|---|
+| `GITHUB_REPO` | `jinnaphas/PccJobDesign` |
+| `GITHUB_TOKEN` | a **fine-grained** personal access token |
+
+Make the token at **GitHub → Settings → Developer settings → Personal access
+tokens → Fine-grained tokens**, with:
+
+- **Repository access**: only `jinnaphas/PccJobDesign`
+- **Permissions → Contents**: *Read and write* (nothing else)
+- a short expiry, renewed when it lapses
+
+The token lives only in Script properties, on the server. It never reaches the
+browser and must never be committed — the repository is public, and a token
+with write access to it would let anyone push.
+
+**The log contains no personal data on purpose.** Documents stay in Drive; the
+log records an opaque id, the extension, the size and a SHA-256 of the file.
+`data/recruit_audit/README.md` explains the format and why a hash is enough to
+prove which file a row refers to.
+
+If a push fails — token expired, GitHub unreachable — the upload still
+succeeds and the row stays in the tab with an empty `pushed` column. The next
+upload retries it, or run `pushAuditNow()` from the editor.
+
 ## If something does not work
 
 Open the `/exec` URL in a browser tab. What comes back names the problem:
