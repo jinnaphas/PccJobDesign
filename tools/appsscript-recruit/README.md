@@ -96,9 +96,34 @@ first time. That one call does everything else:
   the execution log
 
 Copy the two passwords out of the log and hand each person theirs privately.
-They are not stored in readable form and cannot be shown again; to change one,
-run `setPassword('recruit.a','รหัสใหม่')`. `listUsers()` shows who can sign in and
-when they last did.
+
+### Where the credentials live
+
+| | Where |
+|---|---|
+| **Usernames** | the `Users` tab of the spreadsheet, or run `listUsers()` |
+| **Passwords** | nowhere in readable form. The sheet holds only a hash, salted per person, peppered and iterated 1,200 times. |
+| **The passwords as first issued** | printed once in the log of the `setup()` run. Still readable afterwards under **⏱ Executions** in the left sidebar — open that run and read `PASSWORDS_SHOWN_ONCE`. That history is not kept forever. |
+
+### Changing a password
+
+The Run button calls a function with **no arguments**, so typing
+`setPassword('recruit.a','...')` into the editor and pressing Run does nothing.
+Two functions exist for this instead:
+
+| Run this | What it does |
+|---|---|
+| `changePassword` | Fill in `USERNAME` and `NEW_PASSWORD` inside the function, run it once, then blank both lines and save. Use it to set a password you chose. |
+| `resetBothPasswords` | Takes no arguments. Issues a fresh random password for each account and prints both once. Use it when the original log is gone. No password is ever typed into the source. |
+
+Neither needs a re-deploy: the code runs in the editor and writes straight to
+the sheet. There is no password-change screen in the portal — the API exposes
+only `login` and `logout` without a session, so a password can only be changed
+by someone who can open this project.
+
+`listUsers()` shows who can sign in and when they last did.
+`revokeUser('username')` needs an argument, so it needs the same treatment as
+`setPassword`; `active` can also be set to `FALSE` by hand in the `Users` tab.
 
 Running `setup()` again is safe: it never overwrites a property, re-creates a
 user or resets a password, and reports the current state instead.

@@ -146,6 +146,39 @@ function createUser(username, password, name, email, role) {
   return 'ok';
 }
 /** setPassword('recruit.a','รหัสผ่านใหม่') */
+/* ---------------------------------------------------------------------------
+   Change one password from the editor.
+
+   The Run button calls a function with no arguments, so setPassword('a','b')
+   cannot be run directly. Fill the two lines below in, pick changePassword in
+   the Run dropdown, run it once, then blank them out again and save.
+   --------------------------------------------------------------------------- */
+function changePassword() {
+  var USERNAME     = '';          // e.g. 'recruit.a'
+  var NEW_PASSWORD = '';          // at least 8 characters
+
+  if (!USERNAME || !NEW_PASSWORD)
+    throw new Error('\u0e43\u0e2a\u0e48 USERNAME \u0e41\u0e25\u0e30 NEW_PASSWORD \u0e43\u0e19\u0e1f\u0e31\u0e07\u0e01\u0e4c\u0e0a\u0e31\u0e19 changePassword \u0e01\u0e48\u0e2d\u0e19');
+  setPassword(USERNAME, NEW_PASSWORD);
+  Logger.log('\u0e40\u0e1b\u0e25\u0e35\u0e48\u0e22\u0e19\u0e23\u0e2b\u0e31\u0e2a\u0e1c\u0e48\u0e32\u0e19\u0e02\u0e2d\u0e07 ' + USERNAME +
+             ' \u0e41\u0e25\u0e49\u0e27 \u2014 \u0e2d\u0e22\u0e48\u0e32\u0e25\u0e37\u0e21\u0e25\u0e1a\u0e04\u0e48\u0e32\u0e2a\u0e2d\u0e07\u0e1a\u0e23\u0e23\u0e17\u0e31\u0e14\u0e14\u0e49\u0e32\u0e19\u0e1a\u0e19\u0e2d\u0e2d\u0e01 \u0e41\u0e25\u0e49\u0e27 save');
+  return 'ok';
+}
+
+/* Fresh random passwords for both accounts, printed once. Takes no arguments,
+   so it runs straight from the Run dropdown and no password is ever typed into
+   the source. Use it when the original log is gone. */
+function resetBothPasswords() {
+  var out = [];
+  ['recruit.a', 'recruit.b'].forEach(function (u) {
+    var pw = newPassword_();
+    setPassword(u, pw);
+    out.push(u + '    ' + pw);
+  });
+  Logger.log(JSON.stringify({ PASSWORDS_SHOWN_ONCE: out }, null, 2));
+  return out;
+}
+
 function setPassword(username, password) { 
   var u = rows_(SH_USER, USER_COLS).filter(function (x) {
     return String(x.username).toLowerCase() === String(username).toLowerCase(); })[0];
