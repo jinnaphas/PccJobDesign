@@ -473,8 +473,8 @@ function setup(sheetId, folderId) {
     out.pepper = 'generated';
   }
 
-  var sid = sp.getProperty('SHEET_ID') || sheetId;
-  if (!sid) { sid = SpreadsheetApp.create('PCC Recruitment Data').getId(); out.spreadsheet = 'created'; }
+  var sid = sp.getProperty('SHEET_ID') || sheetId, fresh = false;
+  if (!sid) { sid = SpreadsheetApp.create('PCC Recruitment Data').getId(); out.spreadsheet = 'created'; fresh = true; }
   else out.spreadsheet = sp.getProperty('SHEET_ID') ? 'already set' : 'adopted';
   sp.setProperty('SHEET_ID', sid);
   out.spreadsheet_url = 'https://docs.google.com/spreadsheets/d/' + sid + '/edit';
@@ -488,6 +488,17 @@ function setup(sheetId, folderId) {
   sheet_(SH_REQ, REQ_COLS); sheet_(SH_CAND, CAND_COLS);
   sheet_(SH_HIST, HIST_COLS); sheet_(SH_USER, USER_COLS);
   out.tabs = [SH_REQ, SH_CAND, SH_HIST, SH_USER].join(', ');
+
+  /* A new spreadsheet comes with an empty Sheet1. Drop it, but only when this
+     run created the spreadsheet and the tab is genuinely empty, so an adopted
+     workbook never loses a sheet that holds something. */
+  if (fresh) {
+    var ss = SpreadsheetApp.openById(sid), s1 = ss.getSheetByName('Sheet1');
+    if (s1 && s1.getLastRow() === 0 && s1.getLastColumn() === 0 && ss.getSheets().length > 1) {
+      ss.deleteSheet(s1);
+      out.removed_default_tab = 'Sheet1';
+    }
+  }
 
   var have = rows_(SH_USER, USER_COLS).map(function (u) { return String(u.username).toLowerCase(); });
   [['recruit.a', '\u0e19\u0e49\u0e2d\u0e07 A'], ['recruit.b', '\u0e19\u0e49\u0e2d\u0e07 B']].forEach(function (pair) {
